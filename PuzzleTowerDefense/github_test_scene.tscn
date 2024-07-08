@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://blhxk8qkcehb0"]
+
+[ext_resource type="Texture2D" uid="uid://bcrfo7klnwup6" path="res://Assets/Towers/Weapons/Tower 01/Aseprite/Tower 01 - Level 01 - Projectile.png" id="1_2dtf7"]
+[ext_resource type="Texture2D" uid="uid://cuvg3jlengli8" path="res://Assets/Towers/Weapons/Tower 01/Aseprite/Tower 01 - Level 01 - Weapon.aseprite" id="2_mpgbg"]
+[ext_resource type="Texture2D" uid="uid://3qxg1al1scyf" path="res://Assets/Towers/Weapons/Tower 01/Aseprite/Tower 01 - Level 02 - Projectile.aseprite" id="3_0newa"]
+[ext_resource type="Texture2D" uid="uid://c0g7es8e7ry3k" path="res://Assets/Towers/Weapons/Tower 01/Aseprite/Tower 01 - Level 02 - Weapon.aseprite" id="4_a6d65"]
+[ext_resource type="Texture2D" uid="uid://h205jo4unlfd" path="res://Assets/Towers/Weapons/Tower 01/Aseprite/Tower 01 - Level 03 - Projectile.aseprite" id="5_dp2ng"]
+[ext_resource type="Texture2D" uid="uid://dswknr3g48wk8" path="res://Assets/Towers/Weapons/Tower 01/Aseprite/Tower 01 - Level 03 - Weapon.aseprite" id="6_h8v3b"]
+[ext_resource type="Texture2D" uid="uid://c3ktwsja2fnfk" path="res://Assets/Towers/Weapons/Tower 01/Aseprite/Tower 01 - Weapon - Impact.aseprite" id="7_mcjgx"]
+
+[node name="github test scene" type="Node2D"]
+
+[node name="Tower01-Level01-Projectile" type="Sprite2D" parent="."]
+position = Vector2(730, 211)
+texture = ExtResource("1_2dtf7")
+
+[node name="Tower01-Level01-Weapon" type="Sprite2D" parent="."]
+position = Vector2(730, 211)
+texture = ExtResource("2_mpgbg")
+
+[node name="Tower01-Level02-Projectile" type="Sprite2D" parent="."]
+position = Vector2(730, 211)
+texture = ExtResource("3_0newa")
+
+[node name="Tower01-Level02-Weapon" type="Sprite2D" parent="."]
+position = Vector2(730, 211)
+texture = ExtResource("4_a6d65")
+
+[node name="Tower01-Level03-Projectile" type="Sprite2D" parent="."]
+position = Vector2(730, 211)
+texture = ExtResource("5_dp2ng")
+
+[node name="Tower01-Level03-Weapon" type="Sprite2D" parent="."]
+position = Vector2(730, 211)
+texture = ExtResource("6_h8v3b")
+
+[node name="Tower01-Weapon-Impact" type="Sprite2D" parent="."]
+position = Vector2(730, 211)
+texture = ExtResource("7_mcjgx")

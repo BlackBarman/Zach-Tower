@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://clx5qeuvh1eb7"]
+
+[ext_resource type="Script" path="res://Bullet.gd" id="1_he8mx"]
+[ext_resource type="PackedScene" uid="uid://dqethi5tx4ok4" path="res://Assets/Towers/Weapons/Tower 01/Aseprite/Tower 01 - Level 01 - Projectile.aseprite" id="2_lrn1k"]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_he8mx")
+
+[node name="Tower 01 - Level 01 - Projectile" parent="." instance=ExtResource("2_lrn1k")]
+rotation = 1.5708
+frame_progress = 0.195036

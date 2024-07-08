@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsemcq0amy7ej"]
+
+[ext_resource type="PackedScene" uid="uid://cjdrma8mp6xrb" path="res://TaggedAnimation.aseprite" id="3_4rcrd"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TaggedAnimation" parent="." instance=ExtResource( "3_4rcrd" )]
+
+[editable path="TaggedAnimation"]

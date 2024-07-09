@@ -153,4 +153,4 @@ rotation = 0.00921633
 speed = 40
 
 [node name="Tower" parent="." instance=ExtResource("3_ks133")]
-position = Vector2(423, 181)
+position = Vector2(416, 191)

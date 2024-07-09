@@ -1,15 +1,14 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 @export var Bullet = preload("res://bullet.tscn")
 
 var Targets = []
 var current_enemy = 0
 var can_shoot = true
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
-	pass # Replace with function body.
-
-
+	print("ciao")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -21,9 +20,10 @@ func _process(delta):
 
 func shoot():
 	if can_shoot:
+		$".".play("shoot")
 		#print("pew pew pew")
 		var b= Bullet.instantiate()
-		b.global_position = $"..".position
+		b.global_position = $Marker2D.position
 		b.set_target(current_enemy)
 		get_parent().add_child(b)
 		can_shoot = false

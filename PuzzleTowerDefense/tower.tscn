@@ -20,14 +20,12 @@ scale = Vector2(1.25, 1.25)
 [node name="Tower01-Level01-Weapon" type="Sprite2D" parent="Node2D"]
 position = Vector2(3.99998, 2.39998)
 rotation = 1.5708
-scale = Vector2(1, 1)
 texture = ExtResource("2_bacms")
 script = ExtResource("3_f2cvi")
 
 [node name="Marker2D" type="Marker2D" parent="Node2D/Tower01-Level01-Weapon"]
 position = Vector2(0, -28.8)
 rotation = -1.5708
-scale = Vector2(1, 1)
 gizmo_extents = 171.9
 
 [node name="Area2D" type="Area2D" parent="."]

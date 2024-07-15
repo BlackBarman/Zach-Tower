@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@export var Bullet = preload("res://bullet.tscn")
+@export var Bullet = preload("res://bullet_2.tscn")
 
 var Targets = []
 var current_enemy = 0
@@ -10,7 +10,7 @@ var can_shoot = true
 func _ready():
 	print("ciao")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	if Targets != []:
 		current_enemy = Targets[0]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccerysd1prr2e"]
+
+[ext_resource type="Texture2D" uid="uid://dq5u84josprv4" path="res://Assets/UI/ZackTowerTitleTemp.png" id="1_wnwwh"]
+[ext_resource type="Texture2D" uid="uid://crel0di5eu260" path="res://Assets/UI/PressAnyButtonTemp.png" id="2_b07kr"]
+[ext_resource type="Script" path="res://PressAnyButton.gd" id="3_4lcqx"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(576, 324)
+
+[node name="ZackTowerTitleTemp" type="Sprite2D" parent="."]
+position = Vector2(-24, -132)
+texture = ExtResource("1_wnwwh")
+
+[node name="PressAnyButtonTemp" type="Sprite2D" parent="."]
+position = Vector2(8, 100)
+texture = ExtResource("2_b07kr")
+script = ExtResource("3_4lcqx")

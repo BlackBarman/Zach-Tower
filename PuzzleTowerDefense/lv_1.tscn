@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=9 format=3 uid="uid://ch16qsighbevk"]
 
+[ext_resource type="Script" path="res://lv_1.gd" id="1_7u6oa"]
 [ext_resource type="Texture2D" uid="uid://bunjt04bkists" path="res://Assets/Tiles/Tileset/PNGs/Grass Tileset.png" id="1_jihkt"]
 [ext_resource type="PackedScene" uid="uid://c40bsxa3vvpe5" path="res://enemy.tscn" id="2_fcjva"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://tower.tscn" id="3_ks133"]
+[ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Level_Manager.tscn" id="5_ffy37"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btqle"]
 texture = ExtResource("1_jihkt")
@@ -137,6 +139,7 @@ _data = {
 point_count = 13
 
 [node name="LV1" type="Node2D"]
+script = ExtResource("1_7u6oa")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dytlf")
@@ -147,10 +150,10 @@ layer_0/tile_data = PackedInt32Array(131073, 393216, 1, 131074, 393216, 1, 19661
 [node name="Path2D" type="Path2D" parent="TileMap"]
 curve = SubResource("Curve2D_usfwx")
 
-[node name="Enemy" parent="TileMap/Path2D" instance=ExtResource("2_fcjva")]
-position = Vector2(4, 160)
-rotation = 0.00921633
-speed = 40
-
 [node name="Tower" parent="." instance=ExtResource("3_ks133")]
-position = Vector2(419, 189)
+position = Vector2(451, 167)
+
+[node name="LevelManager" parent="." instance=ExtResource("5_ffy37")]
+m_numberEnemies = 5
+m_enemyScene = ExtResource("2_fcjva")
+m_spawnRateo = 3.0

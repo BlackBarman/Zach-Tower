@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ch16qsighbevk"]
 
-[ext_resource type="Script" path="res://pappaperol/lv_1.gd" id="1_axuvo"]
+[ext_resource type="Script" path="res://lv_1.gd" id="1_axuvo"]
 [ext_resource type="Texture2D" uid="uid://bunjt04bkists" path="res://Assets/Tiles/Tileset/PNGs/Grass Tileset.png" id="1_jihkt"]
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Level_Manager.tscn" id="2_blneo"]
 [ext_resource type="PackedScene" uid="uid://c40bsxa3vvpe5" path="res://enemy.tscn" id="2_fcjva"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccerysd1prr2e"]
 
-[ext_resource type="Script" path="res://pappaperol/MainMenu.gd" id="1_gajhf"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_gajhf"]
 [ext_resource type="Texture2D" uid="uid://dq5u84josprv4" path="res://Assets/UI/ZackTowerTitleTemp.png" id="1_wnwwh"]
 [ext_resource type="Texture2D" uid="uid://crel0di5eu260" path="res://Assets/UI/PressAnyButtonTemp.png" id="2_b07kr"]
-[ext_resource type="Script" path="res://pappaperol/MainMenuButtons.gd" id="4_vnc3q"]
+[ext_resource type="Script" path="res://MainMenuButtons.gd" id="4_vnc3q"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ve2ap"]
 color = Color(0.0196078, 0.0196078, 0.0196078, 1)

@@ -140,7 +140,6 @@ _data = {
 point_count = 13
 
 [node name="LV1" type="Node2D"]
-script = ExtResource("1_7u6oa")
 
 [node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("tilemap")]
 tile_set = SubResource("TileSet_dytlf")

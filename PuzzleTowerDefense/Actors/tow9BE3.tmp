@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhbd3rynp5igc"]
+
+[ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_tio23"]
+[ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_wrepy"]
+[ext_resource type="Script" path="res://Actors/Weapon.gd" id="3_0dij3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
+atlas = ExtResource("2_wrepy")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa6v0"]
+atlas = ExtResource("2_wrepy")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tclcm"]
+atlas = ExtResource("2_wrepy")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3isje"]
+atlas = ExtResource("2_wrepy")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d4ln"]
+atlas = ExtResource("2_wrepy")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxc7v"]
+atlas = ExtResource("2_wrepy")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jexbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlcti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa6v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tclcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3isje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d4ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxc7v")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2wam"]
+radius = 385.005
+
+[node name="Tower" type="Node2D"]
+
+[node name="Tower01" type="Sprite2D" parent="."]
+texture = ExtResource("1_tio23")
+hframes = 3
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1.00002, -12)
+scale = Vector2(1.25, 1.25)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(5.60001, 3.2)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_jexbr")
+animation = &"shoot"
+frame_progress = 0.263437
+script = ExtResource("3_0dij3")
+
+[node name="Marker2D" type="Marker2D" parent="Node2D/AnimatedSprite2D"]
+position = Vector2(-1, -62)
+scale = Vector2(1.25, 1.25)
+gizmo_extents = 171.9
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+position = Vector2(1, -7)
+shape = SubResource("CircleShape2D_h2wam")
+
+[node name="FireRate" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="FireRate" to="Node2D/AnimatedSprite2D" method="_on_fire_rate_timeout"]

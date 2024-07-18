@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_anything_pressed():
 		remove_child(PressAnyButtonTemp)
 		ButtonList.show()

@@ -1,6 +1,6 @@
 extends ItemList
 
-var default_level = preload("res://lv_1.tscn")
+@export var default_level : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +12,7 @@ func _process(delta):
 	
 	#start playing
 	if is_selected(0):
-		get_tree().change_scene_to_file("res://lv_1.tscn")
+		get_tree().change_scene_to_packed(default_level)
 	
 	#quit game
 	if is_selected(3):

@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@export var Bullet = preload("res://bullet_2.tscn")
+@export var Bullet : PackedScene
 
 var Targets = []
 var current_enemy = 0

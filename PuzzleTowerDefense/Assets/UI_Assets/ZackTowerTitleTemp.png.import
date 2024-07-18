@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq5u84josprv4"
-path="res://.godot/imported/ZackTowerTitleTemp.png-af3b24fd1831f11b6649568d0a3bc7fd.ctex"
+path="res://.godot/imported/ZackTowerTitleTemp.png-4ee1679596645d3a642c757ba2c8e952.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/ZackTowerTitleTemp.png"
-dest_files=["res://.godot/imported/ZackTowerTitleTemp.png-af3b24fd1831f11b6649568d0a3bc7fd.ctex"]
+source_file="res://Assets/UI_Assets/ZackTowerTitleTemp.png"
+dest_files=["res://.godot/imported/ZackTowerTitleTemp.png-4ee1679596645d3a642c757ba2c8e952.ctex"]
 
 [params]
 

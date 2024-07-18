@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="PuzzleTowerDefense"
-run/main_scene="res://UI_Objects/MainMenu.tscn"
+run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Misc/icon.svg"
+config/icon="res://icon.svg"
 
 [aseprite_importers]
 
@@ -22,7 +22,6 @@ aseprite_executable_path="C:/Program Files/Aseprite/Aseprite.exe"
 [display]
 
 window/stretch/mode="viewport"
-mouse_cursor/custom_image="res://Assets/UI_Assets/01.png"
 
 [editor_plugins]
 

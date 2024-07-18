@@ -28,13 +28,6 @@ func _on_gui_input(event):
 				#dragging = false
 
 
-func _on_tower_placer_tower_has_been_placed():
-	if dragging == true :
-		tower_instance.queue_free()
-		dragging = false
-
-
-
 func _on_tile_map_tower_has_been_placed():
 	if dragging == true :
 		tower_instance.queue_free()

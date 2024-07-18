@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c40bsxa3vvpe5"]
 
-[ext_resource type="Script" path="res://Actors/enemy.gd" id="1_fxgi0"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_fxgi0"]
 [ext_resource type="Texture2D" uid="uid://vn8uaw0n0u2l" path="res://Assets/Enemies/Ground/Spritesheets/Firebug.png" id="1_r3ior"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrq1g"]

@@ -1,32 +1,31 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=12 format=3 uid="uid://bhbd3rynp5igc"]
 
-[ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_tio23"]
-[ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_wrepy"]
-[ext_resource type="Script" path="res://Actors/Weapon.gd" id="3_0dij3"]
-[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Actors/bullet_2.tscn" id="4_e07uj"]
+[ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_3virl"]
+[ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_pbvbk"]
+[ext_resource type="Script" path="res://Weapon.gd" id="3_f2cvi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
-atlas = ExtResource("2_wrepy")
+atlas = ExtResource("2_pbvbk")
 region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xa6v0"]
-atlas = ExtResource("2_wrepy")
+atlas = ExtResource("2_pbvbk")
 region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tclcm"]
-atlas = ExtResource("2_wrepy")
+atlas = ExtResource("2_pbvbk")
 region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3isje"]
-atlas = ExtResource("2_wrepy")
+atlas = ExtResource("2_pbvbk")
 region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8d4ln"]
-atlas = ExtResource("2_wrepy")
+atlas = ExtResource("2_pbvbk")
 region = Rect2(384, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxc7v"]
-atlas = ExtResource("2_wrepy")
+atlas = ExtResource("2_pbvbk")
 region = Rect2(480, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jexbr"]
@@ -59,10 +58,9 @@ animations = [{
 radius = 385.005
 
 [node name="Tower" type="Node2D"]
-position = Vector2(0, 64)
 
 [node name="Tower01" type="Sprite2D" parent="."]
-texture = ExtResource("1_tio23")
+texture = ExtResource("1_3virl")
 hframes = 3
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -76,8 +74,7 @@ scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jexbr")
 animation = &"shoot"
 frame_progress = 0.263437
-script = ExtResource("3_0dij3")
-Bullet = ExtResource("4_e07uj")
+script = ExtResource("3_f2cvi")
 
 [node name="Marker2D" type="Marker2D" parent="Node2D/AnimatedSprite2D"]
 position = Vector2(-1, -62)

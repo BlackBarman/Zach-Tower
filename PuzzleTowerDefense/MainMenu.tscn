@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccerysd1prr2e"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_gajhf"]
+[ext_resource type="Texture2D" uid="uid://dq5u84josprv4" path="res://Assets/UI/ZackTowerTitleTemp.png" id="1_wnwwh"]
+[ext_resource type="Texture2D" uid="uid://crel0di5eu260" path="res://Assets/UI/PressAnyButtonTemp.png" id="2_b07kr"]
+[ext_resource type="Script" path="res://MainMenuButtons.gd" id="4_vnc3q"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ve2ap"]
+color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xlmks"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(576, 324)
+script = ExtResource("1_gajhf")
+
+[node name="ZackTowerTitleTemp" type="Sprite2D" parent="."]
+position = Vector2(-24, -132)
+texture = ExtResource("1_wnwwh")
+
+[node name="PressAnyButtonTemp" type="Sprite2D" parent="."]
+position = Vector2(-8, 76)
+texture = ExtResource("2_b07kr")
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color(0.0214346, 0.0214346, 0.0214346, 1)
+z_index = -2
+offset_left = -968.0
+offset_top = -580.0
+offset_right = 1088.0
+offset_bottom = 748.0
+
+[node name="ItemList" type="ItemList" parent="."]
+texture_filter = 1
+offset_left = -480.0
+offset_top = 92.0
+offset_right = -176.0
+offset_bottom = 284.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/panel = SubResource("StyleBoxLine_ve2ap")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xlmks")
+item_count = 4
+item_0/text = "Play"
+item_1/text = "Level Select"
+item_1/disabled = true
+item_2/text = "Options"
+item_2/disabled = true
+item_3/text = "Quit"
+script = ExtResource("4_vnc3q")

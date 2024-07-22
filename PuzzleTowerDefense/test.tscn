@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://du6jgb6c2xeys"]
+
+[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet_2.tscn" id="1_fkr7u"]
+[ext_resource type="Texture2D" uid="uid://c8o6sa4qly3sh" path="res://icon.svg" id="1_slnh8"]
+[ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="3_ewl4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_toqoa"]
+size = Vector2(249.999, 266)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.0862745, 1)
+position = Vector2(568, 288)
+scale = Vector2(2.5625, 2.25)
+texture = ExtResource("1_slnh8")
+
+[node name="HurtBoxArea2D" type="Area2D" parent="Sprite2D2"]
+position = Vector2(-115.512, -67.5556)
+scale = Vector2(0.390244, 0.444444)
+script = ExtResource("3_ewl4d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/HurtBoxArea2D"]
+position = Vector2(303.999, 152)
+scale = Vector2(1.39998, 0.844263)
+shape = SubResource("RectangleShape2D_toqoa")
+
+[node name="Bullet 2" parent="." instance=ExtResource("1_fkr7u")]
+position = Vector2(208, 384)

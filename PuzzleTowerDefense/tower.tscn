@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=13 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_3virl"]
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_pbvbk"]
 [ext_resource type="Script" path="res://Weapon.gd" id="3_f2cvi"]
+[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet_2.tscn" id="4_gcl5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
 atlas = ExtResource("2_pbvbk")
@@ -73,8 +74,9 @@ rotation = 1.5708
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jexbr")
 animation = &"shoot"
-frame_progress = 0.263437
+frame_progress = 0.486543
 script = ExtResource("3_f2cvi")
+Bullet = ExtResource("4_gcl5k")
 
 [node name="Marker2D" type="Marker2D" parent="Node2D/AnimatedSprite2D"]
 position = Vector2(-1, -62)

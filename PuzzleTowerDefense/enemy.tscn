@@ -1,7 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://c40bsxa3vvpe5"]
+[gd_scene load_steps=22 format=3 uid="uid://c40bsxa3vvpe5"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_fxgi0"]
 [ext_resource type="Texture2D" uid="uid://vn8uaw0n0u2l" path="res://Assets/Enemies/Ground/Spritesheets/Firebug.png" id="1_r3ior"]
+[ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_k4iqe"]
+[ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_pri3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
+size = Vector2(57, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrq1g"]
 atlas = ExtResource("1_r3ior")
@@ -114,14 +119,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
-size = Vector2(57, 36)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vqku"]
+size = Vector2(52, 32)
 
 [node name="Enemy" type="PathFollow2D"]
 script = ExtResource("1_fxgi0")
 speed = 20
 
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("cara")]
+script = ExtResource("2_k4iqe")
+CurrentHealth = 1
+MaxHealth = 1
+cara = NodePath("../CharacterBody2D/AnimatedSprite2D/HurtBoxArea2D")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_2biy1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(-66, -32)
@@ -130,6 +145,12 @@ animation = &"Walk right"
 frame_progress = 0.529989
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_2biy1")
+[node name="HurtBoxArea2D" type="Area2D" parent="CharacterBody2D/AnimatedSprite2D"]
+script = ExtResource("4_pri3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AnimatedSprite2D/HurtBoxArea2D"]
+modulate = Color(50.811, 27.568, 0.842, 1)
+position = Vector2(65, 32)
+shape = SubResource("RectangleShape2D_3vqku")
+
+[connection signal="hit_landed" from="CharacterBody2D/AnimatedSprite2D/HurtBoxArea2D" to="HealthComponent" method="_on_hurt_box_area_2d_hit_landed"]

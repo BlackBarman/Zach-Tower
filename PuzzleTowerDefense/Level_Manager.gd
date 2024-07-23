@@ -2,7 +2,7 @@ extends Node
 
 # number of enemies to spawn
 @export var m_numberEnemies = 0
-
+#type of enemy to spawn
 @export var m_enemyScene: PackedScene
 
 # spawn rate in seconds
@@ -11,16 +11,6 @@ extends Node
 func _SetSpawnPath(a_SpawnPath):
 	$SpawnPath.curve = a_SpawnPath.curve
 	pass
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_enemy_timer_timeout():
 	
@@ -36,9 +26,10 @@ func _on_enemy_timer_timeout():
 	# And give it a random offset.
 	mob_spawn_location.progress_ratio = randf()
 
-	var player_position = $SpawnPath/SpawnLocation.position
-	mob.initialize(player_position)
-
+	#commented out as they are not doing anything,select and press ctrl+k to uncomment [start]
+	#var player_position = $SpawnPath/SpawnLocation.position
+	#mob.initialize(player_position)
+	#commented out as they are not doing anything select and press ctrl+k to uncomment [end]
 	
 	# Spawn the mob by adding it to the Main scene.
 	$SpawnPath.add_child(mob)
@@ -47,4 +38,3 @@ func _on_enemy_timer_timeout():
 
 func _on_enemy_timer_ready():
 	$EnemyTimer.wait_time = m_spawnRatio
-	pass # Replace with function body.

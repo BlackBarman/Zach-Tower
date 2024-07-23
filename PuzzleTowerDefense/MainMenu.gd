@@ -5,11 +5,21 @@ extends Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ButtonList.hide() # Replace with function body.
-
+	ButtonList.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_anything_pressed():
-		remove_child(PressAnyButtonTemp)
+		#checks if the press any button temp is still childed to the camera before removing
+		if PressAnyButtonTemp and PressAnyButtonTemp.get_parent() == self:
+			remove_child(PressAnyButtonTemp)
 		ButtonList.show()
+		
+
+#an alternative that doen't uses the _process function
+# Called whenever an input event is received.
+#func _input(event):
+	#if event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton:
+		#if PressAnyButtonTemp and PressAnyButtonTemp.get_parent() == self:
+			#remove_child(PressAnyButtonTemp)
+		#ButtonList.show()

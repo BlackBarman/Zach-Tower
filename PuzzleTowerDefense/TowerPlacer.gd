@@ -30,6 +30,10 @@ func place_tower(mouse_position: Vector2):
 			emit_signal("tower_has_been_placed")
 
 func is_valid_cell(cell: Vector2i) -> bool:
+	for neighbour_cell in tilemap.get_surrounding_cells(cell):
+		if tilemap.get_cell_source_id(0,neighbour_cell) == empty_tile_id:
+			tilemap.set_cell(1,neighbour_cell,1, Vector2i(0,0),0)
+			
 	return tilemap.get_used_rect().has_point(cell)
 
 

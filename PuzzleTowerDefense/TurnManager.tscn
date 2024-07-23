@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b55ay3e3q4mm7"]
+
+[ext_resource type="Script" path="res://TurnManager.gd" id="1_lfj1m"]
+
+[node name="TurnManager" type="Node2D"]
+script = ExtResource("1_lfj1m")

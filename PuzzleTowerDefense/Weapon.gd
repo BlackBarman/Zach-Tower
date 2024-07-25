@@ -34,3 +34,4 @@ func _on_area_2d_body_exited(body):
 func _on_fire_rate_timeout():
 	can_shoot = true
 
+

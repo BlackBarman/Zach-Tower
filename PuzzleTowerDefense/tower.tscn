@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=17 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_3virl"]
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_pbvbk"]
 [ext_resource type="Script" path="res://Weapon.gd" id="3_f2cvi"]
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet_2.tscn" id="4_gcl5k"]
+[ext_resource type="Script" path="res://Custom_Components/AttackRangeComponent.gd" id="5_r7v5i"]
+[ext_resource type="Script" path="res://Area2D2.gd" id="6_6n75h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
 atlas = ExtResource("2_pbvbk")
@@ -55,8 +57,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_1m634"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2wam"]
 radius = 385.005
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40io2"]
+size = Vector2(62, 65)
 
 [node name="Tower" type="Node2D"]
 
@@ -84,6 +103,7 @@ scale = Vector2(1.25, 1.25)
 gizmo_extents = 171.9
 
 [node name="Area2D" type="Area2D" parent="."]
+script = SubResource("GDScript_1m634")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 1
@@ -92,6 +112,18 @@ shape = SubResource("CircleShape2D_h2wam")
 
 [node name="FireRate" type="Timer" parent="."]
 
+[node name="DisplayRangeComponent" type="Node" parent="."]
+script = ExtResource("5_r7v5i")
+
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource("6_6n75h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 30.5)
+shape = SubResource("RectangleShape2D_40io2")
+
 [connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="FireRate" to="Node2D/AnimatedSprite2D" method="_on_fire_rate_timeout"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]

@@ -31,5 +31,3 @@ func place_tower(mouse_position: Vector2):
 
 func is_valid_cell(cell: Vector2i) -> bool:
 	return tilemap.get_used_rect().has_point(cell)
-
-

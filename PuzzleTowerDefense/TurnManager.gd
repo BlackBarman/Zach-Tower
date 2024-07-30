@@ -1,5 +1,9 @@
 extends Node2D
 
+var EnemyList = []
+var TowerList = []
+var UnfieldedList = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -9,4 +13,7 @@ func _ready():
 func _process(delta):
 	pass
 
-# func _startBattle()
+func _AddUnfieldedObject(TurnObject):
+	UnfieldedList.Append(TurnObject)
+
+#func _startBattle()

@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://TurnManager.gd" id="1_lfj1m"]
 
-[node name="TurnManager" type="Node2D"]
+[node name="TurnManager" type="Node2D" groups=["TurnManagerGroup"]]
 script = ExtResource("1_lfj1m")

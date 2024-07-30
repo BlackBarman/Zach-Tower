@@ -26,7 +26,8 @@ func shoot():
 
 
 func _on_area_2d_body_entered(body):
-	Targets.append(body)
+	if body.is_in_group("Enemy"):
+		Targets.append(body)
 
 func _on_area_2d_body_exited(body):
 	Targets.erase(body)

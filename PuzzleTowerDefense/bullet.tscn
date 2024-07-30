@@ -1,41 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://clx5qeuvh1eb7"]
+[gd_scene load_steps=9 format=3 uid="uid://dkwccew88tpbp"]
 
-[ext_resource type="Script" path="res://Bullet.gd" id="1_he8mx"]
-[ext_resource type="Texture2D" uid="uid://de01bggu8ivv1" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Projectile.png" id="2_f6ce2"]
+[ext_resource type="Texture2D" uid="uid://de01bggu8ivv1" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Projectile.png" id="1_4irx1"]
+[ext_resource type="Script" path="res://Bullet.gd" id="1_kf1tf"]
+[ext_resource type="Script" path="res://Custom_Components/HitBoxArea2D.gd" id="3_yypuh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dgn2s"]
-atlas = ExtResource("2_f6ce2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h12l"]
+atlas = ExtResource("1_4irx1")
 region = Rect2(0, 0, 8, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dnp08"]
-atlas = ExtResource("2_f6ce2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp1l1"]
+atlas = ExtResource("1_4irx1")
 region = Rect2(8, 0, 8, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6v0j4"]
-atlas = ExtResource("2_f6ce2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m36wp"]
+atlas = ExtResource("1_4irx1")
 region = Rect2(16, 0, 8, 40)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_nisq5"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bc5wt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dgn2s")
+"texture": SubResource("AtlasTexture_5h12l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dnp08")
+"texture": SubResource("AtlasTexture_xp1l1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6v0j4")
+"texture": SubResource("AtlasTexture_m36wp")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Bullet" type="Node2D"]
-script = ExtResource("1_he8mx")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xs47"]
+size = Vector2(32, 16)
+
+[node name="Bullet 2" type="Node2D"]
+script = ExtResource("1_kf1tf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
-sprite_frames = SubResource("SpriteFrames_nisq5")
-frame_progress = 0.0945133
+sprite_frames = SubResource("SpriteFrames_bc5wt")
+frame_progress = 0.799459
+
+[node name="HitBoxArea2D" type="Area2D" parent="."]
+script = ExtResource("3_yypuh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+shape = SubResource("RectangleShape2D_3xs47")
+
+[connection signal="area_entered" from="HitBoxArea2D" to="HitBoxArea2D" method="_on_area_entered"]

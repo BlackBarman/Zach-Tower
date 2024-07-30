@@ -1,9 +1,11 @@
 extends TextureRect
+class_name TowerPicker
 
 @export var Tower: PackedScene
 
 var tower_instance: Node = null
 var dragging: bool = false
+signal mouse_is_dragging_tower
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,9 +25,7 @@ func _on_gui_input(event):
 					get_tree().root.add_child(tower_instance)
 					tower_instance.global_position = get_global_mouse_position()
 				dragging = true
-			#elif event.release:
-				#print("Left mouse button released")
-				#dragging = false
+				emit_signal("mouse_is_dragging_tower")
 
 
 func _on_tile_map_tower_has_been_placed():

@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://caoud5pi83qtr"]
+[gd_scene load_steps=8 format=3 uid="uid://caoud5pi83qtr"]
 
 [ext_resource type="Texture2D" uid="uid://c8o6sa4qly3sh" path="res://icon.svg" id="1_boq0b"]
 [ext_resource type="Texture2D" uid="uid://bunjt04bkists" path="res://Assets/Tiles/Tileset/PNGs/Grass Tileset.png" id="1_sn087"]
-[ext_resource type="Script" path="res://PlacementTilemap.gd" id="2_220w3"]
-[ext_resource type="Script" path="res://TowerSelecter.gd" id="3_p43mt"]
+[ext_resource type="Script" path="res://PickAndPlacer.gd" id="2_220w3"]
+[ext_resource type="Script" path="res://TextureRect.gd" id="3_p43mt"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://tower.tscn" id="5_2krpm"]
-[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet.tscn" id="6_y4g0e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnkqt"]
 texture = ExtResource("1_sn087")
@@ -370,13 +369,11 @@ sources/2 = SubResource("TileSetAtlasSource_fnkqt")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("tilemap")]
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_nc21k")
 format = 2
 layer_0/tile_data = PackedInt32Array(65539, 131074, 2, 65540, 131074, 2, 65541, 131074, 2, 65542, 131074, 2, 65543, 131074, 2, 65544, 131074, 2, 65545, 131074, 2, 65546, 131074, 2, 65547, 131074, 2, 196611, 196610, 2, 196612, 196610, 2, 196613, 196610, 2, 196614, 196610, 2, 196615, 196610, 2, 196616, 196610, 2, 196617, 196610, 2, 196618, 196610, 2, 196619, 196610, 2, 131075, 196610, 2, 131076, 196610, 2, 131077, 196610, 2, 131078, 196610, 2, 131079, 196610, 2, 131080, 196610, 2, 131081, 196610, 2, 131082, 196610, 2, 131083, 196610, 2)
 script = ExtResource("2_220w3")
-tilemap = NodePath(".")
-empty_tile_id = 2
 
 [node name="TextureRect" type="TextureRect" parent="TileMap"]
 offset_left = 795.0
@@ -388,20 +385,6 @@ texture = ExtResource("1_boq0b")
 script = ExtResource("3_p43mt")
 torre = ExtResource("5_2krpm")
 
-[node name="TextureRect2" type="TextureRect" parent="TileMap"]
-offset_left = 796.0
-offset_top = 144.0
-offset_right = 924.0
-offset_bottom = 272.0
-scale = Vector2(0.537041, 0.537041)
-texture = ExtResource("1_boq0b")
-script = ExtResource("3_p43mt")
-torre = ExtResource("6_y4g0e")
-
 [connection signal="gui_input" from="TileMap/TextureRect" to="TileMap" method="_on_texture_rect_gui_input"]
 [connection signal="gui_input" from="TileMap/TextureRect" to="TileMap/TextureRect" method="_on_gui_input"]
 [connection signal="set_tower" from="TileMap/TextureRect" to="TileMap" method="_on_texture_rect_set_tower"]
-[connection signal="gui_input" from="TileMap/TextureRect2" to="TileMap" method="_on_texture_rect_gui_input"]
-[connection signal="gui_input" from="TileMap/TextureRect2" to="TileMap/TextureRect2" method="_on_gui_input"]
-[connection signal="set_tower" from="TileMap/TextureRect2" to="TileMap" method="_on_texture_rect_2_set_tower"]
-[connection signal="set_tower" from="TileMap/TextureRect2" to="TileMap" method="_on_texture_rect_set_tower"]

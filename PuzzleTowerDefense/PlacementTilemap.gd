@@ -52,4 +52,10 @@ func _on_texture_rect_set_tower(tower):
 
 func _on_texture_rect_2_set_tower(tower):
 	_set_tower(tower)
-	pass # Replace with function body.
+
+func _on_tower_selecter_set_tower(tower):
+	_set_tower(tower)
+
+func _on_tower_selecter_2_set_tower(tower):
+		_set_tower(tower)
+

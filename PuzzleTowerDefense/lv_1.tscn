@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=14 format=3 uid="uid://ch16qsighbevk"]
+=======
+[gd_scene load_steps=15 format=3 uid="uid://ch16qsighbevk"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://lv_1.gd" id="1_axuvo"]
 [ext_resource type="Texture2D" uid="uid://bunjt04bkists" path="res://Assets/Tiles/Tileset/PNGs/Grass Tileset.png" id="1_jihkt"]
@@ -9,6 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://i8ph56discum" path="res://Assets/Tiles/Tileset/PNGs/GreenTile.png" id="3_mwgqg"]
 [ext_resource type="Script" path="res://TowerPicker.gd" id="7_7is3y"]
 [ext_resource type="Texture2D" uid="uid://c8o6sa4qly3sh" path="res://icon.svg" id="7_ierwr"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Script" path="res://TowerSelecter.gd" id="8_0s132"]
+[ext_resource type="Script" path="res://PlacementTilemap.gd" id="8_2tmxi"]
+[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet.tscn" id="10_f3lkn"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btqle"]
 texture = ExtResource("1_jihkt")
@@ -835,9 +845,10 @@ offset_top = -2.0
 offset_right = 1149.0
 offset_bottom = 126.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
+[node name="TowerSelecter" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("7_ierwr")
+<<<<<<< Updated upstream
 script = ExtResource("7_7is3y")
 Tower = ExtResource("3_ks133")
 
@@ -846,3 +857,18 @@ position = Vector2(543, 257)
 
 [connection signal="tower_has_been_placed" from="TileMap" to="CanvasLayer/VBoxContainer/TextureRect" method="_on_tile_map_tower_has_been_placed"]
 [connection signal="gui_input" from="CanvasLayer/VBoxContainer/TextureRect" to="CanvasLayer/VBoxContainer/TextureRect" method="_on_gui_input"]
+=======
+script = ExtResource("8_0s132")
+torre = ExtResource("3_ks133")
+
+[node name="TowerSelecter2" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_ierwr")
+script = ExtResource("8_0s132")
+torre = ExtResource("10_f3lkn")
+
+[connection signal="gui_input" from="CanvasLayer/VBoxContainer/TowerSelecter" to="CanvasLayer/VBoxContainer/TowerSelecter" method="_on_gui_input"]
+[connection signal="set_tower" from="CanvasLayer/VBoxContainer/TowerSelecter" to="TileMap" method="_on_tower_selecter_set_tower"]
+[connection signal="gui_input" from="CanvasLayer/VBoxContainer/TowerSelecter2" to="CanvasLayer/VBoxContainer/TowerSelecter2" method="_on_gui_input"]
+[connection signal="set_tower" from="CanvasLayer/VBoxContainer/TowerSelecter2" to="TileMap" method="_on_tower_selecter_2_set_tower"]
+>>>>>>> Stashed changes

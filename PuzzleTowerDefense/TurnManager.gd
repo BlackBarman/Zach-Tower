@@ -5,6 +5,7 @@ var EnemyList = []
 var TowerList = []
 
 var BattleStarted = false
+var TurnCounter = 0
 
 @onready var StartButton = $StartBattleButton
 
@@ -21,6 +22,8 @@ func _startBattle():
 	_processTurns()
 
 func _processTurns():
+	
+	TurnCounter += 1
 	
 	for x in EnemyList:
 		x._executeTurn()

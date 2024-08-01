@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=15 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="Script" path="res://lv_1.gd" id="1_axuvo"]
 [ext_resource type="Texture2D" uid="uid://bunjt04bkists" path="res://Assets/Tiles/Tileset/PNGs/Grass Tileset.png" id="1_jihkt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://PlacementTilemap.gd" id="4_iv63k"]
 [ext_resource type="Script" path="res://TowerSelecter.gd" id="7_10m8t"]
 [ext_resource type="Texture2D" uid="uid://c8o6sa4qly3sh" path="res://icon.svg" id="7_ierwr"]
+[ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://TurnManager.tscn" id="10_m4l3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btqle"]
 texture = ExtResource("1_jihkt")
@@ -842,6 +843,8 @@ torre = ExtResource("3_ks133")
 
 [node name="Tower" parent="." instance=ExtResource("3_ks133")]
 position = Vector2(543, 257)
+
+[node name="TurnManager" parent="." instance=ExtResource("10_m4l3j")]
 
 [connection signal="gui_input" from="CanvasLayer/VBoxContainer/TextureRect" to="CanvasLayer/VBoxContainer/TextureRect" method="_on_gui_input"]
 [connection signal="set_tower" from="CanvasLayer/VBoxContainer/TextureRect" to="TileMap" method="_on_texture_rect_set_tower"]

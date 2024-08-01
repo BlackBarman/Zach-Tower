@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=19 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_3virl"]
 [ext_resource type="Script" path="res://tower.gd" id="1_3ymnd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet.tscn" id="4_gcl5k"]
 [ext_resource type="Script" path="res://Custom_Components/AttackRangeComponent.gd" id="5_r7v5i"]
 [ext_resource type="Script" path="res://Area2D2.gd" id="6_6n75h"]
+[ext_resource type="PackedScene" uid="uid://byadjp7vfsvd" path="res://TurnObject.tscn" id="8_bmr8i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
 atlas = ExtResource("2_pbvbk")
@@ -123,6 +124,8 @@ script = ExtResource("6_6n75h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(0, 30.5)
 shape = SubResource("RectangleShape2D_40io2")
+
+[node name="TurnObject" parent="." instance=ExtResource("8_bmr8i")]
 
 [connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]

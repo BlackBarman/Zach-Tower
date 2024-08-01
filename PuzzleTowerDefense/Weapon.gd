@@ -5,6 +5,9 @@ extends AnimatedSprite2D
 var Targets = []
 var current_enemy = 0
 var can_shoot = true
+var Tile_length = 64
+var highlighted_tiles: Dictionary = {}
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -35,3 +38,7 @@ func _on_fire_rate_timeout():
 	can_shoot = true
 
 
+func _check_enemy_in_range():
+	for target in Targets:
+		for tile in highlighted_tiles:
+			var x = 0

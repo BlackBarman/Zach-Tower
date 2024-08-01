@@ -13,7 +13,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var mouse_position = event.position
-		place_tower(mouse_position)
+		#place_tower(mouse_position)
 
 func place_tower(mouse_position: Vector2):
 	var cell = tilemap.local_to_map(mouse_position)

@@ -27,9 +27,17 @@ func _on_gui_input(event):
 				#print("Left mouse button released")
 				#dragging = false
 
+func _input(event):
+	if event is InputEventMouseButton and event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
+		_on_tile_map_tower_has_been_placed()
 
 func _on_tile_map_tower_has_been_placed():
 	if dragging == true :
 		tower_instance.queue_free()
-		dragging = false
+		var tower := tower_instance as Tower
+		if tower:
+			tower._Set_placed(true)
+			dragging = false
+			$"../../../TileMap".place_tower(tower_instance.global_position)
+		
 	pass # Replace with function body.

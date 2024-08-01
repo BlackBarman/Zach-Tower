@@ -7,3 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 
+
+
+func _on_texture_rect_2_mouse_is_dragging_tower():
+	pass # Replace with function body.

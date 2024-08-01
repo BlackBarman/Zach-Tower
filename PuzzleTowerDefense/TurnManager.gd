@@ -29,6 +29,11 @@ func _processTurns():
 	for y in TowerList:
 		y._executeTurn()
 	
+	if EnemyList.size() > 0:
+		_processTurns()
+	else:
+		_cleanUpBattle()
+	
 func _ObjectDies(ObjectToDestroy, ObjectType):
 	
 	if ObjectType == Enums.TurnObjects.ENEMY:

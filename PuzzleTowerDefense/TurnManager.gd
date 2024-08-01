@@ -1,19 +1,55 @@
 extends Node2D
 
+
 var EnemyList = []
 var TowerList = []
-var UnfieldedList = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var BattleStarted = false
+
+@onready var StartButton = $StartBattleButton
+
+#when an object enters the field, it is added to the proper list
+func _objectEntersField(ObjectToAdd):
+	
+	if ObjectToAdd.ObjectType == Enums.TurnObjects.ENEMY:
+		EnemyList.Append(ObjectToAdd)
+	elif ObjectToAdd.ObjectType == Enums.TurnObjects.TOWER:
+		TowerList.Append(ObjectToAdd)
+
+func _startBattle():
+	BattleStarted = true
+	_processTurns()
+
+func _processTurns():
+	
+	for x in EnemyList:
+		x._executeTurn()
+	
+	#Towers always shoot after enemies
+	for y in TowerList:
+		y._executeTurn()
+	
+func _ObjectDies(ObjectToDestroy, ObjectType):
+	
+	if ObjectType == Enums.TurnObjects.ENEMY:
+		EnemyList.erase(ObjectToDestroy)
+	elif ObjectType == Enums.TurnObjects.TOWER:
+		TowerList.erase(ObjectToDestroy)
+	
+func _cleanUpBattle():
+	
+	for x in EnemyList:
+		x.queue_free()
+	EnemyList.clear()
+	
+	for y in TowerList:
+		y.queue_free()
+	TowerList.clear()
+	
+	StartButton.visible = true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _AddUnfieldedObject(TurnObject):
-	UnfieldedList.Append(TurnObject)
-
-#func _startBattle()
+func _on_start_battle_button_button_down():
+	_startBattle()
+	StartButton.visible = false
+	

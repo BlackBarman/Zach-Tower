@@ -4,3 +4,13 @@
 
 [node name="TurnManager" type="Node2D" groups=["TurnManagerGroup"]]
 script = ExtResource("1_lfj1m")
+
+[node name="StartBattleButton" type="Button" parent="."]
+offset_left = 961.0
+offset_top = 540.0
+offset_right = 1045.0
+offset_bottom = 594.0
+text = "Start
+Battle"
+
+[connection signal="button_down" from="StartBattleButton" to="." method="_on_start_battle_button_button_down"]

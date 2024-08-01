@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://tower.gd" id="1_3ymnd"]
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_pbvbk"]
 [ext_resource type="Script" path="res://Weapon.gd" id="3_f2cvi"]
-[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet_2.tscn" id="4_gcl5k"]
+[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet.tscn" id="4_gcl5k"]
 [ext_resource type="Script" path="res://Custom_Components/AttackRangeComponent.gd" id="5_r7v5i"]
 [ext_resource type="Script" path="res://Area2D2.gd" id="6_6n75h"]
 

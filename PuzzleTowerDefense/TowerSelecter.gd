@@ -8,4 +8,5 @@ func _on_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			emit_signal("set_tower",torre)
+			
 

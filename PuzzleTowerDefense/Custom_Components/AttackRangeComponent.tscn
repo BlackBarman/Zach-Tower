@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://by238c82n6kax"]
+
+[ext_resource type="Script" path="res://Custom_Components/AttackRangeComponent.gd" id="1_bu110"]
+
+[node name="AttackRangeComponent" type="Node"]
+script = ExtResource("1_bu110")

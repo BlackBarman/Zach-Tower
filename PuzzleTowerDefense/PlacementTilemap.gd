@@ -7,7 +7,7 @@ class_name PlacementTilemap
 
 
 var tower_instance: PackedScene = null
-var tower_object = null
+var tower_object : BaseTower = null
 var dragging = false
 
 func _ready():
@@ -27,7 +27,7 @@ func _process(_delta):
 func place_tower(mouse_position: Vector2):
 	var cell = tilemap.local_to_map(mouse_position)
 	if is_valid_cell(cell) :
-		if tilemap.get_cell_source_id(0, cell) == empty_tile_id:
+		if tilemap.get_cell_source_id(0, cell) == empty_tile_id and tower_object.can_be_placed == true:
 		# Place the tower instance on the ground , romoving it from  the mouse
 		# you picked something from the crate and now you are placing it on the floor
 			tower_object.global_position = tilemap.map_to_local(cell)
@@ -47,9 +47,7 @@ func _set_tower(tower):
 	add_child(tower_object)
 	dragging = true
 
-func _on_texture_rect_set_tower(tower):
-	_set_tower(tower)
 
-func _on_texture_rect_2_set_tower(tower):
+func _on_tower_selecter_set_tower(tower):
 	_set_tower(tower)
 	pass # Replace with function body.

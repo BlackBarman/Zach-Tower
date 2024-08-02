@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxgt7uy5lugeg"]
+
+[ext_resource type="Script" path="res://Area2DColorSwitcher.gd" id="1_wd7wg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
+size = Vector2(64, 64)
+
+[node name="ColorSwitcher" type="Area2D"]
+script = ExtResource("1_wd7wg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tfubh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

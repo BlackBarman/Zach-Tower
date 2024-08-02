@@ -20,7 +20,7 @@ func _Setupfunc( a_tilemap: TileMap):
 	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if ShowPreview == true:
 		var parent_node = get_parent()
 		#var cell = tilemap.local_to_map(parent_node.global_position)

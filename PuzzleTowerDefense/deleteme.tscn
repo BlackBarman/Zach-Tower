@@ -403,5 +403,5 @@ torre = ExtResource("6_y4g0e")
 [connection signal="set_tower" from="TileMap/TextureRect" to="TileMap" method="_on_texture_rect_set_tower"]
 [connection signal="gui_input" from="TileMap/TextureRect2" to="TileMap" method="_on_texture_rect_gui_input"]
 [connection signal="gui_input" from="TileMap/TextureRect2" to="TileMap/TextureRect2" method="_on_gui_input"]
-[connection signal="set_tower" from="TileMap/TextureRect2" to="TileMap" method="_on_texture_rect_2_set_tower"]
 [connection signal="set_tower" from="TileMap/TextureRect2" to="TileMap" method="_on_texture_rect_set_tower"]
+[connection signal="set_tower" from="TileMap/TextureRect2" to="TileMap" method="_on_texture_rect_2_set_tower"]

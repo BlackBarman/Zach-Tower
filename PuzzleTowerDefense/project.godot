@@ -21,8 +21,6 @@ aseprite_executable_path="C:/Program Files/Aseprite/Aseprite.exe"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=800
 window/stretch/mode="viewport"
 
 [editor_plugins]

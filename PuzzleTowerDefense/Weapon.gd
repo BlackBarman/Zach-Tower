@@ -18,7 +18,7 @@ func shoot():
 	if can_shoot:
 		$".".play("shoot")
 		var b= Bullet.instantiate()
-		b.global_position = $"../Marker2D".position
+		b.global_position = $Marker2D.position
 		b.set_target(current_enemy)
 		get_parent().add_child(b)
 		can_shoot = false

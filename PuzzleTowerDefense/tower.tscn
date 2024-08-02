@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=18 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_3virl"]
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_pbvbk"]
 [ext_resource type="Script" path="res://Weapon.gd" id="3_f2cvi"]
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet.tscn" id="4_803lw"]
 [ext_resource type="Script" path="res://Custom_Components/AttackRangeComponent.gd" id="5_r7v5i"]
-<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://Area2D2.gd" id="6_6n75h"]
 
 [sub_resource type="GDScript" id="GDScript_u067y"]
@@ -22,10 +21,6 @@ func _ready():
 func _process(delta):
 	pass
 "
-=======
-[ext_resource type="Script" path="res://CollisionShape2D.gd" id="6_cp5bp"]
-[ext_resource type="Script" path="res://TowerPreviewer.gd" id="7_pabqc"]
->>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
 atlas = ExtResource("2_pbvbk")
@@ -78,11 +73,9 @@ animations = [{
 }]
 
 [sub_resource type="GDScript" id="GDScript_1m634"]
+script/source = "extends Area2D
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_836cc"]
-size = Vector2(192, 64)
 
-<<<<<<< Updated upstream
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -98,10 +91,6 @@ radius = 385.005
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40io2"]
 size = Vector2(55, 55)
-=======
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e6hf"]
-size = Vector2(50, 50)
->>>>>>> Stashed changes
 
 [node name="Tower" type="Node2D"]
 script = SubResource("GDScript_u067y")
@@ -112,18 +101,8 @@ texture = ExtResource("1_3virl")
 hframes = 3
 
 [node name="Node2D" type="Node2D" parent="."]
-<<<<<<< Updated upstream
 position = Vector2(-1, -44)
-=======
-position = Vector2(1.00002, -44)
->>>>>>> Stashed changes
 scale = Vector2(1.25, 1.25)
-
-[node name="Marker2D" type="Marker2D" parent="Node2D"]
-position = Vector2(50.4, 3.2)
-rotation = 1.5708
-scale = Vector2(0.8, 0.8)
-gizmo_extents = 171.9
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
 position = Vector2(5.60001, 3.2)
@@ -135,19 +114,19 @@ frame_progress = 0.486543
 script = ExtResource("3_f2cvi")
 Bullet = ExtResource("4_803lw")
 
+[node name="Marker2D" type="Marker2D" parent="Node2D/AnimatedSprite2D"]
+position = Vector2(-1, -62)
+scale = Vector2(1.25, 1.25)
+gizmo_extents = 171.9
+
 [node name="Area2D" type="Area2D" parent="."]
-<<<<<<< Updated upstream
 visible = false
-=======
-position = Vector2(32, -56)
->>>>>>> Stashed changes
 script = SubResource("GDScript_1m634")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(96, 56)
-shape = SubResource("RectangleShape2D_836cc")
-debug_color = Color(0.942127, 0.120271, 0.522503, 0.42)
-script = ExtResource("6_cp5bp")
+z_index = 1
+position = Vector2(1, -7)
+shape = SubResource("CircleShape2D_h2wam")
 
 [node name="FireRate" type="Timer" parent="."]
 
@@ -155,7 +134,6 @@ script = ExtResource("6_cp5bp")
 script = ExtResource("5_r7v5i")
 
 [node name="Area2D2" type="Area2D" parent="."]
-<<<<<<< Updated upstream
 position = Vector2(0, -31)
 script = ExtResource("6_6n75h")
 
@@ -163,17 +141,6 @@ script = ExtResource("6_6n75h")
 position = Vector2(0, 34)
 shape = SubResource("RectangleShape2D_40io2")
 
-=======
-position = Vector2(0, -32)
-script = ExtResource("7_pabqc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(0, 36)
-shape = SubResource("RectangleShape2D_4e6hf")
-
-[connection signal="ClearPreview" from="." to="Area2D/CollisionShape2D" method="_on_tower_clear_preview"]
-[connection signal="ClearPreview" from="." to="DisplayRangeComponent" method="_on_tower_clear_preview"]
->>>>>>> Stashed changes
 [connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="FireRate" to="Node2D/AnimatedSprite2D" method="_on_fire_rate_timeout"]

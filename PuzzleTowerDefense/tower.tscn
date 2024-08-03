@@ -70,7 +70,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 "
 
@@ -95,7 +95,6 @@ scale = Vector2(1.25, 1.25)
 [node name="Marker2D" type="Marker2D" parent="Node2D"]
 position = Vector2(55.2, 2.40018)
 rotation = 1.5708
-scale = Vector2(1, 1)
 gizmo_extents = 171.9
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]

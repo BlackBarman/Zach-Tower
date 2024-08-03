@@ -7,10 +7,10 @@ class_name ColorSwitcher
 
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	object_to_modulate.modulate = Color(bad_color)
 
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	object_to_modulate.modulate = Color(good_color)
 

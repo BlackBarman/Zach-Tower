@@ -5,11 +5,11 @@ var can_be_placed :bool = false
 
 
 
-func _on_color_switcher_body_entered(body):
+func _on_color_switcher_body_entered(_body):
 	can_be_placed = false
 
 
-func _on_color_switcher_body_exited(body):
+func _on_color_switcher_body_exited(_body):
 	can_be_placed = true
 
 

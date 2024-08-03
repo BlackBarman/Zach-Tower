@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=15 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="Script" path="res://lv_1.gd" id="1_axuvo"]
 [ext_resource type="Texture2D" uid="uid://bunjt04bkists" path="res://Assets/Tiles/Tileset/PNGs/Grass Tileset.png" id="1_jihkt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c8o6sa4qly3sh" path="res://icon.svg" id="7_ierwr"]
 [ext_resource type="Script" path="res://PlacementTilemap.gd" id="8_2tmxi"]
 [ext_resource type="Script" path="res://TowerSelecter.gd" id="9_e6oxr"]
+[ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://SacredCrystal.tscn" id="10_fcnse"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btqle"]
 texture = ExtResource("1_jihkt")
@@ -450,8 +451,13 @@ offset_bottom = 126.0
 
 [node name="TowerSelecter" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "hello there i am a tooltip
+"
 texture = ExtResource("7_ierwr")
 script = ExtResource("9_e6oxr")
 torre = ExtResource("3_ks133")
+
+[node name="SacredCrystal" parent="." instance=ExtResource("10_fcnse")]
+position = Vector2(173, 157)
 
 [connection signal="set_tower" from="CanvasLayer/VBoxContainer/TowerSelecter" to="TileMap" method="_on_tower_selecter_set_tower"]

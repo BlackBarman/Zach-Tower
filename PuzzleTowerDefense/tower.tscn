@@ -75,7 +75,7 @@ func _process(_delta):
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2wam"]
-radius = 385.005
+radius = 1463.33
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
 size = Vector2(16, 16)
@@ -128,10 +128,7 @@ bad_color = Color(0.870588, 0, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorSwitcher"]
 shape = SubResource("RectangleShape2D_tfubh")
 
-[connection signal="animation_finished" from="Node2D/AnimatedSprite2D" to="Node2D/AnimatedSprite2D" method="_on_animation_finished"]
 [connection signal="frame_changed" from="Node2D/AnimatedSprite2D" to="Node2D/AnimatedSprite2D" method="_on_frame_changed"]
-[connection signal="sprite_frames_changed" from="Node2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_sprite_frames_changed"]
-[connection signal="sprite_frames_changed" from="Node2D/AnimatedSprite2D" to="Node2D/AnimatedSprite2D" method="_on_sprite_frames_changed"]
 [connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="FireRate" to="Node2D/AnimatedSprite2D" method="_on_fire_rate_timeout"]

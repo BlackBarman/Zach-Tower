@@ -24,7 +24,7 @@ func _processTurns():
 	EnemyList.clear()
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
 	for x in EnemyList:
-		x._executeTurn()
+		#x._executeTurn()
 		print("Enemy acts")
 	
 	#Towers always shoot after enemies

@@ -6,10 +6,10 @@ extends Node
 @export var m_enemyScene: PackedScene
 
 # spawn rate in turns
-@export var m_spawnRatio = 1
+@export var m_spawnRatio:int = 1
 
 # number of enemies spawned in a single burst
-@export var SpawnSize = 1
+@export var SpawnSize:int = 1
 
 func _SetSpawnPath(a_SpawnPath):
 	$SpawnPath.curve = a_SpawnPath.curve

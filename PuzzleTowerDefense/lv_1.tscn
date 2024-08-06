@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=16 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="Script" path="res://lv_1.gd" id="1_axuvo"]
 [ext_resource type="Texture2D" uid="uid://bunjt04bkists" path="res://Assets/Tiles/Tileset/PNGs/Grass Tileset.png" id="1_jihkt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://PlacementTilemap.gd" id="8_2tmxi"]
 [ext_resource type="Script" path="res://TowerSelecter.gd" id="9_e6oxr"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://SacredCrystal.tscn" id="10_fcnse"]
+[ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://TurnManager.tscn" id="11_rh7ar"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btqle"]
 texture = ExtResource("1_jihkt")
@@ -439,7 +440,7 @@ curve = SubResource("Curve2D_usfwx")
 position = Vector2(-1, -3)
 m_numberEnemies = 5
 m_enemyScene = ExtResource("2_fcjva")
-m_spawnRatio = 2.5
+m_spawnRatio = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -459,5 +460,7 @@ torre = ExtResource("3_ks133")
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_fcnse")]
 position = Vector2(178, 26)
+
+[node name="TurnManager" parent="." instance=ExtResource("11_rh7ar")]
 
 [connection signal="set_tower" from="CanvasLayer/VBoxContainer/TowerSelecter" to="TileMap" method="_on_tower_selecter_set_tower"]

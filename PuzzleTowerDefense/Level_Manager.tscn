@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_4mphf"]
 
-[node name="LevelManager" type="Node2D"]
+[node name="LevelManager" type="Node2D" groups=["LevelManagerGroup"]]
 script = ExtResource("1_buvmh")
 
 [node name="SpawnPath" type="Path2D" parent="."]
@@ -13,7 +13,6 @@ curve = SubResource("Curve2D_4mphf")
 [node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
 
 [node name="EnemyTimer" type="Timer" parent="."]
-autostart = true
 
 [connection signal="ready" from="EnemyTimer" to="." method="_on_enemy_timer_ready"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]

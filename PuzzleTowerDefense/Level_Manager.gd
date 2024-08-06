@@ -35,6 +35,8 @@ func _on_enemy_timer_timeout():
 	$SpawnPath.add_child(mob)
 	m_numberEnemies = m_numberEnemies - 1
 
+func _start_Timer():
+	$EnemyTimer.start()
 
 func _on_enemy_timer_ready():
 	$EnemyTimer.wait_time = m_spawnRatio

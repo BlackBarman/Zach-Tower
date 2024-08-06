@@ -15,7 +15,10 @@ func _objectEntersField(ObjectToAdd):
 
 func _startBattle():
 	BattleStarted = true
-	_processTurns()
+	get_tree().call_group("LevelManagerGroup", "_start_Timer")
+	$Timer.start()
+	
+
 
 func _processTurns():
 	
@@ -41,7 +44,7 @@ func _processTurns():
 	if EnemyList.size() > 0:
 		_processTurns()
 	else:
-		_cleanUpBattle()
+		pass
 	
 func _ObjectDies(ObjectToDestroy, ObjectType):
 	
@@ -49,21 +52,11 @@ func _ObjectDies(ObjectToDestroy, ObjectType):
 		EnemyList.erase(ObjectToDestroy)
 	elif ObjectType == Enums.TurnObjects.TOWER:
 		TowerList.erase(ObjectToDestroy)
-	
-func _cleanUpBattle():
-	
-	for x in EnemyList:
-		x.queue_free()
-	EnemyList.clear()
-	
-	for y in TowerList:
-		y.queue_free()
-	TowerList.clear()
-	
-	StartButton.visible = true
 
 
 func _on_start_battle_button_button_down():
 	_startBattle()
 	StartButton.visible = false
 	
+func _on_timer_timeout():
+	_processTurns()

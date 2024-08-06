@@ -22,3 +22,17 @@ func _process(delta):
 	move = move.normalized()
 	global_position += move
 
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	print("this bullet exited the screen so it's going to die")
+	queue_free()
+
+
+
+func _on_hit_box_area_2d_area_entered(area):
+	if area is HurtBoxArea2D:
+		print("this bullet is dying")
+		queue_free()
+
+

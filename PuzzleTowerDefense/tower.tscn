@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://bhbd3rynp5igc"]
 
+[ext_resource type="Script" path="res://tower.gd" id="1_1rdya"]
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_3virl"]
-[ext_resource type="Script" path="res://Tower.gd" id="1_yf1ib"]
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_pbvbk"]
 [ext_resource type="Script" path="res://Weapon.gd" id="3_f2cvi"]
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet.tscn" id="4_803lw"]
@@ -81,8 +81,8 @@ size = Vector2(192, 192)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
 size = Vector2(16, 16)
 
-[node name="Tower" type="Node2D"]
-script = ExtResource("1_yf1ib")
+[node name="BaseTower" type="Node2D"]
+script = ExtResource("1_1rdya")
 
 [node name="Tower01" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
@@ -166,6 +166,4 @@ texture = ExtResource("7_n32hw")
 [connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="FireRate" to="Node2D/AnimatedSprite2D" method="_on_fire_rate_timeout"]
 [connection signal="body_entered" from="ColorSwitcher" to="." method="_on_color_switcher_body_entered"]
-[connection signal="body_entered" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_entered"]
 [connection signal="body_exited" from="ColorSwitcher" to="." method="_on_color_switcher_body_exited"]
-[connection signal="body_exited" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_exited"]

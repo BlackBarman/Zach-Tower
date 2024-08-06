@@ -29,7 +29,7 @@ func shoot():
 
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("Enemy"):
+	if body.is_in_group("EnemyGroup"):
 		Targets.append(body)
 
 func _on_area_2d_body_exited(body):

@@ -11,11 +11,7 @@ var TurnCounter = 0
 
 #when an object enters the field, it is added to the proper list
 func _objectEntersField(ObjectToAdd):
-	
-	if ObjectToAdd.ObjectType == Enums.TurnObjects.ENEMY:
-		EnemyList.Append(ObjectToAdd)
-	elif ObjectToAdd.ObjectType == Enums.TurnObjects.TOWER:
-		TowerList.Append(ObjectToAdd)
+	pass
 
 func _startBattle():
 	BattleStarted = true
@@ -25,13 +21,23 @@ func _processTurns():
 	
 	TurnCounter += 1
 	
+	#Enemy Turn
+	EnemyList.clear()
+	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
 	for x in EnemyList:
-		x._executeTurn()
+		#x._executeTurn()
+		print("Enemy acts")
 	
 	#Towers always shoot after enemies
+	TowerList.clear()
+	TowerList = get_tree().get_nodes_in_group("TowerGroup")
 	for y in TowerList:
-		y._executeTurn()
+		#y._executeTurn()
+		print("Tower acts")
+		EnemyList[0].queue_free()
+		EnemyList.remove_at(0)
 	
+	print(EnemyList.size())
 	if EnemyList.size() > 0:
 		_processTurns()
 	else:

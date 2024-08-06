@@ -1,10 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://c40bsxa3vvpe5"]
+[gd_scene load_steps=22 format=3 uid="uid://c40bsxa3vvpe5"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_fxgi0"]
 [ext_resource type="Texture2D" uid="uid://vn8uaw0n0u2l" path="res://Assets/Enemies/Ground/Spritesheets/Firebug.png" id="1_r3ior"]
 [ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_k4iqe"]
 [ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_pri3a"]
-[ext_resource type="PackedScene" uid="uid://byadjp7vfsvd" path="res://TurnObject.tscn" id="5_m2r6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
 size = Vector2(57, 36)
@@ -133,7 +132,7 @@ CurrentHealth = 1
 MaxHealth = 1
 cara = NodePath("../CharacterBody2D/AnimatedSprite2D/HurtBoxArea2D")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Enemy"]]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyGroup"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-0.5, 0)
@@ -153,8 +152,5 @@ script = ExtResource("4_pri3a")
 modulate = Color(50.811, 27.568, 0.842, 1)
 position = Vector2(65, 32)
 shape = SubResource("RectangleShape2D_3vqku")
-
-[node name="TurnObject" parent="." instance=ExtResource("5_m2r6n")]
-ObjectType = 1
 
 [connection signal="hit_landed" from="CharacterBody2D/AnimatedSprite2D/HurtBoxArea2D" to="HealthComponent" method="_on_hurt_box_area_2d_hit_landed"]

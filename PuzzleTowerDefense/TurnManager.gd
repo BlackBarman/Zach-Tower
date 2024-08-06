@@ -9,26 +9,22 @@ var TurnCounter = 0
 
 @onready var StartButton = $StartBattleButton
 
-#when an object enters the field, it is added to the proper list
-func _objectEntersField(ObjectToAdd):
-	pass
 
 func _startBattle():
 	BattleStarted = true
-	get_tree().call_group("LevelManagerGroup", "_start_Timer")
 	$Timer.start()
 	
-
 
 func _processTurns():
 	
 	TurnCounter += 1
+	get_tree().call_group("LevelManagerGroup", "_turn_Start", TurnCounter)
 	
 	#Enemy Turn
 	EnemyList.clear()
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
 	for x in EnemyList:
-		#x._executeTurn()
+		x._executeTurn()
 		print("Enemy acts")
 	
 	#Towers always shoot after enemies
@@ -37,21 +33,16 @@ func _processTurns():
 	for y in TowerList:
 		#y._executeTurn()
 		print("Tower acts")
-		EnemyList[0].queue_free()
-		EnemyList.remove_at(0)
+		#EnemyList[0].queue_free()
+		#EnemyList.remove_at(0)
 	
-	print(EnemyList.size())
-	if EnemyList.size() > 0:
-		_processTurns()
+	print("Number of enemies: " , EnemyList.size())
+	var EnemyWaiting = get_tree().get_nodes_in_group("LevelManagerGroup")[0].m_numberEnemies
+	if EnemyList.size() > 0 || EnemyWaiting > 0:
+		#_processTurns()
+		print("enemies still alive")
 	else:
-		pass
-	
-func _ObjectDies(ObjectToDestroy, ObjectType):
-	
-	if ObjectType == Enums.TurnObjects.ENEMY:
-		EnemyList.erase(ObjectToDestroy)
-	elif ObjectType == Enums.TurnObjects.TOWER:
-		TowerList.erase(ObjectToDestroy)
+		print("all enemies defeated")
 
 
 func _on_start_battle_button_button_down():

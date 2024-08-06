@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://sj2xa0laho02"]
+
+[ext_resource type="FontFile" uid="uid://d0jklkprosxwi" path="res://Assets/Fonts/ThaleahFat.ttf" id="1_mlu50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5cgg"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8obcq"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[resource]
+default_font = ExtResource("1_mlu50")
+default_font_size = 32
+Label/colors/font_color = Color(1, 0.403922, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 0.266667, 1)
+Label/constants/outline_size = 6
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("1_mlu50")
+Label/styles/normal = null
+ProgressBar/colors/font_color = Color(0.94902, 0.227451, 0.94902, 1)
+ProgressBar/colors/font_outline_color = Color(0.966667, 1, 0, 1)
+ProgressBar/constants/outline_size = 9
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/styles/background = SubResource("StyleBoxFlat_d5cgg")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_8obcq")

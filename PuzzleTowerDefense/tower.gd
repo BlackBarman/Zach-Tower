@@ -1,24 +1,26 @@
 extends Node2D
+class_name BaseTower
 
-class_name Tower
+var can_be_placed :bool = false
+var placed : bool = true
+enum State {
+	Placed, 
+	Dragged,
+}
+
+@onready var tilemap : PlacementTilemap = get_parent()
 
 
-var placed = false
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	tilemap.tower_placed.connect(tower_was_placed)
+
+func _on_color_switcher_body_entered(_body):
+	can_be_placed = false
+
+func _on_color_switcher_body_exited(_body):
+	can_be_placed = true
+
+func tower_was_placed():
+	$Node2D2.hide()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _Set_placed(flag):
-	placed = flag
-	if placed == true:
-		$Node2D/AnimatedSprite2D.highlighted_tiles = $DisplayRangeComponent.highlighted_tiles
-		$DisplayRangeComponent.ShowPreview = false
-
-func _on_display_range_component_2_ready():
-	pass # Replace with function body.

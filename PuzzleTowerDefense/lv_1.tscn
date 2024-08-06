@@ -458,6 +458,6 @@ script = ExtResource("9_e6oxr")
 torre = ExtResource("3_ks133")
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_fcnse")]
-position = Vector2(173, 157)
+position = Vector2(178, 26)
 
 [connection signal="set_tower" from="CanvasLayer/VBoxContainer/TowerSelecter" to="TileMap" method="_on_tower_selecter_set_tower"]

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://o5vsccqajgle"]
+[gd_scene load_steps=2 format=3 uid="uid://o5vsccqajgle"]
+
+[ext_resource type="Theme" uid="uid://sj2xa0laho02" path="res://Assets/PrototypeUI.tres" id="1_71c1g"]
 
 [node name="LoseScreen" type="Control"]
 layout_mode = 3
@@ -27,8 +29,10 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 499.0
 offset_bottom = 96.0
+scale = Vector2(0.895, 0.895)
 alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/PopupMenu/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_71c1g")
 text = "you lost! "

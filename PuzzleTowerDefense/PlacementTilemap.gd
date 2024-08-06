@@ -10,6 +10,8 @@ var tower_instance: PackedScene = null
 var tower_object: BaseTower = null
 var dragging = false
 
+signal tower_placed
+
 func _ready():
 	set_process_input(true)
 
@@ -36,7 +38,9 @@ func place_tower(mouse_position: Vector2):
 			tilemap.set_cell(0, cell, tower_tile_id)
 			# Reset dragging state
 			dragging = false
+			emit_signal("tower_placed")
 			tower_instance = null
+			
 
 func is_valid_cell(cell: Vector2i) -> bool:
 	return tilemap.get_used_rect().has_point(cell)

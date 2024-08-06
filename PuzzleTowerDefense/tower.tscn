@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=18 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_3virl"]
 [ext_resource type="Script" path="res://Tower.gd" id="1_yf1ib"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Weapon.gd" id="3_f2cvi"]
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet.tscn" id="4_803lw"]
 [ext_resource type="Script" path="res://Area2DColorSwitcher.gd" id="6_x3kul"]
+[ext_resource type="Texture2D" uid="uid://basfufgklaqo7" path="res://TowerRangeSprite.svg" id="7_n32hw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
 atlas = ExtResource("2_pbvbk")
@@ -74,8 +75,8 @@ func _process(_delta):
 	pass
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h2wam"]
-radius = 1463.33
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xg2w"]
+size = Vector2(192, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
 size = Vector2(16, 16)
@@ -108,13 +109,11 @@ script = ExtResource("3_f2cvi")
 Bullet = ExtResource("4_803lw")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 script = SubResource("GDScript_1m634")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 1
-position = Vector2(1, -7)
-shape = SubResource("CircleShape2D_h2wam")
+shape = SubResource("RectangleShape2D_1xg2w")
 
 [node name="FireRate" type="Timer" parent="."]
 autostart = true
@@ -127,6 +126,40 @@ bad_color = Color(0.870588, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorSwitcher"]
 shape = SubResource("RectangleShape2D_tfubh")
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+position = Vector2(64, 0)
+texture = ExtResource("7_n32hw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D2"]
+position = Vector2(64, 64)
+texture = ExtResource("7_n32hw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D2"]
+position = Vector2(0, 64)
+texture = ExtResource("7_n32hw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D2"]
+position = Vector2(-64, 64)
+texture = ExtResource("7_n32hw")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D2"]
+position = Vector2(-64, 0)
+texture = ExtResource("7_n32hw")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D2"]
+position = Vector2(-64, -64)
+texture = ExtResource("7_n32hw")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Node2D2"]
+position = Vector2(0, -64)
+texture = ExtResource("7_n32hw")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Node2D2"]
+position = Vector2(64, -64)
+texture = ExtResource("7_n32hw")
 
 [connection signal="frame_changed" from="Node2D/AnimatedSprite2D" to="Node2D/AnimatedSprite2D" method="_on_frame_changed"]
 [connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]

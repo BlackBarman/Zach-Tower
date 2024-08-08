@@ -35,7 +35,7 @@ func place_tower(mouse_position: Vector2):
 			# Place the tower instance on the ground, removing it from the mouse
 			tower_object.global_position = tilemap.map_to_local(cell)
 			# Update the tilemap to indicate the cell is now occupied
-			tilemap.set_cell(0, cell, tower_tile_id)
+			tilemap.set_cell(1, cell, tower_tile_id)
 			# Reset dragging state
 			dragging = false
 			emit_signal("tower_placed")

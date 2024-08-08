@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomData" load_steps=2 format=3 uid="uid://c8vw34xc41h52"]
+
+[ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="1_q2237"]
+
+[resource]
+script = ExtResource("1_q2237")
+Damage = 5
+Damage_type = "magic"
+fire_rate = 60

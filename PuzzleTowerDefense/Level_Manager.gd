@@ -8,9 +8,8 @@ extends Node
 # spawn rate in seconds
 @export var m_spawnRatio = 1.0
 
-func _SetSpawnPath(a_SpawnPath):
-	$SpawnPath.curve = a_SpawnPath.curve
-	pass
+@export var path : Path2D
+
 
 func _on_enemy_timer_timeout():
 	
@@ -22,9 +21,9 @@ func _on_enemy_timer_timeout():
 
 	# Choose a random location on the SpawnPath.
 	# We store the reference to the SpawnLocation node.
-	var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
+	#var mob_spawn_location = path.cure
 	# And give it a random offset.
-	mob_spawn_location.progress_ratio = randf()
+	#mob_spawn_location.progress_ratio = randf()
 
 	#commented out as they are not doing anything,select and press ctrl+k to uncomment [start]
 	#var player_position = $SpawnPath/SpawnLocation.position
@@ -32,7 +31,7 @@ func _on_enemy_timer_timeout():
 	#commented out as they are not doing anything select and press ctrl+k to uncomment [end]
 	
 	# Spawn the mob by adding it to the Main scene.
-	$SpawnPath.add_child(mob)
+	path.add_child(mob)
 	m_numberEnemies = m_numberEnemies - 1
 
 

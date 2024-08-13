@@ -27,6 +27,7 @@ func _on_area_2d_body_exited(body):
 func _on_fire_rate_timeout():
 	if Targets != []:
 		play("shoot")
+		EndLevelStats.shots_fired +=1
 
 #calls the shoot function on the right frame
 func _on_frame_changed():

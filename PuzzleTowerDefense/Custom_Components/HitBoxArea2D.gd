@@ -8,7 +8,7 @@ extends Area2D
 
 func apply_hit(hurt_box: HurtBoxArea2D) -> void:
 	hurt_box.get_hurt(damage)
-	set_deferred("monitoring", can_hit_multiple)
+	#set_deferred("monitoring", can_hit_multiple)
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is HurtBoxArea2D:

@@ -76,7 +76,7 @@ func _process(_delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xg2w"]
-size = Vector2(858.5, 641)
+size = Vector2(192, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
 size = Vector2(16, 16)
@@ -114,10 +114,7 @@ script = SubResource("GDScript_1m634")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 1
-position = Vector2(2, 30)
 shape = SubResource("RectangleShape2D_1xg2w")
-
-[node name="FireRate" type="Timer" parent="."]
 
 [node name="ColorSwitcher" type="Area2D" parent="." node_paths=PackedStringArray("object_to_modulate")]
 script = ExtResource("6_x3kul")
@@ -166,6 +163,5 @@ texture = ExtResource("7_n32hw")
 [connection signal="frame_changed" from="Node2D/AnimatedSprite2D" to="Node2D/AnimatedSprite2D" method="_on_frame_changed"]
 [connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="FireRate" to="Node2D/AnimatedSprite2D" method="_on_fire_rate_timeout"]
 [connection signal="body_entered" from="ColorSwitcher" to="." method="_on_color_switcher_body_entered"]
 [connection signal="body_exited" from="ColorSwitcher" to="." method="_on_color_switcher_body_exited"]

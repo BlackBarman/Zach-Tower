@@ -9,6 +9,8 @@ var canMoveForward = false
 var targetProgress = 0
 var animationSpeed = 120 #how quickly it moves forward. doesn't influence gameplay
 
+
+
 signal end_Turn
 
 func _process(delta):
@@ -34,4 +36,5 @@ func _move_Forward(delta):
 		progress = targetProgress
 		canMoveForward = false
 		emit_signal("end_Turn")
+		
 		

@@ -11,8 +11,3 @@ script = ExtResource("1_buvmh")
 curve = SubResource("Curve2D_4mphf")
 
 [node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
-
-[node name="EnemyTimer" type="Timer" parent="."]
-
-[connection signal="ready" from="EnemyTimer" to="." method="_on_enemy_timer_ready"]
-[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]

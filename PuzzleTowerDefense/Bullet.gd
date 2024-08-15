@@ -5,6 +5,8 @@ var move = Vector2.ZERO
 var look_vector = Vector2.ZERO
 var target 
 
+signal bulletDie
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if target != null :
@@ -26,13 +28,16 @@ func _process(delta):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	print("this bullet exited the screen so it's going to die")
-	queue_free()
+	_die()
 
 
 
 func _on_hit_box_area_2d_area_entered(area):
 	if area is HurtBoxArea2D:
-		print("this bullet is dying")
-		queue_free()
+		#print("this bullet is dying")
+		_die()
 
-
+func _die():
+	emit_signal("bulletDie")
+	queue_free()
+	

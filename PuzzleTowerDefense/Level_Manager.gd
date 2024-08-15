@@ -41,6 +41,7 @@ func _turn_Start(TurnCounter: int):
 		
 		# Spawn the mob by adding it to the Main scene.
 		$SpawnPath.add_child(mob)
+		
 	
 	m_numberEnemies = m_numberEnemies - SpawnSize
 	if (m_numberEnemies < 0):

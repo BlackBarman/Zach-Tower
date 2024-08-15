@@ -123,15 +123,16 @@ animations = [{
 size = Vector2(52, 32)
 
 [node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
+process_priority = 1
 script = ExtResource("1_fxgi0")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("cara")]
 script = ExtResource("2_k4iqe")
-CurrentHealth = 1
-MaxHealth = 1
+CurrentHealth = 3
+MaxHealth = 3
 cara = NodePath("../CharacterBody2D/AnimatedSprite2D/HurtBoxArea2D")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-0.5, 0)

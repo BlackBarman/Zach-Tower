@@ -25,6 +25,7 @@ func _processTurns():
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
 	for x in EnemyList:
 		await x._execute_Turn()
+		print("a turn happened")
 		#await x.end_Turn
 		
 
@@ -41,7 +42,7 @@ func _processTurns():
 	print("Number of enemies: " , EnemyList.size())
 	var EnemyWaiting = get_tree().get_nodes_in_group("LevelManagerGroup")[0].m_numberEnemies
 	if EnemyList.size() > 0 || EnemyWaiting > 0:
-		#_processTurns()
+		_processTurns()
 		pass
 		#print("enemies still alive")
 	else:
@@ -54,3 +55,4 @@ func _on_start_battle_button_button_down():
 	
 func _on_timer_timeout():
 	_processTurns()
+	

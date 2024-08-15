@@ -15,6 +15,7 @@ Battle"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
 
 [connection signal="button_down" from="StartBattleButton" to="." method="_on_start_battle_button_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

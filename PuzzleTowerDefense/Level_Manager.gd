@@ -33,7 +33,7 @@ func _turn_Start(TurnCounter: int):
 		var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
 		# And give it a random offset.
 		mob_spawn_location.progress_ratio = randf()
-
+		
 		#commented out as they are not doing anything,select and press ctrl+k to uncomment [start]
 		#var player_position = $SpawnPath/SpawnLocation.position
 		#mob.initialize(player_position)

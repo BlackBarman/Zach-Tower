@@ -438,9 +438,8 @@ curve = SubResource("Curve2D_usfwx")
 
 [node name="LevelManager" parent="TileMap/Path2D" instance=ExtResource("2_blneo")]
 position = Vector2(-1, -3)
-m_numberEnemies = 5
+m_numberEnemies = 1
 m_enemyScene = ExtResource("2_fcjva")
-m_spawnRatio = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

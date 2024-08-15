@@ -76,7 +76,7 @@ func _process(_delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xg2w"]
-size = Vector2(858.5, 641)
+size = Vector2(192, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
 size = Vector2(16, 16)
@@ -114,7 +114,6 @@ script = SubResource("GDScript_1m634")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 1
-position = Vector2(2, 30)
 shape = SubResource("RectangleShape2D_1xg2w")
 
 [node name="FireRate" type="Timer" parent="."]

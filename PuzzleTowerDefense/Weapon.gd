@@ -8,10 +8,15 @@ var Targets = []
 var current_enemy = 0
 var can_shoot = false
 
+signal end_Turn
+
+
 func _process(_delta):
 	if Targets != []:
 		current_enemy = Targets[0]
 		$"..".look_at(current_enemy.global_position)
+	
+	#print("targetable enemies: ", Targets.size() )
 
 #populate taget array
 func _on_area_2d_body_entered(body):
@@ -24,9 +29,16 @@ func _on_area_2d_body_exited(body):
 
 #THIS WILL NEED TO BE REFACTORED ONCE WE START TO USE A TURN STRUCTURE 
 # for now it plays the animation once every wait time seconds id we have targets
-func _on_fire_rate_timeout():
+#func _on_fire_rate_timeout():
+	#if Targets != []:
+		#play("shoot")
+		
+func try_Shoot():
 	if Targets != []:
 		play("shoot")
+		
+		
+		
 
 #calls the shoot function on the right frame
 func _on_frame_changed():

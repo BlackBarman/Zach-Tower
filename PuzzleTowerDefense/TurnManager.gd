@@ -25,21 +25,17 @@ func _processTurns():
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
 	for x in EnemyList:
 		await x._execute_Turn()
-		print("a turn happened")
-		#await x.end_Turn
-		
+		#print("enemy acted")
+	
 
 	#Towers always shoot after enemies
 	TowerList.clear()
 	TowerList = get_tree().get_nodes_in_group("TowerGroup")
 	for y in TowerList:
-		#y._execute_Turn()
+		await y._execute_Turn()
 		#print("Tower acts")
-		#EnemyList[0].queue_free()
-		#EnemyList.remove_at(0)
-		pass
 	
-	print("Number of enemies: " , EnemyList.size())
+	
 	var EnemyWaiting = get_tree().get_nodes_in_group("LevelManagerGroup")[0].m_numberEnemies
 	if EnemyList.size() > 0 || EnemyWaiting > 0:
 		_processTurns()

@@ -23,4 +23,6 @@ func _on_color_switcher_body_exited(_body):
 func tower_was_placed():
 	$Node2D2.hide()
 
+func _execute_Turn():
+	await %AnimatedSprite2D.try_Shoot()
 

@@ -84,7 +84,7 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jtg0"]
 size = Vector2(64, 64)
 
-[node name="BaseTower" type="Node2D"]
+[node name="BaseTower" type="Node2D" groups=["TowerGroup"]]
 script = ExtResource("1_1rdya")
 
 [node name="Tower01" type="Sprite2D" parent="."]
@@ -102,6 +102,7 @@ rotation = 1.5708
 gizmo_extents = 171.9
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+unique_name_in_owner = true
 position = Vector2(5.60001, 3.2)
 rotation = 1.5708
 scale = Vector2(0.8, 0.8)

@@ -31,6 +31,7 @@ func _CheckDeath():
 	if(CurrentHealth <= 0):
 		Death.emit()
 		#kill the parent entity
+		print("Enemy killed")
 		get_parent().queue_free()
 
 

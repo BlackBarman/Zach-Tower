@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://TowerSelecter.gd" id="9_e6oxr"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://SacredCrystal.tscn" id="10_fcnse"]
 [ext_resource type="PackedScene" uid="uid://4uoy01ofpsmh" path="res://win_screen.tscn" id="11_raekv"]
+[ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://TurnManager.tscn" id="11_ioab4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btqle"]
 texture = ExtResource("1_jihkt")

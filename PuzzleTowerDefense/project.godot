@@ -23,6 +23,7 @@ aseprite_executable_path="C:/Program Files/Aseprite/Aseprite.exe"
 
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 Popups="*res://Popups.tscn"
+EndLevelStats="*res://Custom_Resources/End_Level_Stats.gd"
 
 [display]
 

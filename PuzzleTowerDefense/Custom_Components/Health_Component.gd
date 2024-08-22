@@ -14,10 +14,7 @@ signal HealthChangeNegative
 func _ready():
 	cara.hit_landed.connect(_Damage)
 	CurrentHealth = MaxHealth
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _Heal(life):
 	CurrentHealth += life

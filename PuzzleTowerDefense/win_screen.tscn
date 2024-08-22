@@ -1,0 +1,141 @@
+[gd_scene load_steps=6 format=3 uid="uid://4uoy01ofpsmh"]
+
+[ext_resource type="Theme" uid="uid://sj2xa0laho02" path="res://Assets/PrototypeUI.tres" id="1_f034r"]
+[ext_resource type="Script" path="res://win_screen.gd" id="1_xg3kv"]
+[ext_resource type="Texture2D" uid="uid://cgel5vqp5rfmi" path="res://Assets/UI/buttonLong_grey_pressed.png" id="3_b1qor"]
+[ext_resource type="Texture2D" uid="uid://bjbr4vk2a5r5s" path="res://Assets/UI/buttonLong_grey.png" id="4_p8bd8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw7mm"]
+texture = ExtResource("3_b1qor")
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xg3kv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1153.0
+offset_bottom = 646.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 36.0
+offset_right = 466.0
+offset_bottom = 95.0
+scale = Vector2(3, 3)
+theme = ExtResource("1_f034r")
+text = "you won!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 213.0
+offset_right = 290.0
+offset_bottom = 263.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ciao"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "shots fired"
+
+[node name="n_shots_fired" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Tower Used"
+
+[node name="n_tower_used" type="Label" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Average dmg per tower"
+
+[node name="avg_dmg_tower" type="Label" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Overkill
+"
+
+[node name="n_overkill" type="Label" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Space used"
+
+[node name="n_space_used" type="Label" parent="VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Money spent"
+
+[node name="n_money_spent" type="Label" parent="VBoxContainer/HBoxContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 479.0
+offset_right = 469.0
+offset_bottom = 536.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aw7mm")
+icon = ExtResource("4_p8bd8")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Button"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = 77.0
+offset_top = 14.0
+offset_right = 112.0
+offset_bottom = 41.0
+text = "retry"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

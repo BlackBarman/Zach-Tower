@@ -1,0 +1,28 @@
+name: Ensure branch is up-to-date with main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v3
+
+    - name: Fetch the latest main branch
+      run: |
+        git fetch origin main
+        git fetch origin ${{ github.ref }}
+
+    - name: Check if the branch is up-to-date with main
+      run: |
+        if ! git merge-base --is-ancestor origin/main ${{ github.ref }}; then
+          echo "Your branch is not up-to-date with the main branch. Please update it before merging."
+          exit 1
+        else
+          echo "Branch is up-to-date with main."
+        fi

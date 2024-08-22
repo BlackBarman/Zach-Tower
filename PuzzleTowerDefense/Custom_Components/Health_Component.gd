@@ -14,7 +14,6 @@ signal HealthChangeNegative
 func _ready():
 	cara.hit_landed.connect(_Damage)
 	CurrentHealth = MaxHealth
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,6 +33,7 @@ func _CheckDeath():
 	if(CurrentHealth <= 0):
 		Death.emit()
 		#kill the parent entity
+		print("Enemy killed")
 		get_parent().queue_free()
 
 

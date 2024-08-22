@@ -35,3 +35,6 @@ func _on_remove_area_mouse_entered():
 
 func _on_remove_area_mouse_exited():
 	hovered = false
+
+func _execute_Turn():
+	await %AnimatedSprite2D.try_Shoot()

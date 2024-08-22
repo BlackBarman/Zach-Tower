@@ -10,7 +10,6 @@ extends Node
 
 @export var path : Path2D
 
-@export var path : Path2D
 
 
 
@@ -36,7 +35,7 @@ func _turn_Start(TurnCounter: int):
 		#commented out as they are not doing anything select and press ctrl+k to uncomment [end]
 
 		# Spawn the mob by adding it to the Main scene.
-		$SpawnPath.add_child(mob)
+		path.add_child(mob)
 
 
 	m_numberEnemies = m_numberEnemies - SpawnSize

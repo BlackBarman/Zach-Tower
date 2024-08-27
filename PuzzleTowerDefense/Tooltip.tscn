@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgkkdiuwuorex"]
+[gd_scene load_steps=3 format=3 uid="uid://pd4tey2j502m"]
 
 [ext_resource type="Script" path="res://Tooltip.gd" id="1_43ifd"]
 [ext_resource type="Resource" uid="uid://c6xsrud72v0hr" path="res://Custom_Resources/Arrow_Tower_Data.tres" id="2_xl11v"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntsr5"]
 
 [node name="Tooltip" type="PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
@@ -14,7 +12,6 @@ offset_right = -1021.0
 offset_bottom = -529.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ntsr5")
 script = ExtResource("1_43ifd")
 data = ExtResource("2_xl11v")
 
@@ -22,7 +19,6 @@ data = ExtResource("2_xl11v")
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 2
 mouse_filter = 1

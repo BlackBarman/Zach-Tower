@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=20 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Script" path="res://tower.gd" id="1_1rdya"]
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_3virl"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet.tscn" id="4_803lw"]
 [ext_resource type="Script" path="res://Area2DColorSwitcher.gd" id="6_x3kul"]
 [ext_resource type="Texture2D" uid="uid://basfufgklaqo7" path="res://TowerRangeSprite.svg" id="7_n32hw"]
+[ext_resource type="PackedScene" uid="uid://pd4tey2j502m" path="res://Tooltip.tscn" id="8_3nly7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
 atlas = ExtResource("2_pbvbk")
@@ -170,6 +171,18 @@ texture = ExtResource("7_n32hw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RemoveArea"]
 shape = SubResource("RectangleShape2D_8jtg0")
 
+[node name="Tooltip" parent="." instance=ExtResource("8_3nly7")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="ActiveTooltip" from="." to="Tooltip" method="_on_base_tower_active_tooltip"]
 [connection signal="frame_changed" from="Node2D/AnimatedSprite2D" to="Node2D/AnimatedSprite2D" method="_on_frame_changed"]
 [connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]

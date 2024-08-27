@@ -1,10 +1,15 @@
 extends Control
 class_name PopupManager
 
+@onready var button = %RemoveButton
+var TooltipTower
 
-func open_popup(slot : Rect2i, data : CustomData):
+func open_popup(slot : Rect2i, data : CustomData, tower : BaseTower): 
 	if data != null:
 		set_data(data)
+	
+	if tower != null:
+		TooltipTower = tower
 	
 	var mouse_pos = get_viewport().get_mouse_position()
 	var correction
@@ -24,3 +29,8 @@ func set_data(data : CustomData):
 	%DamageTypeValue.text = data.Damage_type
 	%DamageValue.text = str(data.Damage)
 	pass
+
+
+func _on_button_pressed():
+	close_popup()
+	pass # Replace with function body.

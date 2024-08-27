@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=23 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Script" path="res://tower.gd" id="1_1rdya"]
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="1_3virl"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://bullet.tscn" id="4_803lw"]
 [ext_resource type="Script" path="res://Area2DColorSwitcher.gd" id="6_x3kul"]
 [ext_resource type="Texture2D" uid="uid://basfufgklaqo7" path="res://TowerRangeSprite.svg" id="7_n32hw"]
+[ext_resource type="Script" path="res://Tooltip.gd" id="8_tlj0u"]
+[ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="9_to2qu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
 atlas = ExtResource("2_pbvbk")
@@ -85,6 +87,15 @@ size = Vector2(16, 16)
 size = Vector2(64, 64)
 
 [node name="BaseTower" type="Node2D" groups=["TowerGroup"]]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efvrl"]
+
+[sub_resource type="Resource" id="Resource_i1jbl"]
+script = ExtResource("9_to2qu")
+Damage = 0
+Damage_type = "Fire"
+fire_rate = 0
+
+[node name="BaseTower" type="Node2D"]
 script = ExtResource("1_1rdya")
 
 [node name="Tower01" type="Sprite2D" parent="."]
@@ -170,6 +181,16 @@ texture = ExtResource("7_n32hw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RemoveArea"]
 shape = SubResource("RectangleShape2D_8jtg0")
 
+[node name="Tooltip" type="PanelContainer" parent="."]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_efvrl")
+script = ExtResource("8_tlj0u")
+data = SubResource("Resource_i1jbl")
+
+[connection signal="ActiveTooltip" from="." to="Tooltip" method="_on_base_tower_active_tooltip"]
 [connection signal="frame_changed" from="Node2D/AnimatedSprite2D" to="Node2D/AnimatedSprite2D" method="_on_frame_changed"]
 [connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]
@@ -180,3 +201,7 @@ shape = SubResource("RectangleShape2D_8jtg0")
 [connection signal="body_exited" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_exited"]
 [connection signal="mouse_entered" from="RemoveArea" to="." method="_on_remove_area_mouse_entered"]
 [connection signal="mouse_exited" from="RemoveArea" to="." method="_on_remove_area_mouse_exited"]
+[connection signal="buttonsSignal" from="Tooltip" to="." method="_on_tooltip_buttons_signal"]
+[connection signal="mouse_entered" from="Tooltip" to="." method="_on_tooltip_mouse_entered"]
+[connection signal="mouse_entered" from="Tooltip" to="Tooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Tooltip" to="Tooltip" method="_on_mouse_exited"]

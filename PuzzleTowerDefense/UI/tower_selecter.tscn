@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd322nyqbfnfm"]
+
+[ext_resource type="Texture2D" uid="uid://c8o6sa4qly3sh" path="res://icon.svg" id="1_sqoby"]
+[ext_resource type="Script" path="res://UI/TowerSelecter.gd" id="2_cmf0w"]
+[ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="3_1887t"]
+
+[node name="TowerSelecter" type="TextureRect"]
+tooltip_text = "hello there i am a tooltip
+"
+texture = ExtResource("1_sqoby")
+script = ExtResource("2_cmf0w")
+torre = ExtResource("3_1887t")

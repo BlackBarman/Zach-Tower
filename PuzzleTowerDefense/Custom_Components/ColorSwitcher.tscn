@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxgt7uy5lugeg"]
 
-[ext_resource type="Script" path="res://Area2DColorSwitcher.gd" id="1_wd7wg"]
+[ext_resource type="Script" path="res://Custom_Components/ColorSwitcher.gd" id="1_wd7wg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
 size = Vector2(64, 64)

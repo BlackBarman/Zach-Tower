@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://byadjp7vfsvd"]
-
-[ext_resource type="Script" path="res://TurnObject.gd" id="1_ms46b"]
-
-[node name="TurnObject" type="Node2D"]
-script = ExtResource("1_ms46b")

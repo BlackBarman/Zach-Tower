@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PuzzleTowerDefense"
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://Levels/Screens/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,7 +22,7 @@ aseprite_executable_path="C:/Program Files/Aseprite/Aseprite.exe"
 [autoload]
 
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
-Popups="*res://Popups.tscn"
+Popups="*res://Globals/Popups.tscn"
 EndLevelStats="*res://Custom_Resources/End_Level_Stats.gd"
 
 [display]
@@ -32,6 +32,10 @@ window/stretch/mode="viewport"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [github_to_itch]
 

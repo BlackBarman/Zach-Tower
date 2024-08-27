@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://ckfd2o0q75ane"]
+
+[ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="1_twlct"]
+[ext_resource type="Script" path="res://Custom_Components/Weapon.gd" id="2_0u0cj"]
+[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Entities/Bullets/bullet.tscn" id="3_nnjhi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
+atlas = ExtResource("1_twlct")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa6v0"]
+atlas = ExtResource("1_twlct")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tclcm"]
+atlas = ExtResource("1_twlct")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3isje"]
+atlas = ExtResource("1_twlct")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d4ln"]
+atlas = ExtResource("1_twlct")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxc7v"]
+atlas = ExtResource("1_twlct")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jexbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlcti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa6v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tclcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3isje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d4ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxc7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlcti")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="Weapon" type="Node2D"]
+position = Vector2(-1, -44)
+scale = Vector2(1.25, 1.25)
+script = ExtResource("2_0u0cj")
+Bullet = ExtResource("3_nnjhi")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(55.2, 2.40018)
+rotation = 1.5708
+gizmo_extents = 171.9
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(5.60001, 3.2)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_jexbr")
+animation = &"shoot"
+frame_progress = 0.486543
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

@@ -1,66 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=11 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Script" path="res://Entities/Towers/Tower.gd" id="1_2w4ih"]
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="2_h50g1"]
-[ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="3_2bhgi"]
-[ext_resource type="Script" path="res://Custom_Components/Weapon.gd" id="4_p26lj"]
-[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Entities/Bullets/bullet.tscn" id="5_uodv7"]
+[ext_resource type="PackedScene" uid="uid://ckfd2o0q75ane" path="res://Custom_Components/Weapon.tscn" id="3_7dj84"]
 [ext_resource type="Script" path="res://Custom_Components/ColorSwitcher.gd" id="6_uyecy"]
 [ext_resource type="Texture2D" uid="uid://basfufgklaqo7" path="res://Assets/UI_assets/TowerRangeSprite.svg" id="7_5ix53"]
 [ext_resource type="PackedScene" uid="uid://pd4tey2j502m" path="res://UI/Tooltip.tscn" id="8_s1rbk"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
-atlas = ExtResource("3_2bhgi")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xa6v0"]
-atlas = ExtResource("3_2bhgi")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tclcm"]
-atlas = ExtResource("3_2bhgi")
-region = Rect2(192, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3isje"]
-atlas = ExtResource("3_2bhgi")
-region = Rect2(288, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8d4ln"]
-atlas = ExtResource("3_2bhgi")
-region = Rect2(384, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxc7v"]
-atlas = ExtResource("3_2bhgi")
-region = Rect2(480, 0, 96, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jexbr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rlcti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xa6v0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tclcm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3isje")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8d4ln")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gxc7v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rlcti")
-}],
-"loop": false,
-"name": &"shoot",
-"speed": 5.0
-}]
 
 [sub_resource type="GDScript" id="GDScript_1m634"]
 script/source = "extends Area2D
@@ -93,25 +38,7 @@ position = Vector2(0, -32)
 texture = ExtResource("2_h50g1")
 hframes = 3
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-1, -44)
-scale = Vector2(1.25, 1.25)
-
-[node name="Marker2D" type="Marker2D" parent="Node2D"]
-position = Vector2(55.2, 2.40018)
-rotation = 1.5708
-gizmo_extents = 171.9
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
-unique_name_in_owner = true
-position = Vector2(5.60001, 3.2)
-rotation = 1.5708
-scale = Vector2(0.8, 0.8)
-sprite_frames = SubResource("SpriteFrames_jexbr")
-animation = &"shoot"
-frame_progress = 0.486543
-script = ExtResource("4_p26lj")
-Bullet = ExtResource("5_uodv7")
+[node name="Weapon" parent="." instance=ExtResource("3_7dj84")]
 
 [node name="Area2D" type="Area2D" parent="."]
 script = SubResource("GDScript_1m634")
@@ -183,10 +110,8 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [connection signal="ActiveTooltip" from="." to="Tooltip" method="_on_base_tower_active_tooltip"]
-[connection signal="frame_changed" from="Node2D/AnimatedSprite2D" to="Node2D/AnimatedSprite2D" method="_on_frame_changed"]
-[connection signal="body_entered" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Node2D/AnimatedSprite2D" method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="FireRate" to="Node2D/AnimatedSprite2D" method="_on_fire_rate_timeout"]
+[connection signal="body_entered" from="Area2D" to="Weapon" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Weapon" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="ColorSwitcher" to="." method="_on_color_switcher_body_entered"]
 [connection signal="body_entered" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_entered"]
 [connection signal="body_exited" from="ColorSwitcher" to="." method="_on_color_switcher_body_exited"]

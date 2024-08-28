@@ -24,7 +24,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	print("this bullet exited the screen so it's going to die")
 	_die()
 
-
+ 
 
 func _on_hit_box_area_2d_area_entered(area):
 	if area is HurtBoxArea2D:

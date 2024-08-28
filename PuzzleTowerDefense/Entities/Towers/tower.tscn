@@ -1,28 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=9 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Script" path="res://Entities/Towers/Tower.gd" id="1_2w4ih"]
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="2_h50g1"]
 [ext_resource type="PackedScene" uid="uid://ckfd2o0q75ane" path="res://Custom_Components/Weapon.tscn" id="3_7dj84"]
+[ext_resource type="PackedScene" uid="uid://cvwnt3yq2awxq" path="res://AttackRangeComponent.tscn" id="6_fvj14"]
 [ext_resource type="Script" path="res://Custom_Components/ColorSwitcher.gd" id="6_uyecy"]
-[ext_resource type="Texture2D" uid="uid://basfufgklaqo7" path="res://Assets/UI_assets/TowerRangeSprite.svg" id="7_5ix53"]
 [ext_resource type="PackedScene" uid="uid://pd4tey2j502m" path="res://UI/Tooltip.tscn" id="8_s1rbk"]
-
-[sub_resource type="GDScript" id="GDScript_1m634"]
-script/source = "extends Area2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xg2w"]
-size = Vector2(192, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
 size = Vector2(16, 16)
@@ -33,19 +16,14 @@ size = Vector2(64, 64)
 [node name="BaseTower" type="Node2D" groups=["TowerGroup"]]
 script = ExtResource("1_2w4ih")
 
+[node name="Area2D" parent="." instance=ExtResource("6_fvj14")]
+
 [node name="Tower01" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
 texture = ExtResource("2_h50g1")
 hframes = 3
 
 [node name="Weapon" parent="." instance=ExtResource("3_7dj84")]
-
-[node name="Area2D" type="Area2D" parent="."]
-script = SubResource("GDScript_1m634")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-z_index = 1
-shape = SubResource("RectangleShape2D_1xg2w")
 
 [node name="FireRate" type="Timer" parent="."]
 autostart = true
@@ -58,40 +36,6 @@ bad_color = Color(0.870588, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorSwitcher"]
 shape = SubResource("RectangleShape2D_tfubh")
-
-[node name="Node2D2" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
-position = Vector2(64, 0)
-texture = ExtResource("7_5ix53")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D2"]
-position = Vector2(64, 64)
-texture = ExtResource("7_5ix53")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Node2D2"]
-position = Vector2(0, 64)
-texture = ExtResource("7_5ix53")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Node2D2"]
-position = Vector2(-64, 64)
-texture = ExtResource("7_5ix53")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Node2D2"]
-position = Vector2(-64, 0)
-texture = ExtResource("7_5ix53")
-
-[node name="Sprite2D6" type="Sprite2D" parent="Node2D2"]
-position = Vector2(-64, -64)
-texture = ExtResource("7_5ix53")
-
-[node name="Sprite2D7" type="Sprite2D" parent="Node2D2"]
-position = Vector2(0, -64)
-texture = ExtResource("7_5ix53")
-
-[node name="Sprite2D8" type="Sprite2D" parent="Node2D2"]
-position = Vector2(64, -64)
-texture = ExtResource("7_5ix53")
 
 [node name="RemoveArea" type="Area2D" parent="."]
 
@@ -110,8 +54,6 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [connection signal="ActiveTooltip" from="." to="Tooltip" method="_on_base_tower_active_tooltip"]
-[connection signal="body_entered" from="Area2D" to="Weapon" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Weapon" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="ColorSwitcher" to="." method="_on_color_switcher_body_entered"]
 [connection signal="body_entered" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_entered"]
 [connection signal="body_exited" from="ColorSwitcher" to="." method="_on_color_switcher_body_exited"]

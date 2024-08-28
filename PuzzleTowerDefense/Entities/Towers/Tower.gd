@@ -26,7 +26,7 @@ func _on_color_switcher_body_exited(_body):
 	can_be_placed = true
 
 func tower_was_placed():
-	$Node2D2.hide()
+	%AttackRange.hide()
 	emit_signal("ActiveTooltip")
 
 func _input(event):

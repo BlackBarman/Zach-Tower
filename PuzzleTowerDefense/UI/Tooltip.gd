@@ -1,6 +1,10 @@
 extends PanelContainer
 class_name Tooltip
 
+#TODO make so that this doesn't hold the TowerData itself as 
+# later in the project the base tower will have it as well and we don't want to
+# have duplicate data
+
 @export var data : CustomData 
 
 var popup

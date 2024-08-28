@@ -17,17 +17,7 @@ func _process(_delta):
 	if Targets != [] :
 		current_enemy = Targets[0]
 		%AnimatedSprite2D.look_at(current_enemy.global_position)
-	#elif Targets[0]== null:
-		#for i in Targets:
-			#if i != null:
-				#current_enemy = i
-				#break
 
-	#print("targetable enemies: ", Targets.size() )
-
-
-#THIS WILL NEED TO BE REFACTORED ONCE WE START TO USE A TURN STRUCTURE 
-# for now it plays the animation once every wait time seconds id we have targets
 func try_Shoot():
 	if Targets != []:
 		print("can shoot")
@@ -36,38 +26,20 @@ func try_Shoot():
 		EndLevelStats.shots_fired +=1
 		await end_Turn
 
-
-
-
-
 #shoots the actual bullet
 func shoot():
 	var b= Bullet.instantiate()
+	
 	b.global_position = $Marker2D.position
-	#array_is_all_okay()
 	b.set_target(current_enemy)
 	get_parent().add_child(b)
 	
-	can_shoot = false # boolean is useless
+	can_shoot = false # boolean is useless now that we use the turn manager
 	await b.bulletDie
 	emit_signal("end_Turn")
 
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("EnemyCollisionsGroup"):
-		Targets.append(body)
-
-
-func _on_area_2d_body_exited(body):
-	Targets.erase(body)
-
-
-#func array_is_all_okay():
-	#for i in Targets:
-		#if i == null:
-			#Targets.erase(i)
-	#current_enemy = Targets[0]
-
-
+#fires the shoot function at the exact frame of the animation
+#remeber to set the shooting_frame in the inspector
 func _on_animated_sprite_2d_frame_changed():
 	if current_frame == 6:
 		current_frame = 0
@@ -75,5 +47,15 @@ func _on_animated_sprite_2d_frame_changed():
 		current_frame +=1
 	if current_frame == shooting_frame:
 		shoot()
-		debug_n_times_shot += 1
-	pass # Replace with function body.
+		debug_n_times_shot += 1    
+		#TODO See if debug_n_times_shot is used in other places as well,
+		#after all we do want a variable that tracks 
+		#how many times the tower shot
+
+
+func _on_attack_range_body_entered(body):
+	if body.is_in_group("EnemyCollisionsGroup"):
+		Targets.append(body)
+
+func _on_attack_range_body_exited(body):
+	Targets.erase(body)

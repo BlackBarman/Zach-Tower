@@ -16,7 +16,9 @@ size = Vector2(64, 64)
 [node name="BaseTower" type="Node2D" groups=["TowerGroup"]]
 script = ExtResource("1_2w4ih")
 
-[node name="Area2D" parent="." instance=ExtResource("6_fvj14")]
+[node name="AttackRange" parent="." instance=ExtResource("6_fvj14")]
+unique_name_in_owner = true
+position = Vector2(0, 0)
 
 [node name="Tower01" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
@@ -54,6 +56,8 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [connection signal="ActiveTooltip" from="." to="Tooltip" method="_on_base_tower_active_tooltip"]
+[connection signal="body_entered" from="AttackRange" to="Weapon" method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="Weapon" method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="ColorSwitcher" to="." method="_on_color_switcher_body_entered"]
 [connection signal="body_entered" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_entered"]
 [connection signal="body_exited" from="ColorSwitcher" to="." method="_on_color_switcher_body_exited"]

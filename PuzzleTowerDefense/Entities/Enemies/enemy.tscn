@@ -152,4 +152,5 @@ modulate = Color(50.811, 27.568, 0.842, 1)
 position = Vector2(65, 32)
 shape = SubResource("RectangleShape2D_3vqku")
 
+[connection signal="Death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="hit_landed" from="CharacterBody2D/AnimatedSprite2D/HurtBoxArea2D" to="HealthComponent" method="_on_hurt_box_area_2d_hit_landed"]

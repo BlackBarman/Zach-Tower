@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://b67loncmq0dg1"]
+
+[ext_resource type="Script" path="res://Systems/AudioManager.gd" id="1_pvb6x"]
+[ext_resource type="AudioStream" uid="uid://cit0yudnrxt5" path="res://Assets/Audio/BuildTower.mp3" id="2_3dgvk"]
+[ext_resource type="AudioStream" uid="uid://bg1vpxup20cas" path="res://Assets/Audio/SelectTower.mp3" id="3_h4c5h"]
+[ext_resource type="AudioStream" uid="uid://cu0rnjy0t7ao5" path="res://Assets/Audio/ShootArrow.mp3" id="4_o7imw"]
+[ext_resource type="AudioStream" uid="uid://bevkmp3moeb6d" path="res://Assets/Audio/Lose.mp3" id="5_ikb8g"]
+[ext_resource type="AudioStream" uid="uid://bmkqoq2igkosi" path="res://Assets/Audio/DestroyTower.mp3" id="5_r2fgm"]
+[ext_resource type="AudioStream" uid="uid://ckjnjqc3ayvvj" path="res://Assets/Audio/EnemyMove2.mp3" id="7_thw6a"]
+[ext_resource type="AudioStream" uid="uid://bkfjdjqe00h80" path="res://Assets/Audio/EnemyDeath.mp3" id="8_2wfae"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_pvb6x")
+
+[node name="TowerSound" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="EnemySound" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="UISound" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="LevelSound" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="BuildTower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3dgvk")
+volume_db = 10.0
+
+[node name="SelectTower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h4c5h")
+
+[node name="ShootArrow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_o7imw")
+volume_db = -10.0
+
+[node name="Lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ikb8g")
+
+[node name="DestroyTower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_r2fgm")
+volume_db = -10.0
+
+[node name="EnemyMove" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_thw6a")
+volume_db = -25.0
+pitch_scale = 1.2
+
+[node name="EnemyDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2wfae")
+volume_db = 10.0
+pitch_scale = 1.75

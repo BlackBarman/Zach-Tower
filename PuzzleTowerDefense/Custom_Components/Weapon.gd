@@ -9,7 +9,7 @@ var current_enemy = 0
 var can_shoot = false
 var debug_n_times_shot = 0
 
-@onready var ShootArrow = $ShootArrow
+
 
 signal end_Turn
 
@@ -35,7 +35,7 @@ func shoot():
 	b.global_position = $Marker2D.position
 	b.set_target(current_enemy)
 	get_parent().add_child(b)
-	ShootArrow.play()
+	AudioManager.ShootArrow.play()
 	can_shoot = false # boolean is useless now that we use the turn manager
 	await b.bulletDie
 	emit_signal("end_Turn")

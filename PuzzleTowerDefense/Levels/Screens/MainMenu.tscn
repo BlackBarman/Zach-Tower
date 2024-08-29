@@ -47,3 +47,5 @@ item_2/text = "Options"
 item_2/disabled = true
 item_3/text = "Quit"
 script = ExtResource("4_vnc3q")
+
+[connection signal="item_rect_changed" from="ItemList" to="ItemList" method="_on_item_rect_changed"]

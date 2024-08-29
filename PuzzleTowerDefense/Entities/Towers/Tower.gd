@@ -15,7 +15,6 @@ enum State {
 
 @onready var RemoveButton = Popups.button
 
-@onready var BuildTower = $BuildTower
 
 func _ready():
 	tilemap.tower_placed.connect(tower_was_placed)

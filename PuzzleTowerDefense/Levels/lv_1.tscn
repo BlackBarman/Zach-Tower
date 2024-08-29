@@ -38,3 +38,4 @@ m_enemyScene = ExtResource("6_0cg7k")
 path = NodePath("../Path2D")
 
 [connection signal="child_exiting_tree" from="." to="SacredCrystal" method="_on_lv_1_child_exiting_tree"]
+[connection signal="set_tower" from="CanvasLayer/TowersArray" to="TileMap" method="_on_towers_array_set_tower"]

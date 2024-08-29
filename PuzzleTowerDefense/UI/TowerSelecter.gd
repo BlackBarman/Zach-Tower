@@ -12,7 +12,16 @@ func _ready():
 	
 
 func _set_tower_slots():
+	var index = 0
 	for i in torri:
 		var towerSlot = tower_slot.instantiate()
 		add_child(towerSlot)
-		towerSlot.torre = i
+		towerSlot.index = index
+		var tempTower = i.instantiate()
+		towerSlot._set_preview_image(tempTower.previewImage)
+		tempTower.queue_free()
+		index += 1
+
+func _set_tower(index : int):
+	var tower = torri[index]
+	emit_signal("set_tower",tower)

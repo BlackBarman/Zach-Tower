@@ -51,5 +51,6 @@ func _set_tower(tower):
 	add_child(tower_object)
 	dragging = true
 
-func _on_tower_selecter_set_tower(tower):
+
+func _on_towers_array_set_tower(tower):
 	_set_tower(tower)

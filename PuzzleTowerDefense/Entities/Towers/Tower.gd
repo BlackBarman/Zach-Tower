@@ -10,6 +10,7 @@ enum State {
 	Placed, 
 	Dragged,
 }
+@export var previewImage : Texture2D
 
 @onready var tilemap : PlacementTilemap = get_parent()
 

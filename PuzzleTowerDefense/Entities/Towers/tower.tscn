@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=21 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Script" path="res://Entities/Towers/Tower.gd" id="1_2w4ih"]
+[ext_resource type="Texture2D" uid="uid://bkpbdj1yp3emh" path="res://Assets/UI_assets/Icons/Tower01Icon.png" id="2_5mhty"]
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="2_h50g1"]
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="3_2bhgi"]
 [ext_resource type="Script" path="res://Custom_Components/Weapon.gd" id="4_p26lj"]
@@ -87,6 +88,7 @@ size = Vector2(64, 64)
 
 [node name="BaseTower" type="Node2D" groups=["TowerGroup"]]
 script = ExtResource("1_2w4ih")
+previewImage = ExtResource("2_5mhty")
 
 [node name="Tower01" type="Sprite2D" parent="."]
 position = Vector2(0, -32)

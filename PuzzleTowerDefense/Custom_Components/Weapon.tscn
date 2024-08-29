@@ -80,5 +80,6 @@ frame_progress = 0.486543
 
 [node name="ShootArrow" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vd3a8")
+volume_db = -10.0
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

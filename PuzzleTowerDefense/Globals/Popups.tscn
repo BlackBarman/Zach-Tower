@@ -88,6 +88,6 @@ text = "Remove Tower"
 
 [node name="DestroyTower" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ulwus")
-volume_db = 10.331
+volume_db = -10.0
 
 [connection signal="pressed" from="UI/ItemPopup/VBoxContainer/HBoxContainer3/RemoveButton" to="." method="_on_button_pressed"]

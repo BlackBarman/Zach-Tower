@@ -58,7 +58,7 @@ grow_vertical = 1
 
 [node name="BuildTower" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_8q8nr")
-volume_db = 10.331
+volume_db = 10.0
 
 [connection signal="ActiveTooltip" from="." to="Tooltip" method="_on_base_tower_active_tooltip"]
 [connection signal="body_entered" from="AttackRange" to="Weapon" method="_on_attack_range_body_entered"]

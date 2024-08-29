@@ -3,7 +3,8 @@ var speed = 100
 var move = Vector2.ZERO
 var look_vector = Vector2.ZERO
 var target
-
+var current_animation = ""
+@export var projectile_speed = 100
 signal bulletDie
 
 #TODO change bullet animation based on the weapon, using a dictionary
@@ -22,7 +23,9 @@ func set_target(enemy):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	move = move.move_toward(look_vector, delta)
+	if current_animation == "arrow_impact":
+		return
+	move = move.move_toward(look_vector, delta * projectile_speed)
 	move = move.normalized()
 	global_position += move
 
@@ -32,10 +35,22 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_hit_box_area_2d_area_entered(area):
 	if area is HurtBoxArea2D:
-		$AnimatedSprite2D.play("arrow_impact")
+		play_animation("arrow_impact")
+		#$AnimatedSprite2D.play("arrow_impact")
 		#print("this bullet is dying")
-		_die()
+
+func play_animation(animation_name: String):
+	current_animation = animation_name
+	$AnimatedSprite2D.play(animation_name)
+
 
 func _die():
 	emit_signal("bulletDie")
 	queue_free()
+
+func _on_animated_sprite_2d_animation_finished():
+	print("ciao")
+	# Only call _die if the impact animation has finished
+	if current_animation == "arrow_impact":
+		_die()
+

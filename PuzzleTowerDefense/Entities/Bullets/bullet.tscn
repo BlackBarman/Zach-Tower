@@ -432,9 +432,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i2sfc")
 }],
-"loop": true,
+"loop": false,
 "name": &"arrow_impact",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -493,7 +493,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4iyob")
 }],
-"loop": true,
+"loop": false,
 "name": &"cannonball_impact",
 "speed": 5.0
 }, {
@@ -548,7 +548,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2o8g2")
 }],
-"loop": true,
+"loop": false,
 "name": &"catapultstone_impact",
 "speed": 5.0
 }, {
@@ -588,7 +588,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h14k6")
 }],
-"loop": true,
+"loop": false,
 "name": &"goldenarrow_impact",
 "speed": 5.0
 }, {
@@ -634,7 +634,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xe5oa")
 }],
-"loop": true,
+"loop": false,
 "name": &"slingstone_impact",
 "speed": 5.0
 }, {
@@ -674,7 +674,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bwo03")
 }],
-"loop": true,
+"loop": false,
 "name": &"spark_impact",
 "speed": 5.0
 }, {
@@ -750,7 +750,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d51od")
 }],
-"loop": true,
+"loop": false,
 "name": &"spinner_impact",
 "speed": 5.0
 }]
@@ -765,7 +765,6 @@ script = ExtResource("1_kf1tf")
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_bc5wt")
 animation = &"arrow_impact"
-frame_progress = 0.152378
 
 [node name="HitBoxArea2D" type="Area2D" parent="."]
 script = ExtResource("3_yypuh")
@@ -777,6 +776,7 @@ shape = SubResource("RectangleShape2D_3xs47")
 position = Vector2(-0.499999, 0)
 scale = Vector2(2.05, 1)
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="HitBoxArea2D" to="." method="_on_hit_box_area_2d_area_entered"]
 [connection signal="area_entered" from="HitBoxArea2D" to="HitBoxArea2D" method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

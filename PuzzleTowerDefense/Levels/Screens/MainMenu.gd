@@ -14,7 +14,7 @@ func _process(_delta):
 		if PressAnyButtonTemp and PressAnyButtonTemp.get_parent() == self:
 			remove_child(PressAnyButtonTemp)
 		ButtonList.show()
-		
+
 
 #an alternative that doen't uses the _process function
 # Called whenever an input event is received.

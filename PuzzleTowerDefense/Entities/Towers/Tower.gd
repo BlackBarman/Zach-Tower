@@ -7,7 +7,7 @@ var hovered :bool = false
 var can_be_placed :bool = false
 var placed : bool = true
 enum State {
-	Placed, 
+	Placed,
 	Dragged,
 }
 @export var previewImage : Texture2D
@@ -19,7 +19,7 @@ enum State {
 func _ready():
 	tilemap.tower_placed.connect(tower_was_placed)
 	RemoveButton.pressed.connect(_remove_tower)
-	
+
 func _on_color_switcher_body_entered(_body):
 	can_be_placed = false
 
@@ -27,7 +27,7 @@ func _on_color_switcher_body_exited(_body):
 	can_be_placed = true
 
 func tower_was_placed():
-	$Node2D2.hide()
+	%AttackRange.hide()
 	emit_signal("ActiveTooltip")
 
 func _input(event):
@@ -43,7 +43,7 @@ func _on_remove_area_mouse_exited():
 	hovered = false
 
 func _execute_Turn():
-	await %AnimatedSprite2D.try_Shoot()
+	await $Weapon.try_Shoot()
 
 
 func _remove_tower():

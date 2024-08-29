@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckfd2o0q75ane"]
+[gd_scene load_steps=12 format=3 uid="uid://ckfd2o0q75ane"]
 
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="1_twlct"]
 [ext_resource type="Script" path="res://Custom_Components/Weapon.gd" id="2_0u0cj"]
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Entities/Bullets/bullet.tscn" id="3_nnjhi"]
+[ext_resource type="AudioStream" uid="uid://cu0rnjy0t7ao5" path="res://Assets/Audio/ShootArrow.mp3" id="4_vd3a8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlcti"]
 atlas = ExtResource("1_twlct")
@@ -76,5 +77,8 @@ scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jexbr")
 animation = &"shoot"
 frame_progress = 0.486543
+
+[node name="ShootArrow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vd3a8")
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

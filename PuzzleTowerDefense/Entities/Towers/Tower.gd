@@ -15,6 +15,8 @@ enum State {
 
 @onready var RemoveButton = Popups.button
 
+@onready var BuildTower = $BuildTower
+
 func _ready():
 	tilemap.tower_placed.connect(tower_was_placed)
 	RemoveButton.pressed.connect(_remove_tower)
@@ -28,6 +30,7 @@ func _on_color_switcher_body_exited(_body):
 func tower_was_placed():
 	%AttackRange.hide()
 	emit_signal("ActiveTooltip")
+	BuildTower.play()
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT and hovered:

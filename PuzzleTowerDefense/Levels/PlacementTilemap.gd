@@ -49,6 +49,7 @@ func _set_tower(tower):
 	tower_instance = tower
 	tower_object = tower_instance.instantiate()
 	add_child(tower_object)
+	#tower_object.towerdata
 	dragging = true
 
 

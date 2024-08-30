@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://pd4tey2j502m"]
 
 [ext_resource type="Script" path="res://UI/Tooltip.gd" id="1_43ifd"]
-[ext_resource type="Resource" uid="uid://c6xsrud72v0hr" path="res://Custom_Resources/Arrow_Tower_Data.tres" id="2_xl11v"]
+[ext_resource type="Resource" uid="uid://c6xsrud72v0hr" path="res://Custom_Resources/Ballista_Tower_Data.tres" id="2_xl11v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntsr5"]
 

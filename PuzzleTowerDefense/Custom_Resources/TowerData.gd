@@ -23,7 +23,7 @@ class_name CustomData
 @export var Damage_type : String
 @export_enum("FAST:1", "SLOW:2","VERY SLOW:60") var fire_rate : int 
 
-
+@export var previewImage : Texture2D
 
 
 

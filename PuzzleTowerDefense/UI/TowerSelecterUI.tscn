@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cto0im2mdxsjj"]
+[gd_scene load_steps=5 format=3 uid="uid://cto0im2mdxsjj"]
 
 [ext_resource type="Script" path="res://UI/TowerSelecter.gd" id="1_po27c"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_qyqpu"]
+[ext_resource type="Resource" uid="uid://c6xsrud72v0hr" path="res://Custom_Resources/Arrow_Tower_Data.tres" id="3_uyny0"]
 [ext_resource type="PackedScene" uid="uid://cpy2i1sfi5ae4" path="res://UI/tower_slot.tscn" id="3_xxn01"]
 
 [node name="TowersArray" type="HBoxContainer"]
@@ -17,4 +18,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_po27c")
 torri = Array[PackedScene]([ExtResource("2_qyqpu")])
+towers = Array[Resource("res://Custom_Resources/TowerData.gd")]([ExtResource("3_uyny0")])
 tower_slot = ExtResource("3_xxn01")

@@ -13,6 +13,7 @@ var debug_n_times_shot = 0
 
 signal end_Turn
 
+#TODO change weapon base on tower data
 
 func _process(_delta):
 	#print(str(is_playing())
@@ -24,18 +25,19 @@ func try_Shoot():
 	if Targets != []:
 		print("can shoot")
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
-		%AnimatedSprite2D.play("shoot")
+		%AnimatedSprite2D.play("ballista")
 		EndLevelStats.shots_fired +=1
 		await end_Turn
 
 #shoots the actual bullet
 func shoot():
 	var b= Bullet.instantiate()
-	
+
 	b.global_position = $Marker2D.position
 	b.set_target(current_enemy)
 	get_parent().add_child(b)
 	AudioManager.ShootArrow.play()
+
 	can_shoot = false # boolean is useless now that we use the turn manager
 	await b.bulletDie
 	emit_signal("end_Turn")
@@ -49,9 +51,9 @@ func _on_animated_sprite_2d_frame_changed():
 		current_frame +=1
 	if current_frame == shooting_frame:
 		shoot()
-		debug_n_times_shot += 1    
+		debug_n_times_shot += 1
 		#TODO See if debug_n_times_shot is used in other places as well,
-		#after all we do want a variable that tracks 
+		#after all we do want a variable that tracks
 		#how many times the tower shot
 
 

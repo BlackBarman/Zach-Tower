@@ -7,9 +7,10 @@ var hovered :bool = false
 var can_be_placed :bool = false
 var placed : bool = true
 enum State {
-	Placed, 
+	Placed,
 	Dragged,
 }
+@export var previewImage : Texture2D
 
 @onready var tilemap : PlacementTilemap = get_parent()
 
@@ -19,7 +20,7 @@ enum State {
 func _ready():
 	tilemap.tower_placed.connect(tower_was_placed)
 	RemoveButton.pressed.connect(_remove_tower)
-	
+
 func _on_color_switcher_body_entered(_body):
 	can_be_placed = false
 

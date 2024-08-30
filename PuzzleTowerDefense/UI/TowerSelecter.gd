@@ -1,22 +1,27 @@
-extends TextureRect
+extends HBoxContainer
 class_name TowerSelecter
 
-@export var torre : PackedScene
+@export var torri : Array[PackedScene] 
+@export var tower_slot : PackedScene
 @onready var turnManager = get_tree().get_nodes_in_group("TurnManagerGroup")[0]
 signal set_tower
 
 func _ready():
-	#sick of forgetting to do that manually via the editor every single time
-	connect("gui_input",_on_gui_input) 
+	size.x = size.x * torri.size()
+	_set_tower_slots()
 	
 
-func _on_gui_input(event):
+func _set_tower_slots():
+	var index = 0
+	for i in torri:
+		var towerSlot = tower_slot.instantiate()
+		add_child(towerSlot)
+		towerSlot.index = index
+		var tempTower = i.instantiate()
+		towerSlot._set_preview_image(tempTower.previewImage)
+		tempTower.queue_free()
+		index += 1
 
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if turnManager.BattleStarted == true:
-			return
-		if event.pressed:
-			emit_signal("set_tower",torre)
-			
-
-
+func _set_tower(index : int):
+	var tower = torri[index]
+	emit_signal("set_tower",tower)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=10 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Script" path="res://Entities/Towers/Tower.gd" id="1_2w4ih"]
+[ext_resource type="Texture2D" uid="uid://bkpbdj1yp3emh" path="res://Assets/UI_assets/Icons/Tower01Icon.png" id="2_5mhty"]
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="2_h50g1"]
 [ext_resource type="PackedScene" uid="uid://ckfd2o0q75ane" path="res://Custom_Components/Weapon.tscn" id="3_7dj84"]
 [ext_resource type="PackedScene" uid="uid://cvwnt3yq2awxq" path="res://AttackRangeComponent.tscn" id="6_fvj14"]
@@ -15,6 +16,7 @@ size = Vector2(64, 64)
 
 [node name="BaseTower" type="Node2D" groups=["TowerGroup"]]
 script = ExtResource("1_2w4ih")
+previewImage = ExtResource("2_5mhty")
 
 [node name="AttackRange" parent="." instance=ExtResource("6_fvj14")]
 unique_name_in_owner = true

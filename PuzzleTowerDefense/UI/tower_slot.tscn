@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpy2i1sfi5ae4"]
+
+[ext_resource type="Texture2D" uid="uid://dmmrrsbatnc8i" path="res://Assets/UI_assets/Slot.png" id="1_mp0ec"]
+[ext_resource type="Script" path="res://UI/tower_slot.gd" id="2_b22t6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6uudh"]
+texture = ExtResource("1_mp0ec")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukahr"]
+texture = ExtResource("1_mp0ec")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3v1ik"]
+texture = ExtResource("1_mp0ec")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6vkbo"]
+texture = ExtResource("1_mp0ec")
+modulate_color = Color(0.521141, 0.521141, 0.521141, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f8cl4"]
+texture = ExtResource("1_mp0ec")
+
+[node name="TowerSlot" type="Button"]
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tooltip_text = "hello there i am a tooltip
+"
+theme_override_styles/normal = SubResource("StyleBoxTexture_6uudh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ukahr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3v1ik")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6vkbo")
+theme_override_styles/focus = SubResource("StyleBoxTexture_f8cl4")
+script = ExtResource("2_b22t6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 100.0
+expand_mode = 1
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

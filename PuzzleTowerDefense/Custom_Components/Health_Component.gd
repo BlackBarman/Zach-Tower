@@ -30,10 +30,7 @@ func _Damage(x):
 func _CheckDeath():
 	if(CurrentHealth <= 0):
 		Death.emit()
-		#kill the parent entity
-		print("Enemy killed")
 		get_parent().queue_free()
-
 
 #func _on_hurt_box_area_2d_hit_landed(final_damage):
 	#print("un milione e mezzo di botte ho preso")

@@ -9,6 +9,7 @@ class_name SacredCrystal
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("EnemyCollisionsGroup"):
 		var x = lose_screen.instantiate()
+		AudioManager.Lose.play()
 		get_tree().root.add_child(x)
 
 func player_won_level():

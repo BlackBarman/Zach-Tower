@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_yymip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
-size = Vector2(57, 36)
+size = Vector2(56, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrq1g"]
 atlas = ExtResource("3_jw50r")
@@ -134,7 +134,7 @@ cara = NodePath("../CharacterBody2D/AnimatedSprite2D/HurtBoxArea2D")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.5, 0)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_2biy1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
@@ -152,4 +152,5 @@ modulate = Color(50.811, 27.568, 0.842, 1)
 position = Vector2(65, 32)
 shape = SubResource("RectangleShape2D_3vqku")
 
+[connection signal="Death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="hit_landed" from="CharacterBody2D/AnimatedSprite2D/HurtBoxArea2D" to="HealthComponent" method="_on_hurt_box_area_2d_hit_landed"]

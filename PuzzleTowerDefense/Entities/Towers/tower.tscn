@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=10 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Script" path="res://Entities/Towers/Tower.gd" id="1_2w4ih"]
 [ext_resource type="Texture2D" uid="uid://bkpbdj1yp3emh" path="res://Assets/UI_assets/Icons/Tower01Icon.png" id="2_5mhty"]

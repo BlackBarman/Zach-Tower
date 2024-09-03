@@ -9,6 +9,8 @@ var current_enemy = 0
 var can_shoot = false
 var debug_n_times_shot = 0
 
+
+
 signal end_Turn
 
 #TODO change weapon base on tower data
@@ -34,6 +36,7 @@ func shoot():
 	b.global_position = $Marker2D.position
 	b.set_target(current_enemy)
 	get_parent().add_child(b)
+	AudioManager.ShootArrow.play()
 
 	can_shoot = false # boolean is useless now that we use the turn manager
 	await b.bulletDie

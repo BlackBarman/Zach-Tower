@@ -2,6 +2,7 @@ extends Control
 class_name PopupManager
 
 @onready var button = %RemoveButton
+
 var TooltipTower
 
 func open_popup(slot : Rect2i, data : CustomData, tower : BaseTower): 
@@ -30,7 +31,11 @@ func set_data(data : CustomData):
 	%DamageValue.text = str(data.Damage)
 	pass
 
+func Get_ItemPopup() -> PopupPanel:
+	return %ItemPopup
 
+#button that destroy towers
 func _on_button_pressed():
 	close_popup()
+	AudioManager.DestroyTower.play()
 	pass # Replace with function body.

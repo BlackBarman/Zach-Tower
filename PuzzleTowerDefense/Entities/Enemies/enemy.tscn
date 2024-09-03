@@ -205,7 +205,7 @@ shape = SubResource("RectangleShape2D_2biy1")
 position = Vector2(-24, -28)
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_u20ki")
-animation = &"Death"
+animation = &"Idle"
 centered = false
 flip_h = true
 

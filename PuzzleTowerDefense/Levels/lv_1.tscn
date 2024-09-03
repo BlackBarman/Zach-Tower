@@ -31,7 +31,7 @@ position = Vector2(258, 60)
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("path") instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
-m_numberEnemies = 1
+m_numberEnemies = 10
 m_enemyScene = ExtResource("6_0cg7k")
 path = NodePath("../Path2D")
 

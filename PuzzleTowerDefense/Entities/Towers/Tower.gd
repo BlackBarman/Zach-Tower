@@ -4,7 +4,7 @@ class_name BaseTower
 signal ActiveTooltip
 
 var hovered :bool = false
-var can_be_placed :bool = false
+var can_be_placed :bool = true
 var placed : bool = true
 enum State {
 	Placed,
@@ -31,10 +31,6 @@ func tower_was_placed():
 	%AttackRange.hide()
 	emit_signal("ActiveTooltip")
 	AudioManager.BuildTower.play()
-
-func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT and hovered:
-		queue_free()
 
 
 func _on_remove_area_mouse_entered():

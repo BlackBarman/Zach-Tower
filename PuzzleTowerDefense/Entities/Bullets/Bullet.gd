@@ -17,7 +17,6 @@ func _ready():
 		look_at(target.global_position)
 		look_vector= target.global_position - global_position
 		$AnimatedSprite2D.play("arrow")
-		var timer = get_tree().create_timer(0.5).timeout
 
 func set_target(enemy):
 	target = enemy

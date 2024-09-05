@@ -10,7 +10,8 @@ extends Node
 
 @export var path : Path2D
 
-signal enemy_spawned(enemy)
+
+
 
 func _turn_Start(TurnCounter: int):
 	
@@ -35,17 +36,8 @@ func _turn_Start(TurnCounter: int):
 
 		# Spawn the mob by adding it to the Main scene.
 		path.add_child(mob)
-		
-		 # Emetti il segnale passando il nuovo nemico
-		emit_signal("enemy_spawned", mob)
-
-	# Connettiti al segnale di morte del nemico
-		mob.connect("enemy_died",Callable($"../SacredCrystal", "Check_WinCondition"))
 
 
 	m_numberEnemies = m_numberEnemies - SpawnSize
 	if (m_numberEnemies < 0):
 		m_numberEnemies = 0
-
-func Enemy_Died():
-	pass

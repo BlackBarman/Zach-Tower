@@ -1,10 +1,6 @@
 extends HBoxContainer
 class_name TowerSelecter
 
-@export var torri : Array[PackedScene] 
-#@export var towers : Array[CustomData]
-@export var tower_slot : PackedScene
-@onready var turnManager = get_tree().get_nodes_in_group("TurnManagerGroup")[0]
 signal set_tower
 
 @export var torri : Array[Resource]
@@ -32,4 +28,4 @@ func _set_tower_slots():
 #send packed scene ref to tilemap, it knows which index was clicked
 func _set_tower(index : int):
 	var tower = torri[index]
-	emit_signal("set_tower", tower)
+	emit_signal("set_tower",tower)

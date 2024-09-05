@@ -63,10 +63,3 @@ func _on_attack_range_body_entered(body):
 
 func _on_attack_range_body_exited(body):
 	Targets.erase(body)
-
-
-func _on_timer_timeout():
-	var b= Bullet.instantiate()
-	b.bulletDie
-	emit_signal("end_Turn")
-	pass # Replace with function body.

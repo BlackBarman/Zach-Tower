@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl55yuayngbp8"]
+
+[ext_resource type="Script" path="res://Globals/tower_data_manager.gd" id="1_esnr2"]
+
+[node name="TowerData" type="Node" groups=["TowerDataManagerGroup"]]
+script = ExtResource("1_esnr2")

@@ -40,7 +40,11 @@ func place_tower(mouse_position: Vector2):
 			dragging = false
 			emit_signal("tower_placed")
 			tower_instance = null
-
+		else:
+			print("empty tile: ",tilemap.get_cell_source_id(0, cell) == empty_tile_id)
+			print("tower_object.can_be_placed: ",tower_object.can_be_placed)
+	else:
+		print("if 1 fallito")
 
 func is_valid_cell(cell: Vector2i) -> bool:
 	return tilemap.get_used_rect().has_point(cell)

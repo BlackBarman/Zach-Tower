@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="CustomData" load_steps=2 format=3 uid="uid://c6xsrud72v0hr"]
+[gd_resource type="Resource" script_class="CustomData" load_steps=3 format=3 uid="uid://c6xsrud72v0hr"]
 
 [ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="1_5aaqa"]
+[ext_resource type="Texture2D" uid="uid://bkpbdj1yp3emh" path="res://Assets/UI_assets/Icons/Tower01Icon.png" id="1_npl3d"]
 
 [resource]
 script = ExtResource("1_5aaqa")
 Damage = 1
 Damage_type = "Pierce"
 fire_rate = 60
+previewImage = ExtResource("1_npl3d")

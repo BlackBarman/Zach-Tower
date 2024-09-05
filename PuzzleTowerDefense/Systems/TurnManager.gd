@@ -3,12 +3,14 @@ var EnemyList = []
 var TowerList = []
 var BattleStarted = false
 var TurnCounter = 0
+var Setup = false
 @onready var StartButton = $StartBattleButton
 
 func _startBattle():
 	BattleStarted = true
 	$Timer.start()
 
+	
 func _processTurns():
 	
 	TurnCounter += 1
@@ -17,11 +19,11 @@ func _processTurns():
 	#Enemy Turn
 	EnemyList.clear()
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
-	for x in EnemyList:
-		if x == null:
+	for enemy in EnemyList:
+		if enemy == null:
 			print("one of the enemies is fucked")
 		print("the enemies act")
-		await x._execute_Turn()
+		await enemy._execute_Turn()
 		#print("enemy acted")
 
 	#print("inserire frase ad effetto")
@@ -48,6 +50,7 @@ func _on_start_battle_button_button_down():
 	_startBattle()
 	StartButton.visible = false
 	AudioManager.StartStage.play()
+	
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhbd3rynp5igc"]
+[gd_scene load_steps=9 format=3 uid="uid://bhbd3rynp5igc"]
 
 [ext_resource type="Script" path="res://Entities/Towers/Tower.gd" id="1_2w4ih"]
 [ext_resource type="Texture2D" uid="uid://bkpbdj1yp3emh" path="res://Assets/UI_assets/Icons/Tower01Icon.png" id="2_5mhty"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ckfd2o0q75ane" path="res://Custom_Components/Weapon.tscn" id="3_7dj84"]
 [ext_resource type="PackedScene" uid="uid://cvwnt3yq2awxq" path="res://AttackRangeComponent.tscn" id="6_fvj14"]
 [ext_resource type="Script" path="res://Custom_Components/ColorSwitcher.gd" id="6_uyecy"]
-[ext_resource type="PackedScene" uid="uid://pd4tey2j502m" path="res://UI/Tooltip.tscn" id="8_s1rbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
 size = Vector2(16, 16)
@@ -46,18 +45,6 @@ shape = SubResource("RectangleShape2D_tfubh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RemoveArea"]
 shape = SubResource("RectangleShape2D_8jtg0")
 
-[node name="Tooltip" parent="." instance=ExtResource("8_s1rbk")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[connection signal="ActiveTooltip" from="." to="Tooltip" method="_on_base_tower_active_tooltip"]
 [connection signal="body_entered" from="AttackRange" to="Weapon" method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="Weapon" method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="ColorSwitcher" to="." method="_on_color_switcher_body_entered"]

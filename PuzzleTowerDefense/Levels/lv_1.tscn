@@ -1,10 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch16qsighbevk"]
+<<<<<<< Updated upstream
+[gd_scene load_steps=8 format=3 uid="uid://ch16qsighbevk"]
+=======
+[gd_scene load_steps=10 format=3 uid="uid://ch16qsighbevk"]
+>>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://cto0im2mdxsjj" path="res://UI/TowerSelecterUI.tscn" id="2_agi6v"]
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Levels/Level_Manager.tscn" id="5_oqwbf"]
 [ext_resource type="PackedScene" uid="uid://c40bsxa3vvpe5" path="res://Entities/Enemies/enemy.tscn" id="6_0cg7k"]
 [ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://Systems/TurnManager.tscn" id="6_03eko"]
+[ext_resource type="Script" path="res://Levels/test.gd" id="8_3jmdq"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://Entities/SacredCrystal.tscn" id="10_sl1of"]
 [ext_resource type="PackedScene" uid="uid://4uoy01ofpsmh" path="res://Levels/Screens/win_screen.tscn" id="11_cyrn3"]
 
@@ -36,6 +41,9 @@ unique_name_in_owner = true
 m_numberEnemies = 5
 m_enemyScene = ExtResource("6_0cg7k")
 path = NodePath("../Path2D")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("8_3jmdq")
 
 [connection signal="child_exiting_tree" from="." to="SacredCrystal" method="_on_lv_1_child_exiting_tree"]
 [connection signal="set_tower" from="CanvasLayer/TowersArray" to="TileMap" method="_on_towers_array_set_tower"]

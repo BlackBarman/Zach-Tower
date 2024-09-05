@@ -45,13 +45,16 @@ func place_tower(mouse_position: Vector2):
 func is_valid_cell(cell: Vector2i) -> bool:
 	return tilemap.get_used_rect().has_point(cell)
 
-func _set_tower(tower):
-	tower_instance = tower
+
+#TODO fix this mess, we need to get the selected towerdata (wich point to a tres file)
+# said tres file has a Packed scene property that we want to access
+func _set_tower():
+	var i = TowerDataVault.get_selected_tower_data() as CustomData
+	tower_instance = i.Tower_Scene
 	tower_object = tower_instance.instantiate()
 	add_child(tower_object)
-	#tower_object.towerdata
 	dragging = true
 
 
-func _on_towers_array_set_tower(tower):
-	_set_tower(tower)
+func _on_towers_array_set_tower():
+	_set_tower()

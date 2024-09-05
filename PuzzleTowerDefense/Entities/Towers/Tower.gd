@@ -4,8 +4,9 @@ class_name BaseTower
 signal ActiveTooltip
 
 var hovered :bool = false
-var can_be_placed :bool = false
+var can_be_placed :bool = true
 var placed : bool = true
+var data
 enum State {
 	Placed,
 	Dragged,
@@ -20,6 +21,7 @@ enum State {
 func _ready():
 	tilemap.tower_placed.connect(tower_was_placed)
 	RemoveButton.pressed.connect(_remove_tower)
+	data = TowerDataVault.get_selected_tower_data() as CustomData
 
 func _on_color_switcher_body_entered(_body):
 	can_be_placed = false
@@ -32,14 +34,8 @@ func tower_was_placed():
 	emit_signal("ActiveTooltip")
 	AudioManager.BuildTower.play()
 
-func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT and hovered:
-		queue_free()
-
-
 func _on_remove_area_mouse_entered():
 	hovered = true
-
 
 func _on_remove_area_mouse_exited():
 	hovered = false
@@ -52,5 +48,4 @@ func _remove_tower():
 	if Popups.TooltipTower == $".":
 		queue_free()
 
-func _on_tooltip_buttons_signal():
-	pass # Replace with function body.
+

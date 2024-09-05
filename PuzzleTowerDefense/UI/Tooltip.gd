@@ -5,7 +5,7 @@ class_name Tooltip
 # later in the project the base tower will have it as well and we don't want to
 # have duplicate data
 
-@export var data : CustomData
+@export var data = CustomData
 
 
 var popup
@@ -14,10 +14,13 @@ var hovered :bool = false
 
 signal buttonsSignal
 
+
 func _on_mouse_entered():
+	print("SEI FUORI???")
 	hovered = true
 
 func _on_mouse_exited():
+	print("SEI DENTRO???")
 	hovered = false
 
 func _input(event):
@@ -27,7 +30,9 @@ func _input(event):
 		Popups.open_popup(Rect2i(Vector2i(global_position),Vector2i(size)),data, get_parent() as BaseTower)
 
 
+#starts a timer so we don't display the tooltip immediatly
 func _on_base_tower_active_tooltip():
+	print("la torre ha mandato un segnale al tootip")
 	await get_tree().create_timer(0.5).timeout
 	DisplayPopup = true
 	pass # Replace with function body.()

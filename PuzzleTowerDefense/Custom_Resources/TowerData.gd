@@ -25,7 +25,7 @@ class_name CustomData
 @export var preview_image : Texture
 #this way if this specific tres needs to be used by a scene different
 # than the base tower we can pass that packed scene to the tilemap
-@export var Tower_Scene :PackedScene
+#@export var Tower_Scene :PackedScene
 
 
 

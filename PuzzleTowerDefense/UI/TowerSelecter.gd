@@ -23,9 +23,9 @@ func _populate_tower_data_dict() -> void:
 		tower_data_dict[key] = {"data": data, "preview_image": data.preview_image} # Add other properties as needed
 
 #send packed scene ref to tilemap, it knows which index was clicked
+@warning_ignore("unused_parameter")
 func _set_tower(index : int):
-	var tower = torri[index]
-	emit_signal("set_tower",tower)
+	emit_signal("set_tower")
 func _create_tower_slots() -> void:
 	for key in tower_data_dict.keys():
 		var tower_slot_instance = tower_slot.instantiate()

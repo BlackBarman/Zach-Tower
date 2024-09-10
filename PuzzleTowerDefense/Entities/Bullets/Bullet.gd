@@ -4,7 +4,7 @@ var move = Vector2.ZERO
 var look_vector = Vector2.ZERO
 var target
 var current_animation = ""
-@export var projectile_speed = 100
+@export var projectile_speed = 25
 signal bulletDie
 
 #TODO change bullet animation based on the weapon, using a dictionary
@@ -50,7 +50,7 @@ func _die():
 	queue_free()
 
 func _on_animated_sprite_2d_animation_finished():
-	print("ciao")
+	print("Bullet finished the animation")
 	# Only call _die if the impact animation has finished
 	if current_animation == "arrow_impact":
 		_die()

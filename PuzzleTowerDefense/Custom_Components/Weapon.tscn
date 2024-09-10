@@ -869,11 +869,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Weapon" type="Node2D"]
+[node name="Weapon" type="Node2D" groups=["WeaponGroup"]]
 position = Vector2(-1, -44)
 scale = Vector2(1.25, 1.25)
 script = ExtResource("2_0u0cj")
-Bullet = ExtResource("3_nnjhi")
+BulletScene = ExtResource("3_nnjhi")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(55.2, 2.40018)
@@ -889,9 +889,4 @@ animation = &"ballista"
 frame = 6
 frame_progress = 1.0
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

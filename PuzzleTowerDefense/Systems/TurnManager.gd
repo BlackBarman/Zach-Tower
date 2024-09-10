@@ -39,11 +39,11 @@ func _processTurns():
 
 	var EnemyWaiting = get_tree().get_nodes_in_group("LevelManagerGroup")[0].m_numberEnemies
 	if EnemyList.size() > 0 || EnemyWaiting > 0:
-		#print("enemies still alive")
+		print("enemies still alive")
 		$Timer.start()
-		#_processTurns()
 	else:
-		#print("all enemies defeated")
+		$"../SacredCrystal".player_won_level()
+		print("all enemies defeated")
 		pass
 
 func _on_start_battle_button_button_down():

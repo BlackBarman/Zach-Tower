@@ -758,7 +758,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xs47"]
 size = Vector2(32, 16)
 
-[node name="Bullet 2" type="Node2D"]
+[node name="Bullet" type="Node2D"]
 script = ExtResource("1_kf1tf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

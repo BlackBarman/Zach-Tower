@@ -14,7 +14,7 @@ text = "Start
 Battle"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.01
+wait_time = 0.05
 one_shot = true
 
 [connection signal="button_down" from="StartBattleButton" to="." method="_on_start_battle_button_button_down"]

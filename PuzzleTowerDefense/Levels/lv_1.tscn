@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=10 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
+[ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
 [ext_resource type="PackedScene" uid="uid://cto0im2mdxsjj" path="res://UI/TowerSelecterUI.tscn" id="2_agi6v"]
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Levels/Level_Manager.tscn" id="5_oqwbf"]
 [ext_resource type="PackedScene" uid="uid://c40bsxa3vvpe5" path="res://Entities/Enemies/enemy.tscn" id="6_0cg7k"]
 [ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://Systems/TurnManager.tscn" id="6_03eko"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://Entities/SacredCrystal.tscn" id="10_sl1of"]
+[ext_resource type="PackedScene" uid="uid://4uoy01ofpsmh" path="res://Levels/Screens/win_screen.tscn" id="11_cyrn3"]
 
 [sub_resource type="Curve2D" id="Curve2D_v0plp"]
 _data = {
@@ -16,6 +18,7 @@ point_count = 12
 [node name="LV1" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_p35ih")]
+tower_instance = ExtResource("2_3l8bh")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_v0plp")
@@ -26,12 +29,13 @@ curve = SubResource("Curve2D_v0plp")
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
 position = Vector2(258, 60)
+win_screen = ExtResource("11_cyrn3")
 
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("path") instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
-m_numberEnemies = 10
+m_numberEnemies = 5
 m_enemyScene = ExtResource("6_0cg7k")
 path = NodePath("../Path2D")
 

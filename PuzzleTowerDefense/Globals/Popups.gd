@@ -5,13 +5,13 @@ class_name PopupManager
 
 var TooltipTower
 
-func open_popup(slot : Rect2i, data : CustomData, tower : BaseTower): 
+func open_popup(slot : Rect2i, data : CustomData, tower : BaseTower):
 	if data != null:
 		set_data(data)
-	
+
 	if tower != null:
 		TooltipTower = tower
-	
+
 	var mouse_pos = get_viewport().get_mouse_position()
 	var correction
 	var padding = 4
@@ -19,11 +19,11 @@ func open_popup(slot : Rect2i, data : CustomData, tower : BaseTower):
 		correction = Vector2i(slot.size.x + padding, 0)
 	else:
 		correction = -Vector2i(%ItemPopup.size.x + padding, 0)
- 
+
 	%ItemPopup.popup(Rect2i( slot.position + correction, %ItemPopup.size ))
 
 
-func close_popup(): 
+func close_popup():
 	%ItemPopup.hide()
 
 func set_data(data : CustomData):

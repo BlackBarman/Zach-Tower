@@ -10,7 +10,8 @@ extends Node
 
 @export var path : Path2D
 
-signal enemy_spawned(enemy)
+
+
 
 func _turn_Start(TurnCounter: int):
 	
@@ -38,6 +39,7 @@ func _turn_Start(TurnCounter: int):
 		
 		 # Emetti il segnale passando il nuovo nemico
 		emit_signal("enemy_spawned", mob)
+
 
 	m_numberEnemies = m_numberEnemies - SpawnSize
 	if (m_numberEnemies < 0):

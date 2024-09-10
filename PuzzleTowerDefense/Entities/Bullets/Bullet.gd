@@ -17,7 +17,6 @@ func _ready():
 		look_at(target.global_position)
 		look_vector= target.global_position - global_position
 		$AnimatedSprite2D.play("arrow")
-		var timer = get_tree().create_timer(0.5).timeout
 
 func set_target(enemy):
 	target = enemy
@@ -31,7 +30,6 @@ func _process(delta):
 	global_position += move
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	print("this bullet exited the screen so it's going to die")
 	_die()
 
 func _on_hit_box_area_2d_area_entered(area):

@@ -8,7 +8,6 @@ var animationSpeed = 120 #how quickly it moves forward. doesn't influence gamepl
 
 
 signal end_Turn
-signal enemy_died
 
 func _process(delta):
 
@@ -37,5 +36,4 @@ func _move_Forward(delta):
 
 func _on_health_component_death():
 	AudioManager.EnemyDeath.play()
-	emit_signal("enemy_died")
 	pass # Replace with function body.

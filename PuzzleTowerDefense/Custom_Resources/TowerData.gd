@@ -10,7 +10,7 @@ class_name CustomData
 #@export_enum("Rebecca", "Mary", "Leah") var character_name: String
 #
 #
-# or just make a bunch of enums and export them, 
+# or just make a bunch of enums and export them,
 # might be better if same enum is used by other stuff:
 #enum CharacterName {REBECCA, MARY, LEAH}
 #@export var character_name: CharacterNam
@@ -21,9 +21,11 @@ class_name CustomData
 
 @export var Damage : int
 @export var Damage_type : String
-@export_enum("FAST:1", "SLOW:2","VERY SLOW:60") var fire_rate : int 
-
-
+@export_enum("FAST:1", "SLOW:2","VERY SLOW:60") var fire_rate : int
+@export var preview_image : Texture
+#this way if this specific tres needs to be used by a scene different
+# than the base tower we can pass that packed scene to the tilemap
+#@export var Tower_Scene :PackedScene
 
 
 

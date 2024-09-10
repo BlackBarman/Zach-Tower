@@ -37,8 +37,6 @@ func _turn_Start(TurnCounter: int):
 		# Spawn the mob by adding it to the Main scene.
 		path.add_child(mob)
 		
-		 # Emetti il segnale passando il nuovo nemico
-		emit_signal("enemy_spawned", mob)
 
 
 	m_numberEnemies = m_numberEnemies - SpawnSize

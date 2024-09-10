@@ -58,8 +58,7 @@ func _on_animated_sprite_2d_frame_changed():
 
 func _on_attack_range_body_entered(body):
 	if body.is_in_group("EnemyCollisionsGroup"):
-		if body.get_parent().get_node("HealthComponent").Alive == true:
-			Targets.append(body)
+		Targets.append(body)
 
 func _on_attack_range_body_exited(body):
 	Remove_Target(body)

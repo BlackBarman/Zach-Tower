@@ -138,10 +138,10 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_2biy1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(-24, -28)
-scale = Vector2(1.6, 1.6)
-sprite_frames = SubResource("SpriteFrames_u20ki")
-animation = &"Idle"
+position = Vector2(-66, -32)
+sprite_frames = SubResource("SpriteFrames_c7abm")
+animation = &"Walk right"
+frame_progress = 0.529989
 centered = false
 
 [node name="HurtBoxArea2D" type="Area2D" parent="CharacterBody2D/AnimatedSprite2D"]

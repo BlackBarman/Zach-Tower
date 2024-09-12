@@ -26,14 +26,20 @@ func _execute_Turn():
 func _move_Forward(delta):
 	if (progress < targetProgress):
 		progress += delta * animationSpeed
+		$CharacterBody2D/AnimatedSprite2D.play("Walk right")
 	elif (progress >= targetProgress):
 		print("progress reached")
 		#AudioManager.EnemyMove.play()
 		progress = targetProgress
 		canMoveForward = false
+		$CharacterBody2D/AnimatedSprite2D.play("Idle right")
 		emit_signal("end_Turn")
 
 
 func _on_health_component_death():
 	AudioManager.EnemyDeath.play()
 	pass # Replace with function body.
+
+
+func _on_health_component_health_change_negative():
+	$CharacterBody2D/AnimatedSprite2D.play("Hurt")

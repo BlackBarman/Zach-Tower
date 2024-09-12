@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_5aaqa")
-Damage = 1
-Damage_type = "Pierce"
+Damage = 3
+Damage_type = "AOE"
 fire_rate = 60
 preview_image = ExtResource("1_tgvet")

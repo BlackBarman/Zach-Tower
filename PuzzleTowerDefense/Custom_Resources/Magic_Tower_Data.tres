@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="CustomData" load_steps=4 format=3 uid="uid://c8vw34xc41h52"]
+[gd_resource type="Resource" script_class="CustomData" load_steps=3 format=3 uid="uid://c8vw34xc41h52"]
 
 [ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="1_q2237"]
-[ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="1_s1m5j"]
 [ext_resource type="Texture2D" uid="uid://bmvj72455dh5k" path="res://Assets/UI_assets/buttonRound_beige.png" id="1_vg1pb"]
 
 [resource]
@@ -10,4 +9,3 @@ Damage = 5
 Damage_type = "magic"
 fire_rate = 60
 preview_image = ExtResource("1_vg1pb")
-Tower_Scene = ExtResource("1_s1m5j")

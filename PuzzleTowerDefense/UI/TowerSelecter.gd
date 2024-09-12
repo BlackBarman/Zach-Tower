@@ -10,12 +10,10 @@ var tower_slots: Array[Button] = [] # Array to store the created tower slots
 var tower_data_dict: Dictionary = {} # Dictionary to keep track of tower data properties
 
 func _ready() -> void:
-	
 	# Populate the dictionary with tower data properties
 	_populate_tower_data_dict()
 	# Dynamically create tower slots
 	_create_tower_slots()
-	size.x = size.x * tower_data_dict.size()
 
 func _populate_tower_data_dict() -> void:
 	# Access the tower_data from the singleton instance

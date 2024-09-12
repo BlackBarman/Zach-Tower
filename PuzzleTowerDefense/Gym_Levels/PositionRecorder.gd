@@ -2,7 +2,7 @@
 extends Node2D
 
 # Array to store the positions
-@export var positions: Vector2  
+@export var positions: Vector2
 var nodes_to_track : Array
 @export var array_to_populate : Array
 
@@ -10,7 +10,7 @@ func _ready():
 	if Engine.is_editor_hint():
 		array_to_populate.clear()
 		print("ho iniziallizato puoi andare")
-		
+
 
 func _process(_delta):
 	if Engine.is_editor_hint() and Input.is_action_just_pressed("ui_down"):

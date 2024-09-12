@@ -1,17 +1,18 @@
 extends Node
 # number of enemies to spawn
-@export var m_numberEnemies = 0
-#type of enemy to spawn
-@export var m_enemyScene: PackedScene
+var m_numberEnemies = 0
 # spawn rate in turns
 @export var m_spawnRatio:int = 1
 # number of enemies spawned in a single burst
 @export var SpawnSize:int = 1
 
-@export var path : Path2D
+@export var waves : Array[Wave] = []
+var path : Path2D
+var CurrentWave = 0
 
-
-
+func _ready():
+	for wave in waves:
+		m_numberEnemies += wave.m_numberEnemies
 
 func _turn_Start(TurnCounter: int):
 	
@@ -20,25 +21,32 @@ func _turn_Start(TurnCounter: int):
 	if (m_numberEnemies <= 0):
 		return
 	
-	for i in SpawnSize:
-		# Create a new instance of the Mob scene.
-		var mob = m_enemyScene.instantiate()
-		# Choose a random location on the SpawnPath.
-		# We store the reference to the SpawnLocation node.
-		var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
-		# And give it a random offset.
-		mob_spawn_location.progress_ratio = randf()
-		
-		#commented out as they are not doing anything,select and press ctrl+k to uncomment [start]
-		#var player_position = $SpawnPath/SpawnLocation.position
-		#mob.initialize(player_position)
-		#commented out as they are not doing anything select and press ctrl+k to uncomment [end]
+	# Itera su ogni wave
+	# Controlla se il turno corrente corrisponde al turno di spawn della wave
+	if waves[CurrentWave].m_numberEnemies > 0:
+		print("Wave:",CurrentWave)
+		# Spawnare nemici per questa wave
+		for i in range(SpawnSize):
+			# Crea una nuova istanza della scena nemica
+			var mob = waves[CurrentWave].m_enemyScene.instantiate()
+			# Scegli una posizione casuale sul percorso di spawn
+			#var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
+			#mob_spawn_location.progress_ratio = randf()	
+			
+			# Recupera il nodo Path2D dal NodePath esportato in Wave
+			path = get_node(waves[CurrentWave].path)
+			if path and path is Path2D:
+				path.add_child(mob)
+				waves[CurrentWave].m_numberEnemies -= 1
+				m_numberEnemies = m_numberEnemies - SpawnSize
+				print("mob spawned")
+			# Verifica se ci sono altri nemici da spawnare
+			if (m_numberEnemies <= 0):
+				break
+	else:
+		CurrentWave += 1
 
-		# Spawn the mob by adding it to the Main scene.
-		path.add_child(mob)
-		
 
-
-	m_numberEnemies = m_numberEnemies - SpawnSize
+	
 	if (m_numberEnemies < 0):
 		m_numberEnemies = 0

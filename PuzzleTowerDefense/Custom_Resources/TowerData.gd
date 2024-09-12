@@ -23,6 +23,7 @@ class_name CustomData
 @export var Damage_type : String
 @export_enum("FAST:1", "SLOW:2","VERY SLOW:60") var fire_rate : int
 @export var preview_image : Texture
+@export_enum("T_shape","Y_shape","X_shape") var attack_range : String
 #this way if this specific tres needs to be used by a scene different
 # than the base tower we can pass that packed scene to the tilemap
 #@export var Tower_Scene :PackedScene

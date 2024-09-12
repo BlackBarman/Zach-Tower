@@ -9,3 +9,4 @@ Damage = 3
 Damage_type = "AOE"
 fire_rate = 60
 preview_image = ExtResource("1_sqp3r")
+attack_range = "T_shape"

@@ -9,3 +9,4 @@ Damage = 3
 Damage_type = "Pierce"
 fire_rate = 0
 preview_image = ExtResource("1_1spoh")
+attack_range = "T_shape"

@@ -48,6 +48,11 @@ jobs:
      mkdir -p ~/.local/share/godot/export_templates/4.2.2.stable
      mv ./templates/* ~/.local/share/godot/export_templates/4.2.2.stable
   
+  - name: Export Windows Desktop
+    run: |
+     mkdir -p ./../..
+     ./godot --headless --path ./ --export-release "Windows Desktop" ./../../filepersteve2.exe
+    
 
   - uses: actions/upload-artifact@v2
     with:
@@ -127,6 +132,9 @@ jobs:
     
     - name: Login To Butler
       run: ./butler login
+    
+    - name: Push Windows Desktop to Itch
+      run: ./butler push ./../.. /:win --userversion-file ./VERSION/VERSION.txt
     
 
  Cleanup:

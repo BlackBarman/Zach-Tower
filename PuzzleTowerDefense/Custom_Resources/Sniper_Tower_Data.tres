@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CustomData" load_steps=3 format=3 uid="uid://bceav83bimdhx"]
+
+[ext_resource type="Texture2D" uid="uid://t6a5ojqvhui0" path="res://Assets/UI_assets/buttonSquare_grey.png" id="1_1spoh"]
+[ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="1_tu4uw"]
+
+[resource]
+script = ExtResource("1_tu4uw")
+Damage = 3
+Damage_type = "Pierce"
+fire_rate = 0
+preview_image = ExtResource("1_1spoh")
+attack_range = "T_shape"

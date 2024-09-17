@@ -1,9 +1,14 @@
 extends Node2D
 
 # Define the available shapes using an enum
+# TODO link this enum to the TowerDataVault, each resource should point to a spec
 enum ShapeType { T_shape, X_shape,Y_shape }
 
-@export var selected_shape: ShapeType = ShapeType.T_shape
+var i = TowerDataVault.get_selected_tower_data() as CustomData
+
+@onready var temp = TowerDataVault.get_selected_tower_data() as CustomData
+
+@onready var selected_shape = ShapeType[temp.attack_range]
 
 var T_shape_positions: Array[Vector2] = [
 	Vector2(0, -64), Vector2(0, 64), Vector2(64, -64), Vector2(-64, -64)

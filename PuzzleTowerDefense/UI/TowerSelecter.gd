@@ -14,6 +14,8 @@ func _ready() -> void:
 	_populate_tower_data_dict()
 	# Dynamically create tower slots
 	_create_tower_slots()
+	#makes so that the tower slots are not cramped onto one another
+	size.x = size.x * tower_data_dict.size()
 
 func _populate_tower_data_dict() -> void:
 	# Access the tower_data from the singleton instance

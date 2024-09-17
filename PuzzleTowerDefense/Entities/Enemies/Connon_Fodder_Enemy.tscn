@@ -1,59 +1,59 @@
-[gd_scene load_steps=20 format=3 uid="uid://c40bsxa3vvpe5"]
+[gd_scene load_steps=20 format=3 uid="uid://d2yo1mws0004i"]
 
-[ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_vldat"]
-[ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_u8arb"]
-[ext_resource type="Texture2D" uid="uid://b2ppinhso6msl" path="res://Assets/Enemies/Ground/Spritesheets/slime-Sheet.png" id="3_b30is"]
-[ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_yymip"]
+[ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_y5v5r"]
+[ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_y5ffo"]
+[ext_resource type="Texture2D" uid="uid://b2ppinhso6msl" path="res://Assets/Enemies/Ground/Spritesheets/slime-Sheet.png" id="3_exyj0"]
+[ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_4oh7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
-size = Vector2(56, 36)
+size = Vector2(60, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmrxe"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(128, 25, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4rwg"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(160, 25, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7eat2"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(192, 25, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5mia"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(224, 25, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7bxx2"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(0, 0, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h37cn"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(32, 0, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ep7c8"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(64, 0, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tsmfq"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(96, 0, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3t5q7"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(128, 0, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpkwy"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(160, 0, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0xc3"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(192, 0, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs7a8"]
-atlas = ExtResource("3_b30is")
+atlas = ExtResource("3_exyj0")
 region = Rect2(224, 0, 32, 25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c7abm"]
@@ -114,10 +114,10 @@ animations = [{
 size = Vector2(52, 32)
 
 [node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
-script = ExtResource("1_vldat")
+script = ExtResource("1_y5v5r")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("cara")]
-script = ExtResource("2_u8arb")
+script = ExtResource("2_y5ffo")
 CurrentHealth = 3
 MaxHealth = 3
 cara = NodePath("../CharacterBody2D/HurtBoxArea2D")
@@ -125,6 +125,7 @@ cara = NodePath("../CharacterBody2D/HurtBoxArea2D")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+editor_description = "this is the one that the tower uses for detection"
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_2biy1")
 
@@ -138,7 +139,7 @@ flip_h = true
 
 [node name="HurtBoxArea2D" type="Area2D" parent="CharacterBody2D"]
 position = Vector2(-66, -32)
-script = ExtResource("4_yymip")
+script = ExtResource("4_4oh7o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HurtBoxArea2D"]
 modulate = Color(50.811, 27.568, 0.842, 1)

@@ -61,7 +61,8 @@ func _on_attack_range_body_entered(body):
 		Targets.append(body)
 
 func _on_attack_range_body_exited(body):
-	Remove_Target(body)
+	if body.is_in_group("EnemyCollisionsGroup"):
+		Remove_Target(body)
 
 func Remove_Target(body):
 	Targets.erase(body)

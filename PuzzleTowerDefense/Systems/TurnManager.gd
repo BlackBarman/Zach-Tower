@@ -46,7 +46,7 @@ func _processTurns():
 
 func _on_start_battle_button_button_down():
 	_startBattle()
-	StartButton.visible = false
+	StartButton.visible = false 
 	AudioManager.StartStage.play()
 
 

@@ -9,6 +9,7 @@ var Targets = []
 var current_enemy = 0
 var can_shoot = false
 var debug_n_times_shot = 0
+var active = false
 
 #TODO change weapon base on tower data
 
@@ -23,7 +24,6 @@ func try_Shoot():
 		bullet = BulletScene.instantiate()
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
 		%AnimatedSprite2D.play("ballista")
-		EndLevelStats.shots_fired +=1
 		print("Weapon: turno finito")
 		await bullet.bulletDie
 
@@ -34,8 +34,11 @@ func shoot():
 	bullet.set_target(current_enemy)
 	get_parent().add_child(bullet)
 	AudioManager.ShootArrow.play()
-
+	EndLevelStats.IncrementShootFired()
+	EndLevelStats.AddDamageTowers(bullet.Get_Damage())
 	can_shoot = false # boolean is useless now that we use the turn manager
+	if !active:
+		active = true
 
 #fires the shoot function at the exact frame of the animation
 #remeber to set the shooting_frame in the inspector

@@ -118,6 +118,18 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "8"
 
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Inactive towers"
+
+[node name="n_inactive_towers" type="Label" parent="VBoxContainer/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8"
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 235.0

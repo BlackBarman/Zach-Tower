@@ -5,6 +5,7 @@ var look_vector = Vector2.ZERO
 var target
 var current_animation = ""
 @export var projectile_speed = 25
+@export var damage := 1
 signal bulletDie
 
 #TODO change bullet animation based on the weapon, using a dictionary
@@ -13,6 +14,7 @@ signal bulletDie
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$HitBoxArea2D.damage = damage
 	if target != null :
 		look_at(target.global_position)
 		look_vector= target.global_position - global_position
@@ -53,3 +55,5 @@ func _on_animated_sprite_2d_animation_finished():
 	if current_animation == "arrow_impact":
 		_die()
 
+func Get_Damage() -> int:
+	return damage

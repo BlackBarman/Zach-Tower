@@ -42,6 +42,7 @@ func place_tower(mouse_position: Vector2):
 			tilemap.set_cell(1, cell, tower_tile_id)
 			# Reset dragging state
 			dragging = false
+			UpdateStat(tower_object)
 			emit_signal("tower_placed")
 
 
@@ -58,3 +59,9 @@ func _set_tower(): # simply spawn base tower
 
 func _on_towers_array_set_tower():
 	_set_tower()
+
+#function that update the endLevelStat for the win Screen
+func UpdateStat(tower):
+	EndLevelStats.AddSpaceUsed(tower.space_occupied) #to change with the real space occupied by tower
+	EndLevelStats.IncrementTowersPlaced()
+	EndLevelStats.AddMoneySpent(tower.money_cost)

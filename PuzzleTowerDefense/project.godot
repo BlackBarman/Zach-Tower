@@ -6,7 +6,7 @@ config/name="PuzzleTowerDefense"
 run/main_scene="res://Levels/Screens/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("github_desktop")
+config/tags=PackedStringArray("gitkraken")
 
 [aseprite_importers]
 

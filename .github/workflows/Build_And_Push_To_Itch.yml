@@ -16,9 +16,9 @@ jobs:
       - name: Download Godot 4.2
         run: |
           echo "Downloading Godot 4.2..."
-          wget https://downloads.tuxfamily.org/godotengine/4.2/Godot_v4.2-stable_linux_headless.64.zip || {
-              echo "Download failed. Attempting to download from GitHub releases..."
-              wget https://github.com/godotengine/godot/releases/download/4.2/Godot_v4.2-stable_linux_headless.64.zip
+          wget https://github.com/godotengine/godot/releases/download/4.2/Godot_v4.2-stable_linux_headless.64.zip || {
+              echo "Download failed. Attempting to download from latest release..."
+              wget $(curl -s https://api.github.com/repos/godotengine/godot/releases/latest | grep "browser_download_url.*linux_headless" | cut -d '"' -f 4)
           }
           echo "Unzipping Godot..."
           unzip Godot_v4.2-stable_linux_headless.64.zip -d godot

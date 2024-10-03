@@ -3,7 +3,7 @@ extends Area2D
 
 # This is the class that sends damage to the hurtbox
 
-@export var damage := 1
+var damage
 @export var can_hit_multiple := false
 
 func apply_hit(hurt_box: HurtBoxArea2D) -> void:

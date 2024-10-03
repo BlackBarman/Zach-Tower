@@ -48,16 +48,6 @@ jobs:
      mkdir -p ~/.local/share/godot/export_templates/4.2.2.stable
      mv ./templates/* ~/.local/share/godot/export_templates/4.2.2.stable
   
-  - name: Export Windows Desktop
-    run: |
-     mkdir -p ./../..
-     ./godot --headless --path ./ --export-release "Windows Desktop" ./../../filepersteve2.exe
-    
-  - name: Export Web
-    run: |
-     mkdir -p ./../..
-     ./godot --headless --path ./ --export-release "Web" ./../../Zachtower.html
-    
 
   - uses: actions/upload-artifact@v2
     with:

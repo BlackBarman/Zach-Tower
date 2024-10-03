@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=9 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
 [ext_resource type="PackedScene" uid="uid://cto0im2mdxsjj" path="res://UI/TowerSelecterUI.tscn" id="2_agi6v"]
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Levels/Level_Manager.tscn" id="5_oqwbf"]
-[ext_resource type="PackedScene" uid="uid://c40bsxa3vvpe5" path="res://Entities/Enemies/enemy.tscn" id="6_0cg7k"]
 [ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://Systems/TurnManager.tscn" id="6_03eko"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://Entities/SacredCrystal.tscn" id="10_sl1of"]
 [ext_resource type="PackedScene" uid="uid://4uoy01ofpsmh" path="res://Levels/Screens/win_screen.tscn" id="11_cyrn3"]
@@ -33,11 +32,8 @@ win_screen = ExtResource("11_cyrn3")
 
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("path") instance=ExtResource("5_oqwbf")]
+[node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
-m_numberEnemies = 5
-m_enemyScene = ExtResource("6_0cg7k")
-path = NodePath("../Path2D")
 
 [connection signal="child_exiting_tree" from="." to="SacredCrystal" method="_on_lv_1_child_exiting_tree"]
 [connection signal="set_tower" from="CanvasLayer/TowersArray" to="TileMap" method="_on_towers_array_set_tower"]

@@ -1,0 +1,37 @@
+name: Build and Deploy to Itch.io
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download Godot 4.2
+        run: |
+          wget https://downloads.tuxfamily.org/godotengine/4.2/Godot_v4.2-stable_linux_headless.64.zip
+          unzip Godot_v4.2-stable_linux_headless.64.zip -d godot
+          chmod +x godot/Godot_v4.2-stable_linux_headless.64
+
+      - name: Export Windows build
+        run: |
+          mkdir -p builds/windows
+          ./godot/Godot_v4.2-stable_linux_headless.64 --headless --export "Windows Desktop" builds/windows/game.exe
+
+      - name: Download Butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/latest/archive/default
+          unzip butler.zip -d butler
+          sudo mv butler/butler /usr/local/bin/butler
+          chmod +x /usr/local/bin/butler
+
+      - name: Deploy to Itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCH_API_KEY }}
+        run: |
+          butler push builds/windows/ ${{ secrets.ITCH_USER }}/${{ secrets.ITCH_GAME }}:${{ secrets.ITCH_CHANNEL }}

@@ -53,6 +53,11 @@ jobs:
      mkdir -p ./../..
      ./godot --headless --path ./ --export-release "Windows Desktop" ./../../filepersteve2.exe
     
+  - name: Export Web
+    run: |
+     mkdir -p ./../..
+     ./godot --headless --path ./ --export-release "Web" ./../../Zachtower.html
+    
 
   - uses: actions/upload-artifact@v2
     with:
@@ -132,9 +137,6 @@ jobs:
     
     - name: Login To Butler
       run: ./butler login
-    
-    - name: Push Windows Desktop to Itch
-      run: ./butler push ./../.. /:win --userversion-file ./VERSION/VERSION.txt
     
 
  Cleanup:

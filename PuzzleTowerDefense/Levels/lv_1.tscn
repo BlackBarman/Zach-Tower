@@ -27,7 +27,8 @@ curve = SubResource("Curve2D_v0plp")
 [node name="TowersArray" parent="CanvasLayer" instance=ExtResource("2_agi6v")]
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
-position = Vector2(258, 60)
+position = Vector2(539, 269)
+scale = Vector2(5.59927, 9.42865)
 win_screen = ExtResource("11_cyrn3")
 
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]

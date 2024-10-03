@@ -1,6 +1,6 @@
 extends Control
 
- 
+
 
 func _ready():
 	%n_shots_fired.text =  str(EndLevelStats.shots_fired)

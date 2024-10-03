@@ -32,7 +32,7 @@ func AddSpaceUsed(number):
 
 func IncrementTowersPlaced():
 	towers_placed += 1
-	
+
 func IncrementInactiveTowers():
 	inactive_towers += 1
 

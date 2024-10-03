@@ -27,14 +27,22 @@ curve = SubResource("Curve2D_v0plp")
 [node name="TowersArray" parent="CanvasLayer" instance=ExtResource("2_agi6v")]
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
-position = Vector2(539, 269)
-scale = Vector2(5.59927, 9.42865)
+position = Vector2(263, 67)
+scale = Vector2(1.0298, 1.45162)
 win_screen = ExtResource("11_cyrn3")
 
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 263.0
+offset_top = 67.0
+offset_right = 303.0
+offset_bottom = 90.0
+scale = Vector2(12.3808, 14.1115)
+text = "ciao"
 
 [connection signal="child_exiting_tree" from="." to="SacredCrystal" method="_on_lv_1_child_exiting_tree"]
 [connection signal="set_tower" from="CanvasLayer/TowersArray" to="TileMap" method="_on_towers_array_set_tower"]

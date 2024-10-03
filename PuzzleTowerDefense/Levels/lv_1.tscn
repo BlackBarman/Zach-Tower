@@ -42,7 +42,7 @@ offset_top = 67.0
 offset_right = 303.0
 offset_bottom = 90.0
 scale = Vector2(12.3808, 14.1115)
-text = "ciao"
+text = "ciao!!!!!!"
 
 [connection signal="child_exiting_tree" from="." to="SacredCrystal" method="_on_lv_1_child_exiting_tree"]
 [connection signal="set_tower" from="CanvasLayer/TowersArray" to="TileMap" method="_on_towers_array_set_tower"]

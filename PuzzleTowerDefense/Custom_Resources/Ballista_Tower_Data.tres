@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="CustomData" load_steps=3 format=3 uid="uid://c6xsrud72v0hr"]
 
 [ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="1_5aaqa"]
-[ext_resource type="Texture2D" uid="uid://bkpbdj1yp3emh" path="res://Assets/UI_assets/Icons/Tower01Icon.png" id="1_xghg0"]
+[ext_resource type="Texture2D" uid="uid://c3iycuo6jj5b2" path="res://Assets/UI_assets/Icons/PaletteTower1.png" id="1_b3pdi"]
 
 [resource]
 script = ExtResource("1_5aaqa")
 Damage = 3
 Damage_type = "AOE"
 fire_rate = 60
-preview_image = ExtResource("1_xghg0")
+preview_image = ExtResource("1_b3pdi")
 attack_range = "T_shape"

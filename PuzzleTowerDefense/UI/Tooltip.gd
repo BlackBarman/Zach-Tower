@@ -16,11 +16,9 @@ signal buttonsSignal
 
 
 func _on_mouse_entered():
-	print("SEI FUORI???")
 	hovered = true
 
 func _on_mouse_exited():
-	print("SEI DENTRO???")
 	hovered = false
 
 func _input(event):
@@ -32,7 +30,6 @@ func _input(event):
 
 #starts a timer so we don't display the tooltip immediatly
 func _on_base_tower_active_tooltip():
-	print("la torre ha mandato un segnale al tootip")
 	await get_tree().create_timer(0.5).timeout
 	DisplayPopup = true
-	pass # Replace with function body.()
+

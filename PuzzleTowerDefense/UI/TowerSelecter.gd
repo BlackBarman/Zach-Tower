@@ -46,5 +46,5 @@ func _on_tower_slot_pressed(key: String) -> void:
 	var index = tower_data_dict.keys().find(key)
 	# Call the non-static function correctly on the singleton instance
 	TowerDataVault.set_selected_tower_index(index)
-	print("Tower selected:", key, "at index", index)
+	#print("Tower selected:", key, "at index", index)
 	emit_signal("set_tower")

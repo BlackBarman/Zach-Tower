@@ -22,7 +22,8 @@ previewImage = ExtResource("2_5mhty")
 unique_name_in_owner = true
 position = Vector2(0, 0)
 
-[node name="Tower01" type="Sprite2D" parent="."]
+[node name="TowerSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -32)
 texture = ExtResource("2_h50g1")
 hframes = 3
@@ -34,7 +35,7 @@ autostart = true
 
 [node name="ColorSwitcher" type="Area2D" parent="." node_paths=PackedStringArray("object_to_modulate")]
 script = ExtResource("6_uyecy")
-object_to_modulate = NodePath("../Tower01")
+object_to_modulate = NodePath("../TowerSprite")
 good_color = Color(0.997599, 0.568193, 0.783965, 1)
 bad_color = Color(0.870588, 0, 0, 1)
 
@@ -47,6 +48,7 @@ shape = SubResource("RectangleShape2D_tfubh")
 shape = SubResource("RectangleShape2D_8jtg0")
 
 [node name="Tooltip" parent="." instance=ExtResource("7_78n3y")]
+unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

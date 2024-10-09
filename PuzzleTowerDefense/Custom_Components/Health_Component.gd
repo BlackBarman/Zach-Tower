@@ -1,5 +1,5 @@
 extends Node
-class_name HealthComponent 
+class_name HealthComponent
 
 @export var CurrentHealth = 0
 @export var MaxHealth = 0
@@ -32,7 +32,4 @@ func _CheckDeath():
 		Death.emit()
 		get_parent().queue_free()
 
-#func _on_hurt_box_area_2d_hit_landed(final_damage):
-	#print("un milione e mezzo di botte ho preso")
-	#_Damage(final_damage)
 

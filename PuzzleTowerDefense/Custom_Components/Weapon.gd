@@ -20,11 +20,9 @@ func _process(_delta):
 
 func try_Shoot():
 	if Targets != []:
-		print("can shoot")
 		bullet = BulletScene.instantiate()
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
 		%AnimatedSprite2D.play("ballista")
-		print("Weapon: turno finito")
 		await bullet.bulletDie
 
 
@@ -50,7 +48,6 @@ func _on_animated_sprite_2d_frame_changed():
 	if current_frame == shooting_frame:
 		if Targets != []:
 			shoot()
-			print("shooted")
 			debug_n_times_shot += 1
 		else:
 			bullet._die()

@@ -24,6 +24,9 @@ func _ready():
 	tilemap.tower_placed.connect(tower_was_placed)
 	RemoveButton.pressed.connect(_remove_tower)
 	data = TowerDataVault.get_selected_tower_data() as CustomData
+	%Tooltip.data = data
+	%TowerSprite.texture = data.preview_image
+
 
 func _on_color_switcher_body_entered(_body):
 	can_be_placed = false

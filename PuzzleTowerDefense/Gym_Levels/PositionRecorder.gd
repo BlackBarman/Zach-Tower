@@ -9,7 +9,7 @@ var nodes_to_track : Array
 func _ready():
 	if Engine.is_editor_hint():
 		array_to_populate.clear()
-		print("ho iniziallizato puoi andare")
+
 
 
 func _process(_delta):

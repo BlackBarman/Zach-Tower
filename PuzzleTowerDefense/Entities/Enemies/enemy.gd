@@ -10,25 +10,21 @@ var animationSpeed = 120 #how quickly it moves forward. doesn't influence gamepl
 signal end_Turn
 
 func _process(delta):
-
 	if (canMoveForward):
 		_move_Forward(delta)
-	#print("totalProgress ",targetProgress)
-	#print("progress ", progress)
-	#pass
-	#progress += delta * speed
+
+
 func _execute_Turn():
 	targetProgress = progress + (tileSize * speed)
-	print("targetProgress changed: ", targetProgress)
 	canMoveForward = true
 	await end_Turn
+
 
 func _move_Forward(delta):
 	if (progress < targetProgress):
 		progress += delta * animationSpeed
 		$CharacterBody2D/AnimatedSprite2D.play("Walk right")
 	elif (progress >= targetProgress):
-		print("progress reached")
 		#AudioManager.EnemyMove.play()
 		progress = targetProgress
 		canMoveForward = false
@@ -38,7 +34,6 @@ func _move_Forward(delta):
 
 func _on_health_component_death():
 	AudioManager.EnemyDeath.play()
-	pass # Replace with function body.
 
 
 func _on_health_component_health_change_negative():

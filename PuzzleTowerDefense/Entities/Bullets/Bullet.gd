@@ -37,8 +37,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_hit_box_area_2d_area_entered(area):
 	if area is HurtBoxArea2D:
 		play_animation("arrow_impact")
-		#$AnimatedSprite2D.play("arrow_impact")
-		#print("this bullet is dying")
+
 
 func play_animation(animation_name: String):
 	current_animation = animation_name
@@ -50,7 +49,6 @@ func _die():
 	queue_free()
 
 func _on_animated_sprite_2d_animation_finished():
-	print("Bullet finished the animation")
 	# Only call _die if the impact animation has finished
 	if current_animation == "arrow_impact":
 		_die()

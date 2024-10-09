@@ -22,7 +22,7 @@ var showing: bool = false
 func _enter_tree() -> void:
 	# Add tool button to move shelf to editor bottom
 	add_tool_menu_item("Files to Bottom", Callable(self, "FilesToBottom"))
-	
+
 	# Get our file system
 	FileDock = self.get_editor_interface().get_file_system_dock()
 	await get_tree().create_timer(0.1).timeout
@@ -58,15 +58,15 @@ func _exit_tree() -> void:
 
 
 func _process(delta: float) -> void:
-	
+
 	newSize = FileDock.get_window().size
-	
+
 	# Keeps the file system from being unusable in size
 	if FileDock.get_window().name == "root" && filesBottom == false:
 		FileDock.get_child(3).get_child(0).size.y = newSize.y - padding
 		FileDock.get_child(3).get_child(1).size.y = newSize.y - padding
 		return
-		
+
 	# Adjust the size of the file system based on how far up
 	# the drawer has been pulled
 	if FileDock.get_window().name == "root" && filesBottom == true:
@@ -75,23 +75,23 @@ func _process(delta: float) -> void:
 		var editorsettings = editor.get_editor_settings()
 		var fontsize: int = editorsettings.get_setting("interface/editor/main_font_size")
 		var editorscale = EditorInterface.get_editor_scale()
-		
+
 		FileDock.get_child(3).get_child(0).size.y = newSize.y - (fontsize * 2) - (bottompadding * EditorInterface.get_editor_scale())
 		FileDock.get_child(3).get_child(1).size.y = newSize.y - (fontsize * 2) - (bottompadding * EditorInterface.get_editor_scale())
 		return
-	
+
 	# Keeps our systems sized when popped out
 	if (FileDock.get_window().name != "root" && filesBottom == false):
 		FileDock.get_window().min_size.y = 50
 		FileDock.get_child(3).get_child(0).size.y = newSize.y - padding
 		FileDock.get_child(3).get_child(1).size.y = newSize.y - padding
-		
+
 		# Centers window on first pop
 		if initialLoad == false:
 			initialLoad = true
 			var screenSize: Vector2 = DisplayServer.screen_get_size()
 			FileDock.get_window().position = screenSize/2
-			
+
 		return
 
 # Moves the files between the bottom panel and the original dock

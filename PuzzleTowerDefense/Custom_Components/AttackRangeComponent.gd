@@ -6,18 +6,11 @@ class_name  DisplayRangeComponent
 var ShowPreview = true
 @export var tilemap: TileMap
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#tilemap = find_tilemap()
-	#if tilemap == null:
-		#print("TileMap non trovata nella scena principale")
-	#else:
-		#print("TileMap trovata:", tilemap)
-	pass # Replace with function body.
+
 
 func _Setupfunc( a_tilemap: TileMap):
 	tilemap = a_tilemap
-	pass 
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

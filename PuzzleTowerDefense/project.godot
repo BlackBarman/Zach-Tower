@@ -22,11 +22,11 @@ aseprite_executable_path="C:/Program Files/Aseprite/Aseprite.exe"
 
 [autoload]
 
-Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 Popups="*res://Globals/Popups.tscn"
 EndLevelStats="*res://Custom_Resources/End_Level_Stats.gd"
 AudioManager="*res://Systems/AudioManager.tscn"
 TowerDataVault="*res://Globals/tower_data_manager.gd"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 
 [display]
 

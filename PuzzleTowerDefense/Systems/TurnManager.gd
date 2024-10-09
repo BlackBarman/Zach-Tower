@@ -10,10 +10,10 @@ func _startBattle():
 	$Timer.start()
 
 func _processTurns():
-	
+
 	TurnCounter += 1
 	get_tree().call_group("LevelManagerGroup", "_turn_Start", TurnCounter)
-	
+
 	#Enemy Turn
 	EnemyList.clear()
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
@@ -33,7 +33,7 @@ func _processTurns():
 		print("Tower acts")
 		await y._execute_Turn()
 
-	print("tutte le torri hanno finito")	
+	print("tutte le torri hanno finito")
 
 	var EnemyWaiting = get_tree().get_nodes_in_group("LevelManagerGroup")[0].m_numberEnemies
 	if EnemyList.size() > 0 || EnemyWaiting > 0:
@@ -46,7 +46,7 @@ func _processTurns():
 
 func _on_start_battle_button_button_down():
 	_startBattle()
-	StartButton.visible = false 
+	StartButton.visible = false
 	AudioManager.StartStage.play()
 
 

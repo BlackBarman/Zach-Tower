@@ -31,12 +31,14 @@ texture = ExtResource("3_ijvoa")
 script = ExtResource("1_lfj1m")
 
 [node name="StartBattleButton" type="Button" parent="."]
-offset_left = 968.0
-offset_top = 56.0
-offset_right = 1052.0
-offset_bottom = 110.0
+offset_left = 913.0
+offset_top = 21.0
+offset_right = 1124.0
+offset_bottom = 130.0
+scale = Vector2(0.630993, 0.630993)
 theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564961, 1)
 theme_override_fonts/font = ExtResource("2_ufgvi")
+theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxTexture_mqgkf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_h0aao")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_au17u")

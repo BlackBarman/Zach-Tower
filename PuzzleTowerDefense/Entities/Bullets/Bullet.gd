@@ -1,4 +1,7 @@
 extends Node2D
+
+signal bulletDie
+
 var speed = 100
 var move = Vector2.ZERO
 var look_vector = Vector2.ZERO
@@ -6,7 +9,6 @@ var target
 var current_animation = ""
 @export var projectile_speed = 25
 @export var damage := 1
-signal bulletDie
 
 #TODO change bullet animation based on the weapon, using a dictionary
 #TODO play impact animation upon impact, then kill the projectile

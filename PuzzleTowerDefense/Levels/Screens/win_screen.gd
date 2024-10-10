@@ -1,7 +1,6 @@
 extends Control
 
 
-
 func _ready():
 	%n_shots_fired.text =  str(EndLevelStats.shots_fired)
 	%n_overkill.text    =  str(EndLevelStats.overkill)
@@ -14,7 +13,8 @@ func _ready():
 
 func _on_button_pressed():
 	EndLevelStats.reset_data()
-	queue_free()
+	get_tree().change_scene_to_file("res://Levels/lv_1.tscn")
+	#queue_free()
 
 func _retrieve_inactive_towers():
 	for tower in get_tree().get_nodes_in_group("TowerGroup"):

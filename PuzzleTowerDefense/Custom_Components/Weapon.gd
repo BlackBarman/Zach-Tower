@@ -37,7 +37,6 @@ func try_Shoot():
 		#before retrying to shoot
 		await bullet.bulletDie
 
-
 #shoots the actual bullet
 func shoot():
 	if bullet == null:

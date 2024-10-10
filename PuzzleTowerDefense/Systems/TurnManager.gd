@@ -30,7 +30,7 @@ func _processTurns():
 	if EnemyList.size() > 0 || EnemyWaiting > 0:
 		$Timer.start()
 	else:
-		$"../SacredCrystal".player_won_level()
+		%SacredCrystal.player_won_level()
 
 func _on_start_battle_button_button_down():
 	_startBattle()

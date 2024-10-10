@@ -25,8 +25,6 @@ offset_right = 150.0
 offset_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-tooltip_text = "hello there i am a tooltip
-"
 theme_override_styles/normal = SubResource("StyleBoxTexture_6uudh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ukahr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3v1ik")
@@ -44,5 +42,13 @@ texture = ExtResource("3_jumv8")
 expand_mode = 1
 stretch_mode = 3
 
-[connection signal="button_down" from="." to="." method="_on_button_down"]
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

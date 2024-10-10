@@ -28,11 +28,13 @@ func _populate_tower_data_dict() -> void:
 @warning_ignore("unused_parameter")
 func _set_tower(index : int):
 	emit_signal("set_tower")
+
 func _create_tower_slots() -> void:
 	for key in tower_data_dict.keys():
-		var tower_slot_instance = tower_slot.instantiate()
+		var tower_slot_instance = tower_slot.instantiate() as TowerSlot
 		add_child(tower_slot_instance)
 		tower_slot_instance.name = key
+		tower_slot_instance.tooltip_data = tower_data_dict[key]["data"]
 
 		# Connect the button's pressed signal to the selection handler
 		tower_slot_instance.pressed.connect(_on_tower_slot_pressed.bind(key))

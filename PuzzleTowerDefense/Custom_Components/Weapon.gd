@@ -1,17 +1,26 @@
 extends Node2D
 
-@export var BulletScene : PackedScene
-@export var shooting_frame := 1
-var current_frame = 0
+@onready var data = TowerDataVault.get_selected_tower_data() as CustomData
 
+@onready var anim_name : String = data.weapon_animation
+@onready var BulletScene: PackedScene = data.bullet_scene
 var bullet #instance bullet
+
 var Targets = []
 var current_enemy = 0
+
+var shooting_frame := 1
+var current_frame = 0
+
 var can_shoot = false
-var debug_n_times_shot = 0
 var active = false
 
-#TODO change weapon base on tower data
+var debug_n_times_shot = 0
+
+
+
+func _ready():
+	%AnimatedSprite2D.animation = anim_name
 
 func _process(_delta):
 	if Targets != [] :
@@ -22,12 +31,17 @@ func try_Shoot():
 	if Targets != []:
 		bullet = BulletScene.instantiate()
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
-		%AnimatedSprite2D.play("ballista")
+		%AnimatedSprite2D.play(anim_name)
+
+		#waits for the bullet to send the dead signal
+		#before retrying to shoot
 		await bullet.bulletDie
 
 
 #shoots the actual bullet
 func shoot():
+	if bullet == null:
+		bullet = BulletScene.instantiate()
 	bullet.global_position = $Marker2D.position
 	bullet.set_target(current_enemy)
 	get_parent().add_child(bullet)
@@ -39,7 +53,6 @@ func shoot():
 		active = true
 
 #fires the shoot function at the exact frame of the animation
-#remeber to set the shooting_frame in the inspector
 func _on_animated_sprite_2d_frame_changed():
 	if current_frame == 6:
 		current_frame = 0
@@ -49,13 +62,12 @@ func _on_animated_sprite_2d_frame_changed():
 		if Targets != []:
 			shoot()
 			debug_n_times_shot += 1
-		else:
-			bullet._die()
 		#TODO See if debug_n_times_shot is used in other places as well,
 		#after all we do want a variable that tracks
 		#how many times the tower shot
 
 
+#region add and remove target to target array
 func _on_attack_range_body_entered(body):
 	if body.is_in_group("EnemyCollisionsGroup"):
 		Targets.append(body)
@@ -65,4 +77,5 @@ func _on_attack_range_body_exited(body):
 		Remove_Target(body)
 
 func Remove_Target(body):
+#endregion
 	Targets.erase(body)

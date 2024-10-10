@@ -1,8 +1,7 @@
-[gd_scene load_steps=128 format=3 uid="uid://ckfd2o0q75ane"]
+[gd_scene load_steps=127 format=3 uid="uid://ckfd2o0q75ane"]
 
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="1_twlct"]
 [ext_resource type="Script" path="res://Custom_Components/Weapon.gd" id="2_0u0cj"]
-[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Entities/Bullets/bullet.tscn" id="3_nnjhi"]
 [ext_resource type="Texture2D" uid="uid://dxms357vl1nhu" path="res://Assets/Towers/Weapons/Tower 07/Spritesheets/Tower 07 - Level 01 - Weapon.png" id="4_ogbxo"]
 [ext_resource type="Texture2D" uid="uid://cmu2lrraepgjs" path="res://Assets/Towers/Weapons/Tower 04/PNGs/Tower 04 - Level 01 - Weapon.png" id="6_m8bst"]
 [ext_resource type="Texture2D" uid="uid://4ddmwpmfx2o6" path="res://Assets/Towers/Weapons/Tower 02/Spritesheets/Tower 02 - Level 01 - Weapon.png" id="8_476af"]
@@ -522,7 +521,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dytu3")
 }],
-"loop": true,
+"loop": false,
 "name": &"cannon",
 "speed": 5.0
 }, {
@@ -578,7 +577,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7nus7")
 }],
-"loop": true,
+"loop": false,
 "name": &"catapult",
 "speed": 5.0
 }, {
@@ -661,7 +660,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g7poe")
 }],
-"loop": true,
+"loop": false,
 "name": &"electriccrystal",
 "speed": 10.0
 }, {
@@ -684,7 +683,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rdcpl")
 }],
-"loop": true,
+"loop": false,
 "name": &"goldenballista",
 "speed": 5.0
 }, {
@@ -800,7 +799,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vrorb")
 }],
-"loop": true,
+"loop": false,
 "name": &"magicmirror",
 "speed": 15.0
 }, {
@@ -835,7 +834,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a0gbq")
 }],
-"loop": true,
+"loop": false,
 "name": &"magicrod",
 "speed": 5.0
 }, {
@@ -864,7 +863,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mysie")
 }],
-"loop": true,
+"loop": false,
 "name": &"sling",
 "speed": 5.0
 }]
@@ -873,7 +872,6 @@ animations = [{
 position = Vector2(-1, -44)
 scale = Vector2(1.25, 1.25)
 script = ExtResource("2_0u0cj")
-BulletScene = ExtResource("3_nnjhi")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(55.2, 2.40018)
@@ -885,7 +883,6 @@ unique_name_in_owner = true
 position = Vector2(5.60001, 3.2)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_jexbr")
-animation = &"catapult"
-frame_progress = 0.603306
+animation = &"sling"
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

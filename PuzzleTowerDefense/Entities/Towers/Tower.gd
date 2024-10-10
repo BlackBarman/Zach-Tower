@@ -25,9 +25,6 @@ func _ready():
 	RemoveButton.pressed.connect(_remove_tower)
 	data = TowerDataVault.get_selected_tower_data() as CustomData
 	%Tooltip.data = data
-
-	# TODO = change TowwerSprite Texture based on preview Image
-	# doens't need to be cool looking
 	%TowerSprite.texture = data.tower_sprite
 
 

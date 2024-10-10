@@ -1,20 +1,6 @@
 extends Resource
 class_name CustomData
 
-# to improve :
-#Export an int or String property as an enumerated list of options. If the property is an int, then the index of the value is stored, in the same order the values are provided. You can add explicit values using a colon. If the property is a String, then the value is stored.
-#
-#
-#@export_enum("Warrior", "Magician", "Thief") var character_class: int
-#@export_enum("Slow:30", "Average:60", "Very Fast:200") var character_speed: int
-#@export_enum("Rebecca", "Mary", "Leah") var character_name: String
-#
-#
-# or just make a bunch of enums and export them,
-# might be better if same enum is used by other stuff:
-#enum CharacterName {REBECCA, MARY, LEAH}
-#@export var character_name: CharacterNam
-#
 
 
 @export_category("tower stats")
@@ -25,6 +11,10 @@ class_name CustomData
 @export var preview_image : Texture
 @export_enum("T_shape","Y_shape","X_shape") var attack_range : String
 @export var tower_sprite : Texture
+@export var bullet_scene : PackedScene
+@export_enum("ballista","cannon","catapult",
+			"electriccrystal","goldenballista",
+			"magicmirror","magicrod","sling") var weapon_animation : String
 
 
 

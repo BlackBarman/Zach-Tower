@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="CustomData" load_steps=3 format=3 uid="uid://bceav83bimdhx"]
+[gd_resource type="Resource" script_class="CustomData" load_steps=4 format=3 uid="uid://bceav83bimdhx"]
 
 [ext_resource type="Texture2D" uid="uid://gn10tp02mat1" path="res://Assets/UI_assets/Icons/PaletteTower3.png" id="1_ffi2e"]
 [ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="1_tu4uw"]
+[ext_resource type="Texture2D" uid="uid://c58uc2j41l847" path="res://Assets/Towers/Bases/PNGs/Tower 03.png" id="3_43rrp"]
 
 [resource]
 script = ExtResource("1_tu4uw")
@@ -10,3 +11,4 @@ Damage_type = "Pierce"
 fire_rate = 0
 preview_image = ExtResource("1_ffi2e")
 attack_range = "T_shape"
+tower_sprite = ExtResource("3_43rrp")

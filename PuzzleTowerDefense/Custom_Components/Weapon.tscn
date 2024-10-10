@@ -885,8 +885,7 @@ unique_name_in_owner = true
 position = Vector2(5.60001, 3.2)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_jexbr")
-animation = &"ballista"
-frame = 6
-frame_progress = 1.0
+animation = &"catapult"
+frame_progress = 0.603306
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

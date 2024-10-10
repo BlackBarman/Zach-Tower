@@ -28,7 +28,7 @@ func _ready():
 
 	# TODO = change TowwerSprite Texture based on preview Image
 	# doens't need to be cool looking
-	%TowerSprite.texture = data.preview_image
+	%TowerSprite.texture = data.tower_sprite
 
 
 func _on_color_switcher_body_entered(_body):

@@ -10,7 +10,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_v0plp"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 15, 160, 0, 0, 0, 0, 225, 160, 0, 0, 0, 0, 226, 408, 0, 0, 0, 0, 477, 413, 0, 0, 0, 0, 478, 291, 0, 0, 0, 0, 355, 291, 0, 0, 0, 0, 352, 101, 0, 0, 0, 0, 736, 98, 0, 0, 0, 0, 739, 478, 0, 0, 0, 0, 926, 479, 0, 0, 0, 0, 927, 163, 0, 0, 0, 0, 1298, 164)
+"points": PackedVector2Array(0, 0, 0, 0, 15, 160, 0, 0, 0, 0, 225, 160, 0, 0, 0, 0, 223, 412, 0, 0, 0, 0, 477, 413, 0, 0, 0, 0, 478, 293, 0, 0, 0, 0, 351, 291, 0, 0, 0, 0, 353, 96, 0, 0, 0, 0, 736, 98, 0, 0, 0, 0, 739, 478, 0, 0, 0, 0, 926, 479, 0, 0, 0, 0, 927, 163, 0, 0, 0, 0, 1298, 164)
 }
 point_count = 12
 
@@ -33,10 +33,10 @@ win_screen = ExtResource("11_cyrn3")
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]
 
 [node name="StartBattleButton" parent="TurnManager" index="0"]
-offset_left = 1012.0
-offset_top = 12.0
-offset_right = 1223.0
-offset_bottom = 121.0
+offset_left = 1196.0
+offset_top = 11.0
+offset_right = 1407.0
+offset_bottom = 120.0
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true

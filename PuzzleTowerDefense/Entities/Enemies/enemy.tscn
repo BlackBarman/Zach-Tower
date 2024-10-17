@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_yymip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
-size = Vector2(56, 36)
+size = Vector2(52, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmrxe"]
 atlas = ExtResource("3_b30is")
@@ -118,8 +118,8 @@ script = ExtResource("1_vldat")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("cara")]
 script = ExtResource("2_u8arb")
-CurrentHealth = 3
-MaxHealth = 3
+CurrentHealth = 4
+MaxHealth = 4
 cara = NodePath("../CharacterBody2D/HurtBoxArea2D")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]

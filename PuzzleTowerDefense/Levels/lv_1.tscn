@@ -10,7 +10,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_v0plp"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 15, 160, 0, 0, 0, 0, 225, 160, 0, 0, 0, 0, 223, 412, 0, 0, 0, 0, 477, 413, 0, 0, 0, 0, 478, 293, 0, 0, 0, 0, 351, 291, 0, 0, 0, 0, 353, 96, 0, 0, 0, 0, 736, 98, 0, 0, 0, 0, 739, 478, 0, 0, 0, 0, 926, 479, 0, 0, 0, 0, 927, 163, 0, 0, 0, 0, 1298, 164)
+"points": PackedVector2Array(0, 0, 0, 0, -34, 160, 0, 0, 0, 0, 225, 160, 0, 0, 0, 0, 223, 412, 0, 0, 0, 0, 477, 413, 0, 0, 0, 0, 478, 293, 0, 0, 0, 0, 351, 291, 0, 0, 0, 0, 353, 96, 0, 0, 0, 0, 736, 98, 0, 0, 0, 0, 739, 478, 0, 0, 0, 0, 926, 479, 0, 0, 0, 0, 927, 163, 0, 0, 0, 0, 1298, 164)
 }
 point_count = 12
 
@@ -31,17 +31,17 @@ curve = SubResource("Curve2D_v0plp")
 
 [node name="TowersArray" parent="CanvasLayer" instance=ExtResource("2_agi6v")]
 
+[node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
+unique_name_in_owner = true
+
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
 unique_name_in_owner = true
-editor_description = "FOR SOME REASON THIS NEEDS TO BE HIGHER IN THE HIERACHY THAN LEVEL AND TURN MANAGER TO WORK"
+editor_description = "FOR SOME REASON THIS NEEDS TO BE HIGHER IN THE HIERACHY TREE THAN LEVEL AND TURN MANAGER TO WORK"
 position = Vector2(1117, 162)
 win_screen = ExtResource("11_cyrn3")
 
-[node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
-unique_name_in_owner = true
-editor_description = "fires the functions from sacred crystal to win and lose the game "
-
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]
+editor_description = "fires the functions from sacred crystal to win and lose the game "
 
 [node name="StartBattleButton" parent="TurnManager" index="0"]
 offset_left = 1196.0
@@ -49,6 +49,11 @@ offset_top = 11.0
 offset_right = 1407.0
 offset_bottom = 120.0
 
+[node name="Timer" parent="TurnManager" index="1"]
+wait_time = 0.338
+
+[connection signal="child_entered_tree" from="Path2D" to="SacredCrystal" method="_on_path_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Path2D" to="SacredCrystal" method="_on_path_2d_child_exiting_tree"]
 [connection signal="set_tower" from="CanvasLayer/TowersArray" to="TileMap" method="_on_towers_array_set_tower"]
 
 [editable path="TurnManager"]

@@ -65,3 +65,6 @@ func UpdateStat(tower):
 	EndLevelStats.AddSpaceUsed(tower.space_occupied) #to change with the real space occupied by tower
 	EndLevelStats.IncrementTowersPlaced()
 	EndLevelStats.AddMoneySpent(tower.money_cost)
+
+
+

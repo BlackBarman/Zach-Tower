@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var anim_name : String = data.weapon_animation
 @onready var BulletScene: PackedScene = data.bullet_scene
+@onready var BulletDamage:int = data.Damage
 var bullet #instance bullet
 
 var Targets = []
@@ -28,19 +29,21 @@ func _process(_delta):
 		%AnimatedSprite2D.look_at(current_enemy.global_position)
 
 func try_Shoot():
-	if Targets != []:
+	if Targets.size() != 0:
+		current_enemy = Targets[0]
 		bullet = BulletScene.instantiate()
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
 		%AnimatedSprite2D.play(anim_name)
-
 		#waits for the bullet to send the dead signal
 		#before retrying to shoot
 		await bullet.bulletDie
 
+
 #shoots the actual bullet
 func shoot():
-	if bullet == null:
+	if bullet == null: #and current_enemy != null:
 		bullet = BulletScene.instantiate()
+	bullet.damage = BulletDamage
 	bullet.global_position = $Marker2D.position
 	bullet.set_target(current_enemy)
 	get_parent().add_child(bullet)
@@ -61,20 +64,23 @@ func _on_animated_sprite_2d_frame_changed():
 		if Targets != []:
 			shoot()
 			debug_n_times_shot += 1
-		#TODO See if debug_n_times_shot is used in other places as well,
-		#after all we do want a variable that tracks
-		#how many times the tower shot
 
 
 #region add and remove target to target array
 func _on_attack_range_body_entered(body):
 	if body.is_in_group("EnemyCollisionsGroup"):
 		Targets.append(body)
+		print("Enemy entered range. Total targets: ", Targets.size())
 
 func _on_attack_range_body_exited(body):
 	if body.is_in_group("EnemyCollisionsGroup"):
 		Remove_Target(body)
+		print("Enemy exited range. Total targets: ", Targets.size())
+		if Targets != []:
+			current_enemy = Targets[0]
 
 func Remove_Target(body):
-#endregion
 	Targets.erase(body)
+	if Targets != []:
+		current_enemy = Targets[0]
+#endregion

@@ -199,7 +199,6 @@ position = Vector2(-30, -22)
 scale = Vector2(0.9375, 0.75)
 sprite_frames = SubResource("SpriteFrames_c7abm")
 animation = &"Idle right"
-frame_progress = 0.988431
 centered = false
 flip_h = true
 

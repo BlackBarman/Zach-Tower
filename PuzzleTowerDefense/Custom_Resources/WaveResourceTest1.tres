@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://dx7mglypepq3c"]
 
 [ext_resource type="PackedScene" uid="uid://c2rf41vx2c387" path="res://Entities/Enemies/enemyTest1.tscn" id="1_0ccei"]
-[ext_resource type="Script" path="res://Levels/Wave.gd" id="2_o51h1"]
+[ext_resource type="Script" path="res://Custom_Resources/Wave.gd" id="2_ltxal"]
 
 [resource]
-script = ExtResource("2_o51h1")
+script = ExtResource("2_ltxal")
 m_numberEnemies = 2
-m_SpawnTurn = 3
 m_enemyScene = ExtResource("1_0ccei")
 path = NodePath("../Path2D")

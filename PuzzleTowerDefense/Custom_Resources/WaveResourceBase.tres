@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://dtxpvd4okykdl"]
+
+[ext_resource type="PackedScene" uid="uid://c40bsxa3vvpe5" path="res://Entities/Enemies/enemy.tscn" id="1_32c8y"]
+[ext_resource type="Script" path="res://Custom_Resources/Wave.gd" id="2_g2wds"]
+
+[resource]
+script = ExtResource("2_g2wds")
+m_numberEnemies = 1
+m_enemyScene = ExtResource("1_32c8y")
+path = NodePath("../Path2D")

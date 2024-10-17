@@ -16,10 +16,16 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	$Timer.stop()
-	$Label.hide()
+	%Label.hide()
+	%Panel.hide()
 
 
 func _on_timer_timeout():
-	$Label.text = str(tooltip_data.Damage)
-	$Label.show()
+	#+ "\n" = vai a capo +\= lo statement continua su prossima riga
+	var tower_variables = "Damage: " + str(tooltip_data.Damage) + "\n" + \
+		"Damage Type: " +str(tooltip_data.Damage_type) + "\n" + \
+		"Fire Rate: " + str(tooltip_data.fire_rate)
+	%Panel.show()
+	%Label.text = tower_variables
+	%Label.show()
 

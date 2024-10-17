@@ -8,10 +8,9 @@ var look_vector = Vector2.ZERO
 var target
 var current_animation = ""
 @export var projectile_speed = 25
-@export var damage := 1
+@export var damage := 1 #real value passed by the weapon
 
 #TODO change bullet animation based on the weapon, using a dictionary
-#TODO play impact animation upon impact, then kill the projectile
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,8 +21,10 @@ func _ready():
 		look_vector= target.global_position - global_position
 		$AnimatedSprite2D.play("arrow")
 
+
 func set_target(enemy):
 	target = enemy
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,8 +34,10 @@ func _process(delta):
 	move = move.normalized()
 	global_position += move
 
+
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	_die()
+
 
 func _on_hit_box_area_2d_area_entered(area):
 	if area is HurtBoxArea2D:
@@ -50,10 +53,12 @@ func _die():
 	emit_signal("bulletDie")
 	queue_free()
 
+
 func _on_animated_sprite_2d_animation_finished():
 	# Only call _die if the impact animation has finished
 	if current_animation == "arrow_impact":
 		_die()
+
 
 func Get_Damage() -> int:
 	return damage

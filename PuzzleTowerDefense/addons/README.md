@@ -28,7 +28,7 @@ The SignalVisualizer plugin can be installed from source or the Godot Asset Libr
 
 ![Plugins Tab in Godot Project Settings](./images/PluginScreenshot.png)
 
-4. The `Signal Visualizer` tab will display in the bottom dock region. 
+4. The `Signal Visualizer` tab will display in the bottom dock region.
 
 ![Godot 4.x bottom dock displaying Signal Visualizer tab](./images/SignalVisualizerDockScreenshot.png)
 

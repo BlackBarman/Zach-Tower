@@ -1,6 +1,5 @@
 extends Node2D
 
-
 enum ShapeType { T_shape, X_shape,Y_shape }
 
 @onready var i = TowerDataVault.get_selected_tower_data() as CustomData

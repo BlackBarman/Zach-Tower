@@ -2,7 +2,7 @@ extends Node
 class_name LevelStats
 
 
-var shots_fired = 0      #
+var shots_fired = 0
 var space_used = 0       # TODO space used = number of towers placed (for now)
 var money_spent = 0      # TODO implement money variable in towers and update this variable each time a ower is placed
 var overkill = 0         # Nico TODO Implement a way to know how much damage is wasted when a given bullet hits a given enemy, then update this variable (in this script) accordingly

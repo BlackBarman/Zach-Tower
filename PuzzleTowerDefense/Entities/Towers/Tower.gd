@@ -27,7 +27,6 @@ func _ready():
 	%Tooltip.data = data
 	%TowerSprite.texture = data.tower_sprite
 
-
 func _on_color_switcher_body_entered(_body):
 	can_be_placed = false
 
@@ -35,7 +34,7 @@ func _on_color_switcher_body_exited(_body):
 	can_be_placed = true
 
 func tower_was_placed():
-	%AttackRange.hide()
+	#%AttackRange.hide()
 	emit_signal("ActiveTooltip")
 	AudioManager.BuildTower.play()
 
@@ -45,9 +44,9 @@ func _on_remove_area_mouse_entered():
 func _on_remove_area_mouse_exited():
 	hovered = false
 
+#called by turn manager
 func _execute_Turn():
 	await $Weapon.try_Shoot()
-
 
 func _remove_tower():
 	if Popups.TooltipTower == $".":

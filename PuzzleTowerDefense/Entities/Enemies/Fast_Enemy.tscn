@@ -183,8 +183,7 @@ shape = SubResource("RectangleShape2D_2biy1")
 position = Vector2(-32, -28)
 scale = Vector2(0.90625, 0.765625)
 sprite_frames = SubResource("SpriteFrames_c7abm")
-animation = &"Hurt"
-frame_progress = 0.938514
+animation = &"Walk right"
 centered = false
 flip_h = true
 

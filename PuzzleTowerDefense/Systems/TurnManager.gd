@@ -5,6 +5,8 @@ var BattleStarted = false
 var TurnCounter = 0
 @onready var StartButton = $StartBattleButton
 
+
+
 func _startBattle():
 	BattleStarted = true
 	$Timer.start()
@@ -18,19 +20,21 @@ func _processTurns():
 	EnemyList.clear()
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
 	for x in EnemyList:
-		await x._execute_Turn()
+		if x != null :
+			print("enemy turn")
+			await x._execute_Turn()
 
 	#Towers always shoot after enemies
 	TowerList.clear()
 	TowerList = get_tree().get_nodes_in_group("TowerGroup")
 	for y in TowerList:
-		await y._execute_Turn()
+		if y != null:
+			print("tower turn")
+			await y._execute_Turn()
 
-	var EnemyWaiting = get_tree().get_nodes_in_group("LevelManagerGroup")[0].m_numberEnemies
-	if EnemyList.size() > 0 || EnemyWaiting > 0:
-		$Timer.start()
-	else:
-		%SacredCrystal.player_won_level()
+	if EnemyList.size() > 0:
+		$Timer.start() # a very small delay that prevents breaking
+
 
 func _on_start_battle_button_button_down():
 	_startBattle()

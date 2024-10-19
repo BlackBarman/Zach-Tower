@@ -12,6 +12,7 @@ class_name CustomData
 @export_enum("T_shape","Y_shape","X_shape") var attack_range : String
 @export var tower_sprite : Texture
 @export var bullet_scene : PackedScene
+@export var cost : int
 @export_enum("ballista","cannon","catapult",
 			"electriccrystal","goldenballista",
 			"magicmirror","magicrod","sling") var weapon_animation : String

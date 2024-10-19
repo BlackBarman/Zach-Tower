@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b67loncmq0dg1"]
+[gd_scene load_steps=12 format=3 uid="uid://b67loncmq0dg1"]
 
 [ext_resource type="Script" path="res://Systems/AudioManager.gd" id="1_pvb6x"]
+[ext_resource type="AudioStream" uid="uid://cit0yudnrxt5" path="res://Assets/Audio/BuildTower.mp3" id="2_5en8c"]
+[ext_resource type="AudioStream" uid="uid://bg1vpxup20cas" path="res://Assets/Audio/SelectTower.mp3" id="3_65kn0"]
+[ext_resource type="AudioStream" uid="uid://cu0rnjy0t7ao5" path="res://Assets/Audio/ShootArrow.mp3" id="4_q31pw"]
+[ext_resource type="AudioStream" uid="uid://bevkmp3moeb6d" path="res://Assets/Audio/Lose.mp3" id="5_86w3w"]
+[ext_resource type="AudioStream" uid="uid://bmkqoq2igkosi" path="res://Assets/Audio/DestroyTower.mp3" id="6_vxaht"]
+[ext_resource type="AudioStream" uid="uid://ckjnjqc3ayvvj" path="res://Assets/Audio/EnemyMove2.mp3" id="7_fa2sb"]
+[ext_resource type="AudioStream" uid="uid://bkfjdjqe00h80" path="res://Assets/Audio/EnemyDeath.mp3" id="8_yg3ed"]
+[ext_resource type="AudioStream" uid="uid://brxugppcyjlen" path="res://Assets/Audio/StartStage.mp3" id="9_mjdbh"]
+[ext_resource type="AudioStream" uid="uid://dpc013i6ytbn8" path="res://Assets/Audio/UIHoverButton.mp3" id="10_4lgea"]
+[ext_resource type="AudioStream" uid="uid://dju5w2rmtuoix" path="res://Assets/Audio/BG_Music_MainMenu.mp3" id="11_rsl24"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_pvb6x")
@@ -18,31 +28,41 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="BuildTower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5en8c")
 volume_db = 10.0
 
 [node name="SelectTower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_65kn0")
 
 [node name="ShootArrow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q31pw")
 volume_db = -10.0
 
 [node name="Lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_86w3w")
 
 [node name="DestroyTower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vxaht")
 volume_db = -10.0
 
 [node name="EnemyMove" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fa2sb")
 volume_db = -25.0
 pitch_scale = 1.2
 
 [node name="EnemyDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_yg3ed")
 volume_db = 10.0
 pitch_scale = 1.75
 
 [node name="BG_Music_BuildingStage" type="AudioStreamPlayer" parent="."]
 
 [node name="StartStage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mjdbh")
 
 [node name="UIHoverButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4lgea")
 pitch_scale = 1.5
 
 [node name="BG_Music_MainMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rsl24")

@@ -118,8 +118,8 @@ script = ExtResource("1_vldat")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("cara")]
 script = ExtResource("2_u8arb")
-CurrentHealth = 4
-MaxHealth = 4
+CurrentHealth = 5
+MaxHealth = 5
 cara = NodePath("../CharacterBody2D/HurtBoxArea2D")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]

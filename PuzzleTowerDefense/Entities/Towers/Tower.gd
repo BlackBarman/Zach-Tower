@@ -3,7 +3,7 @@ class_name BaseTower
 
 signal ActiveTooltip
 
-var hovered :bool = false
+
 var can_be_placed :bool = true
 var placed : bool = true
 var money_cost = 50
@@ -20,6 +20,9 @@ enum State {
 @onready var RemoveButton = Popups.button
 
 
+
+
+
 func _ready():
 	tilemap.tower_placed.connect(tower_was_placed)
 	RemoveButton.pressed.connect(_remove_tower)
@@ -34,15 +37,9 @@ func _on_color_switcher_body_exited(_body):
 	can_be_placed = true
 
 func tower_was_placed():
-	#%AttackRange.hide()
+	%AttackRange.hide()
 	emit_signal("ActiveTooltip")
 	AudioManager.BuildTower.play()
-
-func _on_remove_area_mouse_entered():
-	hovered = true
-
-func _on_remove_area_mouse_exited():
-	hovered = false
 
 #called by turn manager
 func _execute_Turn():

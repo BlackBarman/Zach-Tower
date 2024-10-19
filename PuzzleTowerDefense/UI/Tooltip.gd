@@ -16,9 +16,11 @@ var hovered :bool = false
 
 func _on_mouse_entered():
 	hovered = true
+	%AttackRange.show()
 
 func _on_mouse_exited():
 	hovered = false
+	%AttackRange.hide()
 
 func _input(event):
 	if hovered and DisplayPopup and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and data != null:

@@ -164,7 +164,7 @@ size = Vector2(52, 32)
 
 [node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
 script = ExtResource("1_u6jh0")
-speed = 3
+speed = 4
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("cara")]
 script = ExtResource("2_er8lt")

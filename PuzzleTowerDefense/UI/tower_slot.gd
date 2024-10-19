@@ -25,7 +25,7 @@ func _on_timer_timeout():
 	var tower_variables = "Damage: " + str(tooltip_data.Damage) + "\n" + \
 		"Damage Type: " +str(tooltip_data.Damage_type) + "\n" + \
 		"Fire Rate: " + str(tooltip_data.fire_rate) + "\n" + \
-		"Cost: " + str(tooltip_data.cost)
+		#"Cost: " + str(tooltip_data.cost)
 	%Panel.show()
 	var panelPosition = Vector2(get_local_mouse_position().x, get_local_mouse_position().y-%Panel.size.y)
 	%Panel.set_position(panelPosition)

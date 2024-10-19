@@ -8,7 +8,7 @@ var look_vector = Vector2.ZERO
 var target
 var current_animation = ""
 @export var projectile_speed = 25
-@export var damage := 1 #real value passed by the weapon
+var damage :int #real value passed by the weapon
 
 #TODO change bullet animation based on the weapon, using a dictionary
 

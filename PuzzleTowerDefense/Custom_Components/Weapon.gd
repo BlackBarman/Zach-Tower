@@ -32,6 +32,7 @@ func try_Shoot():
 	if Targets.size() != 0:
 		current_enemy = Targets[0]
 		bullet = BulletScene.instantiate()
+		bullet.damage = BulletDamage
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
 		%AnimatedSprite2D.play(anim_name)
 		#waits for the bullet to send the dead signal

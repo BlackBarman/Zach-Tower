@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=15 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
 [ext_resource type="PackedScene" uid="uid://cto0im2mdxsjj" path="res://UI/TowerSelecterUI.tscn" id="2_agi6v"]
+[ext_resource type="Resource" uid="uid://dtxpvd4okykdl" path="res://Custom_Resources/WaveResourceBase.tres" id="5_mqh7e"]
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Levels/Level_Manager.tscn" id="5_oqwbf"]
 [ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://Systems/TurnManager.tscn" id="6_03eko"]
+[ext_resource type="PackedScene" uid="uid://deebor81fya23" path="res://Entities/Enemies/Tank_Enemy.tscn" id="6_ngnxu"]
+[ext_resource type="Script" path="res://Custom_Resources/Wave.gd" id="7_5d8kr"]
+[ext_resource type="PackedScene" uid="uid://dr3xrq1y7yphb" path="res://Entities/Enemies/Fast_Enemy.tscn" id="8_x5t7l"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://Entities/SacredCrystal.tscn" id="10_sl1of"]
 [ext_resource type="PackedScene" uid="uid://4uoy01ofpsmh" path="res://Levels/Screens/win_screen.tscn" id="11_cyrn3"]
 
@@ -13,6 +17,18 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -34, 160, 0, 0, 0, 0, 225, 160, 0, 0, 0, 0, 223, 412, 0, 0, 0, 0, 477, 413, 0, 0, 0, 0, 478, 293, 0, 0, 0, 0, 351, 291, 0, 0, 0, 0, 353, 96, 0, 0, 0, 0, 736, 98, 0, 0, 0, 0, 739, 478, 0, 0, 0, 0, 926, 479, 0, 0, 0, 0, 927, 163, 0, 0, 0, 0, 1298, 164)
 }
 point_count = 12
+
+[sub_resource type="Resource" id="Resource_sbdqn"]
+script = ExtResource("7_5d8kr")
+m_numberEnemies = 3
+m_enemyScene = ExtResource("6_ngnxu")
+path = NodePath("../Path2D")
+
+[sub_resource type="Resource" id="Resource_1w7og"]
+script = ExtResource("7_5d8kr")
+m_numberEnemies = 2
+m_enemyScene = ExtResource("8_x5t7l")
+path = NodePath("../Path2D")
 
 [node name="LV1" type="Node2D"]
 
@@ -33,6 +49,7 @@ curve = SubResource("Curve2D_v0plp")
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
+waves = Array[ExtResource("7_5d8kr")]([ExtResource("5_mqh7e"), SubResource("Resource_sbdqn"), SubResource("Resource_1w7og")])
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
 unique_name_in_owner = true

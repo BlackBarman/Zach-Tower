@@ -23,6 +23,9 @@ func _processTurns():
 		if x != null :
 			print("enemy turn")
 			await x._execute_Turn()
+			await get_tree().create_timer(0.05).timeout
+
+	await get_tree().process_frame #waits one fram to allow tower range signal to trigger
 
 	#Towers always shoot after enemies
 	TowerList.clear()

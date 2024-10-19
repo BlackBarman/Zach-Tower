@@ -20,9 +20,6 @@ enum State {
 @onready var RemoveButton = Popups.button
 
 
-
-
-
 func _ready():
 	tilemap.tower_placed.connect(tower_was_placed)
 	RemoveButton.pressed.connect(_remove_tower)
@@ -43,6 +40,7 @@ func tower_was_placed():
 
 #called by turn manager
 func _execute_Turn():
+	await get_tree().process_frame
 	await $Weapon.try_Shoot()
 
 func _remove_tower():

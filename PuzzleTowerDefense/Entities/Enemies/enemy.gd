@@ -6,7 +6,9 @@ var canMoveForward = false
 var targetProgress = 0
 var animationSpeed = 120 #how quickly it moves forward. doesn't influence gameplay
 
-
+ #HACK for some reasons unknown to man making the $CharacterBody2D/CollisionShape2D2
+# smaller and to the front of the enemy solves many of the issue we are currently facing
+# with targets detection, however this is not optimal
 signal end_Turn
 
 func _process(delta):
@@ -30,6 +32,7 @@ func _move_Forward(delta):
 		canMoveForward = false
 		$CharacterBody2D/AnimatedSprite2D.play("Idle right")
 		emit_signal("end_Turn")
+
 
 
 func _on_health_component_death():

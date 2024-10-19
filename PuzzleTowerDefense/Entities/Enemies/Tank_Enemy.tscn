@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://db2k678r8bqsu" path="res://Assets/Enemies/Ground/Spritesheets/Scorpion.png" id="4_cviee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
-size = Vector2(62, 62)
+size = Vector2(13, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmrxe"]
 atlas = ExtResource("3_aq5ur")
@@ -190,7 +190,7 @@ cara = NodePath("../CharacterBody2D/HurtBoxArea2D")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 editor_description = "the area the tower uses for detection"
-position = Vector2(-1, 0)
+position = Vector2(18.5, 0.5)
 shape = SubResource("RectangleShape2D_2biy1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]

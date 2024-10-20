@@ -1,26 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpy2i1sfi5ae4"]
+[gd_scene load_steps=14 format=3 uid="uid://cpy2i1sfi5ae4"]
 
 [ext_resource type="Texture2D" uid="uid://yrg06yxb2kf0" path="res://Assets/UI_assets/Slot2.png" id="1_3dmch"]
+[ext_resource type="Texture2D" uid="uid://b44g4ymiu62o2" path="res://Assets/UI_assets/Slot2Unfocused.png" id="1_muuqs"]
 [ext_resource type="Script" path="res://UI/tower_slot.gd" id="2_b22t6"]
 [ext_resource type="Texture2D" uid="uid://c3iycuo6jj5b2" path="res://Assets/UI_assets/Icons/PaletteTower1.png" id="3_jumv8"]
+[ext_resource type="Texture2D" uid="uid://dgumbxbw2usv7" path="res://Assets/UI_assets/Slot2Pressed.png" id="3_wwkte"]
 [ext_resource type="Texture2D" uid="uid://d2kjmehk6mttm" path="res://Assets/UI_assets/TooltipBackgroundWide.png" id="4_chmsg"]
 [ext_resource type="FontFile" uid="uid://1um2n6ebvsod" path="res://Assets/Fonts/Retro Banker.ttf" id="5_fp3cg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6uudh"]
-texture = ExtResource("1_3dmch")
+texture = ExtResource("1_muuqs")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukahr"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cyc2p"]
 texture = ExtResource("1_3dmch")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3v1ik"]
-texture = ExtResource("1_3dmch")
+texture = ExtResource("3_wwkte")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6vkbo"]
-texture = ExtResource("1_3dmch")
+texture = ExtResource("1_muuqs")
 modulate_color = Color(0.521141, 0.521141, 0.521141, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f8cl4"]
-texture = ExtResource("1_3dmch")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kqc25"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_corhx"]
 content_margin_left = 15.0
@@ -35,10 +36,11 @@ offset_bottom = 120.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_6uudh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ukahr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cyc2p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3v1ik")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_6vkbo")
-theme_override_styles/focus = SubResource("StyleBoxTexture_f8cl4")
+theme_override_styles/focus = SubResource("StyleBoxTexture_kqc25")
+action_mode = 0
 script = ExtResource("2_b22t6")
 
 [node name="TextureRect" type="TextureRect" parent="."]

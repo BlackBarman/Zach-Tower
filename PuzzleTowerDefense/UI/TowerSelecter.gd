@@ -43,14 +43,16 @@ func _create_tower_slots() -> void:
 		tower_slot_instance._set_preview_image(tower_data_dict[key]["preview_image"])
 		tower_slots.append(tower_slot_instance)
 		
-		#set correct position
-		#tower_slot_instance.position.x += 8
-		#tower_slot_instance.position.y += 8
 
 func _on_tower_slot_pressed(key: String) -> void:
 	# Find the index of the selected tower in the dictionary
 	var index = tower_data_dict.keys().find(key)
+	
 	# Call the non-static function correctly on the singleton instance
 	TowerDataVault.set_selected_tower_index(index)
 	#print("Tower selected:", key, "at index", index)
-	emit_signal("set_tower")
+	
+	#HACK: TowersArray was the parent node. We had to change it,
+	#but it broke the references that had the Tilemap listening to 
+	#signals here. Used groups to make it independent from branch structure
+	get_tree().call_group("Tilemap", "_set_tower")

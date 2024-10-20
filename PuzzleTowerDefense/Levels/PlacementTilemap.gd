@@ -57,9 +57,6 @@ func _set_tower(): # simply spawn base tower
 	dragging = true
 
 
-func _on_towers_array_set_tower():
-	_set_tower()
-
 #function that update the endLevelStat for the win Screen
 func UpdateStat(tower):
 	EndLevelStats.AddSpaceUsed(tower.space_occupied) #to change with the real space occupied by tower

@@ -14,5 +14,5 @@ preview_image = ExtResource("1_ffi2e")
 attack_range = "T_shape"
 tower_sprite = ExtResource("3_43rrp")
 bullet_scene = ExtResource("1_sig64")
-cost = 5
+cost = 15
 weapon_animation = "goldenballista"

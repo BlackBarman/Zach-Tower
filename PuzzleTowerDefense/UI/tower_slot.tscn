@@ -30,8 +30,8 @@ content_margin_bottom = 20.0
 texture = ExtResource("4_chmsg")
 
 [node name="TowerSlot" type="Button"]
-offset_right = 128.0
-offset_bottom = 118.0
+offset_right = 120.0
+offset_bottom = 120.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_6uudh")

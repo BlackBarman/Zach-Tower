@@ -4,7 +4,7 @@ class_name LevelStats
 
 var shots_fired = 0
 var space_used = 0       # TODO space used = number of towers placed (for now)
-var money_spent = 0      # TODO implement money variable in towers and update this variable each time a ower is placed
+var money_spent = 0
 var overkill = 0         # Nico TODO Implement a way to know how much damage is wasted when a given bullet hits a given enemy, then update this variable (in this script) accordingly
 var avg_tower_damage = 0 # Nico TODO: implement set get function, i want the ui to pull data dynamically
 var towers_placed = 0    # TODO: space used = number of towers placed (for now)
@@ -20,6 +20,16 @@ func reset_data():
 	avg_tower_damage = 0 #TODO: implement set get function, i waan the ui to pull data dynamically
 	towers_placed = 0
 	inactive_towers = 0
+
+func retrieve_avg_towers_damage(n_towers) -> float:
+	avg_tower_damage = float(tot_towers_damage) / float(n_towers)
+	return avg_tower_damage
+
+func retrieve_inactive_towers():
+	for tower in get_tree().get_nodes_in_group("TowerGroup"):
+		if tower.get_node("Weapon").active == false:
+			IncrementInactiveTowers()
+
 
 func GetShootFired() -> int:
 	return shots_fired

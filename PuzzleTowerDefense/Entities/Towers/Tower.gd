@@ -6,7 +6,6 @@ signal ActiveTooltip
 
 var can_be_placed :bool = true
 var placed : bool = true
-var money_cost = 50
 var space_occupied = 1
 var data
 enum State {

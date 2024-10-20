@@ -14,5 +14,5 @@ preview_image = ExtResource("1_65hta")
 attack_range = "X_shape"
 tower_sprite = ExtResource("3_w7qxy")
 bullet_scene = ExtResource("1_4vbt6")
-cost = 5
+cost = 10
 weapon_animation = "sling"

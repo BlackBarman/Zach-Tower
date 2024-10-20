@@ -21,7 +21,7 @@ offset_right = 1534.0
 offset_bottom = 861.0
 color = Color(0.0430392, 0.0430392, 0.0430392, 1)
 
-[node name="TileMap" parent="." instance=ExtResource("1_p35ih")]
+[node name="TileMap" parent="." groups=["Tilemap"] instance=ExtResource("1_p35ih")]
 tower_instance = ExtResource("2_3l8bh")
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -30,10 +30,6 @@ curve = SubResource("Curve2D_v0plp")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TowersArray" parent="CanvasLayer" instance=ExtResource("2_agi6v")]
-offset_left = 8.0
-offset_top = -128.0
-offset_right = 128.0
-offset_bottom = -8.0
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
@@ -58,6 +54,5 @@ wait_time = 0.338
 
 [connection signal="child_entered_tree" from="Path2D" to="SacredCrystal" method="_on_path_2d_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Path2D" to="SacredCrystal" method="_on_path_2d_child_exiting_tree"]
-[connection signal="set_tower" from="CanvasLayer/TowersArray" to="TileMap" method="_on_towers_array_set_tower"]
 
 [editable path="TurnManager"]

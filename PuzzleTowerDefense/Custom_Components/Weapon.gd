@@ -1,4 +1,5 @@
 extends Node2D
+class_name BaseWeapon
 
 signal shot_fired
 signal turn_done

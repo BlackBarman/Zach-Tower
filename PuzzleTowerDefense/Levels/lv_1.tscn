@@ -46,8 +46,9 @@ editor_description = "fires the functions from sacred crystal to win and lose th
 [node name="StartBattleButton" parent="TurnManager" index="0"]
 offset_left = 1160.0
 offset_top = 8.0
-offset_right = 1350.0
-offset_bottom = 109.0
+offset_right = 1310.0
+offset_bottom = 88.0
+scale = Vector2(1, 1)
 
 [node name="Timer" parent="TurnManager" index="1"]
 wait_time = 0.338

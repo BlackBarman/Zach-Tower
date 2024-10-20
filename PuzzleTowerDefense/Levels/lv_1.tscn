@@ -30,10 +30,6 @@ curve = SubResource("Curve2D_v0plp")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TowersArray" parent="CanvasLayer" instance=ExtResource("2_agi6v")]
-offset_left = 8.0
-offset_top = -128.0
-offset_right = 128.0
-offset_bottom = -8.0
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true

@@ -40,11 +40,5 @@ func _processTurns():
 		$Timer.start() # a very small delay that prevents breaking
 
 
-func _on_start_battle_button_button_down():
-	_startBattle()
-	StartButton.disabled = true
-	
-	AudioManager.StartStage.play()
-
 func _on_timer_timeout():
 	_processTurns()

@@ -11,6 +11,7 @@ func _startBattle():
 	BattleStarted = true
 	$Timer.start()
 
+
 func _processTurns():
 
 	TurnCounter += 1
@@ -41,7 +42,8 @@ func _processTurns():
 
 func _on_start_battle_button_button_down():
 	_startBattle()
-	StartButton.visible = false
+	StartButton.disabled = true
+	
 	AudioManager.StartStage.play()
 
 func _on_timer_timeout():

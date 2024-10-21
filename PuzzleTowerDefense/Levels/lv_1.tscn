@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
 [ext_resource type="PackedScene" uid="uid://cto0im2mdxsjj" path="res://UI/TowerSelecterUI.tscn" id="2_agi6v"]
-[ext_resource type="Texture2D" uid="uid://c6vjhy71hbytl" path="res://Assets/UI_assets/TallBackground.png" id="4_oknvr"]
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Levels/Level_Manager.tscn" id="5_oqwbf"]
 [ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://Systems/TurnManager.tscn" id="6_03eko"]
 [ext_resource type="Texture2D" uid="uid://pxtn6pkrwdju" path="res://Assets/UI_assets/RectButton.png" id="8_pirbp"]
+[ext_resource type="Texture2D" uid="uid://qwbnylphyawo" path="res://Assets/UI_assets/TallBackgroundDarker.png" id="9_gfspy"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://Entities/SacredCrystal.tscn" id="10_sl1of"]
 [ext_resource type="PackedScene" uid="uid://4uoy01ofpsmh" path="res://Levels/Screens/win_screen.tscn" id="11_cyrn3"]
 
@@ -54,9 +54,9 @@ win_screen = ExtResource("11_cyrn3")
 editor_description = "fires the functions from sacred crystal to win and lose the game "
 
 [node name="StartBattleButton" parent="TurnManager" index="0"]
-offset_left = 1160.0
+offset_left = 1159.0
 offset_top = 8.0
-offset_right = 1310.0
+offset_right = 1309.0
 offset_bottom = 88.0
 scale = Vector2(1, 1)
 theme_override_font_sizes/font_size = 31
@@ -69,7 +69,7 @@ wait_time = 0.338
 [node name="TallBackground" type="Sprite2D" parent="TurnManager"]
 z_index = -1
 position = Vector2(1234, 320)
-texture = ExtResource("4_oknvr")
+texture = ExtResource("9_gfspy")
 
 [connection signal="child_entered_tree" from="Path2D" to="SacredCrystal" method="_on_path_2d_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Path2D" to="SacredCrystal" method="_on_path_2d_child_exiting_tree"]

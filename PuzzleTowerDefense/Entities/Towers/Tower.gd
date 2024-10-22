@@ -44,6 +44,9 @@ func _execute_Turn():
 
 func _remove_tower():
 	if Popups.TooltipTower == $".":
+		EndLevelStats.RemoveSpaceUsed(space_occupied)
+		EndLevelStats.RemoveTowersPlaced()
+		EndLevelStats.RemoveMoneySpent(data.cost)
 		queue_free()
 
 

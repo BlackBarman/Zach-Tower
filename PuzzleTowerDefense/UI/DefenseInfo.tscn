@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvxf4t1grd3mr"]
+
+[ext_resource type="Script" path="res://UI/DefenseInfo.gd" id="1_37llj"]
+[ext_resource type="FontFile" uid="uid://d0jklkprosxwi" path="res://Assets/Fonts/ThaleahFat.ttf" id="1_vgv2j"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_37llj")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vgv2j")
+theme_override_font_sizes/font_size = 35
+text = "defense 
+info"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Money Spent: 0"

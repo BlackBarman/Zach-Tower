@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=14 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cwydief8v5gow" path="res://UI/WaveInfo.tscn" id="5_l666m"]
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Levels/Level_Manager.tscn" id="5_oqwbf"]
 [ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://Systems/TurnManager.tscn" id="6_03eko"]
+[ext_resource type="PackedScene" uid="uid://dvxf4t1grd3mr" path="res://UI/DefenseInfo.tscn" id="6_xatrf"]
 [ext_resource type="Texture2D" uid="uid://qwbnylphyawo" path="res://Assets/UI_assets/TallBackgroundDarker.png" id="9_gfspy"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://Entities/SacredCrystal.tscn" id="10_sl1of"]
 [ext_resource type="PackedScene" uid="uid://4uoy01ofpsmh" path="res://Levels/Screens/win_screen.tscn" id="11_cyrn3"]
@@ -62,6 +63,15 @@ theme_override_constants/separation = 4
 theme_override_styles/separator = SubResource("StyleBoxFlat_d5op4")
 
 [node name="WaveInfo" parent="CanvasLayer/VBoxContainer" instance=ExtResource("5_l666m")]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxFlat_d5op4")
+
+[node name="VBoxContainer" parent="CanvasLayer/VBoxContainer" instance=ExtResource("6_xatrf")]
 layout_mode = 2
 
 [node name="TallBackground" type="Sprite2D" parent="CanvasLayer"]

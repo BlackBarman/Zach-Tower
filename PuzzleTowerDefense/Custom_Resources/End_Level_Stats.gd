@@ -1,6 +1,7 @@
 extends Node
 class_name LevelStats
 
+signal moneyChanged
 
 var shots_fired = 0
 var space_used = 0       # TODO space used = number of towers placed (for now)
@@ -40,8 +41,14 @@ func IncrementShootFired():
 func AddSpaceUsed(number):
 	space_used += number
 
+func RemoveSpaceUsed(number):
+	space_used -= number
+
 func IncrementTowersPlaced():
 	towers_placed += 1
+
+func RemoveTowersPlaced():
+	towers_placed -= 1
 
 func IncrementInactiveTowers():
 	inactive_towers += 1
@@ -51,3 +58,8 @@ func AddDamageTowers(number):
 
 func AddMoneySpent(number):
 	money_spent += number
+	emit_signal("moneyChanged")
+
+func RemoveMoneySpent(number):
+	money_spent -= number
+	emit_signal("moneyChanged")

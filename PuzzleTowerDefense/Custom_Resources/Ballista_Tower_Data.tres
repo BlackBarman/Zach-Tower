@@ -15,4 +15,4 @@ attack_range = "T_shape"
 tower_sprite = ExtResource("3_u77jn")
 bullet_scene = ExtResource("1_moj81")
 cost = 5
-weapon_animation = "catapult"
+weapon_animation = "ballista"

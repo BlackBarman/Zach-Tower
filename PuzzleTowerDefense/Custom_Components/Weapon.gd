@@ -5,7 +5,6 @@ signal shot_fired
 signal turn_done
 
 @onready var data = TowerDataVault.get_selected_tower_data() as CustomData
-
 @onready var anim_name : String = data.weapon_animation
 @onready var BulletScene: PackedScene = data.bullet_scene
 @onready var BulletDamage:int = data.Damage

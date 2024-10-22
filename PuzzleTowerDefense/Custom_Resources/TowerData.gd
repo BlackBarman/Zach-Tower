@@ -14,8 +14,7 @@ class_name CustomData
 @export var bullet_scene : PackedScene
 @export var cost : int
 @export_enum("ballista","cannon","catapult",
-			"electriccrysta
-			l","goldenballista",
+			"electriccrystal","goldenballista",
 			"magicmirror","magicrod","sling") var weapon_animation : String
 
 

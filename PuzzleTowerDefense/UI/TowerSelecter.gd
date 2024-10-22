@@ -46,12 +46,12 @@ func _create_tower_slots() -> void:
 func _on_tower_slot_pressed(key: String) -> void:
 	# Find the index of the selected tower in the dictionary
 	var index = tower_data_dict.keys().find(key)
-	
+
 	# Call the non-static function correctly on the singleton instance
 	TowerDataVault.set_selected_tower_index(index)
 	#print("Tower selected:", key, "at index", index)
-	
+
 	#HACK: TowersArray was the parent node. We had to change it,
-	#but it broke the references that had the Tilemap listening to 
+	#but it broke the references that had the Tilemap listening to
 	#signals here. Used groups to make it independent from branch structure
 	get_tree().call_group("Tilemap", "_set_tower")

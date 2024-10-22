@@ -3,7 +3,7 @@ var EnemyList = []
 var TowerList = []
 var BattleStarted = false
 var TurnCounter = 0
-@onready var StartButton = $StartBattleButton
+@onready var StartButton = $"../CanvasLayer/StartBattleButton"
 
 
 

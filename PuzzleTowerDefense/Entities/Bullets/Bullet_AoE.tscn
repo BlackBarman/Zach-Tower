@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://08h5h54odnqu"]
+
+[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Entities/Bullets/bullet.tscn" id="1_1wm4t"]
+[ext_resource type="Script" path="res://Entities/Bullets/Bullet_AOE.gd" id="2_twaol"]
+
+[node name="Bullet_AoE" instance=ExtResource("1_1wm4t")]
+script = ExtResource("2_twaol")
+aoe_radius = 5000
+aoe_damage = 50
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"arrow"

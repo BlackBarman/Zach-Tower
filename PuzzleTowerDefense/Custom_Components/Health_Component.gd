@@ -3,7 +3,7 @@ class_name HealthComponent
 
 @export var CurrentHealth = 0
 @export var MaxHealth = 0
-@export var cara : HurtBoxArea2D
+@export var hurtbox : HurtBoxArea2D
 
 
 signal Death()
@@ -12,7 +12,7 @@ signal HealthChangeNegative
 
 
 func _ready():
-	cara.hit_landed.connect(_Damage)
+	hurtbox.hit_landed.connect(_Damage)
 	CurrentHealth = MaxHealth
 
 

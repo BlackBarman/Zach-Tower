@@ -20,7 +20,7 @@ previewImage = ExtResource("2_5mhty")
 
 [node name="AttackRange" parent="." instance=ExtResource("3_t7obx")]
 unique_name_in_owner = true
-process_priority = -13
+process_priority = -51
 position = Vector2(0, 0)
 
 [node name="TowerSprite" type="Sprite2D" parent="."]

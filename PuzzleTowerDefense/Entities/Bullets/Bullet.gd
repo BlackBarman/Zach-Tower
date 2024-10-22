@@ -1,4 +1,5 @@
 extends Node2D
+class_name BaseBullet
 
 signal bulletDie
 
@@ -8,14 +9,14 @@ var look_vector = Vector2.ZERO
 var target
 var current_animation = ""
 @export var projectile_speed = 25
+@export var hitbox : HitBoxArea2D
 var damage :int #real value passed by the weapon
-
 #TODO change bullet animation based on the weapon, using a dictionary
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$HitBoxArea2D.damage = damage
+	hitbox.damage = damage
 	if target != null :
 		look_at(target.global_position)
 		look_vector= target.global_position - global_position
@@ -38,10 +39,12 @@ func _process(delta):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	_die()
 
-
+#dmg will be applied automatically by the hitbox to the
+#hurtbox and  from the hurtbox to the health component
 func _on_hit_box_area_2d_area_entered(area):
 	if area is HurtBoxArea2D:
 		play_animation("arrow_impact")
+
 
 
 func play_animation(animation_name: String):

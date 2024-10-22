@@ -116,11 +116,11 @@ size = Vector2(52, 32)
 [node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
 script = ExtResource("1_y5v5r")
 
-[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("cara")]
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("2_y5ffo")
 CurrentHealth = 3
 MaxHealth = 3
-cara = NodePath("../CharacterBody2D/HurtBoxArea2D")
+hurtbox = NodePath("../CharacterBody2D/HurtBoxArea2D")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 

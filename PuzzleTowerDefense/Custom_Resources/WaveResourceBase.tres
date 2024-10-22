@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("2_g2wds")
-m_numberEnemies = 1
+m_numberEnemies = 8
 m_enemyScene = ExtResource("1_32c8y")
 path = NodePath("../Path2D")

@@ -1,4 +1,5 @@
 extends PathFollow2D
+class_name BaseEnemy
 #how many tiles it moves in a single turn
 @export var speed = 1
 const tileSize = 64
@@ -32,7 +33,6 @@ func _move_Forward(delta):
 		canMoveForward = false
 		$CharacterBody2D/AnimatedSprite2D.play("Idle right")
 		emit_signal("end_Turn")
-
 
 
 func _on_health_component_death():

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgfhdceue15t4"]
+
+[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Entities/Bullets/bullet.tscn" id="1_oyt57"]
+[ext_resource type="Script" path="res://Entities/Bullets/Bullet_Piercing.gd" id="2_47dwx"]
+
+[node name="Bullet_Piercing" instance=ExtResource("1_oyt57")]
+script = ExtResource("2_47dwx")
+max_hits = 9999

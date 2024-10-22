@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=11 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
 [ext_resource type="PackedScene" uid="uid://cto0im2mdxsjj" path="res://UI/TowerSelecterUI.tscn" id="2_agi6v"]
+[ext_resource type="PackedScene" uid="uid://cagmvc105bvbn" path="res://UI/start_battle_button.tscn" id="3_r35p5"]
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Levels/Level_Manager.tscn" id="5_oqwbf"]
 [ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://Systems/TurnManager.tscn" id="6_03eko"]
+[ext_resource type="Texture2D" uid="uid://qwbnylphyawo" path="res://Assets/UI_assets/TallBackgroundDarker.png" id="9_gfspy"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://Entities/SacredCrystal.tscn" id="10_sl1of"]
 [ext_resource type="PackedScene" uid="uid://4uoy01ofpsmh" path="res://Levels/Screens/win_screen.tscn" id="11_cyrn3"]
 
@@ -17,11 +19,12 @@ point_count = 12
 [node name="LV1" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -10
 offset_right = 1534.0
 offset_bottom = 861.0
 color = Color(0.0430392, 0.0430392, 0.0430392, 1)
 
-[node name="TileMap" parent="." instance=ExtResource("1_p35ih")]
+[node name="TileMap" parent="." groups=["Tilemap"] instance=ExtResource("1_p35ih")]
 tower_instance = ExtResource("2_3l8bh")
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -29,11 +32,19 @@ curve = SubResource("Curve2D_v0plp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="StartBattleButton" parent="CanvasLayer" instance=ExtResource("3_r35p5")]
+z_index = 1
+offset_left = 1167.0
+offset_top = 12.0
+offset_right = 1378.0
+offset_bottom = 121.0
+
 [node name="TowersArray" parent="CanvasLayer" instance=ExtResource("2_agi6v")]
-offset_left = 8.0
-offset_top = -128.0
-offset_right = 128.0
-offset_bottom = -8.0
+
+[node name="TallBackground" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(1232, 320)
+texture = ExtResource("9_gfspy")
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
@@ -47,17 +58,10 @@ win_screen = ExtResource("11_cyrn3")
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]
 editor_description = "fires the functions from sacred crystal to win and lose the game "
 
-[node name="StartBattleButton" parent="TurnManager" index="0"]
-offset_left = 1160.0
-offset_top = 8.0
-offset_right = 1350.0
-offset_bottom = 109.0
-
-[node name="Timer" parent="TurnManager" index="1"]
+[node name="Timer" parent="TurnManager" index="0"]
 wait_time = 0.338
 
 [connection signal="child_entered_tree" from="Path2D" to="SacredCrystal" method="_on_path_2d_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Path2D" to="SacredCrystal" method="_on_path_2d_child_exiting_tree"]
-[connection signal="set_tower" from="CanvasLayer/TowersArray" to="TileMap" method="_on_towers_array_set_tower"]
 
 [editable path="TurnManager"]

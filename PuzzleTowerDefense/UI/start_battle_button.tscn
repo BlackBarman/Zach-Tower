@@ -1,0 +1,46 @@
+[gd_scene load_steps=11 format=3 uid="uid://cagmvc105bvbn"]
+
+[ext_resource type="FontFile" uid="uid://d0jklkprosxwi" path="res://Assets/Fonts/ThaleahFat.ttf" id="1_v73ma"]
+[ext_resource type="Texture2D" uid="uid://pxtn6pkrwdju" path="res://Assets/UI_assets/RectButton.png" id="2_4iirg"]
+[ext_resource type="Texture2D" uid="uid://c145x0o4t7sy8" path="res://Assets/UI_assets/RectButtonHovered.png" id="3_fh4pm"]
+[ext_resource type="Texture2D" uid="uid://3fqud07ocxml" path="res://Assets/UI_assets/RectButtonPressed.png" id="4_4beqs"]
+[ext_resource type="Script" path="res://UI/StartBattleButton.gd" id="5_0aa58"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqgkf"]
+content_margin_bottom = 4.0
+texture = ExtResource("2_4iirg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h0aao"]
+content_margin_bottom = 2.0
+texture = ExtResource("3_fh4pm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_au17u"]
+content_margin_top = 2.0
+texture = ExtResource("4_4beqs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_liuq2"]
+content_margin_bottom = 4.0
+texture = ExtResource("2_4iirg")
+modulate_color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t306y"]
+content_margin_bottom = 4.0
+texture = ExtResource("2_4iirg")
+
+[node name="StartBattleButton" type="Button"]
+offset_right = 211.0
+offset_bottom = 109.0
+scale = Vector2(0.630993, 0.630993)
+theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564961, 1)
+theme_override_fonts/font = ExtResource("1_v73ma")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxTexture_mqgkf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h0aao")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_au17u")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_liuq2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_t306y")
+text = "Start
+Battle"
+script = ExtResource("5_0aa58")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

@@ -1,12 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://4uoy01ofpsmh"]
+[gd_scene load_steps=12 format=3 uid="uid://4uoy01ofpsmh"]
 
 [ext_resource type="Theme" uid="uid://sj2xa0laho02" path="res://Custom_Resources/PrototypeUI.tres" id="1_f034r"]
 [ext_resource type="Script" path="res://Levels/Screens/win_screen.gd" id="1_xg3kv"]
-[ext_resource type="Texture2D" uid="uid://cgel5vqp5rfmi" path="res://Assets/UI_assets/buttonLong_grey_pressed.png" id="3_b1qor"]
-[ext_resource type="Texture2D" uid="uid://bjbr4vk2a5r5s" path="res://Assets/UI_assets/buttonLong_grey.png" id="4_p8bd8"]
+[ext_resource type="Texture2D" uid="uid://pxtn6pkrwdju" path="res://Assets/UI_assets/RectButton.png" id="3_c1d6g"]
+[ext_resource type="FontFile" uid="uid://d0jklkprosxwi" path="res://Assets/Fonts/ThaleahFat.ttf" id="3_u0bso"]
+[ext_resource type="Texture2D" uid="uid://c145x0o4t7sy8" path="res://Assets/UI_assets/RectButtonHovered.png" id="4_su6j1"]
+[ext_resource type="Texture2D" uid="uid://3fqud07ocxml" path="res://Assets/UI_assets/RectButtonPressed.png" id="5_ek6u1"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw7mm"]
-texture = ExtResource("3_b1qor")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urw3p"]
+texture = ExtResource("3_c1d6g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1sg5"]
+content_margin_top = 2.0
+texture = ExtResource("4_su6j1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ietqd"]
+content_margin_top = 6.0
+texture = ExtResource("5_ek6u1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kf5av"]
+texture = ExtResource("3_c1d6g")
+modulate_color = Color(0.359069, 0.359069, 0.359069, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3frau"]
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -18,10 +34,11 @@ grow_vertical = 2
 script = ExtResource("1_xg3kv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
 layout_mode = 0
 offset_left = -1.0
-offset_right = 1153.0
-offset_bottom = 646.0
+offset_right = 1334.0
+offset_bottom = 794.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -32,6 +49,7 @@ offset_right = 466.0
 offset_bottom = 95.0
 scale = Vector2(3, 3)
 theme = ExtResource("1_f034r")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "you won!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -128,22 +146,18 @@ text = "8"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 235.0
-offset_top = 479.0
-offset_right = 469.0
-offset_bottom = 536.0
-theme_override_styles/pressed = SubResource("StyleBoxTexture_aw7mm")
-icon = ExtResource("4_p8bd8")
-flat = true
+offset_left = 242.0
+offset_top = 472.0
+offset_right = 477.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("3_u0bso")
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxTexture_urw3p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w1sg5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ietqd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_kf5av")
+theme_override_styles/focus = SubResource("StyleBoxTexture_3frau")
+text = "Retry"
 clip_text = true
-
-[node name="Label" type="Label" parent="Button"]
-modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
-layout_mode = 0
-offset_left = 77.0
-offset_top = 14.0
-offset_right = 112.0
-offset_bottom = 41.0
-text = "retry"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

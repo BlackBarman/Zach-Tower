@@ -1,12 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://o5vsccqajgle"]
+[gd_scene load_steps=12 format=3 uid="uid://o5vsccqajgle"]
 
 [ext_resource type="Script" path="res://Levels/Screens/win_screen.gd" id="1_55hpm"]
 [ext_resource type="Theme" uid="uid://sj2xa0laho02" path="res://Custom_Resources/PrototypeUI.tres" id="1_71c1g"]
-[ext_resource type="Texture2D" uid="uid://cgel5vqp5rfmi" path="res://Assets/UI_assets/buttonLong_grey_pressed.png" id="2_dfvsa"]
-[ext_resource type="Texture2D" uid="uid://bjbr4vk2a5r5s" path="res://Assets/UI_assets/buttonLong_grey.png" id="3_r1kbj"]
+[ext_resource type="FontFile" uid="uid://d0jklkprosxwi" path="res://Assets/Fonts/ThaleahFat.ttf" id="3_wds47"]
+[ext_resource type="Texture2D" uid="uid://pxtn6pkrwdju" path="res://Assets/UI_assets/RectButton.png" id="4_71qdb"]
+[ext_resource type="Texture2D" uid="uid://c145x0o4t7sy8" path="res://Assets/UI_assets/RectButtonHovered.png" id="5_awfnk"]
+[ext_resource type="Texture2D" uid="uid://3fqud07ocxml" path="res://Assets/UI_assets/RectButtonPressed.png" id="6_hsh3s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vf6wu"]
+texture = ExtResource("4_71qdb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hu757"]
+content_margin_top = 2.0
+texture = ExtResource("5_awfnk")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sl3bf"]
-texture = ExtResource("2_dfvsa")
+content_margin_top = 6.0
+texture = ExtResource("6_hsh3s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6xci"]
+texture = ExtResource("4_71qdb")
+modulate_color = Color(0.450648, 0.450648, 0.450648, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_67apn"]
 
 [node name="LoseScreen" type="Control"]
 layout_mode = 3
@@ -21,8 +37,8 @@ script = ExtResource("1_55hpm")
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 1155.0
-offset_bottom = 647.0
+offset_right = 1338.0
+offset_bottom = 816.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -33,6 +49,8 @@ offset_right = 456.0
 offset_bottom = 78.0
 scale = Vector2(3, 3)
 theme = ExtResource("1_71c1g")
+theme_override_colors/font_color = Color(0.743622, 0.0905358, 0.070807, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "you Lost!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -133,18 +151,14 @@ offset_left = 237.0
 offset_top = 480.0
 offset_right = 471.0
 offset_bottom = 537.0
+theme_override_fonts/font = ExtResource("3_wds47")
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxTexture_vf6wu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hu757")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_sl3bf")
-icon = ExtResource("3_r1kbj")
-flat = true
+theme_override_styles/disabled = SubResource("StyleBoxTexture_o6xci")
+theme_override_styles/focus = SubResource("StyleBoxTexture_67apn")
+text = "Retry"
 clip_text = true
-
-[node name="Label" type="Label" parent="Button"]
-modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
-layout_mode = 0
-offset_left = 77.0
-offset_top = 14.0
-offset_right = 112.0
-offset_bottom = 41.0
-text = "retry"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

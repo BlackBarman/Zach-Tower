@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwydief8v5gow"]
+
+[ext_resource type="FontFile" uid="uid://d0jklkprosxwi" path="res://Assets/Fonts/ThaleahFat.ttf" id="1_25obe"]
+[ext_resource type="Script" path="res://UI/WaveInfo.gd" id="1_fu8lg"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_right = 128.0
+offset_bottom = 40.0
+script = ExtResource("1_fu8lg")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_25obe")
+theme_override_font_sizes/font_size = 35
+text = "Wave Info"
+
+[node name="Info" type="Label" parent="."]
+layout_mode = 2
+autowrap_mode = 1

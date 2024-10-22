@@ -2,10 +2,12 @@ extends PathFollow2D
 class_name BaseEnemy
 #how many tiles it moves in a single turn
 @export var speed = 1
+@export var enemyName = "Blue Slime"
 const tileSize = 64
 var canMoveForward = false
 var targetProgress = 0
 var animationSpeed = 120 #how quickly it moves forward. doesn't influence gameplay
+
 
  #HACK for some reasons unknown to man making the $CharacterBody2D/CollisionShape2D2
 # smaller and to the front of the enemy solves many of the issue we are currently facing

@@ -8,6 +8,9 @@ signal hit_landed(final_damage)
 
 @export var armor := 0
 
+func _ready():
+	hide()
+
 func get_hurt(damage: int) -> void:
 	print("i am about to take damage")
 	var final_damage := damage - armor

@@ -1,12 +1,44 @@
-[gd_scene load_steps=27 format=3 uid="uid://dr3xrq1y7yphb"]
+[gd_scene load_steps=32 format=3 uid="uid://dr3xrq1y7yphb"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_u6jh0"]
 [ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_er8lt"]
+[ext_resource type="Shader" uid="uid://c4nksct557gtw" path="res://Entities/Enemies/Hurt_Flash.tres" id="3_ymsq0"]
 [ext_resource type="Texture2D" uid="uid://d3tll5huvqtdn" path="res://Assets/Enemies/Ground/Spritesheets/Magma Crab.png" id="4_bkefc"]
 [ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_s34r7"]
 
+[sub_resource type="Animation" id="Animation_w80bv"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ykcxb"]
+resource_name = "hitted"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/eneabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t482a"]
+_data = {
+"RESET": SubResource("Animation_w80bv"),
+"hitted": SubResource("Animation_ykcxb")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
-size = Vector2(15, 32)
+size = Vector2(6, 25)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i263c"]
+resource_local_to_scene = true
+shader = ExtResource("3_ymsq0")
+shader_parameter/eneabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjn1u"]
 atlas = ExtResource("4_bkefc")
@@ -173,14 +205,21 @@ CurrentHealth = 1
 MaxHealth = 1
 hurtbox = NodePath("../CharacterBody2D/HurtBoxArea2D")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CharacterBody2D/AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_t482a")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 editor_description = "the area the tower uses for detection"
-position = Vector2(17.5, 0)
+position = Vector2(17, -2)
 shape = SubResource("RectangleShape2D_2biy1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+material = SubResource("ShaderMaterial_i263c")
 position = Vector2(-32, -28)
 scale = Vector2(0.90625, 0.765625)
 sprite_frames = SubResource("SpriteFrames_c7abm")

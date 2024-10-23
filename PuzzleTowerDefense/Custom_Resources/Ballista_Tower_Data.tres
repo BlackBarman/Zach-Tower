@@ -7,8 +7,8 @@
 
 [resource]
 script = ExtResource("1_5aaqa")
-Damage = 9
-Damage_type = "AOE"
+Damage = 2
+Damage_type = "pierce"
 fire_rate = 60
 preview_image = ExtResource("1_b3pdi")
 attack_range = "T_shape"
@@ -16,5 +16,5 @@ tower_sprite = ExtResource("3_u77jn")
 bullet_scene = ExtResource("1_ru262")
 cost = 5
 weapon_animation = "ballista"
-bullet_animation = "cannonball"
-bullet_impact_animation = "slingstone_impact"
+bullet_animation = "arrow"
+bullet_impact_animation = "arrow_impact"

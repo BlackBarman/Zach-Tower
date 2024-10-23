@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_q2237")
 Damage = 5
-Damage_type = "magic"
+Damage_type = "normal"
 fire_rate = 60
 preview_image = ExtResource("1_65hta")
 attack_range = "X_shape"

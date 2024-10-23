@@ -1,7 +1,7 @@
 extends BaseBullet
 
-@export var aoe_radius = 5000  # Radius of the explosion
-@export var aoe_damage = 50   # Damage for enemies within the AoE
+@export var aoe_radius = 300  # Radius of the explosion
+@export var aoe_damage = 2   # Damage for enemies within the AoE
 var hit_enemy: HurtBoxArea2D = null  # Keep track of the enemy directly hit
 
 
@@ -10,7 +10,7 @@ var hit_enemy: HurtBoxArea2D = null  # Keep track of the enemy directly hit
 func _on_hit_box_area_2d_area_entered(area):
 	if area is HurtBoxArea2D:
 		hit_enemy = area  # Store the enemy that was hit
-		play_animation("arrow_impact")
+		play_impact_animation(bullet_impact_animation)
 		_apply_aoe_damage()
 
 # Applies AoE damage to all enemies except the one directly hit

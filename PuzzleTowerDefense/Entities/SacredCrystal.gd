@@ -7,6 +7,7 @@ var enemies_to_kill : int
 
 func _ready():
 	enemies_to_kill = %LevelManager.m_numberEnemies
+	$Sprite2D/AnimationPlayer.play("CrystalRotating")
 
 
 func _process(_delta):

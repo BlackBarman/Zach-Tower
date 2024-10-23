@@ -86,7 +86,7 @@ SpawnSize = 4
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
 unique_name_in_owner = true
 editor_description = "FOR SOME REASON THIS NEEDS TO BE HIGHER IN THE HIERACHY TREE THAN LEVEL AND TURN MANAGER TO WORK"
-position = Vector2(1117, 162)
+position = Vector2(1120, 136)
 win_screen = ExtResource("11_cyrn3")
 
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]

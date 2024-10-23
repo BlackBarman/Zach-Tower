@@ -7,6 +7,8 @@ signal turn_done
 @onready var anim_name : String = data.weapon_animation
 @onready var BulletScene: PackedScene = data.bullet_scene
 @onready var BulletDamage:int = data.Damage
+@onready var Bullet_animation :String = data.bullet_animation
+@onready var Bullet_impact : String   = data.bullet_impact_animation
 var bullet # a bullet instance
 
 var Targets = []
@@ -15,6 +17,7 @@ var current_enemy = 0
 var shooting_frame := 1
 var current_frame = 0
 
+var can_shoot = false
 var active = false
 var has_targets = false
 var debug_n_times_shot := 0
@@ -41,18 +44,22 @@ func try_Shoot():
 		turn_done.emit()
 		return
 
-	if Targets.size() != 0:
+	if Targets.size() != 0 and not can_shoot:
+		can_shoot = true
 		current_enemy = Targets[0]
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
 		%AnimatedSprite2D.play(anim_name) # this will call the shoot method at the specified frame
 
 func end_the_turn():
 	print("the bullet is dying!")
+	can_shoot = false
 	turn_done.emit()
 
 #shoots the actual bullet
 func shoot():
 	bullet = BulletScene.instantiate() as BaseBullet
+	bullet.bullet_animation = Bullet_animation
+	bullet.bullet_impact_animation = Bullet_impact
 	bullet.bulletDie.connect(end_the_turn)
 	bullet.damage = BulletDamage
 	bullet.global_position = $Marker2D.position
@@ -71,9 +78,10 @@ func _on_animated_sprite_2d_frame_changed():
 		current_frame = 0
 	else:
 		current_frame +=1
-	if current_frame == shooting_frame:
+	if current_frame == shooting_frame and can_shoot == true:
 		if Targets != []:
 			shoot()
+			can_shoot = false
 			debug_n_times_shot += 1
 
 

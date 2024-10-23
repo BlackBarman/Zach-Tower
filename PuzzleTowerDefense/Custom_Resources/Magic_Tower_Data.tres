@@ -16,3 +16,5 @@ tower_sprite = ExtResource("3_w7qxy")
 bullet_scene = ExtResource("1_4vbt6")
 cost = 10
 weapon_animation = "electriccrystal"
+bullet_animation = "spark"
+bullet_impact_animation = "spark_impact"

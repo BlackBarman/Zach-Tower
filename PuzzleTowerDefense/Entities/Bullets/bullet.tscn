@@ -765,7 +765,7 @@ hitbox = NodePath("HitBoxArea2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_bc5wt")
-animation = &"arrow_impact"
+animation = &"spark_impact"
 
 [node name="HitBoxArea2D" type="Area2D" parent="."]
 script = ExtResource("3_yypuh")

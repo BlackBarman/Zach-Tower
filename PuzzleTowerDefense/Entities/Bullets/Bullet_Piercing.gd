@@ -7,5 +7,5 @@ func _on_hit_box_area_2d_area_entered(area):
 	if area is HurtBoxArea2D:
 		hit_count += 1
 		if hit_count >= max_hits:
-			play_animation("arrow_impact")
+			play_impact_animation(bullet_impact_animation)
 			_die()

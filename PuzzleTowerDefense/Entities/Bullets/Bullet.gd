@@ -7,7 +7,9 @@ var speed = 100
 var move = Vector2.ZERO
 var look_vector = Vector2.ZERO
 var target
-var current_animation = ""
+var current_animation : String = ""
+var bullet_animation : String
+var bullet_impact_animation : String
 @export var projectile_speed = 25
 @export var hitbox : HitBoxArea2D
 var damage :int #real value passed by the weapon
@@ -20,7 +22,7 @@ func _ready():
 	if target != null :
 		look_at(target.global_position)
 		look_vector= target.global_position - global_position
-		$AnimatedSprite2D.play("arrow")
+		$AnimatedSprite2D.play(bullet_animation)
 
 
 func set_target(enemy):
@@ -29,7 +31,7 @@ func set_target(enemy):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if current_animation == "arrow_impact":
+	if current_animation == bullet_impact_animation:
 		return
 	move = move.move_toward(look_vector, delta * projectile_speed)
 	move = move.normalized()
@@ -43,11 +45,11 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 #hurtbox and  from the hurtbox to the health component
 func _on_hit_box_area_2d_area_entered(area):
 	if area is HurtBoxArea2D:
-		play_animation("arrow_impact")
+		play_impact_animation(bullet_impact_animation)
 
 
 
-func play_animation(animation_name: String):
+func play_impact_animation(animation_name: String):
 	current_animation = animation_name
 	$AnimatedSprite2D.play(animation_name)
 
@@ -59,7 +61,7 @@ func _die():
 
 func _on_animated_sprite_2d_animation_finished():
 	# Only call _die if the impact animation has finished
-	if current_animation == "arrow_impact":
+	if current_animation == bullet_impact_animation:
 		_die()
 
 

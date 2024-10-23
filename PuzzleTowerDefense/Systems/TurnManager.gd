@@ -22,7 +22,7 @@ func _processTurns():
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
 	for x in EnemyList:
 		if x != null :
-			#print("enemy turn")
+			print("enemy turn")
 			await x._execute_Turn()
 			await get_tree().create_timer(0.05).timeout
 

@@ -1,14 +1,13 @@
 extends Node2D
 class_name BaseWeapon
 
-signal shot_fired
 signal turn_done
 
 @onready var data = TowerDataVault.get_selected_tower_data() as CustomData
 @onready var anim_name : String = data.weapon_animation
 @onready var BulletScene: PackedScene = data.bullet_scene
 @onready var BulletDamage:int = data.Damage
-var bullet #instance bullet
+var bullet # a bullet instance
 
 var Targets = []
 var current_enemy = 0
@@ -16,7 +15,6 @@ var current_enemy = 0
 var shooting_frame := 1
 var current_frame = 0
 
-var can_shoot = false
 var active = false
 var has_targets = false
 var debug_n_times_shot := 0
@@ -32,31 +30,30 @@ func _process(_delta):
 		%AnimatedSprite2D.look_at(current_enemy.global_position)
 
 func try_Shoot():
-	var _y = kalans.get_overlapping_bodies() #TODO use this method in addition to signals to populate the target array and find the right target, as signals somethimes break
+	#var _y = kalans.get_overlapping_bodies() #TODO use this method in addition to signals to populate the target array and find the right target, as signals somethimes break
 	#for i in _y :
 		#print("la Torre ha un nemico in range" + str(i))
 	await get_tree().process_frame
 	if has_targets== false:
+		turn_done.emit()
 		return
-	if Targets == null:
+	if Targets.size() == 0 or Targets == null :
+		turn_done.emit()
 		return
 
 	if Targets.size() != 0:
 		current_enemy = Targets[0]
-		bullet = BulletScene.instantiate()
-		bullet.damage = BulletDamage
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
-		%AnimatedSprite2D.play(anim_name)
-		#waits for the bullet to send the dead signal
-		#before retrying to shoot
-		await shot_fired
-		await bullet.bulletDie
+		%AnimatedSprite2D.play(anim_name) # this will call the shoot method at the specified frame
 
+func end_the_turn():
+	print("the bullet is dying!")
+	turn_done.emit()
 
 #shoots the actual bullet
 func shoot():
-	if bullet == null: #and current_enemy != null:
-		bullet = BulletScene.instantiate()
+	bullet = BulletScene.instantiate() as BaseBullet
+	bullet.bulletDie.connect(end_the_turn)
 	bullet.damage = BulletDamage
 	bullet.global_position = $Marker2D.position
 	bullet.set_target(current_enemy)
@@ -64,9 +61,9 @@ func shoot():
 	AudioManager.ShootArrow.play()
 	EndLevelStats.IncrementShootFired()
 	EndLevelStats.AddDamageTowers(bullet.Get_Damage())
-	can_shoot = false # boolean is useless now that we use the turn manager
 	if !active:
 		active = true
+
 
 #fires the shoot function at the exact frame of the animation
 func _on_animated_sprite_2d_frame_changed():
@@ -76,8 +73,6 @@ func _on_animated_sprite_2d_frame_changed():
 		current_frame +=1
 	if current_frame == shooting_frame:
 		if Targets != []:
-			shot_fired.emit()
-			await get_tree().process_frame
 			shoot()
 			debug_n_times_shot += 1
 

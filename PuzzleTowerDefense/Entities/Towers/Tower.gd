@@ -40,7 +40,8 @@ func tower_was_placed():
 #called by turn manager
 func _execute_Turn():
 	await get_tree().process_frame
-	await $Weapon.try_Shoot()
+	$Weapon.try_Shoot()
+	await  $Weapon.turn_done
 
 func _remove_tower():
 	if Popups.TooltipTower == $".":

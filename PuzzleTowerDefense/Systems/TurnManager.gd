@@ -33,7 +33,7 @@ func _processTurns():
 	TowerList = get_tree().get_nodes_in_group("TowerGroup")
 	for y in TowerList:
 		if y != null:
-			#print("tower turn")
+			print("tower turn")
 			await y._execute_Turn()
 
 	if EnemyList.size() > 0:

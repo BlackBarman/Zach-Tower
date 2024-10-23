@@ -25,6 +25,7 @@ func _execute_Turn():
 	await end_Turn
 
 
+
 func _move_Forward(delta):
 	if (progress < targetProgress):
 		progress += delta * animationSpeed

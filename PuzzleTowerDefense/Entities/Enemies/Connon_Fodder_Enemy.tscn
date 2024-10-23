@@ -117,6 +117,7 @@ size = Vector2(52, 32)
 script = ExtResource("1_y5v5r")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+process_priority = -50
 script = ExtResource("2_y5ffo")
 CurrentHealth = 3
 MaxHealth = 3

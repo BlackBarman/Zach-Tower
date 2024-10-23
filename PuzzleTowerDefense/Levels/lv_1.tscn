@@ -81,7 +81,6 @@ texture = ExtResource("9_gfspy")
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
-SpawnSize = 4
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
 unique_name_in_owner = true

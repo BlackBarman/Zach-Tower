@@ -4,7 +4,6 @@ class_name CustomData
 
 
 @export_category("tower stats")
-
 @export var Damage : int
 @export var Damage_type : String
 @export_enum("FAST:1", "SLOW:2","VERY SLOW:60") var fire_rate : int
@@ -16,6 +15,11 @@ class_name CustomData
 @export_enum("ballista","cannon","catapult",
 			"electriccrystal","goldenballista",
 			"magicmirror","magicrod","sling") var weapon_animation : String
-
+@export_enum("arrow","cannonball","catapultstone",
+			"goldenarrow","slingstone",
+			"spark","magicrod",) var bullet_animation : String
+@export_enum("arrow_impact","cannonball_impact","catapultstone_impact",
+			"goldenarrow_impact","slingstone_impact",
+			"spark_impact",) var bullet_impact_animation : String
 
 

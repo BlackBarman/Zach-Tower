@@ -10,10 +10,12 @@ script = ExtResource("1_fu8lg")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.321569, 0.176471, 0.14902, 1)
 theme_override_fonts/font = ExtResource("1_25obe")
 theme_override_font_sizes/font_size = 35
 text = "Wave Info"
 
 [node name="Info" type="Label" parent="."]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.321569, 0.176471, 0.14902, 1)
 autowrap_mode = 1

@@ -10,6 +10,7 @@ script = ExtResource("1_37llj")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.321569, 0.176471, 0.14902, 1)
 theme_override_fonts/font = ExtResource("1_vgv2j")
 theme_override_font_sizes/font_size = 35
 text = "defense 
@@ -17,4 +18,5 @@ info"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.321569, 0.176471, 0.14902, 1)
 text = "Money Spent: 0"

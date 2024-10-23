@@ -7,4 +7,4 @@
 script = ExtResource("2_g2wds")
 m_numberEnemies = 6
 m_enemyScene = ExtResource("1_32c8y")
-path = NodePath("../Path2D")
+path = NodePath("../TileMap/Path2D")

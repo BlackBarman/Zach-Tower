@@ -43,4 +43,6 @@ func _on_health_component_death():
 
 
 func _on_health_component_health_change_negative():
+	if self != null and $AnimationPlayer != null: #bleah
+		$AnimationPlayer.play("hitted")
 	$CharacterBody2D/AnimatedSprite2D.play("Hurt")

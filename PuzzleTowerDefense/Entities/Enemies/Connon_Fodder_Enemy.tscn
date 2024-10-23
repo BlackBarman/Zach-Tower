@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_4oh7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
-size = Vector2(14, 32)
+size = Vector2(4, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmrxe"]
 atlas = ExtResource("3_exyj0")
@@ -127,7 +127,7 @@ hurtbox = NodePath("../CharacterBody2D/HurtBoxArea2D")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 editor_description = "this is the one that the tower uses for detection"
-position = Vector2(18, 0)
+position = Vector2(17, 0)
 shape = SubResource("RectangleShape2D_2biy1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
@@ -139,10 +139,12 @@ centered = false
 flip_h = true
 
 [node name="HurtBoxArea2D" type="Area2D" parent="CharacterBody2D"]
+visible = false
 position = Vector2(-66, -32)
 script = ExtResource("4_4oh7o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HurtBoxArea2D"]
+visible = false
 modulate = Color(50.811, 27.568, 0.842, 1)
 position = Vector2(65, 32)
 shape = SubResource("RectangleShape2D_3vqku")

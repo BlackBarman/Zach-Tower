@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=24 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
@@ -30,7 +30,7 @@ border_color = Color(0.4, 0.223529, 0.192157, 1)
 
 [sub_resource type="Resource" id="Resource_ecan4"]
 script = ExtResource("11_egh5a")
-m_numberEnemies = 2
+m_numberEnemies = 5
 m_enemyScene = ExtResource("10_b7rpd")
 path = NodePath("../Path2D")
 
@@ -43,6 +43,18 @@ path = NodePath("../Path2D")
 [sub_resource type="Resource" id="Resource_j4epb"]
 script = ExtResource("11_egh5a")
 m_numberEnemies = 4
+m_enemyScene = ExtResource("13_m1w50")
+path = NodePath("../Path2D")
+
+[sub_resource type="Resource" id="Resource_07g7t"]
+script = ExtResource("11_egh5a")
+m_numberEnemies = 4
+m_enemyScene = ExtResource("12_x2iqh")
+path = NodePath("../Path2D")
+
+[sub_resource type="Resource" id="Resource_mqijl"]
+script = ExtResource("11_egh5a")
+m_numberEnemies = 8
 m_enemyScene = ExtResource("13_m1w50")
 path = NodePath("../Path2D")
 
@@ -104,7 +116,7 @@ texture = ExtResource("9_gfspy")
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
-waves = Array[ExtResource("11_egh5a")]([ExtResource("9_3gy5m"), SubResource("Resource_ecan4"), SubResource("Resource_8pedp"), SubResource("Resource_j4epb")])
+waves = Array[ExtResource("11_egh5a")]([ExtResource("9_3gy5m"), SubResource("Resource_ecan4"), SubResource("Resource_8pedp"), SubResource("Resource_j4epb"), SubResource("Resource_07g7t"), SubResource("Resource_mqijl")])
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
 unique_name_in_owner = true

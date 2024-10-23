@@ -16,3 +16,5 @@ tower_sprite = ExtResource("3_43rrp")
 bullet_scene = ExtResource("1_sig64")
 cost = 15
 weapon_animation = "sling"
+bullet_animation = "slingstone"
+bullet_impact_animation = "slingstone_impact"

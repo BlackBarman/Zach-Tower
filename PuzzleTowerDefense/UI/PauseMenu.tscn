@@ -1,0 +1,113 @@
+[gd_scene load_steps=20 format=3 uid="uid://d18e6djpsf7nv"]
+
+[ext_resource type="Texture2D" uid="uid://c57vwxl1cjjul" path="res://Assets/UI_assets/PauseButton.png" id="1_a28mo"]
+[ext_resource type="Texture2D" uid="uid://bell8ev45u3rx" path="res://Assets/UI_assets/PauseButtonHovered.png" id="2_b07yv"]
+[ext_resource type="Texture2D" uid="uid://c5h85cjvao8fg" path="res://Assets/UI_assets/PauseButtonClicked.png" id="2_yqn3f"]
+[ext_resource type="Script" path="res://UI/PauseMenu.gd" id="4_7js4n"]
+[ext_resource type="Texture2D" uid="uid://qwbnylphyawo" path="res://Assets/UI_assets/TallBackgroundDarker.png" id="4_ab2wu"]
+[ext_resource type="FontFile" uid="uid://d0jklkprosxwi" path="res://Assets/Fonts/ThaleahFat.ttf" id="4_o2r1i"]
+[ext_resource type="PackedScene" uid="uid://ccerysd1prr2e" path="res://Levels/Screens/MainMenu.tscn" id="5_bknc6"]
+[ext_resource type="Texture2D" uid="uid://pxtn6pkrwdju" path="res://Assets/UI_assets/RectButton.png" id="5_sqn1v"]
+[ext_resource type="Texture2D" uid="uid://c145x0o4t7sy8" path="res://Assets/UI_assets/RectButtonHovered.png" id="6_ry6ff"]
+[ext_resource type="Texture2D" uid="uid://3fqud07ocxml" path="res://Assets/UI_assets/RectButtonPressed.png" id="7_3jau7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kqrvt"]
+texture = ExtResource("1_a28mo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qink"]
+texture = ExtResource("2_b07yv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxbyt"]
+texture = ExtResource("2_yqn3f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h8nwq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_opyqu"]
+texture = ExtResource("4_ab2wu")
+texture_margin_top = 7.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0cugf"]
+content_margin_bottom = 4.0
+texture = ExtResource("5_sqn1v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4jih"]
+content_margin_bottom = 2.0
+texture = ExtResource("6_ry6ff")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wrwmq"]
+content_margin_top = 2.0
+texture = ExtResource("7_3jau7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i24ul"]
+
+[node name="PauseButton" type="Button"]
+process_mode = 3
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_kqrvt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6qink")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xxbyt")
+theme_override_styles/focus = SubResource("StyleBoxTexture_h8nwq")
+script = ExtResource("4_7js4n")
+main_menu = ExtResource("5_bknc6")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 512.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 448.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_opyqu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+process_mode = 2
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 240.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_o2r1i")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_0cugf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b4jih")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wrwmq")
+theme_override_styles/focus = SubResource("StyleBoxTexture_i24ul")
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="Panel/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_o2r1i")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_0cugf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b4jih")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wrwmq")
+theme_override_styles/focus = SubResource("StyleBoxTexture_i24ul")
+text = "Restart
+"
+
+[node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_o2r1i")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_0cugf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b4jih")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wrwmq")
+theme_override_styles/focus = SubResource("StyleBoxTexture_i24ul")
+text = "Main Menu"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

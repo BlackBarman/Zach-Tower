@@ -27,6 +27,7 @@ EndLevelStats="*res://Custom_Resources/End_Level_Stats.gd"
 AudioManager="*res://Systems/AudioManager.tscn"
 TowerDataVault="*res://Globals/tower_data_manager.gd"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+LevelChanger="*res://Globals/level_changer.gd"
 
 [display]
 

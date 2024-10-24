@@ -39,6 +39,7 @@ func _move_Forward(delta):
 
 
 func _on_health_component_death():
+	EndLevelStats.EnemyKilled()
 	AudioManager.EnemyDeath.play()
 
 

@@ -2,6 +2,7 @@ extends Node
 class_name LevelStats
 
 signal moneyChanged
+signal enemyKilled
 
 var shots_fired = 0
 var space_used = 0       # TODO space used = number of towers placed (for now)
@@ -11,6 +12,7 @@ var avg_tower_damage = 0 # Nico TODO: implement set get function, i want the ui 
 var towers_placed = 0    # TODO: space used = number of towers placed (for now)
 var inactive_towers = 0  # Nico TODO: A way to know the towers that didn't get used
 var tot_towers_damage = 0
+var enemies_killed = 0
 
 func reset_data():
 	shots_fired = 0
@@ -63,3 +65,7 @@ func AddMoneySpent(number):
 func RemoveMoneySpent(number):
 	money_spent -= number
 	emit_signal("moneyChanged")
+
+func EnemyKilled():
+	enemies_killed += 1
+	emit_signal("enemyKilled")

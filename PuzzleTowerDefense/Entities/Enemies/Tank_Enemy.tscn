@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://deebor81fya23"]
+[gd_scene load_steps=33 format=3 uid="uid://deebor81fya23"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_utc7p"]
 [ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_0d0xh"]
@@ -6,31 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b2ppinhso6msl" path="res://Assets/Enemies/Ground/Spritesheets/slime-Sheet.png" id="3_aq5ur"]
 [ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_bm2h7"]
 [ext_resource type="Texture2D" uid="uid://db2k678r8bqsu" path="res://Assets/Enemies/Ground/Spritesheets/Scorpion.png" id="4_cviee"]
-
-[sub_resource type="Animation" id="Animation_w80bv"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_ykcxb"]
-resource_name = "hitted"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/eneabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_t482a"]
-_data = {
-"RESET": SubResource("Animation_w80bv"),
-"hitted": SubResource("Animation_ykcxb")
-}
+[ext_resource type="PackedScene" uid="uid://dsff0l4a4wgrt" path="res://HurtShader.tscn" id="7_u28y6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
 size = Vector2(6, 29.5)
@@ -212,18 +188,14 @@ size = Vector2(52, 33)
 [node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
 script = ExtResource("1_utc7p")
 
+[node name="AnimationPlayer" parent="." instance=ExtResource("7_u28y6")]
+
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 process_priority = -47
 script = ExtResource("2_0d0xh")
 CurrentHealth = 15
 MaxHealth = 15
 hurtbox = NodePath("../CharacterBody2D/HurtBoxArea2D")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../CharacterBody2D/AnimatedSprite2D")
-libraries = {
-"": SubResource("AnimationLibrary_t482a")
-}
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 

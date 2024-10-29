@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsff0l4a4wgrt"]
+
+[ext_resource type="Script" path="res://Entities/Enemies/HurtShader.gd" id="1_oo4ar"]
+
+[sub_resource type="Animation" id="Animation_6ee30"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_r0wid"]
+resource_name = "hitted"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/AnimatedSprite2D:material:shader_parameter/eneabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mcek6"]
+_data = {
+"RESET": SubResource("Animation_6ee30"),
+"hitted": SubResource("Animation_r0wid")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_mcek6")
+}
+script = ExtResource("1_oo4ar")

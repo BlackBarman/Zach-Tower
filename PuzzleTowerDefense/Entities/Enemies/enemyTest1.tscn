@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2rf41vx2c387"]
+[gd_scene load_steps=23 format=3 uid="uid://c2rf41vx2c387"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_x6jma"]
 [ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_7ilve"]
+[ext_resource type="PackedScene" uid="uid://dsff0l4a4wgrt" path="res://HurtShader.tscn" id="2_qx132"]
 [ext_resource type="Texture2D" uid="uid://vn8uaw0n0u2l" path="res://Assets/Enemies/Ground/Spritesheets/Firebug.png" id="3_smjop"]
 [ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_q0ad2"]
 
@@ -124,6 +125,9 @@ size = Vector2(52, 32)
 
 [node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
 script = ExtResource("1_x6jma")
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("2_qx132")]
+root_node = NodePath("../HealthComponent")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("2_7ilve")

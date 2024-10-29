@@ -1,10 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=24 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
 [ext_resource type="PackedScene" uid="uid://cto0im2mdxsjj" path="res://UI/TowerSelecterUI.tscn" id="2_agi6v"]
 [ext_resource type="PackedScene" uid="uid://cagmvc105bvbn" path="res://UI/start_battle_button.tscn" id="3_r35p5"]
-[ext_resource type="PackedScene" uid="uid://d18e6djpsf7nv" path="res://UI/PauseMenu.tscn" id="5_bf6vf"]
 [ext_resource type="PackedScene" uid="uid://cwydief8v5gow" path="res://UI/WaveInfo.tscn" id="5_l666m"]
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Levels/Level_Manager.tscn" id="5_oqwbf"]
 [ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://Systems/TurnManager.tscn" id="6_03eko"]
@@ -84,9 +83,6 @@ offset_right = 1378.0
 offset_bottom = 121.0
 
 [node name="TowersArray" parent="CanvasLayer" instance=ExtResource("2_agi6v")]
-
-[node name="PauseButton" parent="CanvasLayer" instance=ExtResource("5_bf6vf")]
-main_menu = null
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 offset_left = 1160.0

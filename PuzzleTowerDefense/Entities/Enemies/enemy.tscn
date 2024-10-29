@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://c40bsxa3vvpe5"]
+[gd_scene load_steps=26 format=3 uid="uid://c40bsxa3vvpe5"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_vldat"]
 [ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_u8arb"]
+[ext_resource type="Script" path="res://Entities/Enemies/HurtShader.gd" id="3_3v4kp"]
 [ext_resource type="Texture2D" uid="uid://b2ppinhso6msl" path="res://Assets/Enemies/Ground/Spritesheets/slime-Sheet.png" id="3_b30is"]
 [ext_resource type="Shader" uid="uid://c4nksct557gtw" path="res://Entities/Enemies/Hurt_Flash.tres" id="3_yr237"]
 [ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_yymip"]
@@ -148,17 +149,18 @@ size = Vector2(52, 32)
 [node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
 script = ExtResource("1_vldat")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mcek6")
+}
+script = ExtResource("3_3v4kp")
+
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 process_priority = -50
 script = ExtResource("2_u8arb")
 CurrentHealth = 5
 MaxHealth = 5
 hurtbox = NodePath("../CharacterBody2D/HurtBoxArea2D")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_mcek6")
-}
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 

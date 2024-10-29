@@ -1,0 +1,81 @@
+[gd_scene load_steps=19 format=3 uid="uid://chk31upgng0t4"]
+
+[ext_resource type="Texture2D" uid="uid://dwr2n40qcybjj" path="res://Assets/UI_assets/PauseButton.png" id="1_6dya7"]
+[ext_resource type="Texture2D" uid="uid://dqveo4tf7k05c" path="res://Assets/UI_assets/PauseButtonHovered.png" id="2_tvqmj"]
+[ext_resource type="Texture2D" uid="uid://bbdi6fhnm2wo0" path="res://Assets/UI_assets/PauseButtonClicked.png" id="3_2hh60"]
+[ext_resource type="Script" path="res://UI/pause_menu.gd" id="4_m0emu"]
+[ext_resource type="Texture2D" uid="uid://qwbnylphyawo" path="res://Assets/UI_assets/TallBackgroundDarker.png" id="5_slb7o"]
+[ext_resource type="FontFile" uid="uid://d0jklkprosxwi" path="res://Assets/Fonts/ThaleahFat.ttf" id="6_c5i87"]
+[ext_resource type="Texture2D" uid="uid://pxtn6pkrwdju" path="res://Assets/UI_assets/RectButton.png" id="7_fyq63"]
+[ext_resource type="Texture2D" uid="uid://c145x0o4t7sy8" path="res://Assets/UI_assets/RectButtonHovered.png" id="8_efd3m"]
+[ext_resource type="Texture2D" uid="uid://3fqud07ocxml" path="res://Assets/UI_assets/RectButtonPressed.png" id="9_i730u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrakr"]
+texture = ExtResource("1_6dya7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxnpg"]
+texture = ExtResource("2_tvqmj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfrcc"]
+texture = ExtResource("3_2hh60")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o4rgo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xakhu"]
+texture = ExtResource("5_slb7o")
+texture_margin_top = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3d0m"]
+content_margin_bottom = 2.0
+texture = ExtResource("7_fyq63")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4exoy"]
+texture = ExtResource("8_efd3m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntw43"]
+content_margin_top = 4.0
+texture = ExtResource("9_i730u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pylt5"]
+
+[node name="PauseMenu" type="Button"]
+process_mode = 3
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_jrakr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kxnpg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sfrcc")
+theme_override_styles/focus = SubResource("StyleBoxTexture_o4rgo")
+script = ExtResource("4_m0emu")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 544.0
+offset_top = 256.0
+offset_right = 736.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xakhu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 56.0
+
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_c5i87")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_u3d0m")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4exoy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ntw43")
+theme_override_styles/focus = SubResource("StyleBoxTexture_pylt5")
+text = "Resume"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=25 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Custom_Resources/Wave.gd" id="11_egh5a"]
 [ext_resource type="PackedScene" uid="uid://dr3xrq1y7yphb" path="res://Entities/Enemies/Fast_Enemy.tscn" id="12_x2iqh"]
 [ext_resource type="PackedScene" uid="uid://d2yo1mws0004i" path="res://Entities/Enemies/Connon_Fodder_Enemy.tscn" id="13_m1w50"]
+[ext_resource type="PackedScene" uid="uid://chk31upgng0t4" path="res://UI/pause_menu.tscn" id="17_hc6op"]
 
 [sub_resource type="Curve2D" id="Curve2D_v0plp"]
 _data = {
@@ -114,6 +115,8 @@ layout_mode = 2
 z_index = -1
 position = Vector2(1232, 320)
 texture = ExtResource("9_gfspy")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("17_hc6op")]
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true

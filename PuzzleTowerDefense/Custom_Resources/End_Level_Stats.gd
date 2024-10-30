@@ -23,6 +23,7 @@ func reset_data():
 	avg_tower_damage = 0 #TODO: implement set get function, i waan the ui to pull data dynamically
 	towers_placed = 0
 	inactive_towers = 0
+	enemies_killed = 0
 
 func retrieve_avg_towers_damage(n_towers) -> float:
 	avg_tower_damage = float(tot_towers_damage) / float(n_towers)

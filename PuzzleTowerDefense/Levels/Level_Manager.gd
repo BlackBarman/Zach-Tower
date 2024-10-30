@@ -14,6 +14,7 @@ func _ready():
 	for wave in waves:
 		m_numberEnemies += wave.m_numberEnemies
 
+	
 func _turn_Start(TurnCounter: int):
 
 	if (TurnCounter % m_spawnRatio > 0):

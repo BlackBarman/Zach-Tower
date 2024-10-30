@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Custom_Resources/Wave.gd" id="2_g2wds"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_g2wds")
 m_numberEnemies = 6
 m_enemyScene = ExtResource("1_32c8y")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://chk31upgng0t4"]
+[gd_scene load_steps=27 format=3 uid="uid://chk31upgng0t4"]
 
 [ext_resource type="Texture2D" uid="uid://dwr2n40qcybjj" path="res://Assets/UI_assets/PauseButton.png" id="1_6dya7"]
 [ext_resource type="Texture2D" uid="uid://dqveo4tf7k05c" path="res://Assets/UI_assets/PauseButtonHovered.png" id="2_tvqmj"]
@@ -39,6 +39,30 @@ texture = ExtResource("9_i730u")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pylt5"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dt440"]
+content_margin_bottom = 2.0
+texture = ExtResource("7_fyq63")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d82wi"]
+texture = ExtResource("8_efd3m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iexgt"]
+content_margin_top = 2.0
+texture = ExtResource("9_i730u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wmg16"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n515u"]
+texture = ExtResource("7_fyq63")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sct2"]
+texture = ExtResource("8_efd3m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2of8b"]
+texture = ExtResource("9_i730u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fmdc5"]
+
 [node name="PauseMenu" type="Button"]
 process_mode = 3
 offset_right = 64.0
@@ -64,7 +88,7 @@ layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 176.0
-offset_bottom = 56.0
+offset_bottom = 144.0
 
 [node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -77,5 +101,29 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ntw43")
 theme_override_styles/focus = SubResource("StyleBoxTexture_pylt5")
 text = "Resume"
 
+[node name="RestartButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_c5i87")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_dt440")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d82wi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_iexgt")
+theme_override_styles/focus = SubResource("StyleBoxTexture_wmg16")
+text = "Restart"
+
+[node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_c5i87")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_n515u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6sct2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2of8b")
+theme_override_styles/focus = SubResource("StyleBoxTexture_fmdc5")
+text = "Main Menu"
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

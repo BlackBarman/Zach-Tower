@@ -1,6 +1,7 @@
 extends ItemList
 
-@export var default_level : PackedScene
+
+@export var first_level : String = "res://Levels/lv_1.tscn"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,7 +14,7 @@ func _process(_delta):
 
 	#start playing
 	if is_selected(0):
-		get_tree().change_scene_to_packed(default_level)
+		LevelChanger._change_level(first_level)
 		AudioManager.BG_Music_MainMenu.stop()
 		AudioManager.BG_Music_BuildingStage.play()
 

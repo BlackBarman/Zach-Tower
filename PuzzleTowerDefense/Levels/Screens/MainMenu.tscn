@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccerysd1prr2e"]
+[gd_scene load_steps=7 format=3 uid="uid://ccerysd1prr2e"]
 
 [ext_resource type="Script" path="res://Levels/Screens/MainMenu.gd" id="1_gajhf"]
 [ext_resource type="Texture2D" uid="uid://dq5u84josprv4" path="res://Assets/UI_assets/ZackTowerTitleTemp.png" id="1_wnwwh"]
 [ext_resource type="Texture2D" uid="uid://crel0di5eu260" path="res://Assets/UI_assets/PressAnyButtonTemp.png" id="2_b07kr"]
 [ext_resource type="Script" path="res://UI/MainMenuButtons.gd" id="4_vnc3q"]
-[ext_resource type="PackedScene" uid="uid://ch16qsighbevk" path="res://Levels/lv_1.tscn" id="5_2ltbe"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ve2ap"]
 color = Color(0.0196078, 0.0196078, 0.0196078, 1)
@@ -48,6 +47,5 @@ item_2/text = "Options"
 item_2/disabled = true
 item_3/text = "Quit"
 script = ExtResource("4_vnc3q")
-default_level = ExtResource("5_2ltbe")
 
 [connection signal="item_rect_changed" from="ItemList" to="ItemList" method="_on_item_rect_changed"]

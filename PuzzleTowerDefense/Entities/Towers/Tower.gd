@@ -42,7 +42,7 @@ func _execute_Turn():
 	await get_tree().process_frame
 	$Weapon.try_Shoot()
 	await  $Weapon.turn_done
-	print("weapon turn done")
+	print("tower turn done")
 
 func _remove_tower():
 	if Popups.TooltipTower == $".":

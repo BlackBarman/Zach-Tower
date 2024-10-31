@@ -872,6 +872,12 @@ animations = [{
 scale = Vector2(1.25, 1.25)
 script = ExtResource("2_0u0cj")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 4.80001
+offset_top = -46.4
+offset_right = 44.8
+offset_bottom = -23.4
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(4.76837e-07, 2.04636e-12)

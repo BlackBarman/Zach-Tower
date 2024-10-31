@@ -209,7 +209,8 @@ material = SubResource("ShaderMaterial_m7b6q")
 position = Vector2(-30, -22)
 scale = Vector2(0.9375, 0.75)
 sprite_frames = SubResource("SpriteFrames_c7abm")
-animation = &"Walk right"
+animation = &"Hurt"
+frame_progress = 0.168128
 centered = false
 flip_h = true
 

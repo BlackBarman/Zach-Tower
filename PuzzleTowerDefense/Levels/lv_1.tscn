@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=20 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
@@ -8,14 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://bfrgsk75sagyp" path="res://Levels/Level_Manager.tscn" id="5_oqwbf"]
 [ext_resource type="PackedScene" uid="uid://b55ay3e3q4mm7" path="res://Systems/TurnManager.tscn" id="6_03eko"]
 [ext_resource type="PackedScene" uid="uid://dvxf4t1grd3mr" path="res://UI/DefenseInfo.tscn" id="6_xatrf"]
-[ext_resource type="Resource" uid="uid://dtxpvd4okykdl" path="res://Custom_Resources/WaveResourceBase.tres" id="9_3gy5m"]
 [ext_resource type="Texture2D" uid="uid://qwbnylphyawo" path="res://Assets/UI_assets/TallBackgroundDarker.png" id="9_gfspy"]
+[ext_resource type="PackedScene" uid="uid://c40bsxa3vvpe5" path="res://Entities/Enemies/enemy.tscn" id="10_2emci"]
 [ext_resource type="PackedScene" uid="uid://deebor81fya23" path="res://Entities/Enemies/Tank_Enemy.tscn" id="10_b7rpd"]
 [ext_resource type="PackedScene" uid="uid://co0a6exrpdfnw" path="res://Entities/SacredCrystal.tscn" id="10_sl1of"]
 [ext_resource type="PackedScene" uid="uid://4uoy01ofpsmh" path="res://Levels/Screens/win_screen.tscn" id="11_cyrn3"]
 [ext_resource type="Script" path="res://Custom_Resources/Wave.gd" id="11_egh5a"]
-[ext_resource type="PackedScene" uid="uid://dr3xrq1y7yphb" path="res://Entities/Enemies/Fast_Enemy.tscn" id="12_x2iqh"]
-[ext_resource type="PackedScene" uid="uid://d2yo1mws0004i" path="res://Entities/Enemies/Connon_Fodder_Enemy.tscn" id="13_m1w50"]
 [ext_resource type="PackedScene" uid="uid://chk31upgng0t4" path="res://UI/pause_menu.tscn" id="17_hc6op"]
 
 [sub_resource type="Curve2D" id="Curve2D_v0plp"]
@@ -29,34 +27,16 @@ bg_color = Color(0.4, 0.223529, 0.192157, 1)
 border_width_top = 2
 border_color = Color(0.4, 0.223529, 0.192157, 1)
 
-[sub_resource type="Resource" id="Resource_ecan4"]
-script = ExtResource("11_egh5a")
-m_numberEnemies = 5
-m_enemyScene = ExtResource("10_b7rpd")
-path = NodePath("../TileMap/Path2D")
-
-[sub_resource type="Resource" id="Resource_8pedp"]
-script = ExtResource("11_egh5a")
-m_numberEnemies = 3
-m_enemyScene = ExtResource("12_x2iqh")
-path = NodePath("../TileMap/Path2D")
-
-[sub_resource type="Resource" id="Resource_j4epb"]
-script = ExtResource("11_egh5a")
-m_numberEnemies = 4
-m_enemyScene = ExtResource("13_m1w50")
-path = NodePath("../TileMap/Path2D")
-
-[sub_resource type="Resource" id="Resource_07g7t"]
-script = ExtResource("11_egh5a")
-m_numberEnemies = 4
-m_enemyScene = ExtResource("12_x2iqh")
-path = NodePath("../TileMap/Path2D")
-
 [sub_resource type="Resource" id="Resource_mqijl"]
 script = ExtResource("11_egh5a")
-m_numberEnemies = 8
-m_enemyScene = ExtResource("13_m1w50")
+m_numberEnemies = 1
+m_enemyScene = ExtResource("10_2emci")
+path = NodePath("../TileMap/Path2D")
+
+[sub_resource type="Resource" id="Resource_7le3n"]
+script = ExtResource("11_egh5a")
+m_numberEnemies = 1
+m_enemyScene = ExtResource("10_b7rpd")
 path = NodePath("../TileMap/Path2D")
 
 [node name="LV1" type="Node2D"]
@@ -121,7 +101,7 @@ texture = ExtResource("9_gfspy")
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
-waves = Array[ExtResource("11_egh5a")]([ExtResource("9_3gy5m"), SubResource("Resource_ecan4"), SubResource("Resource_8pedp"), SubResource("Resource_j4epb"), SubResource("Resource_07g7t"), SubResource("Resource_mqijl")])
+waves = Array[ExtResource("11_egh5a")]([SubResource("Resource_mqijl"), SubResource("Resource_7le3n")])
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
 unique_name_in_owner = true

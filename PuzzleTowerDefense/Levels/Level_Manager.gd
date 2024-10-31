@@ -14,7 +14,7 @@ func _ready():
 	for wave in waves:
 		m_numberEnemies += wave.m_numberEnemies
 
-	
+
 func _turn_Start(TurnCounter: int):
 
 	if (TurnCounter % m_spawnRatio > 0):
@@ -38,7 +38,7 @@ func _turn_Start(TurnCounter: int):
 			path = get_node(waves[CurrentWave].path)
 			if path and path is Path2D:
 				path.add_child(mob)
-				waves[CurrentWave].m_numberEnemies -= 1
+				#waves[CurrentWave].m_numberEnemies -= 1
 				m_numberEnemies = m_numberEnemies - SpawnSize
 				#print("mob spawned")
 			# Verifica se ci sono altri nemici da spawnare

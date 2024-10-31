@@ -873,17 +873,17 @@ position = Vector2(-1, -44)
 scale = Vector2(1.25, 1.25)
 script = ExtResource("2_0u0cj")
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(55.2, 2.40018)
-rotation = 1.5708
-gizmo_extents = 171.9
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(5.60001, 3.2)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_jexbr")
 animation = &"sling"
+
+[node name="Marker2D" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(-0.799999, -49.6)
+scale = Vector2(1, 1)
+gizmo_extents = 171.9
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

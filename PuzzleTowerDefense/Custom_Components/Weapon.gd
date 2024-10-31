@@ -35,21 +35,22 @@ func _process(_delta):
 		current_enemy = Targets[0]
 		%AnimatedSprite2D.look_at(current_enemy.global_position)
 
+# TODO use the method Area2d.get_overlapping_bodies() in
+# addition to/instead of signals to populate the target array and
+# find the right target, as signals sometimes break
 func try_Shoot():
+	await get_tree().process_frame
 	if reloading >= data.fire_rate:
 		reloading = 0
-	else:
+	elif reloading > 0:
 		reloading += 1
-		turn_done.emit()
+		emit_signal("turn_done")
 		print("can't shoot, reloading")
-	#print("try shoot è stata effettivamente chiamata siamo in try shoot ora")
-	#if can_shoot == true:
-		#print("can shoot è TRUE la torre non sparerà")
-	#var _y = kalans.get_overlapping_bodies() #TODO use this method in addition to signals to populate the target array and find the right target, as signals somethimes break
-	#for i in _y :
-		#print("la Torre ha un nemico in range" + str(i))
-	await get_tree().process_frame
-	#print("try shoot is called")
+	elif reloading == 0 and (has_targets == false or Targets.size()==0) :
+		emit_signal("turn_done")
+		print("no available enemies, holding fire")
+		return
+
 	if has_targets== false:
 		#print("tower has no enemy, return")
 		turn_done.emit()
@@ -65,10 +66,6 @@ func try_Shoot():
 		current_enemy = Targets[0]
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
 		%AnimatedSprite2D.play(anim_name) # this will call the shoot method at the specified frame
-		#print("animazione chiamata : 2 "+ anim_name)
-		#shoot()
-	#else :
-		#print ("one of the shooting conditions is wrong")
 
 func end_the_turn():
 	#print("the bullet is dying! towers is about to end the turn")
@@ -83,7 +80,7 @@ func shoot():
 	bullet.bullet_impact_animation = Bullet_impact
 	bullet.bulletDie.connect(end_the_turn)
 	bullet.damage = BulletDamage
-	bullet.global_position = $Marker2D.position
+	bullet.global_position = $AnimatedSprite2D/Marker2D.position
 	bullet.set_target(current_enemy)
 	get_parent().add_child(bullet)
 	AudioManager.ShootArrow.play()

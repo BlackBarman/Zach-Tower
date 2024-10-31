@@ -9,7 +9,7 @@
 script = ExtResource("1_tu4uw")
 Damage = 3
 Damage_type = "AoE"
-fire_rate = 2
+fire_rate = 3
 preview_image = ExtResource("1_ffi2e")
 attack_range = "T_shape"
 tower_sprite = ExtResource("3_43rrp")

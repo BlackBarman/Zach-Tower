@@ -30,6 +30,7 @@ texture = ExtResource("2_h50g1")
 hframes = 3
 
 [node name="Weapon" parent="." instance=ExtResource("3_7dj84")]
+position = Vector2(0, -40)
 
 [node name="FireRate" type="Timer" parent="."]
 autostart = true

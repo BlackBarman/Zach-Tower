@@ -80,7 +80,7 @@ func shoot():
 	bullet.bullet_impact_animation = Bullet_impact
 	bullet.bulletDie.connect(end_the_turn)
 	bullet.damage = BulletDamage
-	bullet.global_position = $AnimatedSprite2D/Marker2D.position
+	bullet.global_position = $Marker2D.position
 	bullet.set_target(current_enemy)
 	get_parent().add_child(bullet)
 	AudioManager.ShootArrow.play()

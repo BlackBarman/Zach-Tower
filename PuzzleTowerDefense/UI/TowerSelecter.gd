@@ -43,15 +43,21 @@ func _create_tower_slots() -> void:
 		tower_slot_instance._set_preview_image(tower_data_dict[key]["preview_image"])
 		tower_slots.append(tower_slot_instance)
 
+# sets the pointer of the TowerData wault to point at the tower we cliked
+# and then fires the set tower function of the tilemap script, allowing to
+# instanciate the correct tower (tilemap can then place it)
 func _on_tower_slot_pressed(key: String) -> void:
-	# Find the index of the selected tower in the dictionary
-	var index = tower_data_dict.keys().find(key)
+	if GlobalState.is_level_playing == false :
+		# Find the index of the selected tower in the dictionary
+		var index = tower_data_dict.keys().find(key)
 
-	# Call the non-static function correctly on the singleton instance
-	TowerDataVault.set_selected_tower_index(index)
-	#print("Tower selected:", key, "at index", index)
+		# Call the non-static function correctly on the singleton instance
+		TowerDataVault.set_selected_tower_index(index)
 
-	#HACK: TowersArray was the parent node. We had to change it,
-	#but it broke the references that had the Tilemap listening to
-	#signals here. Used groups to make it independent from branch structure
-	get_tree().call_group("Tilemap", "_set_tower")
+		#HACK: TowersArray was the parent node. We had to change it,
+		#but it broke the references that had the Tilemap listening to
+		#signals here. Used groups to make it independent from branch structure
+		get_tree().call_group("Tilemap", "_set_tower")
+	else:
+		#TODO: audio manager.play nope sound
+		return

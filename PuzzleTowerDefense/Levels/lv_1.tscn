@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=21 format=3 uid="uid://ch16qsighbevk"]
 
+[ext_resource type="Script" path="res://Levels/Level.gd" id="1_6wfxs"]
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
 [ext_resource type="PackedScene" uid="uid://cto0im2mdxsjj" path="res://UI/TowerSelecterUI.tscn" id="2_agi6v"]
@@ -29,7 +30,7 @@ border_color = Color(0.4, 0.223529, 0.192157, 1)
 
 [sub_resource type="Resource" id="Resource_mqijl"]
 script = ExtResource("11_egh5a")
-m_numberEnemies = 1
+m_numberEnemies = 5
 m_enemyScene = ExtResource("10_2emci")
 path = NodePath("../TileMap/Path2D")
 
@@ -40,6 +41,7 @@ m_enemyScene = ExtResource("10_b7rpd")
 path = NodePath("../TileMap/Path2D")
 
 [node name="LV1" type="Node2D"]
+script = ExtResource("1_6wfxs")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -10

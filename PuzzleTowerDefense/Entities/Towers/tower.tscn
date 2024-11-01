@@ -35,7 +35,7 @@ position = Vector2(0, -40)
 [node name="FireRate" type="Timer" parent="."]
 autostart = true
 
-[node name="ColorSwitcher" type="Area2D" parent="." node_paths=PackedStringArray("object_to_modulate")]
+[node name="ColorSwitcher" type="Area2D" parent="." node_paths=PackedStringArray("object_to_modulate") groups=["TowerArea2D"]]
 script = ExtResource("6_uyecy")
 object_to_modulate = NodePath("../TowerSprite")
 good_color = Color(0.997599, 0.568193, 0.783965, 1)
@@ -64,6 +64,8 @@ grow_vertical = 1
 [connection signal="ActiveTooltip" from="." to="Tooltip" method="_on_base_tower_active_tooltip"]
 [connection signal="body_entered" from="AttackRange" to="Weapon" method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="Weapon" method="_on_attack_range_body_exited"]
+[connection signal="area_entered" from="ColorSwitcher" to="ColorSwitcher" method="_on_area_entered"]
+[connection signal="area_exited" from="ColorSwitcher" to="ColorSwitcher" method="_on_area_exited"]
 [connection signal="body_entered" from="ColorSwitcher" to="." method="_on_color_switcher_body_entered"]
 [connection signal="body_entered" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_entered"]
 [connection signal="body_exited" from="ColorSwitcher" to="." method="_on_color_switcher_body_exited"]

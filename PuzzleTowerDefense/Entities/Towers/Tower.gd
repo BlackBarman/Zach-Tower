@@ -5,7 +5,7 @@ signal ActiveTooltip
 
 
 var can_be_placed :bool = true
-var placed : bool = true
+var placed : bool = false
 var space_occupied = 1
 var data
 enum State {
@@ -36,6 +36,7 @@ func tower_was_placed():
 	%AttackRange.hide()
 	emit_signal("ActiveTooltip")
 	AudioManager.BuildTower.play()
+	placed = true
 
 #called by turn manager
 func _execute_Turn():

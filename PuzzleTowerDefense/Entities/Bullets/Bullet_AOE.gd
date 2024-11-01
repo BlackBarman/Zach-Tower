@@ -1,6 +1,6 @@
 extends BaseBullet
 
-@export var aoe_radius = 300  # Radius of the explosion
+@export var aoe_radius = 150  # Radius of the explosion
 @export var aoe_damage = 2   # Damage for enemies within the AoE
 var hit_enemy: HurtBoxArea2D = null  # Keep track of the enemy directly hit
 

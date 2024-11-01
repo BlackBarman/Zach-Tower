@@ -2,7 +2,7 @@ extends Node2D
 class_name BaseTower
 
 signal ActiveTooltip
-
+signal TowerTurnDone
 
 var can_be_placed :bool = true
 var placed : bool = false
@@ -44,6 +44,7 @@ func _execute_Turn():
 	$Weapon.try_Shoot()
 	await  $Weapon.turn_done
 	print("tower turn done")
+	emit_signal("TowerTurnDone")
 
 func _remove_tower():
 	if Popups.TooltipTower == $".":

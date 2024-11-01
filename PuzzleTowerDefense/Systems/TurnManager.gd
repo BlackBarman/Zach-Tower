@@ -1,6 +1,6 @@
 extends Node2D
 var EnemyList = []
-var TowerList = []
+var TowerList: Array[BaseTower] = []
 var BattleStarted = false
 var TurnCounter = 0
 @onready var StartButton = $"../CanvasLayer/StartBattleButton"
@@ -15,6 +15,7 @@ func _startBattle():
 func _processTurns():
 
 	TurnCounter += 1
+	#here we tell the level manager to spawn mobs
 	get_tree().call_group("LevelManagerGroup", "_turn_Start", TurnCounter)
 
 	#Enemy Turn
@@ -30,13 +31,20 @@ func _processTurns():
 
 	#Towers always shoot after enemies
 	TowerList.clear()
-	TowerList = get_tree().get_nodes_in_group("TowerGroup")
-	for y in TowerList:
+
+	for node in get_tree().get_nodes_in_group("TowerGroup"):
+		var temp = node as BaseTower
+		if temp != null:
+			TowerList.append(temp)
+	for y  in TowerList:
 		if y != null:
 			print("tower turn")
-			await y._execute_Turn()
+			y._execute_Turn()
+			await y.TowerTurnDone
+			print("Tower turn was really really done")
 
-	if EnemyList.size() > 0:
+
+	if EnemyList.size() >= 0:
 		$Timer.start() # a very small delay that prevents breaking
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=22 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="Script" path="res://Levels/Level.gd" id="1_6wfxs"]
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
@@ -30,11 +30,17 @@ border_color = Color(0.4, 0.223529, 0.192157, 1)
 
 [sub_resource type="Resource" id="Resource_mqijl"]
 script = ExtResource("11_egh5a")
-m_numberEnemies = 5
+m_numberEnemies = 1
 m_enemyScene = ExtResource("10_2emci")
 path = NodePath("../TileMap/Path2D")
 
 [sub_resource type="Resource" id="Resource_7le3n"]
+script = ExtResource("11_egh5a")
+m_numberEnemies = 1
+m_enemyScene = ExtResource("10_b7rpd")
+path = NodePath("../TileMap/Path2D")
+
+[sub_resource type="Resource" id="Resource_bu1ro"]
 script = ExtResource("11_egh5a")
 m_numberEnemies = 1
 m_enemyScene = ExtResource("10_b7rpd")
@@ -103,7 +109,7 @@ texture = ExtResource("9_gfspy")
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
-waves = Array[ExtResource("11_egh5a")]([SubResource("Resource_mqijl"), SubResource("Resource_7le3n")])
+waves = Array[ExtResource("11_egh5a")]([SubResource("Resource_mqijl"), SubResource("Resource_7le3n"), SubResource("Resource_bu1ro")])
 
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
 unique_name_in_owner = true

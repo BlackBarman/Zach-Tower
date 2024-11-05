@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://ch16qsighbevk"]
+[gd_scene load_steps=23 format=3 uid="uid://ch16qsighbevk"]
 
 [ext_resource type="Script" path="res://Levels/Level.gd" id="1_6wfxs"]
 [ext_resource type="PackedScene" uid="uid://vxyr4ruil6fh" path="res://Levels/PlacementTilemap.tscn" id="1_p35ih"]
 [ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="2_3l8bh"]
+[ext_resource type="PackedScene" uid="uid://bvtuvs15dftqj" path="res://UI/fast_forward_button.tscn" id="2_8jxqg"]
 [ext_resource type="PackedScene" uid="uid://cto0im2mdxsjj" path="res://UI/TowerSelecterUI.tscn" id="2_agi6v"]
 [ext_resource type="PackedScene" uid="uid://cagmvc105bvbn" path="res://UI/start_battle_button.tscn" id="3_r35p5"]
 [ext_resource type="PackedScene" uid="uid://cwydief8v5gow" path="res://UI/WaveInfo.tscn" id="5_l666m"]
@@ -116,6 +117,15 @@ unique_name_in_owner = true
 editor_description = "FOR SOME REASON THIS NEEDS TO BE HIGHER IN THE HIERACHY TREE THAN LEVEL AND TURN MANAGER TO WORK"
 position = Vector2(1120, 136)
 win_screen = ExtResource("11_cyrn3")
+
+[node name="FastForwardButton" parent="." instance=ExtResource("2_8jxqg")]
+y_sort_enabled = true
+offset_left = 65.0
+offset_top = 2.0
+offset_right = 165.0
+offset_bottom = 102.0
+scale = Vector2(0.622303, 0.62083)
+action_mode = 0
 
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]
 editor_description = "fires the functions from sacred crystal to win and lose the game "

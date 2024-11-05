@@ -4,7 +4,7 @@ extends Button
 func _on_pressed():
 	if (!get_tree().paused):
 		get_tree().paused = true
-		$Panel.visible = true	
+		$Panel.visible = true
 	else:
 		get_tree().paused = false
 		$Panel.visible = false

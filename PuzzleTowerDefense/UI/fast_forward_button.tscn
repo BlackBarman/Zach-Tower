@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvtuvs15dftqj"]
+
+[ext_resource type="Texture2D" uid="uid://4ga7d5dhtr2n" path="res://Assets/UI_assets/fastForward.png" id="1_cxwdw"]
+[ext_resource type="Script" path="res://UI/fast_forward_button.gd" id="2_1rg2e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sc6vo"]
+texture = ExtResource("1_cxwdw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a7t4n"]
+texture = ExtResource("1_cxwdw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bo3dm"]
+texture = ExtResource("1_cxwdw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5tgwa"]
+texture = ExtResource("1_cxwdw")
+
+[node name="FastForwardButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -1215.0
+offset_bottom = -676.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxTexture_sc6vo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a7t4n")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_bo3dm")
+theme_override_styles/focus = SubResource("StyleBoxTexture_5tgwa")
+toggle_mode = true
+icon = ExtResource("1_cxwdw")
+script = ExtResource("2_1rg2e")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

@@ -18,14 +18,17 @@ class_name ColorSwitcher
 func _on_body_entered(_body):
 	negative_color()
 
+
 func _on_body_exited(_body):
 	positive_color()
+
 
 ## make so that we can't place a towe on top of another tower
 func _on_area_entered(area):
 	if area.is_in_group("TowerArea2D") and not tower.placed:
 		tower.can_be_placed = false
 		negative_color()
+
 
 func _on_area_exited(area):
 	if area.is_in_group("TowerArea2D") and not tower.placed:

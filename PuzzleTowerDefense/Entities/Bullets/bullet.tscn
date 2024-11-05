@@ -760,7 +760,7 @@ size = Vector2(32, 16)
 
 [node name="Bullet" type="Node2D" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("1_kf1tf")
-projectile_speed = 100
+projectile_speed = 200
 hitbox = NodePath("HitBoxArea2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

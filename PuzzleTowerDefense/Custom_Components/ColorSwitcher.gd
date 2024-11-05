@@ -11,7 +11,7 @@ class_name ColorSwitcher
 @onready var tower = $".."
 
 #HACK we are not checking what kind of bodies we are touching,
-#there might be shanangans of an enemy toching a tower making
+#there might be shenanigans of an enemy toching a tower making
 #the tower red
 func _on_body_entered(_body):
 	negative_color()

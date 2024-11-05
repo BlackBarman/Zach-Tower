@@ -43,7 +43,7 @@ func _processTurns():
 			await y.TowerTurnDone
 			print("Tower turn was really really done")
 
-
+# TODO test wheter or not is better to use await get_tree().process frame instead of timer
 	if EnemyList.size() >= 0:
 		$Timer.start() # a very small delay that prevents breaking
 

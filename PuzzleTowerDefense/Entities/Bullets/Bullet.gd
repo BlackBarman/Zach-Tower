@@ -13,7 +13,7 @@ var bullet_impact_animation : String
 @export var projectile_speed = 25
 @export var hitbox : HitBoxArea2D
 var damage :int #real value passed by the weapon
-#TODO change bullet animation based on the weapon, using a dictionary
+
 
 
 # Called when the node enters the scene tree for the first time.

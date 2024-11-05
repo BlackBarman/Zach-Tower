@@ -1,6 +1,6 @@
 extends BaseBullet
 
-@export var max_hits = 9999  #TODO: change this number if needed from weapon
+@export var max_hits = 9999  ## change this number if needed from weapon
 var hit_count = 0
 
 func _on_hit_box_area_2d_area_entered(area):

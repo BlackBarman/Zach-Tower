@@ -24,7 +24,7 @@ func _on_area_2d_body_entered(body):
 func player_lost_level():
 	get_tree().change_scene_to_packed(lose_screen)
 
-#TODO maybe there is a better solution for passing data before changing screen?
+
 func player_won_level():
 	EndLevelStats.retrieve_inactive_towers()
 	var n_towers = get_tree().get_nodes_in_group("TowerGroup").size()

@@ -6,7 +6,7 @@ signal buttonsSignal
 # later in the project the base tower will have it as well and we don't want to
 # have duplicate data
 
-@export var data = CustomData
+@export var data = CustomData # this data is never used nor fetched?
 
 
 

@@ -70,7 +70,5 @@ grow_vertical = 1
 [connection signal="body_entered" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_entered"]
 [connection signal="body_exited" from="ColorSwitcher" to="." method="_on_color_switcher_body_exited"]
 [connection signal="body_exited" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_exited"]
-[connection signal="mouse_entered" from="RemoveArea" to="." method="_on_remove_area_mouse_entered"]
-[connection signal="mouse_exited" from="RemoveArea" to="." method="_on_remove_area_mouse_exited"]
 [connection signal="mouse_entered" from="Tooltip" to="Tooltip" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Tooltip" to="Tooltip" method="_on_mouse_exited"]

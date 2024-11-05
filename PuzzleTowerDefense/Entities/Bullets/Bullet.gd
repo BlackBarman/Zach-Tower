@@ -33,9 +33,9 @@ func set_target(enemy):
 func _process(delta):
 	if current_animation == bullet_impact_animation:
 		return
-	move = move.move_toward(look_vector, delta * projectile_speed)
+	move = move.move_toward(look_vector, delta )
 	move = move.normalized()
-	global_position += move
+	global_position += (move * projectile_speed/100)
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

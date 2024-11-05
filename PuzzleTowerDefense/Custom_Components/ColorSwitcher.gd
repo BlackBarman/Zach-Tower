@@ -13,13 +13,15 @@ class_name ColorSwitcher
 #HACK we are not checking what kind of bodies we are touching,
 #there might be shenanigans of an enemy toching a tower making
 #the tower red
+
+
 func _on_body_entered(_body):
 	negative_color()
 
 func _on_body_exited(_body):
 	positive_color()
 
-# make so that we can't place a towe on top of another tower
+## make so that we can't place a towe on top of another tower
 func _on_area_entered(area):
 	if area.is_in_group("TowerArea2D") and not tower.placed:
 		tower.can_be_placed = false
@@ -27,8 +29,11 @@ func _on_area_entered(area):
 
 func _on_area_exited(area):
 	if area.is_in_group("TowerArea2D") and not tower.placed:
-		tower.can_be_placed = true
-		positive_color()
+		if has_overlapping_bodies() :
+			negative_color()
+		else :
+			positive_color()
+			tower.can_be_placed = true
 
 
 func positive_color():

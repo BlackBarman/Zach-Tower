@@ -24,7 +24,7 @@ func _on_mouse_exited():
 	%AttackRange.hide()
 
 func _input(event):
-	if hovered and DisplayPopup and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and data != null:
+	if hovered and DisplayPopup and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and data != null and not GlobalState.is_level_playing :
 		if Popups.Get_ItemPopup().visible == false:
 			AudioManager.SelectTower.play()
 		Popups.open_popup(Rect2i(Vector2i(global_position),Vector2i(size)),data, get_parent() as BaseTower)

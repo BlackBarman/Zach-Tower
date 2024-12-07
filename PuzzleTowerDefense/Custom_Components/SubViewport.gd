@@ -1,18 +1,9 @@
-# meta-name: OrganizedCode
-# meta-description: A template to help you code better
-# meta-default: true
-# meta-space-indent: 4
-
-
-
-
-
 #01. @tool
 
 #02. class_name
 
 #03. extends
-extends %CLASS%
+
 
 # this script should help you order your code correctly
 # refer to the Godot coding style for the rest
@@ -47,6 +38,7 @@ extends %CLASS%
 #17. private methods
 
 #18. subclasses
+
 
 
 

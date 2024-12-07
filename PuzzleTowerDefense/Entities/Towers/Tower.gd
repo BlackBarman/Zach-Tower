@@ -43,7 +43,6 @@ func _execute_Turn():
 	await get_tree().process_frame
 	$Weapon.try_Shoot()
 	await  $Weapon.turn_done
-	print("tower turn done")
 	emit_signal("TowerTurnDone")
 
 func _remove_tower():

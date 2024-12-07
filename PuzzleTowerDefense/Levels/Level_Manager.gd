@@ -29,7 +29,7 @@ func _turn_Start(TurnCounter: int):
 	# Itera su ogni wave
 	# Controlla se il turno corrente corrisponde al turno di spawn della wave
 	if  enemies_to_spawn > 0:
-		#print("Wave:",CurrentWave)
+
 		# Spawnare nemici per questa wave
 		for i in range(SpawnSize):
 			# Crea una nuova istanza della scena nemica

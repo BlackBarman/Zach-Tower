@@ -1,7 +1,6 @@
 extends Button
 
 func _on_toggled(toggled_on : bool) -> void:
-	print(str(toggled_on))
 	if toggled_on :
 		Engine.time_scale = 2
 	elif not toggled_on:

@@ -20,7 +20,7 @@ var current_enemy = 0
 var shooting_frame := 1
 var current_frame = 0
 
-var can_shoot = false
+var shoot_anim_playing = false
 var active = false
 var has_targets = false
 var debug_n_times_shot := 0
@@ -39,41 +39,36 @@ func _process(_delta):
 # addition to/instead of signals to populate the target array and
 # find the right target, as signals sometimes break
 func try_Shoot():
-	print("tower has  " + str(Targets.size()) + "  enemies in range when we are trying to shoot")
+	
 	await get_tree().process_frame
-	var _x = "ciao"
-	if reloading >= data.fire_rate:
-		reloading = 0
-	elif reloading > 0:
-		reloading += 1
-		emit_signal("reloading, turn_done")
-	elif reloading == 0 and (has_targets == false or Targets.size()==0) :
+	if reloading == data.fire_rate : 	#colpo in canna 
+		reloading = 0 
+	elif reloading != data.fire_rate: #colpo non in canna
+		reloading = min(reloading + 1, data.fire_rate) #99% same as reloading++
+		#print_rich("[color=red] RELOADING!! [/color]")
 		emit_signal("turn_done")
-		return
 
-	if  not has_targets or Targets.is_empty():
+	if not has_targets or Targets.is_empty():
 		emit_signal("turn_done")
-		return
-
-	if not can_shoot and reloading == 0:
-		#print("la torre sta per sparare")
-		can_shoot = true
+#colpo é in canna e nemici sono in vista 
+	if not shoot_anim_playing and reloading == 0: 
 		current_enemy = Targets[0]
+		
+		shoot_anim_playing = true
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
+		%AnimatedSprite2D.play(anim_name)# this will call the shoot method at the specified frame
 
-		%AnimatedSprite2D.play(anim_name)
-		print("animation was called") # this will call the shoot method at the specified frame
-
+#called by proj on death
 func end_the_turn():
+	#waits for the animation to finish before calling the end of turn signal 
 	if %AnimatedSprite2D.is_playing():
 		while %AnimatedSprite2D.is_playing():
-			await get_tree().process_frame
-	can_shoot = false
+			await get_tree().process_frame 
+	shoot_anim_playing = false
 	emit_signal("turn_done")
 
 #shoots the actual bullet
 func shoot():
-	print("shoot() was called")
 	bullet = BulletScene.instantiate() as BaseBullet
 	bullet.bullet_animation = Bullet_animation
 	bullet.bullet_impact_animation = Bullet_impact
@@ -90,19 +85,17 @@ func shoot():
 		active = true
 
 
-#fires the shoot function at the exact frame of the animation
+#fires the shoot function when shooting frame is reached
 func _on_animated_sprite_2d_frame_changed():
 	current_frame += 1
-	if current_frame == shooting_frame and can_shoot == true:
-		print("tower should shoot")
-		if Targets != []:
-			shoot()
-			can_shoot = false
-			debug_n_times_shot += 1
+	if current_frame == shooting_frame:
+		shoot()
+		debug_n_times_shot += 1
 
 
 func _on_animated_sprite_2d_animation_finished():
 	current_frame = 0
+	shoot_anim_playing = false
 
 
 #region add and remove target to target array

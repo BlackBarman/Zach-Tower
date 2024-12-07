@@ -23,11 +23,10 @@ func _processTurns():
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
 	for x in EnemyList:
 		if x != null :
-			print("enemy turn")
 			await x._execute_Turn()
-			await get_tree().create_timer(0.05).timeout
+			#await get_tree().create_timer(0.05).timeout #dunno why this is here, looks wrong af
 
-	await get_tree().process_frame #waits one fram to allow tower range signal to trigger
+	await get_tree().process_frame #wait one framr to allow tower range signal to trigger
 
 	#Towers always shoot after enemies
 	TowerList.clear()
@@ -38,10 +37,9 @@ func _processTurns():
 			TowerList.append(temp)
 	for y  in TowerList:
 		if y != null:
-			print("tower turn")
 			y._execute_Turn()
 			await y.TowerTurnDone
-			print("Tower turn was really really done")
+
 
 # TODO test wheter or not is better to use await get_tree().process frame instead of timer
 	if EnemyList.size() >= 0:

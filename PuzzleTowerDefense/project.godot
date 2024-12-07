@@ -34,6 +34,7 @@ GlobalState="*res://Globals/GlobalState.gd"
 
 window/size/viewport_width=1400
 window/size/viewport_height=800
+window/size/mode=2
 window/stretch/mode="viewport"
 
 [editor_plugins]

@@ -1,20 +1,22 @@
-[gd_resource type="Resource" script_class="CustomData" load_steps=5 format=3 uid="uid://bceav83bimdhx"]
+[gd_resource type="Resource" script_class="CustomData" load_steps=6 format=3 uid="uid://bceav83bimdhx"]
 
 [ext_resource type="PackedScene" uid="uid://08h5h54odnqu" path="res://Entities/Bullets/Bullet_AoE.tscn" id="1_74xv8"]
 [ext_resource type="Texture2D" uid="uid://gn10tp02mat1" path="res://Assets/UI_assets/Icons/PaletteTower3.png" id="1_ffi2e"]
 [ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="1_tu4uw"]
 [ext_resource type="Texture2D" uid="uid://c58uc2j41l847" path="res://Assets/Towers/Bases/PNGs/Tower 03.png" id="3_43rrp"]
+[ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="4_q72xw"]
 
 [resource]
 script = ExtResource("1_tu4uw")
+tower_scene = ExtResource("4_q72xw")
+preview_image = ExtResource("1_ffi2e")
+tower_sprite = ExtResource("3_43rrp")
+attack_range = "T_shape"
+cost = 15
+bullet_scene = ExtResource("1_74xv8")
 Damage = 3
 Damage_type = "AoE"
 fire_rate = 3
-preview_image = ExtResource("1_ffi2e")
-attack_range = "T_shape"
-tower_sprite = ExtResource("3_43rrp")
-bullet_scene = ExtResource("1_74xv8")
-cost = 15
 weapon_animation = "cannon"
 bullet_animation = "cannonball"
 bullet_impact_animation = "cannonball_impact"

@@ -12,7 +12,7 @@ enum State {
 	Placed,
 	Dragged,
 }
-@export var previewImage : Texture2D
+
 
 @onready var tilemap : PlacementTilemap = get_parent()
 
@@ -23,7 +23,7 @@ func _ready():
 	tilemap.tower_placed.connect(tower_was_placed)
 	RemoveButton.pressed.connect(_remove_tower)
 	data = TowerDataVault.get_selected_tower_data() as CustomData
-	%Tooltip.data = data
+	%Tooltip.data = data # passes tower data file to popup
 	%TowerSprite.texture = data.tower_sprite
 
 func _on_color_switcher_body_entered(_body):

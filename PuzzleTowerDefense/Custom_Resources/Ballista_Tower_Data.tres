@@ -1,20 +1,22 @@
-[gd_resource type="Resource" script_class="CustomData" load_steps=5 format=3 uid="uid://c6xsrud72v0hr"]
+[gd_resource type="Resource" script_class="CustomData" load_steps=6 format=3 uid="uid://c6xsrud72v0hr"]
 
 [ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="1_5aaqa"]
 [ext_resource type="Texture2D" uid="uid://c3iycuo6jj5b2" path="res://Assets/UI_assets/Icons/PaletteTower1.png" id="1_b3pdi"]
 [ext_resource type="PackedScene" uid="uid://cgfhdceue15t4" path="res://Entities/Bullets/Bullet_Piercing.tscn" id="1_ru262"]
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="3_u77jn"]
+[ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="4_i1is4"]
 
 [resource]
 script = ExtResource("1_5aaqa")
+tower_scene = ExtResource("4_i1is4")
+preview_image = ExtResource("1_b3pdi")
+tower_sprite = ExtResource("3_u77jn")
+attack_range = "T_shape"
+cost = 5
+bullet_scene = ExtResource("1_ru262")
 Damage = 2
 Damage_type = "pierce"
 fire_rate = 2
-preview_image = ExtResource("1_b3pdi")
-attack_range = "T_shape"
-tower_sprite = ExtResource("3_u77jn")
-bullet_scene = ExtResource("1_ru262")
-cost = 5
 weapon_animation = "ballista"
 bullet_animation = "arrow"
 bullet_impact_animation = "arrow_impact"

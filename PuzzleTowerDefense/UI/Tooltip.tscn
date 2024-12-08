@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://pd4tey2j502m"]
+[gd_scene load_steps=3 format=3 uid="uid://pd4tey2j502m"]
 
 [ext_resource type="Script" path="res://UI/Tooltip.gd" id="1_43ifd"]
-[ext_resource type="Resource" uid="uid://c6xsrud72v0hr" path="res://Custom_Resources/Ballista_Tower_Data.tres" id="2_g06bk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntsr5"]
 
@@ -16,7 +15,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ntsr5")
 script = ExtResource("1_43ifd")
-data = ExtResource("2_g06bk")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

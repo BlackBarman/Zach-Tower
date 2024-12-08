@@ -2,7 +2,7 @@
 extends HBoxContainer
 class_name TowerSelector
 
-signal set_tower
+#signal set_tower
 
 @export var tower_slot: PackedScene # The scene representing a tower slot
 
@@ -25,9 +25,9 @@ func _populate_tower_data_dict() -> void:
 		tower_data_dict[key] = {"data": data, "preview_image": data.preview_image} # Add other properties as needed
 
 #send packed scene ref to tilemap, it knows which index was clicked
-@warning_ignore("unused_parameter")
-func _set_tower(index : int):
-	emit_signal("set_tower")
+#@warning_ignore("unused_parameter")
+#func _set_tower(index : int):
+	#emit_signal("set_tower")
 
 func _create_tower_slots() -> void:
 	for key in tower_data_dict.keys():
@@ -57,7 +57,7 @@ func _on_tower_slot_pressed(key: String) -> void:
 		#HACK: TowersArray was the parent node. We had to change it,
 		#but it broke the references that had the Tilemap listening to
 		#signals here. Used groups to make it independent from branch structure
-		get_tree().call_group("Tilemap", "_set_tower")
+		get_tree().call_group("Tilemap", "_set_tower" )
 	else:
 		#TODO: audio manager.play nope sound
 		return

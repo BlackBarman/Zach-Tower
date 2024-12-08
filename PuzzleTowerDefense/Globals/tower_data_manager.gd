@@ -2,7 +2,8 @@ extends Node
 class_name TowerDataManager
 
 
-# Dictionary to hold tower data resources
+# Dictionary to hold tower data resources\
+# put all tower files here, UI will dynamically adjust 
 var tower_data : Dictionary = {
 "ballista_tower": preload("res://Custom_Resources/Ballista_Tower_Data.tres"),
 "magic_tower": preload("res://Custom_Resources/Magic_Tower_Data.tres"),

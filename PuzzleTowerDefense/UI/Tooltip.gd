@@ -6,10 +6,7 @@ signal buttonsSignal
 # later in the project the base tower will have it as well and we don't want to
 # have duplicate data
 
-@export var data = CustomData # this data is never used nor fetched?
-
-
-
+var data : CustomData # value passed by base tower
 var popup
 var DisplayPopup = false
 var hovered :bool = false

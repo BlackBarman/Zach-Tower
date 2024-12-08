@@ -51,9 +51,9 @@ func try_Shoot():
 	if not has_targets or Targets.is_empty():
 		emit_signal("turn_done")
 #colpo é in canna e nemici sono in vista 
+
 	if not shoot_anim_playing and reloading == 0: 
 		current_enemy = Targets[0]
-		
 		shoot_anim_playing = true
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
 		%AnimatedSprite2D.play(anim_name)# this will call the shoot method at the specified frame

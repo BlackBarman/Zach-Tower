@@ -1,11 +1,10 @@
-[gd_scene load_steps=128 format=3 uid="uid://ckfd2o0q75ane"]
+[gd_scene load_steps=127 format=3 uid="uid://ckfd2o0q75ane"]
 
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="1_twlct"]
 [ext_resource type="Script" path="res://Custom_Components/Weapon.gd" id="2_0u0cj"]
 [ext_resource type="Texture2D" uid="uid://dxms357vl1nhu" path="res://Assets/Towers/Weapons/Tower 07/Spritesheets/Tower 07 - Level 01 - Weapon.png" id="4_ogbxo"]
 [ext_resource type="Texture2D" uid="uid://cmu2lrraepgjs" path="res://Assets/Towers/Weapons/Tower 04/PNGs/Tower 04 - Level 01 - Weapon.png" id="6_m8bst"]
 [ext_resource type="Texture2D" uid="uid://4ddmwpmfx2o6" path="res://Assets/Towers/Weapons/Tower 02/Spritesheets/Tower 02 - Level 01 - Weapon.png" id="8_476af"]
-[ext_resource type="Script" path="res://Custom_Components/SubViewport.gd" id="10_5gge7"]
 [ext_resource type="Texture2D" uid="uid://c1nhlpjpw4dsq" path="res://Assets/Towers/Weapons/Tower 06/Spritesheets/Tower 06 - Level 03 - Weapon.png" id="10_jobpn"]
 [ext_resource type="Texture2D" uid="uid://rqu02x7f7oty" path="res://Assets/Towers/Weapons/Tower 05/Spritesheets/Tower 05 - Level 01 - Weapon.png" id="11_yfn6r"]
 [ext_resource type="Texture2D" uid="uid://bvjbigicyx2ym" path="res://Assets/Towers/Weapons/Tower 08/Spritesheets/Tower 08 - Level 02 - Weapon.png" id="12_vwalg"]
@@ -889,9 +888,6 @@ animation = &"ballista"
 [node name="Marker2D" type="Marker2D" parent="AnimatedSprite2D"]
 position = Vector2(6.4, -2.26911e-05)
 gizmo_extents = 171.9
-
-[node name="SubViewport" type="SubViewport" parent="."]
-script = ExtResource("10_5gge7")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

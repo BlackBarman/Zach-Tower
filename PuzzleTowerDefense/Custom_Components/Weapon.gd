@@ -28,7 +28,6 @@ var debug_n_times_shot := 0
 func _ready():
 	%AnimatedSprite2D.animation = anim_name
 
-
 func _process(_delta):
 
 	if Targets != [] :
@@ -41,18 +40,20 @@ func _process(_delta):
 func try_Shoot():
 	
 	await get_tree().process_frame
-	if reloading == data.fire_rate : 	#colpo in canna 
+	if reloading == data.fire_rate and not Targets.is_empty(): 	 #colpo in canna non iniziare a ricaricare se hai il colpo in canna ma no nemici in vista
 		reloading = 0 
 	elif reloading != data.fire_rate: #colpo non in canna
 		reloading = min(reloading + 1, data.fire_rate) #99% same as reloading++
 		#print_rich("[color=red] RELOADING!! [/color]")
 		emit_signal("turn_done")
+		return
 
 	if not has_targets or Targets.is_empty():
 		emit_signal("turn_done")
+		return
 #colpo é in canna e nemici sono in vista 
 
-	if not shoot_anim_playing and reloading == 0: 
+	if not shoot_anim_playing and reloading == 0 and has_targets: 
 		current_enemy = Targets[0]
 		shoot_anim_playing = true
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)

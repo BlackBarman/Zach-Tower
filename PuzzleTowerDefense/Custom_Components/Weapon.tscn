@@ -1,6 +1,7 @@
-[gd_scene load_steps=127 format=3 uid="uid://ckfd2o0q75ane"]
+[gd_scene load_steps=128 format=3 uid="uid://ckfd2o0q75ane"]
 
 [ext_resource type="Texture2D" uid="uid://be0u872p7ooau" path="res://Assets/Towers/Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="1_twlct"]
+[ext_resource type="Script" path="res://Custom_Components/reloading_UI.gd" id="2_0sqej"]
 [ext_resource type="Script" path="res://Custom_Components/Weapon.gd" id="2_0u0cj"]
 [ext_resource type="Texture2D" uid="uid://dxms357vl1nhu" path="res://Assets/Towers/Weapons/Tower 07/Spritesheets/Tower 07 - Level 01 - Weapon.png" id="4_ogbxo"]
 [ext_resource type="Texture2D" uid="uid://cmu2lrraepgjs" path="res://Assets/Towers/Weapons/Tower 04/PNGs/Tower 04 - Level 01 - Weapon.png" id="6_m8bst"]
@@ -872,11 +873,17 @@ animations = [{
 scale = Vector2(1.25, 1.25)
 script = ExtResource("2_0u0cj")
 
-[node name="Label" type="Label" parent="."]
+[node name="ReloadLabel" type="Label" parent="."]
 offset_left = 4.80001
 offset_top = -46.4
 offset_right = 44.8
 offset_bottom = -23.4
+text = "Reloading
+"
+script = ExtResource("2_0sqej")
+
+[node name="Timer" type="Timer" parent="ReloadLabel"]
+one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -889,5 +896,6 @@ animation = &"ballista"
 position = Vector2(6.4, -2.26911e-05)
 gizmo_extents = 171.9
 
+[connection signal="timeout" from="ReloadLabel/Timer" to="ReloadLabel" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

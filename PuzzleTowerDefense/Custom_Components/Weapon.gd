@@ -40,40 +40,34 @@ func _process(_delta):
 func try_Shoot():
 	
 	await get_tree().process_frame
+	#reload logic
 	if reloading == data.fire_rate and not Targets.is_empty(): 	 #colpo in canna non iniziare a ricaricare se hai il colpo in canna ma no nemici in vista
 		reloading = 0 
 	elif reloading != data.fire_rate: #colpo non in canna
 		reloading = min(reloading + 1, data.fire_rate) #99% same as reloading++
 		#print_rich("[color=red] RELOADING!! [/color]")
+		$ReloadLabel._on_reload()
 		emit_signal("turn_done")
 		return
 
 	if not has_targets or Targets.is_empty():
 		emit_signal("turn_done")
 		return
+		
 #colpo é in canna e nemici sono in vista 
-
 	if not shoot_anim_playing and reloading == 0 and has_targets: 
 		current_enemy = Targets[0]
 		shoot_anim_playing = true
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
 		%AnimatedSprite2D.play(anim_name)# this will call the shoot method at the specified frame
 
-#called by proj on death
-func end_the_turn():
-	#waits for the animation to finish before calling the end of turn signal 
-	if %AnimatedSprite2D.is_playing():
-		while %AnimatedSprite2D.is_playing():
-			await get_tree().process_frame 
-	shoot_anim_playing = false
-	emit_signal("turn_done")
 
 #shoots the actual bullet
 func shoot():
 	bullet = BulletScene.instantiate() as BaseBullet
 	bullet.bullet_animation = Bullet_animation
 	bullet.bullet_impact_animation = Bullet_impact
-	bullet.bulletDie.connect(end_the_turn)
+	bullet.bulletDie.connect(on_proj_death)
 	bullet.damage = BulletDamage
 	#bullet.position = $Marker2D.position
 	bullet.set_target(current_enemy)
@@ -85,6 +79,14 @@ func shoot():
 	if !active:
 		active = true
 
+#called by proj on death
+func on_proj_death():
+	#waits for the animation to finish before calling the end of turn signal 
+	if %AnimatedSprite2D.is_playing():
+		while %AnimatedSprite2D.is_playing():
+			await get_tree().process_frame 
+	shoot_anim_playing = false
+	emit_signal("turn_done")
 
 #fires the shoot function when shooting frame is reached
 func _on_animated_sprite_2d_frame_changed():

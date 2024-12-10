@@ -53,10 +53,15 @@ func _set_tower():
 	dragging = true
 
 
-#function that update the endLevelStat for the win Screen
+# function that update the endLevelStat for the win Screen
 func UpdateStat(tower):
 	EndLevelStats.AddSpaceUsed(tower.space_occupied) #to change with the real space occupied by tower
 	EndLevelStats.IncrementTowersPlaced()
 	EndLevelStats.AddMoneySpent(tower.data.cost)
 
+
+# if we press start and we have tower in hand, delete the tower in hand
+func _on_start_battle_button_button_down():
+	if dragging == true :
+		tower_object.queue_free()
 

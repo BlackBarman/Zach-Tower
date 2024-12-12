@@ -29,7 +29,7 @@ class_name CustomData
 @export var Damage : int
 @export var Damage_type : String
 ## numero di turni tra spari: 0 spara ogni turno, 1 spara un turno si e uno no, e così via
-@export_range(0,5) var fire_rate : int  
+@export_range(0,10) var fire_rate : int  
 
 # ////////////////////////////////////////
 #             Animations

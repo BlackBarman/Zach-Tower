@@ -1,12 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://d2yo1mws0004i"]
+[gd_scene load_steps=23 format=3 uid="uid://d2yo1mws0004i"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_y5v5r"]
 [ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_y5ffo"]
 [ext_resource type="Texture2D" uid="uid://b2ppinhso6msl" path="res://Assets/Enemies/Ground/Spritesheets/slime-Sheet.png" id="3_exyj0"]
 [ext_resource type="Script" path="res://Custom_Components/HurtBoxArea2D.gd" id="4_4oh7o"]
+[ext_resource type="Shader" uid="uid://c4nksct557gtw" path="res://Entities/Enemies/Hurt_Flash.tres" id="4_bkk7w"]
+[ext_resource type="PackedScene" uid="uid://dsff0l4a4wgrt" path="res://HurtShader.tscn" id="5_r8fo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
 size = Vector2(4, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drw77"]
+resource_local_to_scene = true
+shader = ExtResource("4_bkk7w")
+shader_parameter/eneabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmrxe"]
 atlas = ExtResource("3_exyj0")
@@ -116,6 +124,8 @@ size = Vector2(52, 32)
 [node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
 script = ExtResource("1_y5v5r")
 
+[node name="AnimationPlayer" parent="." instance=ExtResource("5_r8fo2")]
+
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 process_priority = -50
 script = ExtResource("2_y5ffo")
@@ -131,10 +141,11 @@ position = Vector2(17, 0)
 shape = SubResource("RectangleShape2D_2biy1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+material = SubResource("ShaderMaterial_drw77")
 position = Vector2(-32, -28)
 scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_c7abm")
-animation = &"Idle right"
+animation = &"Hurt"
 centered = false
 flip_h = true
 

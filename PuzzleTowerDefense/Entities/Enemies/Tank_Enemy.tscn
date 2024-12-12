@@ -11,7 +11,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
 size = Vector2(6, 29.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7b6q"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aeut6"]
 resource_local_to_scene = true
 shader = ExtResource("3_16gqe")
 shader_parameter/eneabled = false
@@ -205,12 +205,11 @@ position = Vector2(12, 1)
 shape = SubResource("RectangleShape2D_2biy1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-material = SubResource("ShaderMaterial_m7b6q")
+material = SubResource("ShaderMaterial_aeut6")
 position = Vector2(-30, -22)
 scale = Vector2(0.9375, 0.75)
 sprite_frames = SubResource("SpriteFrames_c7abm")
-animation = &"Hurt"
-frame_progress = 0.168128
+animation = &"Walk right"
 centered = false
 flip_h = true
 

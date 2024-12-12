@@ -1,9 +1,9 @@
 extends Resource
 class_name CustomData
 
-
-
-#region Tower Base
+# ////////////////////////////////////////
+#        Tower base
+# ////////////////////////////////////////
 
 @export_category("tower base")
 ## the base that will be placed on the ground, not necessarly base tower
@@ -13,15 +13,14 @@ class_name CustomData
 ## sprite the tower base will use to render itself
 @export var tower_sprite : Texture
 ## shape of the attack range, not every range is compatible with every tower base
-@export_enum("T_shape", "X_shape", 
-"Y_shape", "DOWN_3", "UP_3", 
-"LEFT_3", "RIGHT_3") var attack_range : String
+@export_enum("T_shape", "X_shape","X_shape_2", "X_shape_3",
+"Y_shape", "DOWN_3", "UP_3","LEFT_3", "RIGHT_3","PLUS_1", "PLUS_2","AROUND_1","AROUND_2x2_1") var attack_range : String
 ## cost of the tower, DUH
 @export var cost : int
 
-#endregion
-
-#region Weapon and bullet
+# ////////////////////////////////////////
+#            Weapons and bullet
+# ////////////////////////////////////////
 
 @export_category("weapon and bullet")
 ## scene the weapon component will shoot
@@ -32,9 +31,9 @@ class_name CustomData
 ## numero di turni tra spari: 0 spara ogni turno, 1 spara un turno si e uno no, e così via
 @export_range(0,5) var fire_rate : int  
 
-#endregion
-
-#region Animations
+# ////////////////////////////////////////
+#             Animations
+# ////////////////////////////////////////
 
 @export_category("Animations")
 @export_enum("ballista","cannon","catapult",
@@ -46,6 +45,3 @@ class_name CustomData
 @export_enum("arrow_impact","cannonball_impact","catapultstone_impact",
 			"goldenarrow_impact","slingstone_impact",
 			"spark_impact",) var bullet_impact_animation : String
-
-#endregion
-

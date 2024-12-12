@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CustomData" load_steps=6 format=3 uid="uid://b57wgjs7c3140"]
+
+[ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Entities/Bullets/bullet.tscn" id="1_6exrf"]
+[ext_resource type="Script" path="res://Custom_Resources/TowerData.gd" id="1_qn8j3"]
+[ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="3_6gby8"]
+[ext_resource type="Texture2D" uid="uid://wy2f21q12s12" path="res://Assets/Towers/Bases/PNGs/Tower 04.png" id="4_fvtuj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_osg6c"]
+size = Vector2(64, 64)
+
+[resource]
+script = ExtResource("1_qn8j3")
+tower_scene = ExtResource("3_6gby8")
+preview_image = SubResource("PlaceholderTexture2D_osg6c")
+tower_sprite = ExtResource("4_fvtuj")
+attack_range = "AROUND_1"
+cost = 5
+bullet_scene = ExtResource("1_6exrf")
+Damage = 1
+Damage_type = "Normal"
+fire_rate = 0
+weapon_animation = "ballista"
+bullet_animation = "arrow"
+bullet_impact_animation = "arrow_impact"

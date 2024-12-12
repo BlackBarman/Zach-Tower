@@ -122,6 +122,7 @@ animations = [{
 size = Vector2(52, 32)
 
 [node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
+editor_description = "BASE ENEMY PLS DUPLICATE"
 script = ExtResource("1_vldat")
 
 [node name="AnimationPlayer" parent="." instance=ExtResource("2_6dcn2")]

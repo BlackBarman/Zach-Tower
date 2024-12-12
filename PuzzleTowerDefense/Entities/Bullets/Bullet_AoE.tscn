@@ -5,7 +5,7 @@
 
 [node name="Bullet_AoE" instance=ExtResource("1_1wm4t")]
 script = ExtResource("2_twaol")
-aoe_radius = 300
+aoe_radius = 25
 aoe_damage = 2
 
 [node name="AnimatedSprite2D" parent="." index="0"]

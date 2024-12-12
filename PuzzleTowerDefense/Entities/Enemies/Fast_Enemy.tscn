@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
 size = Vector2(6, 25)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i263c"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_edrxk"]
 resource_local_to_scene = true
 shader = ExtResource("3_ymsq0")
 shader_parameter/eneabled = false
@@ -191,7 +191,7 @@ position = Vector2(17, -2)
 shape = SubResource("RectangleShape2D_2biy1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-material = SubResource("ShaderMaterial_i263c")
+material = SubResource("ShaderMaterial_edrxk")
 position = Vector2(-32, -28)
 scale = Vector2(0.90625, 0.765625)
 sprite_frames = SubResource("SpriteFrames_c7abm")

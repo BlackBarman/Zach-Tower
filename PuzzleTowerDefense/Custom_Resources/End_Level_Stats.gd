@@ -5,12 +5,12 @@ signal moneyChanged
 signal enemyKilled
 
 var shots_fired = 0
-var space_used = 0       # TODO space used = number of towers placed (for now)
+var space_used = 0       
 var money_spent = 0
-var overkill = 0         # Nico TODO Implement a way to know how much damage is wasted when a given bullet hits a given enemy, then update this variable (in this script) accordingly
-var avg_tower_damage = 0 # Nico TODO: implement set get function, i want the ui to pull data dynamically
-var towers_placed = 0    # TODO: space used = number of towers placed (for now)
-var inactive_towers = 0  # Nico TODO: A way to know the towers that didn't get used
+var overkill = 0         
+var avg_tower_damage = 0 
+var towers_placed = 0    
+var inactive_towers = 0  
 var tot_towers_damage = 0
 var enemies_killed = 0
 
@@ -20,7 +20,7 @@ func reset_data():
 	money_spent = 0
 	overkill = 0
 	tot_towers_damage = 0
-	avg_tower_damage = 0 #TODO: implement set get function, i waan the ui to pull data dynamically
+	avg_tower_damage = 0 
 	towers_placed = 0
 	inactive_towers = 0
 	enemies_killed = 0

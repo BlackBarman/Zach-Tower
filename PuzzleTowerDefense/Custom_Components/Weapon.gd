@@ -65,6 +65,7 @@ func try_Shoot():
 #shoots the actual bullet
 func shoot():
 	bullet = BulletScene.instantiate() as BaseBullet
+	bullet.set_target(current_enemy)
 	bullet.bullet_animation = Bullet_animation
 	bullet.bullet_impact_animation = Bullet_impact
 	bullet.bulletDie.connect(on_proj_death)
@@ -74,7 +75,6 @@ func shoot():
 	
 	
 	#bullet.position = $Marker2D.position
-	bullet.set_target(current_enemy)
 	get_parent().add_child(bullet)
 	bullet.global_position = $AnimatedSprite2D/Marker2D.global_position
 	AudioManager.ShootArrow.play()

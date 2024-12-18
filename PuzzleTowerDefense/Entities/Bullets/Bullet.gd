@@ -3,22 +3,24 @@ class_name BaseBullet
 
 signal bulletDie
 
-var speed = 100
+
+
 var move = Vector2.ZERO
-var look_vector = Vector2.ZERO
-var target : BaseEnemy
+var target 
 var current_animation : String = ""
 var bullet_animation : String
 var bullet_impact_animation : String
-@export var projectile_speed = 0.25
+##pixels per seconds
+@export var projectile_speed = 10
 var damage : int # real value passed by the weapon
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("projectile speed is " + str(projectile_speed))
 	if target != null :
 		look_at(target.global_position)
-		self.global_position = target.global_position - self.global_position
+		print("target is at position " + str(target.global_position))
 		$AnimatedSprite2D.play(bullet_animation)
 
 
@@ -26,26 +28,33 @@ func _ready():
 func _process(delta):
 	if current_animation == bullet_impact_animation:
 		return
-	if self.global_position != target.global_position :
-		move = move.move_toward(look_vector, delta )
-		move = move.normalized()
-		global_position += (move * projectile_speed)
-	else:
-		self.global_position = target.global_position
+	if global_position == target.global_position :
+		print("ímpact animation called")
 		play_impact_animation(bullet_impact_animation)
-		pass
+		#move = move.move_toward(target.global_position, delta)
+		#move = move.normalized()
+		#global_position += (move * projectile_speed)
+		#global_position += global_position.move_toward(target.global_position, delta).normalized() *  projectile_speed
+		
+	else:
+		look_at(target.global_position)
+		var ciao = global_position.move_toward(target.global_position, projectile_speed * delta  )
+		global_position = ciao
 
 
-func set_target(enemy: BaseEnemy):
-	target = enemy
+func set_target(enemy):
+	target = enemy 
+	target = target 
 
 
 # TODO : when i reach enemy position switch to impact anim and then die
 # TODO : change the sprite node to an animation player 
-func play_impact_animation(animation_name: String):
-	current_animation = animation_name
-	if $AnimatedSprite2D.is_playing(animation_name) == false and $AnimatedSprite2D.animation == animation_name:
-		$AnimatedSprite2D.play(animation_name)
+func play_impact_animation(impact_animation: String):
+	current_animation = impact_animation
+	if $AnimatedSprite2D.animation != impact_animation:
+		$AnimatedSprite2D.play(impact_animation)
+	else :
+		print("i am not calling impact animation")
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	_die()

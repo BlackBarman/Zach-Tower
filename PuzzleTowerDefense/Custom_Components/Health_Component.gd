@@ -12,7 +12,7 @@ signal HealthChangeNegative
 
 
 func _ready():
-	hurtbox.hit_landed.connect(_Damage)
+	#hurtbox.hit_landed.connect(_Damage)
 	CurrentHealth = MaxHealth
 
 

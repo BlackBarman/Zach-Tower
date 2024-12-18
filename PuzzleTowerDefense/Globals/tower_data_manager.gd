@@ -8,7 +8,7 @@ var tower_data : Dictionary = {
 "ballista_tower": preload("res://Custom_Resources/Ballista_Tower_Data.tres"),
 "magic_tower": preload("res://Custom_Resources/Magic_Tower_Data.tres"),
 "sniper_tower":preload("res://Custom_Resources/Sniper_Tower_Data.tres"),
-"normal_tower": preload("res://Custom_Resources/Standard_Tower_Data.tres"),
+"normal_tower": preload("res://Custom_Resources/Standard_Tower_Data.tres")
 }
 
 # Index to track the currently selected tower data

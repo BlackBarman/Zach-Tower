@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://c40bsxa3vvpe5"]
+[gd_scene load_steps=20 format=3 uid="uid://c40bsxa3vvpe5"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_vldat"]
-[ext_resource type="PackedScene" uid="uid://dsff0l4a4wgrt" path="res://HurtShader.tscn" id="2_6dcn2"]
 [ext_resource type="Script" path="res://Custom_Components/Health_Component.gd" id="2_u8arb"]
 [ext_resource type="Texture2D" uid="uid://b2ppinhso6msl" path="res://Assets/Enemies/Ground/Spritesheets/slime-Sheet.png" id="3_b30is"]
 [ext_resource type="Shader" uid="uid://c4nksct557gtw" path="res://Entities/Enemies/Hurt_Flash.tres" id="3_yr237"]
@@ -117,18 +116,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy" type="PathFollow2D" groups=["EnemyGroup"]]
-editor_description = "BASE ENEMY PLS DUPLICATE"
+[node name="BaseEnemy" type="PathFollow2D" groups=["EnemyGroup"]]
 script = ExtResource("1_vldat")
 
-[node name="AnimationPlayer" parent="." instance=ExtResource("2_6dcn2")]
-
-[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+[node name="HealthComponent" type="Node" parent="."]
 process_priority = -50
 script = ExtResource("2_u8arb")
 CurrentHealth = 5
 MaxHealth = 5
-hurtbox = NodePath("")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 
@@ -145,6 +140,3 @@ animation = &"Walk right"
 centered = false
 flip_h = true
 metadata/_edit_lock_ = true
-
-[connection signal="Death" from="HealthComponent" to="." method="_on_health_component_death"]
-[connection signal="HealthChangeNegative" from="HealthComponent" to="." method="_on_health_component_health_change_negative"]

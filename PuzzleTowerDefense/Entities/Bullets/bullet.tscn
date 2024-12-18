@@ -754,9 +754,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bullet" type="Node2D"]
+[node name="BaseBullet" type="Node2D"]
 script = ExtResource("1_kf1tf")
-projectile_speed = 700
+projectile_speed = 300
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708

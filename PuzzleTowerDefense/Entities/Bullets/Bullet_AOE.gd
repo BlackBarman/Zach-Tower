@@ -23,10 +23,14 @@ func _apply_aoe_damage():
 		if enemy != hit_enemy:
 			var distance = global_position.distance_to(enemy.global_position)
 
+
 			# If the enemy is within the AoE radius, apply damage
 			if distance <= aoe_radius:
 				hitbox.damage = damage
-				 # Assuming the projectile has a hitbox component
+				 
+				# Assuming the projectile has a hitbox component
+				
+				#TODO change this, i want the bullet to be an animation only thing
 				hitbox.apply_hit(enemy.find_child("HurtBoxArea2D"))  # Apply damage through the hitbox
 
 	# Destroy the projectile after applying AoE damage

@@ -9,6 +9,8 @@ var damage #passed on ready by the bullet
 func apply_hit(hurt_box: HurtBoxArea2D) -> void:
 	hurt_box.get_hurt(damage)
 
+#if hitbox touches hurbox, hitbox tells hurtbox how much damage to deal to itself
+# veeeery convoluted 
 func _on_area_entered(area: Area2D) -> void:
 	if area is HurtBoxArea2D:
 		apply_hit(area)

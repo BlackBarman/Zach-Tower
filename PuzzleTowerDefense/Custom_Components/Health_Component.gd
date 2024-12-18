@@ -26,7 +26,6 @@ func _Damage(x):
 	HealthChangeNegative.emit()
 	_CheckDeath()
 
-
 func _CheckDeath():
 	if(CurrentHealth <= 0):
 		Death.emit()

@@ -68,7 +68,11 @@ func shoot():
 	bullet.bullet_animation = Bullet_animation
 	bullet.bullet_impact_animation = Bullet_impact
 	bullet.bulletDie.connect(on_proj_death)
+	
+	#TODO remove this and assign dmg to target manually, at the end of bullet animation
 	bullet.damage = BulletDamage
+	
+	
 	#bullet.position = $Marker2D.position
 	bullet.set_target(current_enemy)
 	get_parent().add_child(bullet)
@@ -87,6 +91,8 @@ func on_proj_death():
 			await get_tree().process_frame 
 	shoot_anim_playing = false
 	emit_signal("turn_done")
+	
+	#TODO assign dmg to enemy manually here, 
 
 #fires the shoot function when shooting frame is reached
 func _on_animated_sprite_2d_frame_changed():

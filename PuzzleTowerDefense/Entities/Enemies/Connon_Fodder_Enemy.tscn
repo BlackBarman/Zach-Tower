@@ -126,12 +126,11 @@ script = ExtResource("1_y5v5r")
 
 [node name="AnimationPlayer" parent="." instance=ExtResource("5_r8fo2")]
 
-[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+[node name="HealthComponent" type="Node" parent="."]
 process_priority = -50
 script = ExtResource("2_y5ffo")
 CurrentHealth = 3
 MaxHealth = 3
-hurtbox = NodePath("../CharacterBody2D/HurtBoxArea2D")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 

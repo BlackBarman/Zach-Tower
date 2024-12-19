@@ -3,7 +3,6 @@ class_name HealthComponent
 
 @export var CurrentHealth = 0
 @export var MaxHealth = 0
-@export var hurtbox : HurtBoxArea2D
 
 
 signal Death()
@@ -12,7 +11,6 @@ signal HealthChangeNegative
 
 
 func _ready():
-	#hurtbox.hit_landed.connect(_Damage)
 	CurrentHealth = MaxHealth
 
 
@@ -24,8 +22,10 @@ func _Heal(life):
 func _Damage(x):
 	CurrentHealth -= x
 	HealthChangeNegative.emit()
-	_CheckDeath()
+	#_CheckDeath()
 
+#we check death at the end of the bullet animation
+# TODO implement signal
 func _CheckDeath():
 	if(CurrentHealth <= 0):
 		Death.emit()

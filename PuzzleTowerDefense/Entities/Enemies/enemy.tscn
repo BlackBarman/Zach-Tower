@@ -116,14 +116,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BaseEnemy" type="PathFollow2D" groups=["EnemyGroup"]]
+[node name="BaseEnemy" type="PathFollow2D" node_paths=PackedStringArray("health_component") groups=["EnemyGroup"]]
 script = ExtResource("1_vldat")
+health_component = NodePath("HealthComponent")
 
 [node name="HealthComponent" type="Node" parent="."]
 process_priority = -50
 script = ExtResource("2_u8arb")
-CurrentHealth = 5
-MaxHealth = 5
+CurrentHealth = 1
+MaxHealth = 1
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 

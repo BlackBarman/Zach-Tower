@@ -3,6 +3,7 @@ class_name BaseWeapon
 
 signal turn_done
 
+
 @onready var data = TowerDataVault.get_selected_tower_data() as CustomData
 @onready var anim_name : String = data.weapon_animation
 @onready var BulletScene: PackedScene = data.bullet_scene
@@ -11,11 +12,13 @@ signal turn_done
 @onready var Bullet_impact : String   = data.bullet_impact_animation
 @onready var reloading : int = data.fire_rate
 @onready var kalans :Area2D = $"../AttackRange"
+@onready var dmg_type : String = data.Damage_type
 
 var bullet # a bullet instance
 
-var Targets = []
-var current_enemy = 0
+var Targets :Array[BaseEnemy] = [] #all base enemies in tower range
+var enemies_to_dmg:Array[BaseEnemy] = [] # enemies to deal dmg to 
+var current_enemy : BaseEnemy  # enemy to look at when shooting, the enemy at wich we are shooting to 
 
 var shooting_frame := 1
 var current_frame = 0
@@ -29,7 +32,6 @@ func _ready():
 	%AnimatedSprite2D.animation = anim_name
 
 func _process(_delta):
-
 	if Targets != [] :
 		current_enemy = Targets[0]
 		%AnimatedSprite2D.look_at(current_enemy.global_position)
@@ -64,6 +66,10 @@ func try_Shoot():
 
 #shoots the actual bullet
 func shoot():
+	# do the dmg here
+	find_enemies_to_dmg() 
+	assign_dmg() 
+	#TODO also make a match to determine what ar the actual enemies to assign dmg to
 	bullet = BulletScene.instantiate() as BaseBullet
 	bullet.set_target(current_enemy)
 	bullet.bullet_animation = Bullet_animation
@@ -72,8 +78,6 @@ func shoot():
 	
 	#TODO remove this and assign dmg to target manually, at the end of bullet animation
 	bullet.damage = BulletDamage
-	
-	
 	#bullet.position = $Marker2D.position
 	get_parent().add_child(bullet)
 	bullet.global_position = $AnimatedSprite2D/Marker2D.global_position
@@ -83,16 +87,54 @@ func shoot():
 	if !active:
 		active = true
 
+#sort enemies based on how far they are in the path
+func sort_enemies(a,b):
+	if a.progress < b.progress: 
+		return true
+	else :
+		return false
+
+#HACK using magic valus here, too tired to do otherwise,
+# also i am not rewarded by beautiful code
+# change if i have time and energy, for now copy values from 
+# TowerData.gd
+func find_enemies_to_dmg():
+	match data.Damage_type:
+		"PIERCING":
+			Targets.sort_custom(sort_enemies)
+			enemies_to_dmg = Targets.slice(0,3)
+			print("this is a PIERCING weapon")
+		"NORMAL":
+			print("this is a NORMAL weapon")
+			pass
+		"AOE":
+			print("this is a AOE weapon")
+			pass
+		"KILL":
+			print("this is a KILL weapon")
+			pass
+	pass
+
+func assign_dmg():
+	for i in enemies_to_dmg:
+		i.health_component._Damage(BulletDamage)
+	pass
+
 #called by proj on death
 func on_proj_death():
 	#waits for the animation to finish before calling the end of turn signal 
 	if %AnimatedSprite2D.is_playing():
 		while %AnimatedSprite2D.is_playing():
 			await get_tree().process_frame 
+	
 	shoot_anim_playing = false
+	
+	#TODO we need to differentatiate between Targets in range and targets we hit
+	for i in Targets :
+		i.health_component._CheckDeath()
+	
 	emit_signal("turn_done")
 	
-	#TODO assign dmg to enemy manually here, 
 
 #fires the shoot function when shooting frame is reached
 func _on_animated_sprite_2d_frame_changed():
@@ -101,21 +143,20 @@ func _on_animated_sprite_2d_frame_changed():
 		shoot()
 		debug_n_times_shot += 1
 
-
 func _on_animated_sprite_2d_animation_finished():
 	current_frame = 0
 	shoot_anim_playing = false
 
-
 #region add and remove target to target array
+#TODO append the full scene not just the body
 func _on_attack_range_body_entered(body):
-	if body.is_in_group("EnemyCollisionsGroup"):
-		Targets.append(body)
+	if body.is_in_group("EnemyCollisionsGroup") and body.is_class("CharacterBody2D"):
+		Targets.append(body.get_parent())
 		has_targets = true
 
 func _on_attack_range_body_exited(body):
-	if body.is_in_group("EnemyCollisionsGroup"):
-		Targets.erase(body)
+	if body.is_in_group("EnemyCollisionsGroup") and body.is_class("CharacterBody2D"):
+		Targets.erase(body.get_parent())
 	if Targets != []:
 		current_enemy = Targets[0]
 	elif Targets == null:

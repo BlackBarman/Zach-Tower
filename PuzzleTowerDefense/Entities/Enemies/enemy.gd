@@ -3,6 +3,7 @@ class_name BaseEnemy
 #how many tiles it moves in a single turn
 @export var speed = 1
 @export var enemyName = "Blue Slime"
+@export var health_component : HealthComponent
 const tileSize = 64
 var canMoveForward = false
 var targetProgress = 0

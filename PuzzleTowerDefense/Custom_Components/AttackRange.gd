@@ -2,7 +2,7 @@ extends Node2D
 
 enum ShapeType { T_shape, X_shape,X_shape_2, X_shape_3, Y_shape, DOWN_3, UP_3, LEFT_3, RIGHT_3, PLUS_1, PLUS_2, AROUND_1, AROUND_2x2_1}
 
-@onready var i = TowerDataVault.get_selected_tower_data() as CustomData
+
 @onready var temp = TowerDataVault.get_selected_tower_data() as CustomData
 @onready var selected_shape = ShapeType[temp.attack_range]
 

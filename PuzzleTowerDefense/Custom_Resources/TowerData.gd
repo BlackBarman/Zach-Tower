@@ -1,6 +1,7 @@
 extends Resource
 class_name CustomData
 
+
 # ////////////////////////////////////////
 #        Tower base
 # ////////////////////////////////////////
@@ -27,7 +28,7 @@ class_name CustomData
 @export var bullet_scene : PackedScene
 ## value the weapon component will give to the bullet
 @export var Damage : int
-@export var Damage_type : String
+@export_enum("PIERCING","NORMAL","AOE","KILL") var Damage_type : String
 ## numero di turni tra spari: 0 spara ogni turno, 1 spara un turno si e uno no, e così via
 @export_range(0,10) var fire_rate : int  
 
@@ -45,3 +46,5 @@ class_name CustomData
 @export_enum("arrow_impact","cannonball_impact","catapultstone_impact",
 			"goldenarrow_impact","slingstone_impact",
 			"spark_impact",) var bullet_impact_animation : String
+
+

@@ -17,7 +17,7 @@ signal turn_done
 var bullet # a bullet instance
 
 var Targets :Array[BaseEnemy] = [] #all base enemies in tower range
-var enemies_to_dmg:Array[BaseEnemy] = [] # enemies to deal dmg to 
+var enemies_to_dmg = [] # enemies to deal dmg to 
 var current_enemy : BaseEnemy  # enemy to look at when shooting, the enemy at wich we are shooting to 
 
 var shooting_frame := 1
@@ -87,7 +87,7 @@ func shoot():
 	if !active:
 		active = true
 
-#sort enemies based on how far they are in the path
+#sort enemies  based on how far they are in the path
 func sort_enemies(a,b):
 	if a.progress < b.progress: 
 		return true
@@ -105,17 +105,49 @@ func find_enemies_to_dmg():
 			enemies_to_dmg = Targets.slice(0,3)
 			print("this is a PIERCING weapon")
 		"NORMAL":
+			enemies_to_dmg = Targets.slice(0)
 			print("this is a NORMAL weapon")
 			pass
 		"AOE":
-			print("this is a AOE weapon")
+			var all_live_enemies = get_tree().get_nodes_in_group("EnemyGroup")
+			Targets.sort_custom(sort_enemies)
+			all_live_enemies.sort_custom(sort_enemies)
+			var target_index = all_live_enemies.find(Targets.front())
+			print("target index is " + str(target_index))
+			enemies_to_dmg = get_neighbors(all_live_enemies,target_index)
+			
 			pass
 		"KILL":
 			print("this is a KILL weapon")
 			pass
 	pass
 
+func get_neighbors(array: Array, value :int ) :
+	# Find the index of the value in the array
+	var index = value
+	
+	# If the value is not found, return an empty array
+	if value == -1:
+		return []
+	
+	# Initialize a new array to store the neighbors
+	var neighbors := []
+	
+	# Add the previous element if it exists
+	if index > 0:
+		neighbors.append(array[index - 1])
+	
+	# Add the current element
+	neighbors.append(array[index])
+	
+	# Add the next element if it exists
+	if index < array.size() - 1:
+		neighbors.append(array[index + 1])
+	
+	return neighbors
+
 func assign_dmg():
+	print("those are the number of enemies to dmg" + str(enemies_to_dmg))
 	for i in enemies_to_dmg:
 		i.health_component._Damage(BulletDamage)
 	pass
@@ -128,10 +160,6 @@ func on_proj_death():
 			await get_tree().process_frame 
 	
 	shoot_anim_playing = false
-	
-	#TODO we need to differentatiate between Targets in range and targets we hit
-	for i in Targets :
-		i.health_component._CheckDeath()
 	
 	emit_signal("turn_done")
 	

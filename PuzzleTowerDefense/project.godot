@@ -30,11 +30,16 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 LevelChanger="*res://Globals/level_changer.gd"
 GlobalState="*res://Globals/GlobalState.gd"
 
+[debug]
+
+gdscript/warnings/unused_parameter=0
+
 [display]
 
 window/size/viewport_width=1440
 window/size/viewport_height=810
 window/size/mode=2
+window/size/always_on_top=true
 window/stretch/mode="viewport"
 
 [editor_plugins]

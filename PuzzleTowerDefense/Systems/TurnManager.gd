@@ -39,6 +39,9 @@ func _processTurns():
 		if y != null:
 			y._execute_Turn()
 			await y.TowerTurnDone
+	
+	for i in EnemyList:
+		i.health_component._CheckDeath()
 
 
 # TODO test wheter or not is better to use await get_tree().process frame instead of timer

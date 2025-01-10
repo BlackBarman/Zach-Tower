@@ -4,14 +4,14 @@ class_name BaseBullet
 signal bulletDie
 
 
-
 var move = Vector2.ZERO
-var target 
+var target  # an enemy class
+var target_pos : Vector2
 var current_animation : String = ""
 var bullet_animation : String
 var bullet_impact_animation : String
 ##pixels per seconds
-@export var projectile_speed = 10
+@export var projectile_speed = 100
 var damage : int # real value passed by the weapon
 
 
@@ -31,20 +31,23 @@ func _process(delta):
 	if global_position == target.global_position :
 		print("ímpact animation called")
 		play_impact_animation(bullet_impact_animation)
-		#move = move.move_toward(target.global_position, delta)
-		#move = move.normalized()
-		#global_position += (move * projectile_speed)
-		#global_position += global_position.move_toward(target.global_position, delta).normalized() *  projectile_speed
-		
+	# if we have no target we look at where it was and we go straight 
+	# until we exit the screen, at that point a signal
+	# will kill us
+	if target == null:
+		look_at(target_pos)
+		var x = global_position.move_toward(target_pos * 9999999, projectile_speed * delta  )
+		global_position = x
 	else:
-		look_at(target.global_position)
-		var ciao = global_position.move_toward(target.global_position, projectile_speed * delta  )
+		look_at(target_pos)
+		var ciao = global_position.move_toward(target_pos, projectile_speed * delta  )
 		global_position = ciao
+	
 
 
 func set_target(enemy):
 	target = enemy 
-	target = target 
+	target_pos = target.global_position
 
 
 # TODO : when i reach enemy position switch to impact anim and then die
@@ -72,9 +75,3 @@ func _die():
 func Get_Damage() -> int:
 	return damage
 
-##############################################################
-##dmg will be applied automatically by the hitbox to the
-##hurtbox and  from the hurtbox to the health component
-#func _on_hit_box_area_2d_area_entered(area):
-	#if area is HurtBoxArea2D:
-		#play_impact_animation(bullet_impact_animation)

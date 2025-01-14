@@ -100,14 +100,14 @@ func sort_enemies(a,b):
 # TowerData.gd
 func find_enemies_to_dmg():
 	match data.Damage_type:
+		
 		"PIERCING":
 			Targets.sort_custom(sort_enemies)
 			enemies_to_dmg = Targets.slice(0,3)
-			print("this is a PIERCING weapon")
+			
 		"NORMAL":
 			enemies_to_dmg = Targets.slice(0)
-			print("this is a NORMAL weapon")
-			pass
+			
 		"AOE":
 			var all_live_enemies = get_tree().get_nodes_in_group("EnemyGroup")
 			Targets.sort_custom(sort_enemies)
@@ -116,11 +116,10 @@ func find_enemies_to_dmg():
 			print("target index is " + str(target_index))
 			enemies_to_dmg = get_neighbors(all_live_enemies,target_index)
 			
-			pass
 		"KILL":
 			print("this is a KILL weapon")
-			pass
-	pass
+
+
 
 func get_neighbors(array: Array, value :int ) :
 	# Find the index of the value in the array
@@ -150,7 +149,6 @@ func assign_dmg():
 	print("those are the number of enemies to dmg" + str(enemies_to_dmg))
 	for i in enemies_to_dmg:
 		i.health_component._Damage(BulletDamage)
-	pass
 
 #called by proj on death
 func on_proj_death():
@@ -162,7 +160,6 @@ func on_proj_death():
 	shoot_anim_playing = false
 	
 	emit_signal("turn_done")
-	
 
 #fires the shoot function when shooting frame is reached
 func _on_animated_sprite_2d_frame_changed():

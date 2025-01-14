@@ -6,11 +6,9 @@ var TurnCounter = 0
 @onready var StartButton = $"../CanvasLayer/StartBattleButton"
 
 
-
 func _startBattle():
 	BattleStarted = true
 	$Timer.start()
-
 
 func _processTurns():
 
@@ -20,13 +18,13 @@ func _processTurns():
 
 	#Enemy Turn
 	EnemyList.clear()
-	EnemyList = get_tree().get_nodes_in_group("EnemyGroup")
+	EnemyList = get_tree().get_nodes_in_group("EnemyGroup") 
+	print("we have this number of enemies " + str(EnemyList.size()))
 	for x in EnemyList:
 		if x != null :
-			await x._execute_Turn()
-			#await get_tree().create_timer(0.05).timeout #dunno why this is here, looks wrong af
+			x._execute_Turn()
 
-	await get_tree().process_frame #wait one framr to allow tower range signal to trigger
+	await get_tree().create_timer(0.5).timeout #time to wait before next phase
 
 	#Towers always shoot after enemies
 	TowerList.clear()
@@ -42,12 +40,9 @@ func _processTurns():
 	
 	for i in EnemyList:
 		i.health_component._CheckDeath()
-
-
-# TODO test wheter or not is better to use await get_tree().process frame instead of timer
+	
 	if EnemyList.size() >= 0:
 		$Timer.start() # a very small delay that prevents breaking
-
 
 func _on_timer_timeout():
 	_processTurns()

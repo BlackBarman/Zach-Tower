@@ -4,10 +4,11 @@ class_name BaseEnemy
 @export var speed = 1
 @export var enemyName = "Blue Slime"
 @export var health_component : HealthComponent
+##how quickly it moves forward
+@export var animationSpeed = 120 
 const tileSize = 64
 var canMoveForward = false
 var targetProgress = 0
-var animationSpeed = 120 #how quickly it moves forward. doesn't influence gameplay
 
 
  #HACK for some reasons unknown to man making the $CharacterBody2D/CollisionShape2D2
@@ -21,8 +22,10 @@ func _process(delta):
 
 
 func _execute_Turn():
+	print("setting target progress")
 	targetProgress = progress + (tileSize * speed)
 	canMoveForward = true
+	
 	await end_Turn
 
 
@@ -36,6 +39,7 @@ func _move_Forward(delta):
 		progress = targetProgress
 		canMoveForward = false
 		$CharacterBody2D/AnimatedSprite2D.play("Idle right")
+		print("enemy is emtting end of turn signal")
 		emit_signal("end_Turn")
 
 

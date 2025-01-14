@@ -25,10 +25,8 @@ func _Damage(x):
 	print(str(self)+ "ha preso "+ str(x) + " danni")
 	#_CheckDeath()
 
-#we check death at the end of the bullet animation
-# TODO implement signal
+#we check death at the end of each towers phase
 func _CheckDeath():
-	print("check death is called, this should happen after bullet death")
 	if(CurrentHealth <= 0):
 		Death.emit()
 		get_parent().queue_free()

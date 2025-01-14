@@ -47,7 +47,6 @@ func try_Shoot():
 		reloading = 0 
 	elif reloading != data.fire_rate: #colpo non in canna
 		reloading = min(reloading + 1, data.fire_rate) #99% same as reloading++
-		#print_rich("[color=red] RELOADING!! [/color]")
 		$ReloadLabel._on_reload()
 		emit_signal("turn_done")
 		return
@@ -113,14 +112,14 @@ func find_enemies_to_dmg():
 			Targets.sort_custom(sort_enemies)
 			all_live_enemies.sort_custom(sort_enemies)
 			var target_index = all_live_enemies.find(Targets.front())
-			print("target index is " + str(target_index))
 			enemies_to_dmg = get_neighbors(all_live_enemies,target_index)
 			
 		"KILL":
-			print("this is a KILL weapon")
+			enemies_to_dmg = Targets.slice(0)
+			pass
 
 
-
+#helper function to get enemies that are one square back and forth of the target
 func get_neighbors(array: Array, value :int ) :
 	# Find the index of the value in the array
 	var index = value
@@ -146,7 +145,6 @@ func get_neighbors(array: Array, value :int ) :
 	return neighbors
 
 func assign_dmg():
-	print("those are the number of enemies to dmg" + str(enemies_to_dmg))
 	for i in enemies_to_dmg:
 		i.health_component._Damage(BulletDamage)
 

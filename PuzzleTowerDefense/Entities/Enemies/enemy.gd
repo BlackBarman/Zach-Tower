@@ -22,7 +22,6 @@ func _process(delta):
 
 
 func _execute_Turn():
-	print("setting target progress")
 	targetProgress = progress + (tileSize * speed)
 	canMoveForward = true
 	
@@ -39,7 +38,6 @@ func _move_Forward(delta):
 		progress = targetProgress
 		canMoveForward = false
 		$CharacterBody2D/AnimatedSprite2D.play("Idle right")
-		print("enemy is emtting end of turn signal")
 		emit_signal("end_Turn")
 
 

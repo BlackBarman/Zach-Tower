@@ -19,7 +19,6 @@ func _processTurns():
 	#Enemy Turn
 	EnemyList.clear()
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup") 
-	print("we have this number of enemies " + str(EnemyList.size()))
 	for x in EnemyList:
 		if x != null :
 			x._execute_Turn()

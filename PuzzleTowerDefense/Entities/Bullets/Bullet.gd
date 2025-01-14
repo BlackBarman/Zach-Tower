@@ -19,10 +19,8 @@ var damage : int # real value passed by the weapon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("projectile speed is " + str(projectile_speed))
 	if target != null :
 		look_at(target.global_position)
-		print("target is at position " + str(target.global_position))
 		$AnimatedSprite2D.play(bullet_animation)
 
 
@@ -31,7 +29,6 @@ func _process(delta):
 	if current_animation == bullet_impact_animation:
 		return
 	if global_position.distance_to(target.global_position) <= allowed_range:  
-		print("ímpact animation called")
 		play_impact_animation(bullet_impact_animation)
 	# if we have no target we look at where it was and we go straight 
 	# until we exit the screen, at that point a signal
@@ -59,7 +56,7 @@ func play_impact_animation(impact_animation: String):
 	if $AnimatedSprite2D.animation != impact_animation:
 		$AnimatedSprite2D.play(impact_animation)
 	else :
-		print("i am not calling impact animation")
+		assert(false , "ERROR! : bullt not calling impact animation")
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	_die()

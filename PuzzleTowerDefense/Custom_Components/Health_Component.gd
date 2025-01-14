@@ -22,7 +22,6 @@ func _Heal(life):
 func _Damage(x):
 	CurrentHealth -= x
 	HealthChangeNegative.emit()
-	print(str(self)+ "ha preso "+ str(x) + " danni")
 	#_CheckDeath()
 
 #we check death at the end of each towers phase

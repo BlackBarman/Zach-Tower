@@ -52,4 +52,7 @@ func _remove_tower():
 		EndLevelStats.RemoveMoneySpent(data.cost)
 		queue_free()
 
+func rotate_attack_range():
+	%AttackRange.rotate(PI/2)
+
 

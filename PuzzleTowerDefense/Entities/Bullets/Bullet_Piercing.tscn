@@ -1,8 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgfhdceue15t4"]
+[gd_scene load_steps=4 format=3 uid="uid://cgfhdceue15t4"]
 
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Entities/Bullets/bullet.tscn" id="1_oyt57"]
 [ext_resource type="Script" path="res://Entities/Bullets/Bullet_Piercing.gd" id="2_47dwx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3dbr"]
+size = Vector2(32, 20)
+
 [node name="Bullet_Piercing" instance=ExtResource("1_oyt57")]
 script = ExtResource("2_47dwx")
 max_hits = 9999
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_w3dbr")

@@ -68,15 +68,13 @@ func shoot():
 	# do the dmg here
 	find_enemies_to_dmg() 
 	assign_dmg() 
-	#TODO also make a match to determine what ar the actual enemies to assign dmg to
+	
 	bullet = BulletScene.instantiate() as BaseBullet
 	bullet.set_target(current_enemy)
 	bullet.bullet_animation = Bullet_animation
 	bullet.bullet_impact_animation = Bullet_impact
 	bullet.bulletDie.connect(on_proj_death)
 	
-	#TODO remove this and assign dmg to target manually, at the end of bullet animation
-	bullet.damage = BulletDamage
 	#bullet.position = $Marker2D.position
 	get_parent().add_child(bullet)
 	bullet.global_position = $AnimatedSprite2D/Marker2D.global_position
@@ -103,7 +101,7 @@ func find_enemies_to_dmg():
 		"PIERCING":
 			Targets.sort_custom(sort_enemies)
 			enemies_to_dmg = Targets.slice(0,3)
-			
+		
 		"NORMAL":
 			enemies_to_dmg = Targets.slice(0)
 			

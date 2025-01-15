@@ -17,14 +17,12 @@ var allowed_range = 10
 var damage : int # real value passed by the weapon
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if target != null :
 		look_at(target.global_position)
 		$AnimatedSprite2D.play(bullet_animation)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if current_animation == bullet_impact_animation:
 		return
@@ -34,12 +32,12 @@ func _process(delta):
 	# until we exit the screen, at that point a signal
 	# will kill us
 	if target == null:
-		look_at(target_pos)
+		look_at(target_pos) #we spawened therefore we had a target at some point but it might be dead already
 		var x = global_position.move_toward(target_pos * 9999999, projectile_speed * delta  )
 		global_position = x
 	else:
 		look_at(target_pos)
-		var ciao = global_position.move_toward(target_pos, projectile_speed * delta  )
+		var ciao = global_position.move_toward(target_pos, projectile_speed * delta)
 		global_position = ciao
 	
 

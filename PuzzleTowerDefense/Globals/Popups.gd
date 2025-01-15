@@ -3,7 +3,8 @@ class_name PopupManager
 
 @onready var button = %RemoveButton
 
-var TooltipTower
+var TooltipTower : BaseTower
+
 
 func open_popup(slot : Rect2i, data : CustomData, tower : BaseTower):
 	if data != null:
@@ -38,4 +39,9 @@ func Get_ItemPopup() -> PopupPanel:
 func _on_button_pressed():
 	close_popup()
 	AudioManager.DestroyTower.play()
+	pass # Replace with function body.
+
+
+func _on_rotate_button_pressed():
+	TooltipTower.rotate_attack_range()
 	pass # Replace with function body.

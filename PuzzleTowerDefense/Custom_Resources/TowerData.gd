@@ -26,6 +26,7 @@ class_name CustomData
 @export_category("weapon and bullet")
 ## scene the weapon component will shoot
 @export var bullet_scene : PackedScene
+
 ## value the weapon component will give to the bullet
 @export var Damage : int
 @export_enum("PIERCING","NORMAL","AOE","KILL") var Damage_type : String

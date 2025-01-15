@@ -28,6 +28,9 @@ func _process(_delta):
 		var mouse_position = get_local_mouse_position()
 		var cell_position = tilemap.local_to_map(mouse_position)
 		tower_object.global_position = tilemap.map_to_local(cell_position)
+	if dragging and tower_object != null and Input.is_action_just_pressed("Rotate"):
+		tower_object.rotate_attack_range()
+		pass
 
 
 func place_tower(mouse_position: Vector2):

@@ -4,6 +4,7 @@ class_name BaseTower
 signal ActiveTooltip
 signal TowerTurnDone
 
+
 var can_be_placed :bool = true
 var placed : bool = false
 var space_occupied = 1
@@ -53,6 +54,4 @@ func _remove_tower():
 		queue_free()
 
 func rotate_attack_range():
-	%AttackRange.rotate(PI/2)
-
-
+	%AttackRange.rotate(PI/2) #90 clockwise

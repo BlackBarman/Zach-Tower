@@ -29,7 +29,7 @@ border_color = Color(0.4, 0.223529, 0.192157, 1)
 
 [sub_resource type="Resource" id="Resource_h17mi"]
 script = ExtResource("11_egh5a")
-m_numberEnemies = 3
+m_numberEnemies = 13
 m_enemyScene = ExtResource("10_uodua")
 path = NodePath("../TileMap/Path2D")
 
@@ -76,6 +76,7 @@ theme_override_constants/separation = 4
 theme_override_styles/separator = SubResource("StyleBoxFlat_d5op4")
 
 [node name="WaveInfo" parent="CanvasLayer/VBoxContainer" instance=ExtResource("5_l666m")]
+visible = false
 layout_mode = 2
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/VBoxContainer"]
@@ -93,6 +94,7 @@ position = Vector2(1232, 320)
 texture = ExtResource("9_gfspy")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("17_hc6op")]
+metadata/_edit_use_anchors_ = true
 
 [node name="LevelManager" parent="." instance=ExtResource("5_oqwbf")]
 unique_name_in_owner = true
@@ -101,7 +103,7 @@ waves = Array[ExtResource("11_egh5a")]([SubResource("Resource_h17mi")])
 [node name="SacredCrystal" parent="." instance=ExtResource("10_sl1of")]
 unique_name_in_owner = true
 editor_description = "FOR SOME REASON THIS NEEDS TO BE HIGHER IN THE HIERACHY TREE THAN LEVEL AND TURN MANAGER TO WORK"
-position = Vector2(480, 96)
+position = Vector2(480, -64)
 win_screen = ExtResource("11_cyrn3")
 
 [node name="FastForwardButton" parent="." instance=ExtResource("2_8jxqg")]
@@ -112,6 +114,7 @@ offset_right = 165.0
 offset_bottom = 102.0
 scale = Vector2(0.622303, 0.62083)
 action_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="TurnManager" parent="." instance=ExtResource("6_03eko")]
 editor_description = "fires the functions from sacred crystal to win and lose the game "

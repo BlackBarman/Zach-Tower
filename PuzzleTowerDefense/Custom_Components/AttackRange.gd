@@ -1,6 +1,6 @@
 extends Node2D
 
-enum ShapeType { T_shape, X_shape,X_shape_2, X_shape_3, Y_shape, DOWN_3, UP_3, LEFT_3, RIGHT_3, PLUS_1, PLUS_2, AROUND_1, AROUND_2x2_1}
+enum ShapeType { T_shape, X_shape,X_shape_2, X_shape_3, Y_shape, DOWN_3, UP_3, LEFT_3, RIGHT_3, RIGHT_1, PLUS_1, PLUS_2, AROUND_1, AROUND_2x2_1}
 
 
 @onready var temp = TowerDataVault.get_selected_tower_data() as CustomData
@@ -24,6 +24,7 @@ var DOWN_3_square : Array[Vector2] = [Vector2(0, 64), Vector2(0, 192), Vector2(0
 var UP_3_square   : Array[Vector2] = [Vector2(0, -192), Vector2(0, -64), Vector2(0, -128)]
 var LEFT_3_square : Array[Vector2] = [Vector2(-64, 0), Vector2(-128, 0), Vector2(-192, 0)]
 var RIGHT_3_square: Array[Vector2] = [Vector2(64, 0), Vector2(128, 0), Vector2(192, 0)]
+var RIGHT_1_square: Array[Vector2] = [Vector2(64, 0)]
 
 #perimeters
 var AROUND_1      : Array[Vector2] = [Vector2(64, 0), Vector2(0, -64), Vector2(-64, 64), Vector2(-64, -64), Vector2(-64, 0), Vector2(0, 64), Vector2(64, 64), Vector2(64, -64)]
@@ -55,6 +56,8 @@ func selected_shape_to_positions(shape: ShapeType):
 			return LEFT_3_square
 		ShapeType.RIGHT_3:
 			return RIGHT_3_square
+		ShapeType.RIGHT_1:
+			return RIGHT_1_square
 		ShapeType.PLUS_1:
 			return PLUS_sign_1
 		ShapeType.PLUS_2:

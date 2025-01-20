@@ -887,8 +887,6 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(4.76837e-07, 2.04636e-12)
-rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_jexbr")
 animation = &"ballista"
 

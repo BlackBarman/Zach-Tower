@@ -20,7 +20,7 @@ func _processTurns():
 	EnemyList.clear()
 	EnemyList = get_tree().get_nodes_in_group("EnemyGroup") 
 	for x in EnemyList:
-		if x != null :
+		if x != null and x is BaseEnemy :
 			x._execute_Turn()
 
 	await get_tree().create_timer(0.5).timeout #time to wait before next phase
@@ -38,7 +38,8 @@ func _processTurns():
 			await y.TowerTurnDone
 	
 	for i in EnemyList:
-		i.health_component._CheckDeath()
+		if i is BaseEnemy:
+			i.health_component._CheckDeath()
 	
 	if EnemyList.size() >= 0:
 		$Timer.start() # a very small delay that prevents breaking

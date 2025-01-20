@@ -15,7 +15,7 @@ class_name CustomData
 @export var tower_sprite : Texture
 ## shape of the attack range, not every range is compatible with every tower base
 @export_enum("T_shape", "X_shape","X_shape_2", "X_shape_3",
-"Y_shape", "DOWN_3", "UP_3","LEFT_3", "RIGHT_3","PLUS_1", "PLUS_2","AROUND_1","AROUND_2x2_1") var attack_range : String
+"Y_shape", "DOWN_3", "UP_3","LEFT_3", "RIGHT_3","RIGHT_1","PLUS_1", "PLUS_2","AROUND_1","AROUND_2x2_1") var attack_range : String
 ## cost of the tower, DUH
 @export var cost : int
 

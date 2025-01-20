@@ -15,6 +15,7 @@ var allowed_range = 10
 ##pixels per seconds
 @export var projectile_speed = 100
 var damage : int # real value passed by the weapon
+var is_piercing : bool = false
 
 
 func _ready():
@@ -31,7 +32,7 @@ func _process(delta):
 	# if we have no target we look at where it was and we go straight 
 	# until we exit the screen, at that point a signal
 	# will kill us
-	if target == null:
+	if target == null or is_piercing == true:
 		look_at(target_pos) #we spawened therefore we had a target at some point but it might be dead already
 		var x = global_position.move_toward(target_pos * 9999999, projectile_speed * delta  )
 		global_position = x
@@ -47,8 +48,6 @@ func set_target(enemy):
 	target_pos = target.global_position
 
 
-# TODO : when i reach enemy position switch to impact anim and then die
-# TODO : change the sprite node to an animation player 
 func play_impact_animation(impact_animation: String):
 	current_animation = impact_animation
 	if $AnimatedSprite2D.animation != impact_animation:

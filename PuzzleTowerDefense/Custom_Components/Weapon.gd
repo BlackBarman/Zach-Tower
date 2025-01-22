@@ -28,13 +28,13 @@ var debug_n_times_shot := 0
 
 func _ready():
 	%AnimatedSprite2D.animation = anim_name
-	tower_position = get_parent().global_position
+	tower_position = self.global_position
+
 
 func _process(_delta):
 	if Targets != []:
 		current_enemy = Targets[0]
 		%AnimatedSprite2D.look_at(current_enemy.global_position)
-
 
 # Attempt to shoot if the tower is ready
 func try_Shoot():
@@ -59,6 +59,21 @@ func try_Shoot():
 		%AnimatedSprite2D.set_frame_and_progress(0, 0)
 		%AnimatedSprite2D.play(anim_name) # Calls the shoot method at the specified frame
 
+
+# Fire the shoot function when shooting frame is reached
+func _on_animated_sprite_2d_frame_changed():
+	current_frame += 1
+	if current_frame == shooting_frame:
+		find_enemies_to_dmg()
+		assign_dmg()
+		shoot()
+		debug_n_times_shot += 1
+
+func _on_animated_sprite_2d_animation_finished():
+	current_frame = 0
+	shoot_anim_playing = false
+
+
 # Perform the actual shooting logic
 func shoot():
 	bullet = BulletScene.instantiate() as BaseBullet
@@ -79,24 +94,12 @@ func shoot():
 	if not active:
 		active = true
 
-# Sort enemies based on their progress along the path
-func sort_enemies(a, b):
-	if a.progress < b.progress: 
-		return true
-	else:
-		return false
-
 # Determine the enemies to damage
 func find_enemies_to_dmg():
 	match data.Damage_type:
 		"PIERCING":
-			var target = Targets[0]
-		
-			var target_to_tower: Vector2= (target.position - tower_position).normalized()
-			target_to_tower.normalized()
-			var all_live_enemies = get_tree().get_nodes_in_group("EnemyGroup")
-			enemies_to_dmg = get_enemies_to_pierce(all_live_enemies, target_to_tower)
-		
+			enemies_to_dmg = find_enemies_to_pierce()
+			
 		"NORMAL":
 			enemies_to_dmg = Targets.slice(0)
 			
@@ -104,35 +107,60 @@ func find_enemies_to_dmg():
 			var all_live_enemies = get_tree().get_nodes_in_group("EnemyGroup")
 			Targets.sort_custom(sort_enemies)
 			all_live_enemies.sort_custom(sort_enemies)
-			var target_index = all_live_enemies.find(Targets.front())
-			enemies_to_dmg = get_neighbors(all_live_enemies, target_index)
-			
+			var target_index = all_live_enemies.find(current_enemy)
+			var neigh = get_neighbors(all_live_enemies, target_index)
+			for i in neigh : 
+				enemies_to_dmg.append(i)
+			enemies_to_dmg.append(current_enemy)
+			print(enemies_to_dmg)
+	
 		"KILL":
 			enemies_to_dmg = Targets.slice(0)
 			pass
 
 
-func get_enemies_to_pierce(all_enemies, enemy_tower_vector):
-	var similar_enemies : Array[BaseEnemy] = []
-	var target = Targets[0]
-	var debug_dot = []
-	for i in all_enemies :
-		enemy_tower_vector.normalized()
-		var i_to_tower : Vector2 = (i.global_position - tower_position).normalized()
-		i_to_tower.normalized()
-		var dot = clamp(enemy_tower_vector.dot(i_to_tower),-1.0, 1.0)
-		
-		debug_dot.append(dot)
-		if dot > 0.95  :
-			similar_enemies.append(i)
-	
-	similar_enemies.append(target)
-	print(str(similar_enemies))
-	print(str(debug_dot))
-	return similar_enemies 
+func find_enemies_to_pierce():
+	var enemy_to_find = Targets[0]
+	var shapes : Array[Area2D] = [%PierceArea,%PierceArea2,%PierceArea3,%PierceArea4]
+	#var all_targets_in_range = []
+	for i in shapes:
+		var new : Array[BaseEnemy]  = []
+		if i.has_overlapping_bodies():
+			var unfiltered = i.get_overlapping_bodies()
+			#filter array to remove weird bodies then put it in the new array
+			for x in unfiltered :
+				if not i.is_class("BaseEnemy"):
+					unfiltered.erase(x)
+				else:
+					new.append(x)
+			# is the target in this array? if so this is the array to pss for dmg
+			if new.find(enemy_to_find) != -1 :
+				enemies_to_dmg = i.new
+	return enemies_to_dmg 
 
-# Helper function to get neighboring enemies
-func get_neighbors(array: Array, value: int):
+# Assign damage to selected enemies
+func assign_dmg():
+	for enemy in enemies_to_dmg:
+		if enemy != null:
+			enemy.health_component._Damage(BulletDamage)
+	enemies_to_dmg.clear()
+
+# Handle projectile death
+func on_proj_death():
+	if %AnimatedSprite2D.is_playing():
+		while %AnimatedSprite2D.is_playing():
+			await get_tree().process_frame 
+	shoot_anim_playing = false
+	emit_signal("turn_done")
+
+
+
+#region Helper functions
+
+# given an alement in array find its left and right neigbour in that array 
+# ex get_neighbours([1,2,3,4,5], 2 ) output 1,3
+# TODO check if output 
+func get_neighbors(array, value: int):
 	var index = value
 	
 	if value == -1:
@@ -148,34 +176,18 @@ func get_neighbors(array: Array, value: int):
 	if index < array.size() - 1:
 		neighbors.append(array[index + 1])
 	
+	print(neighbors)
 	return neighbors
 
-# Assign damage to selected enemies
-func assign_dmg():
-	for enemy in enemies_to_dmg:
-		enemy.health_component._Damage(BulletDamage)
+# Helper funtion: Sort enemies based on their progress along the path
+func sort_enemies(a, b):
+	if a.progress < b.progress: 
+		return true
+	else:
+		return false
+#endregion
 
-# Handle projectile death
-func on_proj_death():
-	if %AnimatedSprite2D.is_playing():
-		while %AnimatedSprite2D.is_playing():
-			await get_tree().process_frame 
-	
-	shoot_anim_playing = false
-	emit_signal("turn_done")
 
-# Fire the shoot function when shooting frame is reached
-func _on_animated_sprite_2d_frame_changed():
-	current_frame += 1
-	if current_frame == shooting_frame:
-		find_enemies_to_dmg()
-		assign_dmg()
-		shoot()
-		debug_n_times_shot += 1
-
-func _on_animated_sprite_2d_animation_finished():
-	current_frame = 0
-	shoot_anim_playing = false
 
 #region Add and remove targets to target array
 func _on_attack_range_body_entered(body):

@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=3 uid="uid://bouwjmjekn3j5"]
+
+[ext_resource type="Script" path="res://Entities/Towers/Tower.gd" id="1_kvt7c"]
+[ext_resource type="PackedScene" uid="uid://cvwnt3yq2awxq" path="res://Custom_Components/AttackRangeComponent.tscn" id="2_oc6v2"]
+[ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="3_8px8q"]
+[ext_resource type="PackedScene" uid="uid://ckfd2o0q75ane" path="res://Custom_Components/Weapon.tscn" id="4_jsvmw"]
+[ext_resource type="Script" path="res://Custom_Components/ColorSwitcher.gd" id="5_rr56q"]
+[ext_resource type="PackedScene" uid="uid://pd4tey2j502m" path="res://UI/Tooltip.tscn" id="6_bjuy4"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_558ql"]
+b = Vector2(0, 896)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfubh"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jtg0"]
+size = Vector2(63, 63)
+
+[node name="BaseTower" type="Node2D" groups=["TowerGroup"]]
+script = ExtResource("1_kvt7c")
+
+[node name="PierceArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PierceArea"]
+shape = SubResource("SegmentShape2D_558ql")
+debug_color = Color(0.987405, 0, 0.313381, 0.42)
+
+[node name="PierceArea2" type="Area2D" parent="."]
+unique_name_in_owner = true
+rotation = 1.5708
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PierceArea2"]
+shape = SubResource("SegmentShape2D_558ql")
+debug_color = Color(0.987405, 0, 0.313381, 0.42)
+
+[node name="PierceArea3" type="Area2D" parent="."]
+unique_name_in_owner = true
+rotation = 3.14159
+monitorable = false
+
+[node name="CollisionShape2Df" type="CollisionShape2D" parent="PierceArea3"]
+shape = SubResource("SegmentShape2D_558ql")
+debug_color = Color(0.191499, 0.514643, 0.998672, 0.42)
+
+[node name="PierceArea4" type="Area2D" parent="."]
+unique_name_in_owner = true
+rotation = 4.71239
+monitorable = false
+
+[node name="CollisionShape2Df" type="CollisionShape2D" parent="PierceArea4"]
+shape = SubResource("SegmentShape2D_558ql")
+debug_color = Color(0.191499, 0.514643, 0.998672, 0.42)
+
+[node name="AttackRange" parent="." instance=ExtResource("2_oc6v2")]
+unique_name_in_owner = true
+process_priority = -51
+position = Vector2(0, 0)
+
+[node name="TowerSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -32)
+texture = ExtResource("3_8px8q")
+hframes = 3
+
+[node name="Weapon" parent="." instance=ExtResource("4_jsvmw")]
+position = Vector2(0, -40)
+
+[node name="FireRate" type="Timer" parent="."]
+autostart = true
+
+[node name="ColorSwitcher" type="Area2D" parent="." node_paths=PackedStringArray("object_to_modulate") groups=["TowerArea2D"]]
+script = ExtResource("5_rr56q")
+object_to_modulate = NodePath("../TowerSprite")
+good_color = Color(0.997599, 0.568193, 0.783965, 1)
+bad_color = Color(0.870588, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorSwitcher"]
+shape = SubResource("RectangleShape2D_tfubh")
+
+[node name="RemoveArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RemoveArea"]
+shape = SubResource("RectangleShape2D_8jtg0")
+
+[node name="Tooltip" parent="." instance=ExtResource("6_bjuy4")]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="ActiveTooltip" from="." to="Tooltip" method="_on_base_tower_active_tooltip"]
+[connection signal="body_entered" from="AttackRange" to="Weapon" method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="Weapon" method="_on_attack_range_body_exited"]
+[connection signal="area_entered" from="ColorSwitcher" to="ColorSwitcher" method="_on_area_entered"]
+[connection signal="area_exited" from="ColorSwitcher" to="ColorSwitcher" method="_on_area_exited"]
+[connection signal="body_entered" from="ColorSwitcher" to="." method="_on_color_switcher_body_entered"]
+[connection signal="body_entered" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_entered"]
+[connection signal="body_exited" from="ColorSwitcher" to="." method="_on_color_switcher_body_exited"]
+[connection signal="body_exited" from="ColorSwitcher" to="ColorSwitcher" method="_on_body_exited"]
+[connection signal="mouse_entered" from="Tooltip" to="Tooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Tooltip" to="Tooltip" method="_on_mouse_exited"]

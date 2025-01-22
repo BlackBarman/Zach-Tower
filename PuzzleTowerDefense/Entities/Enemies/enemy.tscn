@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://b2ppinhso6msl" path="res://Assets/Enemies/Ground/Spritesheets/slime-Sheet.png" id="3_b30is"]
 [ext_resource type="Shader" uid="uid://c4nksct557gtw" path="res://Entities/Enemies/Hurt_Flash.tres" id="3_yr237"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
-size = Vector2(6, 32)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uyf8v"]
 resource_local_to_scene = true
 shader = ExtResource("3_yr237")
@@ -116,6 +113,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2biy1"]
+size = Vector2(16, 16)
+
 [node name="BaseEnemy" type="PathFollow2D" node_paths=PackedStringArray("health_component") groups=["EnemyGroup"]]
 script = ExtResource("1_vldat")
 health_component = NodePath("HealthComponent")
@@ -128,10 +128,6 @@ MaxHealth = 1
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["EnemyCollisionsGroup"]]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(17, 0)
-shape = SubResource("RectangleShape2D_2biy1")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 material = SubResource("ShaderMaterial_uyf8v")
 position = Vector2(-32, -28)
@@ -141,3 +137,6 @@ animation = &"Walk right"
 centered = false
 flip_h = true
 metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_2biy1")

@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dkwccew88tpbp" path="res://Entities/Bullets/bullet.tscn" id="1_73qen"]
 [ext_resource type="Texture2D" uid="uid://c3iycuo6jj5b2" path="res://Assets/UI_assets/Icons/PaletteTower1.png" id="1_b3pdi"]
 [ext_resource type="Texture2D" uid="uid://drdgpa5dtnwua" path="res://Assets/Towers/Bases/PNGs/Tower 01.png" id="3_u77jn"]
-[ext_resource type="PackedScene" uid="uid://bhbd3rynp5igc" path="res://Entities/Towers/tower.tscn" id="4_i1is4"]
+[ext_resource type="PackedScene" uid="uid://bouwjmjekn3j5" path="res://Entities/Towers/piercing_tower.tscn" id="4_qgna8"]
 
 [resource]
 script = ExtResource("1_5aaqa")
-tower_scene = ExtResource("4_i1is4")
+tower_scene = ExtResource("4_qgna8")
 preview_image = ExtResource("1_b3pdi")
 tower_sprite = ExtResource("3_u77jn")
 attack_range = "PLUS_1"

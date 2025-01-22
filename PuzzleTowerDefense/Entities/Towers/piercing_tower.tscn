@@ -16,7 +16,7 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jtg0"]
 size = Vector2(63, 63)
 
-[node name="BaseTower" type="Node2D" groups=["TowerGroup"]]
+[node name="Piercingtower" type="Node2D" groups=["TowerGroup"]]
 script = ExtResource("1_kvt7c")
 
 [node name="PierceArea" type="Area2D" parent="."]

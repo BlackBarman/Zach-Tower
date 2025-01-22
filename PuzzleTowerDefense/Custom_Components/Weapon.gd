@@ -73,7 +73,6 @@ func _on_animated_sprite_2d_animation_finished():
 	current_frame = 0
 	shoot_anim_playing = false
 
-
 # Perform the actual shooting logic
 func shoot():
 	bullet = BulletScene.instantiate() as BaseBullet
@@ -99,7 +98,7 @@ func find_enemies_to_dmg():
 	match data.Damage_type:
 		"PIERCING":
 			enemies_to_dmg = find_enemies_to_pierce()
-			
+			print(enemies_to_dmg)
 		"NORMAL":
 			enemies_to_dmg = Targets.slice(0)
 			
@@ -113,29 +112,25 @@ func find_enemies_to_dmg():
 				enemies_to_dmg.append(i)
 			enemies_to_dmg.append(current_enemy)
 			print(enemies_to_dmg)
-	
 		"KILL":
 			enemies_to_dmg = Targets.slice(0)
-			pass
+			
 
 
 func find_enemies_to_pierce():
-	var enemy_to_find = Targets[0]
-	var shapes : Array[Area2D] = [%PierceArea,%PierceArea2,%PierceArea3,%PierceArea4]
-	#var all_targets_in_range = []
-	for i in shapes:
+	var enemy_to_find = current_enemy
+	var pierce_shapes = get_parent().pierce_shapes
+	print(pierce_shapes.size())
+	for i in pierce_shapes:
 		var new : Array[BaseEnemy]  = []
-		if i.has_overlapping_bodies():
-			var unfiltered = i.get_overlapping_bodies()
-			#filter array to remove weird bodies then put it in the new array
-			for x in unfiltered :
-				if not i.is_class("BaseEnemy"):
-					unfiltered.erase(x)
-				else:
-					new.append(x)
-			# is the target in this array? if so this is the array to pss for dmg
-			if new.find(enemy_to_find) != -1 :
-				enemies_to_dmg = i.new
+		var unfiltered = i.get_overlapping_bodies() 
+		print("unfiltered has this many enemies" + str(unfiltered))
+		#filter array to remove weird bodies then put it in the new array
+		for body in unfiltered:
+				new.append(body.get_parent())
+		# is the target in this array? if so this is the array to pss for dmg
+		if new.find(enemy_to_find) != -1 :
+			enemies_to_dmg = new
 	return enemies_to_dmg 
 
 # Assign damage to selected enemies

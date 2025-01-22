@@ -18,9 +18,11 @@ enum State {
 @onready var tilemap : PlacementTilemap = get_parent()
 
 @onready var RemoveButton = Popups.button
-
+var pierce_shapes : Array[Area2D] = []
 
 func _ready():
+	if self.name == "Piercingtower" :
+		pierce_shapes = [%PierceArea,%PierceArea2,%PierceArea3,%PierceArea4]
 	tilemap.tower_placed.connect(tower_was_placed)
 	RemoveButton.pressed.connect(_remove_tower)
 	data = TowerDataVault.get_selected_tower_data() as CustomData
@@ -43,7 +45,7 @@ func tower_was_placed():
 func _execute_Turn():
 	await get_tree().process_frame
 	$Weapon.try_Shoot()
-	await  $Weapon.turn_done
+	await $Weapon.turn_done
 	emit_signal("TowerTurnDone")
 
 func _remove_tower():

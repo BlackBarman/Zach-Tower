@@ -13,7 +13,7 @@ var targetProgress = 0
 
  #HACK for some reasons unknown to man making the $CharacterBody2D/CollisionShape2D2
 # smaller and to the front of the enemy solves many of the issue we are currently facing
-# with targets detection, however this is not optimal
+# with targets detection, however this is not optimal you can use get overlapping enemies instead of signals 
 signal end_Turn
 
 func _process(delta):

@@ -9,18 +9,17 @@ signal tower_placed
 var tower_instance: PackedScene 
 var tower_object: BaseTower = null
 var dragging = false
+var last_tower_placed : BaseTower = null
 
-
-func _ready():
-	set_process_input(true)
-
-
-func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and not GlobalState.is_level_playing:
-		if dragging:
-			var mouse_position = event.position
-			place_tower(mouse_position)
-
+#func _input(event):
+	## Check if the event is a mouse button press
+	#if event is InputEventMouseButton:
+		## Check if it's a press (not a release) and the left mouse button
+		#if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			#print("Left mouse button pressed")
+			#if dragging and not GlobalState.is_level_playing:
+				#var mouse_position = event.position
+				#place_tower(mouse_position)
 
 func _process(_delta):
 	if dragging and tower_object != null:
@@ -30,7 +29,9 @@ func _process(_delta):
 		tower_object.global_position = tilemap.map_to_local(cell_position)
 	if dragging and tower_object != null and Input.is_action_just_pressed("Rotate"):
 		tower_object.rotate_attack_range()
-		pass
+	if dragging and tower_object != null and Input.is_action_just_pressed("place_tower"):
+		place_tower(get_global_mouse_position())
+
 
 
 func place_tower(mouse_position: Vector2):
@@ -41,6 +42,7 @@ func place_tower(mouse_position: Vector2):
 		# Reset dragging state
 		dragging = false
 		UpdateStat(tower_object)
+		last_tower_placed = tower_object
 		emit_signal("tower_placed")
 
 

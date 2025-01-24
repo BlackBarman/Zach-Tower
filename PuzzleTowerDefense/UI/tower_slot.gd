@@ -5,6 +5,18 @@ class_name  TowerSlot
 #use this data to make a tooltip, data is passed correctly
 var tooltip_data : CustomData
 
+#HACK looks unclean but is necessary, godot buttons automatically repsnd to 
+# default input mappings of ui_accept that include spacebar and enter key 
+# and click for some reasons include the ui_accept, anyway who gicves a gfuck it works 
+# push and goodnight
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and (event.is_action_pressed("ui_accept")):
+		# Block keyboard activation
+		get_viewport().set_input_as_handled()
+
+#HACK not really an hack, we make so that
+func _ready():
+	self.focus_mode = Control.FOCUS_CLICK
 
 func _set_preview_image(image: Texture2D) -> void:
 	$TextureRect.texture = image
